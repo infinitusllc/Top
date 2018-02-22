@@ -1,0 +1,70 @@
+/*
+* @package      Shortcodes
+* @description  This package holds style declarations for
+*               shortcodes page
+*/
+/*
+ * @subsection   Icon Box
+ */
+.icon-box {
+  position: relative;
+  padding: 10px 20px 10px 55px;
+  transition: .3s all ease; }
+
+.icon-box:hover {
+  color: #fff;
+  background: #fcde3a; }
+
+.icon-box:before {
+  position: absolute;
+  left: 20px;
+  font-size: 1.4em; }
+
+.rd-navbar-brand {
+  position: relative; }
+  .rd-navbar-brand .brand-name, .rd-navbar-brand .brand-slogan {
+    color: #9f9f9f; }
+
+.container + .container {
+  margin-top: 50px; }
+
+.icon-lg {
+  font-size: 60px; }
+
+.responsive-tabs {
+  margin-top: 40px; }
+
+.btn-default:before {
+  display: none; }
+
+.responsive-tabs-variant-2 .resp-accordion.resp-tab-active .btn-default {
+  color: #000; }
+
+.responsive-tabs-variant-2 .btn-default:hover {
+    color: #642887;
+}
+
+.resp-tab-content div + div {
+  margin-top: 0px; }
+
+h3 {
+  color: #9f9f9f; }
+
+h3 + h3, h3 + .rd-mailform {
+  margin-top: 30px; }
+
+.rd-mailform fieldset > .row + .row, .rd-mailform label {
+  margin-top: 30px; }
+
+.btn.btn-xs.btn-default span {
+  position: relative;
+  top: -4px; }
+
+.icon-box {
+  font-size: 11px;
+  padding: 10px 20px 10px 45px; }
+  @media (min-width: 768px) {
+    .icon-box {
+      font-size: 15px; } }
+
+/*# sourceMappingURL=shortcodes.css.map */
