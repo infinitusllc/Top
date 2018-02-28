@@ -92,7 +92,7 @@ if (count($files) > 0) {
         <div class="container">
             <!-- RD Navbar Brand -->
             <div class="rd-navbar-brand">
-                <a href="index.html" class="brand-name primary-color">
+                <a href="index.php" class="brand-name primary-color">
                    &#95;world<span class="text-primary">around</span><span class="brand-slogan text-regular">travel operator</span>
                </a>
            </div>
@@ -366,7 +366,7 @@ if (count($files) > 0) {
                 <div class="col-md-4">
                     <!-- RD Navbar Brand -->
                     <div class="rd-navbar-brand">
-                        <a href="index.html" class="brand-name">
+                        <a href="index.php" class="brand-name">
                             &#95;world<span class="text-primary">around</span>
                         </a>
                     </div>
