@@ -26,7 +26,7 @@ foreach($files as $file){
     	continue;
 	}
 
-    if (strpos($file,"index.html") !== false){
+    if (strpos($file,"index.php") !== false){
         continue;
     }
 
