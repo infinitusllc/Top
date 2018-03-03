@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
                 //dehashing the password
                 $hashedPassCheck = password_verify($pass, $row['password']);
                 if($hashedPassCheck == false){
-                    echo "bla";
+                    header("Location: ../index.php");
                     exit();
                 } else if ($hashedPassCheck == true) {
                     //Log in the admin here
