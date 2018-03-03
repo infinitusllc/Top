@@ -93,6 +93,9 @@
                     <form action="profile.php" style="display: inline-block; margin: 5px">
                         <input type="submit" value="ჩემი პროფილი" />
                     </form>
+                    <form action="translations.php" style="display: inline-block; margin: 5px">
+                        <input type="submit" value="თარგმნა" />
+                    </form>
                     <form action="includes/logout.inc.php" style="display: inline-block; margin: 5px">
                         <input type="submit" value="გამოსვლა" />
                     </form>
