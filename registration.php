@@ -155,7 +155,7 @@ include "includes/countries.inc.php";
                     <?php
                         for ($i=0; $i<sizeof($countries); $i++){
                             $v = $countries[$i]['country_id'];
-                            $n = $countries[$i]['country_name_geo'];
+                            $n = $countries[$i]['country_name'];
                             echo "<option value='$v'> $n </option>";
                         }
                     ?>

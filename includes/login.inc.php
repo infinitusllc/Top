@@ -45,6 +45,7 @@ if(isset($_POST['submit'])){
                     $user['address_legal'] = $row['address_legal'];
                     $user['company_name'] = $row['company_name'];
                     $user['company_id'] = $row['company_id'];
+                    $user['id'] = $row['user_id'];
 
                     $_SESSION['user'] = $user;
                     header("Location: ../index.php");

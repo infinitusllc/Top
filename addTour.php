@@ -132,6 +132,10 @@ session_start();
 include "includes/countries.inc.php";
 $user = $_SESSION['user'];
 
+$lang = "geo";
+if (isset($_GET['lang'])){
+    $lang = $_GET['lang'];
+}
 
 ?>
 
@@ -141,7 +145,7 @@ $user = $_SESSION['user'];
 <a href="index.php"> <p style="max-width: 150px; margin: auto"> უკან დაბრუნება </p></a>
 </br>
 
-<form id="user-form" action="includes/addTour.inc.php" method="post" accept-charset="UTF-8">
+<form id="user-form" action="includes/add_tour.inc.php" method="post" accept-charset="UTF-8">
 
     <ul>
         <li style="margin-left: 500px"><a class="tablinks1" onclick="openNews(event, 'main')"> ტურის შექმნა </a></li>
@@ -177,17 +181,27 @@ $user = $_SESSION['user'];
                 <p> კატეგორია: </p>
                 <select name="category" id="category"
                         style="margin-left: 100px; margin-bottom:30px; width: 200px; height: 25px">
-                    <option value='0'> GEL </option>;
-                    <option value='1'> USD </option>;
-                    <option value='2'> EUR </option>;
+                    <?php
+                    include "includes/tour_categories.inc.php";
+                    for ($i = 0; $i < sizeof($tour_categories); $i++) {
+                        $n = $tour_categories[$i]['tour_category'];
+                        $v = $tour_categories[$i]['tour_category_id'];
+                        echo "<option value='$v'> $n </option>";
+                    }
+                    ?>
                 </select>
 
                 <p> ტიპი: </p>
                 <select name="type" id="type"
                         style="margin-left: 100px; margin-bottom:30px; width: 200px; height: 25px">
-                    <option value='0'> GEL </option>;
-                    <option value='1'> USD </option>;
-                    <option value='2'> EUR </option>;
+                    <?php
+                    include "includes/tour_types.inc.php";
+                    for ($i = 0; $i < sizeof($tour_types); $i++) {
+                        $n = $tour_types[$i]['tour_type'];
+                        $v = $tour_types[$i]['tour_type_id'];
+                        echo "<option value='$v'> $n </option>";
+                    }
+                    ?>
                 </select>
 
             </div>
@@ -213,10 +227,12 @@ $user = $_SESSION['user'];
                        id="hotel_stars"/> </br>
             </div>
 
-            <div style="width: 500px; margin: auto">
+            <div style="width: 500px; margin: auto; padding-top: 50px">
                 <p style="text-align: center"> ტურის აღწერა: </p>
                 <textarea name="tour_description" rows="4" cols="50"></textarea>
             </div>
+            <input type="hidden" name="user_id" value=<?php echo "'".$user['id']."''"; ?>>
+            <input type="hidden" name="lang" value=<?php echo "'".$lang."''"; ?>>
             <button onclick="document.getElementById('user-form').submit();" type="submit" class="button sub"
                     name="submit" value="company"> შექმნა </button>
     </div>
@@ -240,8 +256,8 @@ if (isset($_GET["message"])) {
         case "error4": //e-mail already exists
             ?>  <p style="margin: auto; text-align: center; color:red"> შეყვანილი პაროლები არ ემთხვევა ერთმანეთს </p>  <?php
             break;
-        case "error5": //unknown error
-            ?>  <p style="margin: auto; text-align: center; color:red"> რეგისტრაციისას დაფიქსირდა შეცდომა </p>  <?php
+        case "success": //unknown error
+            ?>  <p style="margin: auto; text-align: center; color:red"> ტური წარმატებით დამატებულია </p>  <?php
             break;
     }
 }
