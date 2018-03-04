@@ -16,7 +16,7 @@ function lazyInit(element, func) {
     var $win = jQuery(window),
         wh = $win.height();
 
-    $win.on('load scroll function () {
+    $win.on('load scroll', function () {
         var st = $(this).scrollTop();
         if (!element.hasClass('lazy-loaded')) {
             var et = element.offset().top,
@@ -112,7 +112,7 @@ function isIE() {
 
         $(document).ready(function () {
             $().UItoTop({
-                easingType: 'easeOutQuart
+                easingType: 'easeOutQuart',
                 containerClass: 'ui-to-top fa fa-angle-up'
             });
         });
@@ -345,12 +345,12 @@ function isIE() {
                         }
                     }
                 }, {
-                    'MF000': 'Sent
-                    'MF001': 'Recipients are not set.
-                    'MF002': 'Form will not work locally.
-                    'MF003': 'Please define email field in your form.
-                    'MF004': 'Please define the type of your form.
-                    'MF254': 'Something went wrong with PHPMailer.
+                    'MF000': 'Sent',
+                    'MF001': 'Recipients are not set.',
+                    'MF002': 'Form will not work locally.',
+                    'MF003': 'Please define email field in your form.',
+                    'MF004': 'Please define the type of your form.',
+                    'MF254': 'Something went wrong with PHPMailer.',
                     'MF255': 'There was an error submitting the form.'
                 });
             }
@@ -403,7 +403,7 @@ function isIE() {
                 stuckLayout: "rd-navbar-static",
                 responsive: {
                     0: {
-                        layout: 'rd-navbar-fixed
+                        layout: 'rd-navbar-fixed',
                         focusOnHover: false
                     },
                     768: {
@@ -526,7 +526,7 @@ $(document).ready(function(){
                                         })
                                         .end()
                                         .magnificPopup({
-                                            delegate: '[data-lightbox]
+                                            delegate: '[data-lightbox]',
                                             type: "image",
                                             gallery: {
                                                 enabled: true

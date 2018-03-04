@@ -14,31 +14,6 @@
     <!--[if lt IE 10]>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
-
-    <script>
-        function changeLanguage(selectObject) {
-            var value = selectObject.value;
-            window.location.href = 'index.php?lang=' + value;
-        }
-    </script>
-    <?php
-        session_start();
-        $logged = $_SESSION['admin'];
-        if (!isset($logged) || $logged == false){
-            header("Location: ind.php");
-            exit();
-        }
-    ?>
-
-    <?php
-        include "includes/tr.inc.php";
-        $lang = "geo";
-        if (isset($_GET['lang'])){
-            $lang = $_GET['lang'];
-        }
-        $contents = getTranslations($lang);
-    ?>
-
 </head>
 <body>
 <!-- The Main Wrapper -->
@@ -60,12 +35,11 @@
         <div class="container">
             <!-- RD Navbar Brand -->
             <div class="rd-navbar-brand">
-                <a href="index.php" class="brand-name primary-color">
-                    &#95;world<span class="text-primary">around</span><span class="brand-slogan text-regular">travel operator</span>
-                </a>
+                <a href="index.html" class="brand-name primary-color">
+                   &#95;world<span class="text-primary">around</span><span class="brand-slogan text-regular">travel operator</span>
+               </a>
            </div>
            <!-- END RD Navbar Brand -->
-
        </div>
    </header>
     <!--========================================================
@@ -73,78 +47,8 @@
     =========================================================-->
     <main class="page-content">
         <section>
-
-            <!-- bonus header -->
-            <div style="position:relative; left: 40%; padding: 5px;">
-                <?php if (!isset($_SESSION["logged"]) || $_SESSION["logged"] == false) { ?>
-                    <form id="login_form" action="includes/login.inc.php" method="post"
-                          style="display: inline-block; margin: 5px">
-                        <input type="text" name="e_mail" placeholder="e-mail"/>
-                        <input type="password" name="password" placeholder="password"/>
-                        <button type="submit" class="button sub" name="submit"> შესვლა</button>
-                    </form>
-
-                    <form action="registration.php" style="display: inline-block; margin: 5px">
-                        <input type="submit" value="რეგისტრაცია" />
-                    </form>
-
-                <?php } else { ?>
-                    <p style="display: inline-block; margin: 5px"> <span style="font-weight:bold"> მომხმარებელი: </span> <?php echo $_SESSION['user']['name']; ?> </p>
-                    <form action="profile.php" style="display: inline-block; margin: 5px">
-                        <input type="submit" value="ჩემი პროფილი" />
-                    </form>
-                    <form action="translations.php" style="display: inline-block; margin: 5px">
-                        <input type="submit" value="თარგმნა" />
-                    </form>
-                    <form action="includes/logout.inc.php" style="display: inline-block; margin: 5px">
-                        <input type="submit" value="გამოსვლა" />
-                    </form>
-                <?php } ?>
-
-
-                <select id="langChange" style="margin: 5px; display: inline-block; padding:3px;
-    margin: 0; width: 300px; height:40px;
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    border-radius:4px;
-    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    background: #f8f8f8;
-    color:#888;
-    border:none;
-    outline:none;
-    display: inline-block;
-    -webkit-appearance:none;
-    -moz-appearance:none;
-    appearance:none;
-    cursor:pointer;" onchange="changeLanguage(this)">
-                    <?php
-                    $language_links_array = [];
-                    $language_links_array['geo'] = "<option value=\"geo\"> ქართული </option>";
-                    $language_links_array['eng'] = "<option value=\"eng\">English</option>";
-
-                    switch ($lang) {
-                        case "geo":
-                            echo $language_links_array['geo'];
-                            foreach ($language_links_array as $item){
-                                if ($item != "<option value=\"geo\"> ქართული </option>")
-                                    echo $item;
-                            }
-                            break;
-                        case "eng":
-                            echo $language_links_array['eng'];
-                            foreach ($language_links_array as $item){
-                                if ($item != "<option value=\"eng\">English</option>")
-                                    echo $item;
-                            }
-                    }
-                    ?>
-                </select>
-            </div>
-
         <!-- Swiper -->
-		<div class="swiper-container swiper-slider" data-height="853px" data-min-height="500px" data-autoplay="false">
+        <div class="swiper-container swiper-slider" data-height="853px" data-min-height="500px" data-autoplay="false">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" data-slide-bg="images/page-01_slide01.jpg" style="background-image: url('images/page-01_slide01.jpg');">
                     <div class="swiper-slide-caption">
@@ -390,7 +294,7 @@
                             დაუვიწყარი კულტურა, ხალხი, გარემო, ქვეყანა...
                         </h4>
                         <p>
-                            There is nothing better than spending your free time with family or friends while traveling. Book one of our tours and save more than $200 on each member. Our turnkey travel solutions include full insurance, guided and escorted tour vacations, accommodation in best hotels and custom features that you can choose yourself.
+                            There is nothing better than spending your free time with family or friends while traveling. Book one of our tours and save more than 200 on each member. Our turnkey travel solutions include full insurance, guided and escorted tour vacations, accommodation in best hotels and custom features that you can choose yourself.
                         </p>
                         <a class="btn btn-xs btn-default" href="#">&#8212; read more</a>
                     </div>
@@ -630,7 +534,7 @@
                 <div class="col-md-4">
                     <!-- RD Navbar Brand -->
                     <div class="rd-navbar-brand">
-                        <a href="index.php" class="brand-name">
+                        <a href="index.html" class="brand-name">
                             &#95;world<span class="text-primary">around</span>
                         </a>
                     </div>
