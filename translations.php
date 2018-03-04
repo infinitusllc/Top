@@ -127,7 +127,7 @@ include "includes/countries.inc.php";
         <input name="title" class = "textInput" placeholder="*" id = "first_name_client" value="<?php echo $title; ?>" /> </br>
 
         <input type="hidden" name="old_title" value="<?php echo $title; ?>">
-        <input type="hidden" name="is_change" value="<?php if($_GET[$title]) { echo true; } else { echo false; } ?>">
+        <input type="hidden" name="is_change" value="<?php if($_GET['title']) { echo 'true'; } else { echo 'false'; } ?>">
         <?php
 
          for ($i = 0; $i<sizeof($languages); $i++){ ?>
