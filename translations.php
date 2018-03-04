@@ -123,7 +123,7 @@ include "includes/countries.inc.php";
                 }
             }
         ?>
-        <p> ცვლადის სახელი/ქივორდი: </p>
+        <p> ცვლადის სახელი/ქივორდი (უნდა იყოს უნიკალური): </p>
         <input name="title" class = "textInput" placeholder="*" id = "first_name_client" value="<?php echo $title; ?>" /> </br>
 
         <input type="hidden" name="old_title" value="<?php echo $title; ?>">
@@ -174,6 +174,15 @@ include "includes/countries.inc.php";
 <?php
 if (isset($_GET["message"])) {
     $message = $_GET["message"];
+    switch ($message) {
+        case "error1": //not all mandatory inputs filled
+            ?>  <p style="margin: auto; text-align: center; color:red"> ცვლადი ასეთი სახელით უკვე არსებობს/ცვლადის სახელი შეყვანილი არაა </p>  <?php
+            break;
+        case "success":
+            ?>  <p style="margin: auto; text-align: center; color:red"> ოპერაცია წარმატებით შესრულდა </p>  <?php
+            break;
+
+    }
 }
 ?>
 

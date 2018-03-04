@@ -6,6 +6,11 @@ if(isset($_POST['submit'])) {
 
     $title = mysqli_real_escape_string($conn, $_POST['title']);
 
+    if (!isset($title) || $title == "") {
+        header("Location: ../translations.php?message=error1");
+        exit();
+    }
+
     $keywords = [];
     $values = [];
 
