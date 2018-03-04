@@ -160,7 +160,7 @@ include "includes/countries.inc.php";
                         }
                     ?>
                         </br>
-                        <a href="includes/delete_tr.inc.php?id=<?php echo $translation['title']; ?>"> წაშლა </a>
+                        <a href="includes/delete_tr.inc.php?title=<?php echo $translation['title']; ?>"> წაშლა </a>
                         </br>
                         <a href="translations.php?title=<?php echo $translation['title']; ?>"> შეცვლა </a>
 
