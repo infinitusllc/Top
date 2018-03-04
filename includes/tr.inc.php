@@ -2,7 +2,7 @@
 <?php
 function getTranslations($language) {
     include "dbc.inc.php";
-    $result = [];
+    $translations = [];
 
     $sql_translations = "SELECT * FROM translations tr INNER JOIN languages lg ON tr.language_key = lg.id WHERE lg.keyword = '$language'";
     $result_sql = mysqli_query($conn, $sql_translations);
@@ -13,5 +13,5 @@ function getTranslations($language) {
         $i++;
     }
 
-    return $result;
+    return $translations;
 }
