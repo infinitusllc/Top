@@ -96,6 +96,9 @@
                     <form action="translations.php" style="display: inline-block; margin: 5px">
                         <input type="submit" value="თარგმნა" />
                     </form>
+                    <form action="addTour.php" style="display: inline-block; margin: 5px">
+                        <input type="submit" value="ტურის დამატება" />
+                    </form>
                     <form action="includes/logout.inc.php" style="display: inline-block; margin: 5px">
                         <input type="submit" value="გამოსვლა" />
                     </form>

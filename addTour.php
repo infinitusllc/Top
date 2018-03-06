@@ -2,6 +2,7 @@
 
 <head>
     <title>ტურის შექმნა</title>
+    <script src="//cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
     <style>
         ul {
@@ -30,6 +31,11 @@
 
         .tabcontent1 {
             display: none;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+        .tabcontent2 {
             border: 1px solid #ccc;
             border-top: none;
         }
@@ -119,7 +125,7 @@
     }
 
     function displayClient() {
-        openNews(event, 'main');
+        openNews(event, 'main_tr_geo');
     }
 </script>
 
@@ -145,18 +151,81 @@ if (isset($_GET['lang'])){
 <a href="index.php"> <p style="max-width: 150px; margin: auto"> უკან დაბრუნება </p></a>
 </br>
 
+
+<?php
+if (isset($_GET["message"])) {
+    $message = $_GET["message"];
+    switch ($message) {
+        case "error1": //not all mandatory inputs filled
+            ?>  <p style="margin: auto; text-align: center; color:red"> გთხოვთ, შეავსოთ ყველა აუცილებელი ველი (მონიშნულია სიმბოლოთი *) </p>  <?php
+            break;
+        case "error2": //passwords don't match
+            ?>  <p style="margin: auto; text-align: center; color:red"> შეყვანილი პაროლები არ ემთხვევა ერთმანეთს </p>  <?php
+            break;
+        case "error3": //password too short
+            ?>  <p style="margin: auto; text-align: center; color:red"> შეყვანილი პაროლი ძალიან მოკლეა (მინ. 6 სიმბოლო) </p>  <?php
+            break;
+        case "error4": //e-mail already exists
+            ?>  <p style="margin: auto; text-align: center; color:red"> შეყვანილი პაროლები არ ემთხვევა ერთმანეთს </p>  <?php
+            break;
+        case "success": //unknown error
+            ?>  <p style="margin: auto; text-align: center; color:red"> ტური წარმატებით დამატებულია </p>  <?php
+            break;
+    }
+}
+?>
+
 <form id="user-form" action="includes/add_tour.inc.php" method="post" accept-charset="UTF-8">
 
     <ul>
-        <li style="margin-left: 500px"><a class="tablinks1" onclick="openNews(event, 'main')"> ტურის შექმნა </a></li>
+        <?php
+        include "includes/languages.inc.php";
+        foreach ($languages as $language) { ?>
+            <li class="tablinks1" style="margin-left: 20px; float: left;"><a class="tablinks1" onclick="openNews(event, 'main_tr_<?php echo $language['keyword']; ?>')"> <?php echo $language['name']; ?> </a></li>
+        <?php } ?>
     </ul>
 
-    <div id="main" class="tabcontent1">
+    <?php
+        include "includes/languages.inc.php";
+        foreach ($languages as $language) { ?>
+
+            <div id="main_tr_<?php echo $language['keyword']; ?>" class="tabcontent1">
+                <h3 style="text-align: center"> ენა: <?php echo $language['name'] ?> </h3>
+                <h5 style="text-align: center"> აუცილებელია მინიმუმ ერთი ენაზე ტურის სახელისა და ინტროს შევსება </h5>
+                <div style="width: 600px; margin: auto;">
+                    <p> ტურის სახელი: </p>
+                    <input name="tour_name_<?php echo $language['keyword']; ?>" class="textInput" placeholder="*" id="tour_name"/> </br>
+                    <p> ქალაქ(ებ)ი: </p>
+                    <input name="cities_<?php echo $language['keyword']; ?>" class="textInput" placeholder="" id="cities"/> </br>
+                    <p> სასტუმროს სახელი: </p>
+                    <input name="hotel_name_<?php echo $language['keyword']; ?>" class="textInput" placeholder="" id="hotel_name"/> </br>
+                </div>
+
+                <div style="width: 800px; margin: auto; padding-top: 50px; text-align: center">
+                    <p style="text-align: center"> ტურის ინტრო: </p>
+                    <textarea name="tour_intro_<?php echo $language['keyword']; ?>" form="user-form" class="textInput htmlClass" placeholder="ინტრო">  </textarea> </br>
+                    <script>
+                        CKEDITOR.replace( "tour_intro_<?php echo $language['keyword']; ?>" );
+                    </script>
+                </div>
+
+                <div style="width: 800px; margin: auto; margin-bottom: 100px; padding-top: 50px">
+                    <p style="text-align: center"> ტურის აღწერა: </p>
+                    <textarea name="tour_description_<?php echo $language['keyword']; ?>" form="user-form" class="textInput htmlClass" placeholder="*">  </textarea> </br>
+                    <script>
+                        CKEDITOR.replace( "tour_description_<?php echo $language['keyword']; ?>" );
+                    </script>
+                </div>
+
+
+                <input type="hidden" name="user_id" value=<?php echo "'" . $user['id'] . "''"; ?>>
+                <input type="hidden" name="lang" value=<?php echo "'" . $lang . "''"; ?>>
+            </div>
+
+        <?php } ?>
+
+    <div id="main_non_tr" class="tabcontent2">
             <div class="column">
-                <p> ტურის სახელი: </p>
-                <input name="tour_name" class="textInput" placeholder="*" id="tour_name"/> </br>
-                <p> ქალაქ(ებ)ი: </p>
-                <input name="cities" class="textInput" placeholder="*" id="cities"/> </br>
                 <p> ქვეყანა: </p>
                 <select name="country" id="country"
                         style="margin-left: 100px; margin-bottom:30px; width: 200px; height: 25px">
@@ -208,11 +277,11 @@ if (isset($_GET['lang'])){
 
             <div class="column">
                 <p> რაოდენობა - სრულწლოვანი: </p>
-                <input name="q_adult" class="textInput" placeholder="*" id="q_adult"/> </br>
+                <input name="q_adult" class="textInput" placeholder="" id="q_adult"/> </br>
                 <p> რაოდენობა - ბავშვი: </p>
-                <input name="q_kid" class="textInput" placeholder="*"  id="q_kid"/> </br>
+                <input name="q_kid" class="textInput" placeholder=""  id="q_kid"/> </br>
                 <p> რაოდენობა - ჩვილი: </p>
-                <input name="q_small" class="textInput" placeholder="*" id="q_small"/> </br>
+                <input name="q_small" class="textInput" placeholder="" id="q_small"/> </br>
                 <p> კვება: </p>
                 <select name="food_option" id="food_option"
                         style="margin-left: 100px; margin-bottom:30px; width: 200px; height: 25px">
@@ -220,19 +289,10 @@ if (isset($_GET['lang'])){
                     <option value='1'> საუზმე </option>;
                     <option value='2'> კვების გარეშე </option>;
                 </select>
-                <p> სასტუმროს სახელი: </p>
-                <input name="hotel_name" class="textInput" placeholder="" id="hotel_name"/> </br>
                 <p> სასტუმროს ვარსკვლავები: </p>
-                <input name="hotel_stars" type="text" class="textInput" placeholder="*"
+                <input name="hotel_stars" type="text" class="textInput" placeholder=""
                        id="hotel_stars"/> </br>
             </div>
-
-            <div style="width: 500px; margin: auto; padding-top: 50px">
-                <p style="text-align: center"> ტურის აღწერა: </p>
-                <textarea name="tour_description" rows="4" cols="50"></textarea>
-            </div>
-            <input type="hidden" name="user_id" value=<?php echo "'".$user['id']."''"; ?>>
-            <input type="hidden" name="lang" value=<?php echo "'".$lang."''"; ?>>
             <button onclick="document.getElementById('user-form').submit();" type="submit" class="button sub"
                     name="submit" value="company"> შექმნა </button>
     </div>
@@ -240,28 +300,6 @@ if (isset($_GET['lang'])){
 
 </form>
 
-<?php
-if (isset($_GET["message"])) {
-    $message = $_GET["message"];
-    switch ($message) {
-        case "error1": //not all mandatory inputs filled
-            ?>  <p style="margin: auto; text-align: center; color:red"> გთხოვთ, შეავსოთ ყველა აუცილებელი ველი (მონიშნულია სიმბოლოთი *) </p>  <?php
-            break;
-        case "error2": //passwords don't match
-            ?>  <p style="margin: auto; text-align: center; color:red"> შეყვანილი პაროლები არ ემთხვევა ერთმანეთს </p>  <?php
-            break;
-        case "error3": //password too short
-            ?>  <p style="margin: auto; text-align: center; color:red"> შეყვანილი პაროლი ძალიან მოკლეა (მინ. 6 სიმბოლო) </p>  <?php
-            break;
-        case "error4": //e-mail already exists
-            ?>  <p style="margin: auto; text-align: center; color:red"> შეყვანილი პაროლები არ ემთხვევა ერთმანეთს </p>  <?php
-            break;
-        case "success": //unknown error
-            ?>  <p style="margin: auto; text-align: center; color:red"> ტური წარმატებით დამატებულია </p>  <?php
-            break;
-    }
-}
-?>
 
 </body>
 
