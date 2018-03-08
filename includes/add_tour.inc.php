@@ -38,7 +38,7 @@ if(isset($_POST['submit'])) {
     }
 
     if ($empty == 1) {
-        header("Location: ../addTour.php?message=error1");
+        header("Location: ../admin.php?message=error1");
         exit();
     }
 
@@ -74,7 +74,7 @@ if(isset($_POST['submit'])) {
                 }
             }
 
-            header("Location: ../addTour.php?message=success");
+            header("Location: ../admin.php?message=success");
             exit();
         }
     }

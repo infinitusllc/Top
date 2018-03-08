@@ -78,7 +78,6 @@
             font-size: 16px;
             cursor: pointer;
             width: 300px;
-            margin-left: 330px;
             border-radius: 3px;
             font-weight: 600;
         }

@@ -7,7 +7,7 @@ if(isset($_POST['submit'])) {
     $title = mysqli_real_escape_string($conn, $_POST['title']);
 
     if (!isset($title) || $title == "") {
-        header("Location: ../translations.php?message=error1");
+        header("Location: ../admin.php?message=error1");
         exit();
     }
 
@@ -31,7 +31,7 @@ if(isset($_POST['submit'])) {
         $sql = "SELECT * FROM translations WHERE title = '$title'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
-            header("Location: ../translations.php?message=error1");
+            header("Location: ../admin.php?message=error1");
             exit();
         }
 
@@ -55,7 +55,7 @@ if(isset($_POST['submit'])) {
         }
     }
 
-    header("Location: ../translations.php?message=success");
+    header("Location: ../admin.php?message=success");
     exit();
 
 }
