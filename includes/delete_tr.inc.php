@@ -6,5 +6,5 @@
     $sql = "DELETE FROM translations WHERE title = '$title'";
     $result = mysqli_query($conn, $sql);
 
-    header("Location: ../translations.php?message=success");
+    header("Location: ../translations.php?tab=translations&message=success");
     exit();

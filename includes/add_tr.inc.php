@@ -7,7 +7,7 @@ if(isset($_POST['submit'])) {
     $title = mysqli_real_escape_string($conn, $_POST['title']);
 
     if (!isset($title) || $title == "") {
-        header("Location: ../admin.php?message=error1");
+        header("Location: ../admin.php?tab=translations&message=error1");
         exit();
     }
 
@@ -26,12 +26,12 @@ if(isset($_POST['submit'])) {
     echo $old_title."</br>";
     echo $is_change."</br>";
 
-    if ($is_change != 'true') {
+    if ($is_change != 'true') { //if user is changing an existing entry
 
         $sql = "SELECT * FROM translations WHERE title = '$title'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
-            header("Location: ../admin.php?message=error1");
+            header("Location: ../admin.php?tab=translations&message=error1");
             exit();
         }
 
@@ -55,7 +55,7 @@ if(isset($_POST['submit'])) {
         }
     }
 
-    header("Location: ../admin.php?message=success");
+    header("Location: ../admin.php?tab=translations&message=success");
     exit();
 
 }

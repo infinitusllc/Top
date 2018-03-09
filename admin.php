@@ -1,9 +1,7 @@
 <html>
 
 <head>
-    <?php
-        session_start();
-    ?>
+    <?php session_start(); ?>
     <title> ადმინის გვერდი </title>
     <script src="//cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
@@ -143,7 +141,6 @@
 
     function displayClient() {
         openNews(event, 'main_tr_geo');
-        displayItem();
     }
 
     function openTab(evt, newsName) {
@@ -167,8 +164,8 @@
         evt.currentTarget.className += " active";
     }
 
-    function displayItem() {
-        openTab(event, 'tour_form');
+    function displayItem(tab) {
+        openTab(event, tab);
     }
 
 </script>
@@ -183,6 +180,23 @@ $user = $_SESSION['user'];
 $lang = "geo";
 if (isset($_GET['lang'])){
     $lang = $_GET['lang'];
+}
+
+$tab = "tour_form";
+if (isset($_GET['tab'])){
+    $tab = $_GET['tab'];
+}
+
+switch ($tab) {
+    case "tour_form":
+        ?> <style> #tour_form { display: block; } </style> <?php
+        break;
+    case "translations":
+        ?> <style> #translations { display: block; } </style> <?php
+        break;
+    default:
+        ?> <style> #tour_form { display: block; } </style> <?php
+        break;
 }
 
 ?>
@@ -413,7 +427,7 @@ if (isset($_GET['lang'])){
                             </br>
                             <a href="includes/delete_tr.inc.php?title=<?php echo $translation['title']; ?>"> წაშლა </a>
                             </br>
-                            <a href="translations.php?title=<?php echo $translation['title']; ?>"> შეცვლა </a>
+                            <a href="admin.php?tab=translations&title=<?php echo $translation['title']; ?>"> შეცვლა </a>
 
                         </p>
                     </form>
