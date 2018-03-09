@@ -93,9 +93,11 @@
                     <form action="profile.php" style="display: inline-block; margin: 5px">
                         <input type="submit" value="ჩემი პროფილი" />
                     </form>
-                    <form action="admin.php" style="display: inline-block; margin: 5px">
-                        <input type="submit" value="ადმინის პანელი" />
-                    </form>
+                    <?php if ($_SESSION['user']['is_admin'] == 1) { ?>
+                        <form action="admin.php" style="display: inline-block; margin: 5px">
+                            <input type="submit" value="ადმინის პანელი" />
+                        </form>
+                    <?php } ?>
 <!--                    <form action="addTour.php" style="display: inline-block; margin: 5px">-->
 <!--                        <input type="submit" value="ტურის დამატება" />-->
 <!--                    </form>-->
