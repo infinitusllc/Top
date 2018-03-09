@@ -118,59 +118,69 @@
 </head>
 
 <script type="text/javascript">
-    function openNews(evt, newsName) {
+
+    function displayDefault() {
+        openTab(event, 'main_tr_geo', 'tabcontent1', 'tablinks1');
+    }
+
+    function openTab(evt, tabName, tabContent, tabLinks) {
         // Declare all variables
         var i, tabcontent, tablinks;
 
         // Get all elements with class="tabcontent" and hide them
-        tabcontent = document.getElementsByClassName("tabcontent1");
+        tabcontent = document.getElementsByClassName(tabContent);
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
         }
 
         // Get all elements with class="tablinks" and remove the class "active"
-        tablinks = document.getElementsByClassName("tablinks1");
+        tablinks = document.getElementsByClassName(tabLinks);
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
 
         // Show the current tab, and add an "active" class to the button that opened the tab
-        document.getElementById(newsName).style.display = "block";
+        document.getElementById(tabName).style.display = "block";
         evt.currentTarget.className += " active";
     }
 
-    function displayClient() {
-        openNews(event, 'main_tr_geo');
+    /*
+        checks if the username contains illegal characters
+        or is empty
+    */
+    function checkName(id){
+        var name = document.getElementById(id).value;
+        var bob = /^[-_!@#$%^&*()+=,.;'/"}{0-9 ]+$/;
+        if(bob.test(name)) {
+            document.getElementById("post_" + id).innerHTML = "სახელი არ უნდა შეიძლება, იყოს ცარიელი ან შედგებოდეს არავალიდური სიმბოლოებისგან!";
+        } else {
+            document.getElementById("post_" + id).innerHTML = "";
+        }
     }
 
-    function openTab(evt, newsName) {
-        // Declare all variables
-        var i, tabcontent, tablinks;
-
-        // Get all elements with class="tabcontent" and hide them
-        tabcontent = document.getElementsByClassName("tabcontent2");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
+    function checkQuantity(id) {
+        var name = document.getElementById(id).value;
+        var bob = /^[0-9]+$/;
+        if(!bob.test(name)) {
+            document.getElementById("post_" + id).innerHTML = "უნდა იყოს მთელი რიცხვი";
+        } else {
+            document.getElementById("post_" + id).innerHTML = "";
         }
-
-        // Get all elements with class="tablinks" and remove the class "active"
-        tablinks = document.getElementsByClassName("tablinks2");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-
-        // Show the current tab, and add an "active" class to the button that opened the tab
-        document.getElementById(newsName).style.display = "block";
-        evt.currentTarget.className += " active";
     }
 
-    function displayItem(tab) {
-        openTab(event, tab);
+    function checkPrice() {
+        var name = document.getElementById('price').value;
+        var bob = /^[0-9.]+$/;
+        if(!bob.test(name)) {
+            document.getElementById("post_price").innerHTML = "უნდა იყოს რიცხვი";
+        } else {
+            document.getElementById("post_price").innerHTML = "";
+        }
     }
 
 </script>
 
-<body onload="displayClient()">
+<body onload="displayDefault()">
 
 <?php
 
@@ -203,8 +213,8 @@ switch ($tab) {
 
 <div class="sideBar">
     <ul>
-        <li class="tablinks2" style="float: left; width: 100%; text-align: center"><a class="tablinks2" onclick="openTab(event, 'tour_form')"> ტურის დამატება </a></li>
-        <li class="tablinks2" style="float: left; width: 100%; text-align: center"><a class="tablinks2" onclick="openTab(event, 'translations')"> თარგმნა </a></li>
+        <li class="tablinks2" style="float: left; width: 100%; text-align: center"><a class="tablinks2" onclick="openTab(event, 'tour_form',  'tabcontent2', 'tablinks2')"> ტურის დამატება </a></li>
+        <li class="tablinks2" style="float: left; width: 100%; text-align: center"><a class="tablinks2" onclick="openTab(event, 'translations', 'tabcontent2', 'tablinks2')"> თარგმნა </a></li>
     </ul>
 </div>
 
@@ -245,7 +255,7 @@ switch ($tab) {
             <?php
             include "includes/languages.inc.php";
             foreach ($languages as $language) { ?>
-                <li class="tablinks1" style="margin-left: 20px; float: left;"><a class="tablinks1" onclick="openNews(event, 'main_tr_<?php echo $language['keyword']; ?>')"> <?php echo $language['name']; ?> </a></li>
+                <li class="tablinks1" style="margin-left: 20px; float: left;"><a class="tablinks1" onclick="openTab(event, 'main_tr_<?php echo $language['keyword']; ?>',  'tabcontent1', 'tablinks1')"> <?php echo $language['name']; ?> </a></li>
             <?php } ?>
         </ul>
 
@@ -256,8 +266,9 @@ switch ($tab) {
                 <h3 style="text-align: center"> ენა: <?php echo $language['name'] ?> </h3>
                 <h5 style="text-align: center"> აუცილებელია მინიმუმ ერთი ენაზე ტურის სახელისა და ინტროს შევსება </h5>
                 <div style="width: 600px; margin: auto;">
-                    <p> ტურის სახელი: </p>
-                    <input name="tour_name_<?php echo $language['keyword']; ?>" class="textInput" placeholder="*" id="tour_name"/> </br>
+                    <p> ტურის სახელი: * </p>
+                    <input name="tour_name_<?php echo $language['keyword']; ?>" oninput="checkName('tour_name_<?php echo $language['keyword']; ?>')" class="textInput" placeholder="*" id="tour_name_<?php echo $language['keyword']; ?>"/> </br>
+                    <div id="post_tour_name_<?php echo $language['keyword']; ?>"> </div>
                     <p> ქალაქ(ებ)ი: </p>
                     <input name="cities_<?php echo $language['keyword']; ?>" class="textInput" placeholder="" id="cities"/> </br>
                     <p> სასტუმროს სახელი: </p>
@@ -265,8 +276,8 @@ switch ($tab) {
                 </div>
 
                 <div style="width: 800px; margin: auto; padding-top: 50px; text-align: center">
-                    <p style="text-align: center"> ტურის ინტრო: </p>
-                    <textarea name="tour_intro_<?php echo $language['keyword']; ?>" form="tour-form" class="textInput htmlClass" placeholder="ინტრო">  </textarea> </br>
+                    <p style="text-align: center"> ტურის ინტრო: * </p>
+                    <textarea name="tour_intro_<?php echo $language['keyword']; ?>" form="tour-form" class="textInput htmlClass" id="tour_intro_<?php echo $language['keyword']; ?>" placeholder="ინტრო">  </textarea> </br>
                     <script>
                         CKEDITOR.replace( "tour_intro_<?php echo $language['keyword']; ?>" );
                     </script>
@@ -300,7 +311,8 @@ switch ($tab) {
                     ?>
                 </select>
                 <p> ფასი: </p>
-                <input name="price" class="textInput" placeholder="" id="price"/> </br>
+                <input name="price" class="textInput" placeholder="" id="price" oninput="checkPrice()"/> </br>
+                <div id="post_price" style="margin-left: 100px; margin-bottom: 20px;"> </div>
                 <p> ვალუტა: </p>
                 <select name="currency" id="currency"
                         style="margin-left: 100px; margin-bottom:30px; width: 200px; height: 25px">
@@ -339,11 +351,14 @@ switch ($tab) {
 
             <div class="column">
                 <p> რაოდენობა - სრულწლოვანი: </p>
-                <input name="q_adult" class="textInput" placeholder="" id="q_adult"/> </br>
+                <input name="q_adult" class="textInput" placeholder="" id="q_adult" oninput="checkQuantity('q_adult')"/> </br>
+                <div id="post_q_adult" style="margin-left: 100px; margin-bottom: 20px;"> </div>
                 <p> რაოდენობა - ბავშვი: </p>
-                <input name="q_kid" class="textInput" placeholder=""  id="q_kid"/> </br>
+                <input name="q_kid" class="textInput" placeholder=""  id="q_kid" oninput="checkQuantity('q_kid')"/> </br>
+                <div id="post_q_kid" style="margin-left: 100px; margin-bottom: 20px;"> </div>
                 <p> რაოდენობა - ჩვილი: </p>
-                <input name="q_small" class="textInput" placeholder="" id="q_small"/> </br>
+                <input name="q_small" class="textInput" placeholder="" id="q_small" oninput="checkQuantity('q_small')"/> </br>
+                <div id="post_q_small" style="margin-left: 100px; margin-bottom: 20px;"> </div>
                 <p> კვება: </p>
                 <select name="food_option" id="food_option"
                         style="margin-left: 100px; margin-bottom:30px; width: 200px; height: 25px">
@@ -362,6 +377,13 @@ switch ($tab) {
             </div>
     </form>
     </div>
+
+
+    <!-- ======================================================= -->
+    <!-- TRANSLATIONS -->
+    <!-- ======================================================= -->
+
+
     <div id="translations" class="tabcontent2">
         <h2 style="text-align: center"> ცვლადის დამატება </h2>
         </br>
@@ -434,7 +456,6 @@ switch ($tab) {
                 <?php } ?>
             </div>
         </form>
-
         <?php if (isset($_GET["message"])) {
             $message = $_GET["message"];
             switch ($message) {
