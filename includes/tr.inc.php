@@ -9,7 +9,7 @@ function getTranslations($language) {
 
     $i = 0;
     while ($row = mysqli_fetch_assoc($result_sql)){
-        $result[$row['title']] = $row['value'];
+        $translations[$row['title']] = $row['value'];
         $i++;
     }
 

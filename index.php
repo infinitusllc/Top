@@ -89,7 +89,7 @@
                     </form>
 
                 <?php } else { ?>
-                    <p style="display: inline-block; margin: 5px"> <span style="font-weight:bold"> მომხმარებელი: </span> <?php echo $_SESSION['user']['name']; ?> </p>
+                    <p style="display: inline-block; margin: 5px"> <span style="font-weight:bold"> <?php echo $contents['main_page_username']; ?> </span> <?php echo $_SESSION['user']['name']; ?> </p>
                     <form action="profile.php" style="display: inline-block; margin: 5px">
                         <input type="submit" value="ჩემი პროფილი" />
                     </form>
@@ -127,7 +127,8 @@
                     <?php
                     $language_links_array = [];
                     $language_links_array['geo'] = "<option value=\"geo\"> ქართული </option>";
-                    $language_links_array['eng'] = "<option value=\"eng\">English</option>";
+                    $language_links_array['eng'] = "<option value=\"eng\"> English </option>";
+                    $language_links_array['rus'] = "<option value=\"rus\"> Русский </option>";
 
                     switch ($lang) {
                         case "geo":
@@ -140,9 +141,18 @@
                         case "eng":
                             echo $language_links_array['eng'];
                             foreach ($language_links_array as $item){
-                                if ($item != "<option value=\"eng\">English</option>")
+                                if ($item != "<option value=\"eng\"> English </option>")
                                     echo $item;
                             }
+                            break;
+                        case "rus":
+                            echo $language_links_array['rus'];
+                            foreach ($language_links_array as $item){
+                                if ($item != "<option value=\"rus\"> Русский </option>")
+                                    echo $item;
+                            }
+                            break;
+
                     }
                     ?>
                 </select>
