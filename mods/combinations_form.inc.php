@@ -83,72 +83,25 @@
                 ?>
             </div>
         </form>
-    <?php } else { ?>
-        <form id="combinations-form" action="includes/add_tr.inc.php" method="post" accept-charset="UTF-8">
+    <?php } else if ($option == "food_options") { ?>
+        <form id="food_options-form" action="includes/add_food_option.inc.php" method="post" accept-charset="UTF-8">
             <div style="width: 500px; margin: auto;">
+                <h1 style="text-align: center"> ეს გვერდი ჯერ არ მუშაობს </h1>
+                <p> ახალი მნიშვნელობა (მაქს. 4 სიმბოლო): </p>
+                <input name="currency" class = "textInput" placeholder="*" id = "currency_input" value="" /> </br>
+                <button onclick="document.getElementById('food_options-form').submit();" style="margin-left: 100px" type="submit" class="button sub" name="submit" value="client"> დამატება </button>
+
                 <?php
-                include "includes/languages.inc.php";
-                include "includes/get_tr.inc.php";
-                include "includes/countries.inc.php";
+                include"includes/food_options.inc.php";
 
-                $title = "";
-                if ( isset($_GET['title']) ){
-                    $title = $_GET['title'];
-                    ?> <p> ცვლადის შეცვლა ქივორდით <?php echo $title; ?></p> <?php
-                }
+                echo "<h4 style='text-align: center'> არსებული ვალუტები: </h4>";
 
-                $tr = null;
-                foreach ($translations as $translation) {
-                    if ($translation['title'] == $title){
-                        $tr = $translation;
-                        break;
-                    }
-                }
+                foreach ($food_options as $food_option) { ?>
+
+                    <p style="text-align: center"> <?php echo $food_option["food_option"]; ?> </br> <a href="includes/delete_food_option.inc.php?id=<?php echo $food_option['food_option_id']; ?>""> წაშლა </a> </p>
+
+                <?php }
                 ?>
-
-                <p> ცვლადის სახელი/ქივორდი (უნდა იყოს უნიკალური): </p>
-                <input name="title" class = "textInput" placeholder="*" id = "first_name_client" value="<?php echo $title; ?>" /> </br>
-
-                <input type="hidden" name="old_title" value="<?php echo $title; ?>">
-                <input type="hidden" name="is_change" value="<?php if($_GET['title']) { echo 'true'; } else { echo 'false'; } ?>">
-                <?php
-
-                for ($i = 0; $i<sizeof($languages); $i++){ ?>
-
-                    <p> ცვლადის მნიშვნელობა - <?php echo $languages[$i]['name']; ?> </p>
-                    <input name="value_<?php echo $languages[$i]['id'] ?>" class = "textInput" placeholder="" id = "value"
-                           value="<?php if (isset($tr[$i+1])) { echo $tr[$i+1]; }
-                           ?>" /> </br>
-
-                <?php } ?>
-
-                <button onclick="document.getElementById('user-form').submit();" style="margin-left: 100px" type="submit" class="button sub" name="submit" value="client"> დამატება </button>
-            </div>
-            <div name="existing-translations" style="width: 500px; margin: auto">
-                <?php
-                include "includes/get_tr.inc.php";
-                foreach ($translations as $translation) { ?>
-                    <form name="line_<?php echo $i; ?>">
-                        <hr>
-                        <p style="text-align: center">
-                            <?php
-                            echo "სახელი: ".$translation['title']."</br></br>";
-                            for ($j = 0; $j < sizeof($languages)+1; $j++) {
-                                if (isset($translation[$j])) {
-                                    echo $languages[$j-1]['name'].":</br>";
-                                    echo $translation[$j]."</br></br>";
-
-                                }
-                            }
-                            ?>
-                            </br>
-                            <a href="includes/delete_tr.inc.php?title=<?php echo $translation['title']; ?>"> წაშლა </a>
-                            </br>
-                            <a href="admin.php?tab=translations&title=<?php echo $translation['title']; ?>"> შეცვლა </a>
-
-                        </p>
-                    </form>
-                <?php } ?>
             </div>
         </form>
     <?php } ?>
@@ -162,7 +115,6 @@
             case "success":
                 ?>  <p style="margin: auto; text-align: center; color:red"> ოპერაცია წარმატებით შესრულდა </p>  <?php
                 break;
-
         }
     } ?>
 </div>
