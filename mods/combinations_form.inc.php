@@ -64,10 +64,22 @@
     </br>
 
     <?php if ($option == "currency") { ?>
-        <form id="combinations-form" action="includes/add_tr.inc.php" method="post" accept-charset="UTF-8">
+        <form id="currency-form" action="includes/add_currency.inc.php" method="post" accept-charset="UTF-8">
             <div style="width: 500px; margin: auto;">
+                <p> ახალი ვალუტა (მაქს. 4 სიმბოლო): </p>
+                <input name="currency" class = "textInput" placeholder="*" id = "currency_input" value="" /> </br>
+                <button onclick="document.getElementById('currency-form').submit();" style="margin-left: 100px" type="submit" class="button sub" name="submit" value="client"> დამატება </button>
+
                 <?php
-                    include"includes/currencies.inc.php"
+                    include"includes/currencies.inc.php";
+
+                    echo "<h4 style='text-align: center'> არსებული ვალუტები: </h4>";
+
+                    foreach ($currencies as $currency) { ?>
+
+                        <p> <?php echo $currency["currency"]; ?> ------------------------------------ <a href="includes/delete_currency.inc.php?id=<?php echo $currency['currency_id']; ?>""> წაშლა </a> </p>
+
+                    <?php }
                 ?>
             </div>
         </form>

@@ -183,7 +183,6 @@
 <body onload="displayDefault()">
 
 <?php
-
 include "includes/countries.inc.php";
 $user = $_SESSION['user'];
 
