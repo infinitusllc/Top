@@ -22,14 +22,25 @@
             case "error4": //e-mail already exists
                 ?>  <p style="margin: auto; text-align: center; color:red"> შეყვანილი პაროლები არ ემთხვევა ერთმანეთს </p>  <?php
                 break;
-            case "success": //unknown error
-                ?>  <p style="margin: auto; text-align: center; color:red"> ტური წარმატებით დამატებულია </p>  <?php
+            case "success":
+                ?>  <p style="margin: auto; text-align: center; color:red"> ოპერაცია წარმატებით შესრულდა </p>  <?php
                 break;
         }
-    }  ?>
+    }
+
+
+    ?>
 
     <form id="generic-form" action="includes/add_generic.inc.php" method="post" accept-charset="UTF-8">
-
+        <?php
+            $keyword = "";
+            if (isset($_GET['keyword'])) {
+                $keyword = $_GET['keyword']; ?>
+                <input type="hidden" name="change" value="true">
+                <input type="hidden" name="key" value="<?php echo $keyword; ?>">
+            <?php } else { ?>
+                <input type="hidden" name="change" value="false">
+            <?php } ?>
         <ul>
             <?php
             include "includes/languages.inc.php";
@@ -40,24 +51,28 @@
 
         <?php
         include "includes/languages.inc.php";
+        include "includes/get_generics.inc.php";
         foreach ($languages as $language) { ?>
             <div id="generic_tr_<?php echo $language['keyword']; ?>" class="tabcontent1">
                 <h3 style="text-align: center"> ენა: <?php echo $language['name'] ?> </h3>
                 <div style="width: 600px; margin: auto;">
-                    <?php if ($language['id'] == 1) { ?>
+                    <?php if ($keyword != "") {?>
+                    <p> იცვლება გვერდი ქივორდით: <?php echo $keyword; ?> </p>
+
+                    <?php } if ($language['id'] == 1) { ?>
                     <p> გვერდის ქივორდი (უნდა იყოს უნიკალური): * </p>
-                    <input name="genpage_keyword" class="textInput" placeholder="*" id="genpage_keyword"/> </br>
+                    <input name="genpage_keyword" class="textInput" placeholder="*" id="genpage_keyword" value="<?php if ($keyword != "") echo $keyword; ?>"/> </br>
                     <?php } ?>
                     <p> გვერდის სახელი/სათაური: * </p>
-                    <input name="genpage_name_<?php echo $language['keyword']; ?>" oninput="checkName('genpage_name_<?php echo $language['keyword']; ?>')" class="textInput" placeholder="*" id="genpage_name_<?php echo $language['keyword']; ?>"/> </br>
+                    <input name="genpage_name_<?php echo $language['keyword']; ?>" oninput="checkName('genpage_name_<?php echo $language['keyword']; ?>')" class="textInput" placeholder="*" value="<?php if ($keyword != "") echo $generics[$keyword][$language['id']]['title']; ?>" id="genpage_name_<?php echo $language['keyword']; ?>"/> </br>
                     <div id="post_genpage_name_<?php echo $language['keyword']; ?>"> </div>
                     <p> გვერდის ტიპი: </p>
-                    <input name="genpage_type_<?php echo $language['keyword']; ?>" oninput="checkName('genpage_name_<?php echo $language['keyword']; ?>')" class="textInput" placeholder="" id="genpage_name_<?php echo $language['keyword']; ?>"/> </br>
+                    <input name="genpage_type_<?php echo $language['keyword']; ?>" oninput="checkName('genpage_name_<?php echo $language['keyword']; ?>')" class="textInput" placeholder=""  value="<?php if ($keyword != "") echo $generics[$keyword][$language['id']]['type']; ?>" id="genpage_name_<?php echo $language['keyword']; ?>"/> </br>
                 </div>
 
                 <div style="width: 800px; margin: auto; padding-top: 50px; text-align: center">
                     <p style="text-align: center"> ინტრო: * </p>
-                    <textarea name="genpage_intro_<?php echo $language['keyword']; ?>" form="generic-form" class="textInput htmlClass" id="genpage_intro_<?php echo $language['keyword']; ?>" placeholder="ინტრო">  </textarea> </br>
+                    <textarea name="genpage_intro_<?php echo $language['keyword']; ?>" form="generic-form" class="textInput htmlClass" id="genpage_intro_<?php echo $language['keyword']; ?>" placeholder="ინტრო" >  <?php if ($keyword != "") echo $generics[$keyword][$language['id']]['intro']; ?> </textarea> </br>
                     <script>
                         CKEDITOR.replace( "genpage_intro_<?php echo $language['keyword']; ?>" );
                     </script>
@@ -65,7 +80,7 @@
 
                 <div style="width: 800px; margin: auto; margin-bottom: 100px; padding-top: 50px">
                     <p style="text-align: center"> აღწერა: *</p>
-                    <textarea name="genpage_description_<?php echo $language['keyword']; ?>" form="generic-form" class="textInput htmlClass" placeholder="*">  </textarea> </br>
+                    <textarea name="genpage_description_<?php echo $language['keyword']; ?>" form="generic-form" class="textInput htmlClass" placeholder="*"> <?php if ($keyword != "") echo $generics[$keyword][$language['id']]['content']; ?>  </textarea> </br>
                     <script>
                         CKEDITOR.replace( "genpage_description_<?php echo $language['keyword']; ?>" );
                     </script>
@@ -76,9 +91,23 @@
             </div>
         <?php } ?>
 
-        <div style="width: 500px; margin: 50px auto auto;">
+        <div style="width: 500px; margin: 50px auto 100px;">
             <button onclick="document.getElementById('generic-form').submit();" type="submit" class="sub button"
                     name="submit" value="company"> შექმნა </button>
         </div>
     </form>
+
+    <h4 style="max-width: 300px; margin:auto"> არსებული გვერდები: </h4>
+    <?php
+        include "includes/get_generics_for_form.inc.php";
+
+        foreach ($gens as $gen) {
+            echo "<hr> <p style='max-width: 300px; margin:auto'> ქივორდი: ".$gen['keyword']."</p>";
+            ?> <a href="admin.php?tab=generic&keyword=<?php echo $gen['keyword'] ?>"> <p style='max-width: 300px; margin: auto auto;'> შეცვლა </p> </a>
+            <a href="includes/delete_generic.inc.php?tab=generic&keyword=<?php echo $gen['keyword'] ?>"> <p style='max-width: 300px; margin: auto auto 100px;'> წაშლა </p> </a>
+            <?php
+        }
+
+    ?>
+
 </div>

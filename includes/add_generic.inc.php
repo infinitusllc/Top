@@ -5,6 +5,7 @@ if(isset($_POST['submit'])) {
     include 'dbc.inc.php';
 
     include "languages.inc.php";
+    $isChange = mysqli_real_escape_string($conn, $_POST["change"]);
 
     $empty = 1;
     foreach ($languages as $language) {
@@ -12,10 +13,6 @@ if(isset($_POST['submit'])) {
         $genpage_name = mysqli_real_escape_string($conn, $_POST["genpage_name_$suffix"]);
         $genpage_intro = mysqli_real_escape_string($conn, $_POST["genpage_intro_$suffix"]);
 
-        echo $genpage_name;
-        echo "</br>";
-        echo $genpage_intro;
-        echo "</br>";
         if (!empty($genpage_name) && !empty($genpage_intro))
             $empty = 0;
     }
@@ -23,6 +20,12 @@ if(isset($_POST['submit'])) {
     if ($empty == 1) {
         header("Location: ../admin.php?tab=generic&message=error1");
         exit();
+    }
+
+    if ($isChange == "true") {
+        $keyword = mysqli_real_escape_string($conn, $_POST["key"]);
+        $sql = "DELETE FROM generic_page_content WHERE keyword = $keyword";
+        $result = mysqli_query($conn, $sql);
     }
 
     if ($conn) {

@@ -246,9 +246,9 @@ switch ($tab) {
 
     <?php
         include "mods/tour_form.mod.php";
-        include"mods/translations_form.mod.php";
-        include"mods/combinations_form.inc.php";
-        include"mods/generic_page_form.mod.inc";
+        include "mods/translations_form.mod.php";
+        include "mods/combinations_form.inc.php";
+        include "mods/generic_page_form.mod.inc";
     ?>
 
 </div>
