@@ -31,16 +31,13 @@
             <input type="hidden" name="old_title" value="<?php echo $title; ?>">
             <input type="hidden" name="is_change" value="<?php if($_GET['title']) { echo 'true'; } else { echo 'false'; } ?>">
             <?php
-
             for ($i = 0; $i<sizeof($languages); $i++){ ?>
-
                 <p> ცვლადის მნიშვნელობა - <?php echo $languages[$i]['name']; ?> </p>
                 <input name="value_<?php echo $languages[$i]['id'] ?>" class = "textInput" placeholder="" id = "value"
                        value="<?php if (isset($tr[$i+1])) { echo $tr[$i+1]; }
                        ?>" /> </br>
 
             <?php } ?>
-
             <button onclick="document.getElementById('user-form').submit();" style="margin-left: 100px" type="submit" class="button sub" name="submit" value="client"> დამატება </button>
         </div>
         <div name="existing-translations" style="width: 500px; margin: auto">
@@ -64,7 +61,6 @@
                         <a href="includes/delete_tr.inc.php?title=<?php echo $translation['title']; ?>"> წაშლა </a>
                         </br>
                         <a href="admin.php?tab=translations&title=<?php echo $translation['title']; ?>"> შეცვლა </a>
-
                     </p>
                 </form>
             <?php } ?>
