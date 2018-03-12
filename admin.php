@@ -100,6 +100,11 @@
             margin: auto;
         }
 
+        #generic-form {
+            max-width: 1200px;
+            margin: auto;
+        }
+
         .sideBar {
             width: 13%;
             margin-top: 100px;
@@ -121,6 +126,10 @@
 
     function displayDefault() {
         openTab(event, 'main_tr_geo', 'tabcontent1', 'tablinks1');
+    }
+
+    function displayDefault2() {
+        openTab(event, 'generic_tr_geo', 'tabcontent1', 'tablinks1');
     }
 
     function openTab(evt, tabName, tabContent, tabLinks) {
@@ -206,6 +215,12 @@ switch ($tab) {
     case "combinations":
         ?> <style> #combinations { display: block; } </style> <?php
         break;
+    case "generic":
+        ?> <style> #generic_page_form { display: block; } </style>
+            <div onload="displayDefault2()">
+            </div>
+        <?php
+        break;
     default:
         ?> <style> #tour_form { display: block; } </style> <?php
         break;
@@ -218,6 +233,7 @@ switch ($tab) {
         <li class="tablinks2" style="float: left; width: 100%; text-align: center"><a class="tablinks2" onclick="openTab(event, 'tour_form',  'tabcontent2', 'tablinks2')"> ტურის დამატება </a></li>
         <li class="tablinks2" style="float: left; width: 100%; text-align: center"><a class="tablinks2" onclick="openTab(event, 'translations', 'tabcontent2', 'tablinks2')"> თარგმნა </a></li>
         <li class="tablinks2" style="float: left; width: 100%; text-align: center"><a class="tablinks2" onclick="openTab(event, 'combinations', 'tabcontent2', 'tablinks2')"> კომბინაციები </a></li>
+        <li class="tablinks2" style="float: left; width: 100%; text-align: center"><a class="tablinks2" onclick="openTab(event, 'generic_page_form', 'tabcontent2', 'tablinks2')"> generic გვერდი </a></li>
     </ul>
 </div>
 
@@ -227,6 +243,7 @@ switch ($tab) {
         include "mods/tour_form.mod.php";
         include"mods/translations_form.mod.php";
         include"mods/combinations_form.inc.php";
+        include"mods/generic_page_form.mod.inc";
     ?>
 
 </div>
