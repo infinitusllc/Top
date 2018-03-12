@@ -30,6 +30,7 @@ if(isset($_POST['submit'])) {
         //go over, insert all other used languages
         $first = 1;
         $id = -1;
+        $genpage_keyword = mysqli_real_escape_string($conn, $_POST["genpage_keyword"]);
         foreach ($languages as $language) {
             $suffix = $language['keyword'];
             $genpage_name = mysqli_real_escape_string($conn, $_POST["genpage_name_$suffix"]);
@@ -40,8 +41,8 @@ if(isset($_POST['submit'])) {
             if (!empty($genpage_name) && !empty($genpage_description)) {
                 if ($first == 1) {
                     $lang_key = $language['id'];
-                    $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type) VALUES 
-                                                    ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type')";
+                    $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, keyword) VALUES 
+                                                    ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', '$genpage_keyword')";
                     $result = mysqli_query($conn, $sql);
                     $sql = "SELECT id FROM generic_page_content WHERE content = '$genpage_description' ORDER BY id DESC";
                     $result = mysqli_query($conn, $sql);
@@ -50,8 +51,8 @@ if(isset($_POST['submit'])) {
                     $result = mysqli_query($conn, $sql);
                     $first = 0;
                 } else {
-                    $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, group_id) VALUES 
-                                                    ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', $id)";
+                    $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, group_id, keyword) VALUES 
+                                                    ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', $id, '$genpage_keyword')";
                     $result = mysqli_query($conn, $sql);
                 }
             }

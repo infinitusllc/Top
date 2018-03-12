@@ -43,8 +43,12 @@
         foreach ($languages as $language) { ?>
             <div id="generic_tr_<?php echo $language['keyword']; ?>" class="tabcontent1">
                 <h3 style="text-align: center"> ენა: <?php echo $language['name'] ?> </h3>
-                <h5 style="text-align: center"> აუცილებელია მინიმუმ ერთი ენაზე ყველა ველის შევსება </h5>
+                <h5 style="text-align: center"> აუცილებელია მინიმუმ ერთი ენაზე ყველა ველის შევსება (ტიპის გარდა) </h5>
                 <div style="width: 600px; margin: auto;">
+                    <?php if ($language['id'] == 1) { ?>
+                    <p> გვერდის ქივორდი (უნდა იყოს უნიკალური): * </p>
+                    <input name="genpage_keyword" class="textInput" placeholder="*" id="genpage_keyword"/> </br>
+                    <?php } ?>
                     <p> გვერდის სახელი/სათაური: * </p>
                     <input name="genpage_name_<?php echo $language['keyword']; ?>" oninput="checkName('genpage_name_<?php echo $language['keyword']; ?>')" class="textInput" placeholder="*" id="genpage_name_<?php echo $language['keyword']; ?>"/> </br>
                     <div id="post_genpage_name_<?php echo $language['keyword']; ?>"> </div>
@@ -61,7 +65,7 @@
                 </div>
 
                 <div style="width: 800px; margin: auto; margin-bottom: 100px; padding-top: 50px">
-                    <p style="text-align: center"> აღწერა: </p>
+                    <p style="text-align: center"> აღწერა: *</p>
                     <textarea name="genpage_description_<?php echo $language['keyword']; ?>" form="generic-form" class="textInput htmlClass" placeholder="*">  </textarea> </br>
                     <script>
                         CKEDITOR.replace( "genpage_description_<?php echo $language['keyword']; ?>" );
