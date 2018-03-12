@@ -126,6 +126,14 @@
 
     function displayDefault() {
         openTab(event, 'main_tr_geo', 'tabcontent1', 'tablinks1');
+        <?php
+            $tab = "";
+            if (isset($_GET['tab'])){
+                $tab = $_GET['tab'];
+            }
+            if ($tab = 'generic') {?>
+                openTab(event, 'generic_tr_geo', 'tabcontent1', 'tablinks1');
+        <?php } ?>
     }
 
     function displayDefault2() {
@@ -216,10 +224,7 @@ switch ($tab) {
         ?> <style> #combinations { display: block; } </style> <?php
         break;
     case "generic":
-        ?> <style> #generic_page_form { display: block; } </style>
-            <div onload="displayDefault2()">
-            </div>
-        <?php
+        ?> <style> #generic_page_form { display: block; } </style> <?php
         break;
     default:
         ?> <style> #tour_form { display: block; } </style> <?php

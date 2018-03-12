@@ -129,7 +129,7 @@
                     $language_links_array['geo'] = "<option value=\"geo\"> ქართული </option>";
                     $language_links_array['eng'] = "<option value=\"eng\"> English </option>";
                     $language_links_array['rus'] = "<option value=\"rus\"> Русский </option>";
-
+                    $lang_key = 1;
                     switch ($lang) {
                         case "geo":
                             echo $language_links_array['geo'];
@@ -144,6 +144,7 @@
                                 if ($item != "<option value=\"eng\"> English </option>")
                                     echo $item;
                             }
+                            $lang_key = 2;
                             break;
                         case "rus":
                             echo $language_links_array['rus'];
@@ -151,6 +152,7 @@
                                 if ($item != "<option value=\"rus\"> Русский </option>")
                                     echo $item;
                             }
+                            $lang_key = 3;
                             break;
 
                     }
@@ -402,12 +404,15 @@
                     <div class="col-md-4">
                         <h2>საქართველო..</h2>
                         <h4>
-                            დაუვიწყარი კულტურა, ხალხი, გარემო, ქვეყანა...
+                            <?php
+                            include "includes/get_generics.inc.php";
+                            echo $generics['about'][$lang_key]['title'];
+                            ?>
                         </h4>
                         <p>
-                            There is nothing better than spending your free time with family or friends while traveling. Book one of our tours and save more than $200 on each member. Our turnkey travel solutions include full insurance, guided and escorted tour vacations, accommodation in best hotels and custom features that you can choose yourself.
+                            <?php echo $generics['about'][$lang_key]['intro']; ?>
                         </p>
-                        <a class="btn btn-xs btn-default" href="#">&#8212; read more</a>
+                        <a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>">&#8212; read more</a>
                     </div>
                     <div class="col-md-3 col-xs-6 col-md-preffix-1">
                         <ul class="marked-list">

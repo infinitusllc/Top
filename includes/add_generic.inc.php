@@ -39,8 +39,8 @@ if(isset($_POST['submit'])) {
             $type = mysqli_real_escape_string($conn, $_POST["genpage_type_$suffix"]);
 
             if (!empty($genpage_name) && !empty($genpage_description)) {
+                $lang_key = $language['id'];
                 if ($first == 1) {
-                    $lang_key = $language['id'];
                     $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, keyword) VALUES 
                                                     ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', '$genpage_keyword')";
                     $result = mysqli_query($conn, $sql);

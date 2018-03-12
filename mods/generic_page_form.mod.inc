@@ -43,7 +43,6 @@
         foreach ($languages as $language) { ?>
             <div id="generic_tr_<?php echo $language['keyword']; ?>" class="tabcontent1">
                 <h3 style="text-align: center"> ენა: <?php echo $language['name'] ?> </h3>
-                <h5 style="text-align: center"> აუცილებელია მინიმუმ ერთი ენაზე ყველა ველის შევსება (ტიპის გარდა) </h5>
                 <div style="width: 600px; margin: auto;">
                     <?php if ($language['id'] == 1) { ?>
                     <p> გვერდის ქივორდი (უნდა იყოს უნიკალური): * </p>
