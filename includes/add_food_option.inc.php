@@ -10,7 +10,7 @@ if(isset($_POST['submit'])) {
     for ($i=0; $i<sizeof($languages); $i++){
         $values[$i] =  mysqli_real_escape_string($conn, $_POST['value_'.$languages[$i]['id']]);
         if (empty($values[$i])) {
-            header("Location: ../admin.php?tab=combinations&message=error1");
+            header("Location: ../admin.php?tab=combinations&option=food_options&message=error1");
             exit();
         }
     }
@@ -35,7 +35,7 @@ if(isset($_POST['submit'])) {
     $sql3 = "UPDATE food_options SET group_id = $id WHERE food_option_id = $id;";
     $result = mysqli_query($conn, $sql3);
 
-    header("Location: ../admin.php?tab=translations&message=success");
+    header("Location: ../admin.php?tab=combinations&option=food_options&message=success");
     exit();
 
 }

@@ -96,7 +96,6 @@
 
                 <?php } ?>
                 <button onclick="document.getElementById('food_options-form').submit();" style="margin-left: 100px" type="submit" class="button sub" name="submit" value="client"> დამატება </button>
-
                 <?php
                 include"includes/food_options.inc.php";
 
@@ -105,12 +104,13 @@
                 $cur_id = -1;
                 $i = 0;
                 while (true) {
+                    if(empty($food_options[0])) break;
                     if ($cur_id == -1 || $food_options[$i]['group_id'] != $cur_id) { // changed = news group
                         $cur_id = $food_options[$i]['group_id'];
                         for($j=0; $j<sizeof($languages); $j++) {
                             ?>  <p style="text-align: center"> <?php echo $food_options[$i+$j]["food_option"]; ?> </p> </br> <?php
                         }
-                        ?><p style="text-align: center"> <a href="includes/delete_food_option.inc.php?id=<?php echo $food_options[$i]['food_option_id']; ?>""> წაშლა </a> ჯერ არ მუშაბოს! </p> <hr> <?php
+                        ?><p style="text-align: center"> <a href="includes/delete_food_option.inc.php?id=<?php echo $food_options[$i]['food_option_id']; ?>""> წაშლა </a> </p> <hr> <?php
                         $i++;
                     } else {
                         break;
