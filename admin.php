@@ -136,10 +136,6 @@
         <?php } ?>
     }
 
-    function displayDefault2() {
-        openTab(event, 'generic_tr_geo', 'tabcontent1', 'tablinks1');
-    }
-
     function openTab(evt, tabName, tabContent, tabLinks) {
         // Declare all variables
         var i, tabcontent, tablinks;

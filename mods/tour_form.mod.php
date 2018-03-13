@@ -28,7 +28,7 @@
         }
     }  ?>
 
-    <form id="tour-form" action="includes/add_tour.inc.php" method="post" accept-charset="UTF-8">
+    <form id="tour-form" action="includes/add_tour.inc.php" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
 
         <ul>
             <?php
@@ -147,7 +147,13 @@
                 </select>
                 <p> სასტუმროს ვარსკვლავები: </p>
                 <input name="hotel_stars" type="text" class="textInput" placeholder=""
-                       id="hotel_stars"/> </br>
+                       id="hotel_stars"/> </br> </br>
+                <p style="width: 150px; margin:auto;"> სურათები (პირველი ძირითადია): </p>
+                <input type="file" name="fileToUpload0" id="fileToUpload0"> </br>
+                <input type="file" name="fileToUpload1" id="fileToUpload1"> </br>
+                <input type="file" name="fileToUpload2" id="fileToUpload2"> </br>
+                <input type="file" name="fileToUpload3" id="fileToUpload3"> </br>
+                <input type="file" name="fileToUpload4" id="fileToUpload4"> </br>
             </div>
         </div>
         <div style="width: 500px; margin: 50px auto auto;">
