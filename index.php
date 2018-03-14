@@ -36,6 +36,17 @@
         if (isset($_GET['lang'])){
             $lang = $_GET['lang'];
         }
+
+        $lang_key = 1;
+        switch ($lang) {
+            case "rus":
+                $lang_key = 3;
+                break;
+            case "eng":
+                $lang_key = 2;
+                break;
+        }
+
         $contents = getTranslations($lang);
     ?>
 
@@ -105,59 +116,10 @@
                         <input type="submit" value="გამოსვლა" />
                     </form>
                 <?php } ?>
+                <a href="index.php?lang=geo"> <img src="images/geo.png"> </a>
+                <a href="index.php?lang=rus"> <img src="images/rus.png"> </a>
+                <a href="index.php?lang=eng"> <img src="images/eng.png"> </a>
 
-
-                <select id="langChange" style="margin: 5px; display: inline-block; padding:3px;
-    margin: 0; width: 300px; height:40px;
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    border-radius:4px;
-    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    background: #f8f8f8;
-    color:#888;
-    border:none;
-    outline:none;
-    display: inline-block;
-    -webkit-appearance:none;
-    -moz-appearance:none;
-    appearance:none;
-    cursor:pointer;" onchange="changeLanguage(this)">
-                    <?php
-                    $language_links_array = [];
-                    $language_links_array['geo'] = "<option value=\"geo\"> ქართული </option>";
-                    $language_links_array['eng'] = "<option value=\"eng\"> English </option>";
-                    $language_links_array['rus'] = "<option value=\"rus\"> Русский </option>";
-                    $lang_key = 1;
-                    switch ($lang) {
-                        case "geo":
-                            echo $language_links_array['geo'];
-                            foreach ($language_links_array as $item){
-                                if ($item != "<option value=\"geo\"> ქართული </option>")
-                                    echo $item;
-                            }
-                            break;
-                        case "eng":
-                            echo $language_links_array['eng'];
-                            foreach ($language_links_array as $item){
-                                if ($item != "<option value=\"eng\"> English </option>")
-                                    echo $item;
-                            }
-                            $lang_key = 2;
-                            break;
-                        case "rus":
-                            echo $language_links_array['rus'];
-                            foreach ($language_links_array as $item){
-                                if ($item != "<option value=\"rus\"> Русский </option>")
-                                    echo $item;
-                            }
-                            $lang_key = 3;
-                            break;
-
-                    }
-                    ?>
-                </select>
             </div>
 
         <!-- Swiper -->
