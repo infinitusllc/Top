@@ -484,7 +484,7 @@
                                     <div class="box-skin-1">
                                         <img src="<?php echo $images[0]['image_url']; ?>"  alt="tour_image" width="100%" height="100%">
                                         <div>
-                                            <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php echo $content['tour_name']; ?> </a></h4>
+                                            <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
                                             <p class="text-white" style="max-width: 80%">
                                                 <?php echo $content['tour_intro']; ?>
                                             </p>
@@ -502,7 +502,7 @@
                                 <div class="box-skin-1">
                                     <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
                                     <div>
-                                        <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php echo $content['tour_name']; ?> </a></h4>
+                                        <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
                                         <p class="text-white">
                                             <?php echo $content['tour_intro']; ?>
                                         </p>
@@ -520,7 +520,7 @@
                                         <div class="box-skin-1">
                                             <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
                                             <div>
-                                                <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php echo $content['tour_name']; ?> </a></h4>
+                                                <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
                                                 <p class="text-white">
                                                     <?php echo $content['tour_intro']; ?>
                                                 </p>
@@ -539,7 +539,7 @@
                                 <div class="box-skin-1">
                                     <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
                                     <div>
-                                        <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php echo $content['tour_name']; ?> </a></h4>
+                                        <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
                                         <p class="text-white">
                                             <?php echo $content['tour_intro']; ?>
                                         </p>
