@@ -73,11 +73,9 @@ if(isset($_POST['submit'])) {
                 }
             }
 
-
-            // adding an image
+            // adding images
             for ($j=0; $j<5; $j++) {
-                $target_dir = "../images/tour_" . $id . "/";
-                mkdir($target_dir);
+                $target_dir = "../images/tour_images/";
                 $target_file = $target_dir . basename($_FILES["fileToUpload".$j]["name"]);
                 $uploadOk = 1;
                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -108,9 +106,18 @@ if(isset($_POST['submit'])) {
                     echo "Sorry, your file was not uploaded.";
                     // if everything is ok, try to upload file
                 } else {
-                    if (move_uploaded_file($_FILES["fileToUpload".$j]["tmp_name"], $target_file)) {
-                        echo "The file " . basename($_FILES["fileToUpload".$j]["name"]) . " has been uploaded.";
-
+                    $temp = explode(".", $_FILES["fileToUpload"."$j"]["name"]);
+                    $newfilename = $id . $j . '.' . end($temp);
+                    if (move_uploaded_file($_FILES["fileToUpload"."$j"]["tmp_name"], "../images/tour_images/" . $newfilename)) {
+                        echo "The file " . $newfilename . " has been uploaded."."</br>";
+                        $url = 'images/tour_images/' . $newfilename;
+                        $sql = "INSERT INTO tour_images (tour_id, image_url) VALUES ($id, '$url')";
+                        echo $sql."</br>";
+                        $result = mysqli_query($conn, $sql);
+                        if ($j == 0) {
+                            $sql = "UPDATE tour_images SET is_main = 1";
+                            $result = mysqli_query($conn, $sql);
+                        }
                     } else {
                         echo "Sorry, there was an error uploading your file.";
                     }
