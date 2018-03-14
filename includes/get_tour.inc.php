@@ -42,3 +42,19 @@ function getTourImages($id) {
 
     return $images;
 }
+
+function getLatestTourIds(){
+    include "dbc.inc.php";
+
+    $sql = "SELECT tour_id FROM tours ORDER BY created_time DESC LIMIT 4";
+    $result_sql = mysqli_query($conn, $sql);
+
+    $tour = null;
+    $i=0;
+    while ($row = mysqli_fetch_assoc($result_sql)){
+        $tour[$i] = $row;
+        $i++;
+    }
+
+    return $tour;
+}

@@ -450,7 +450,7 @@
                             <li>
                                 <span class="icon-lg material-icons-explore"></span>
                                 <h2> 
-                                    <a href="#">ჩვენი<br/>მხარდაწერა
+                                    <a href="#">ჩვენი<br/>მხარდაჭერა
                                    </a>
                                </h2>
                            </li>
@@ -470,50 +470,83 @@
                     </div>
                     <div class="col-md-8 offset-2 text-lg-left text-center">
                         <div class="row">
+                            <?php
+                                include 'includes/get_tour.inc.php';
+                                $tour_ids = getLatestTourIds();
+
+                                if (sizeof($tour_ids) > 0) {
+                                    $id = $tour_ids[0]['tour_id'];
+                                    $content = getTourContent($id, $lang);
+                                    $tour = getTour($id);
+                                    $images = getTourImages($id);
+                            ?>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="box-skin-1">
+                                        <img src="<?php echo $images[0]['image_url']; ?>"  alt="tour_image" width="100%" height="100%">
+                                        <div>
+                                            <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php echo $content['tour_name']; ?> </a></h4>
+                                            <p class="text-white" style="max-width: 80%">
+                                                <?php echo $content['tour_intro']; ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php }
+                                if (sizeof($tour_ids) > 1) {
+                                    $id = $tour_ids[1]['tour_id'];
+                                    $content = getTourContent($id, $lang);
+                                    $tour = getTour($id);
+                                    $images = getTourImages($id);
+                            ?>
                             <div class="col-md-6 col-sm-6">
                                 <div class="box-skin-1">
-                                    <img src="images/lg_page-1_img01.jpg" data-srcset-base="images/" data-srcset-ext="_page-1_img01.jpg" data-srcset="lg 991w, md 1199w, lg 1400w" alt="" width="370" height="357">
+                                    <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
                                     <div>
-                                        <h4 class="text-primary">01/<br><a href="#">Culinary travel</a></h4>
+                                        <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php echo $content['tour_name']; ?> </a></h4>
                                         <p class="text-white">
-                                            Best cuisines of the world<br>are opened to you.
+                                            <?php echo $content['tour_intro']; ?>
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="box-skin-1">
-                                    <img src="images/lg_page-1_img02.jpg" data-srcset-base="images/" data-srcset-ext="_page-1_img02.jpg" data-srcset="lg 991w, md 1199w, lg 1400w" alt="" width="370" height="357">
-                                    <div>
-                                        <h4 class="text-primary">02/<br><a href="#">Honeymoons</a></h4>
-                                        <p class="text-white">
-                                            Romantic voyages for two.
-                                        </p>
+                            <?php }
+                                if (sizeof($tour_ids) > 2) {
+                                    $id = $tour_ids[2]['tour_id'];
+                                    $content = getTourContent($id, $lang);
+                                    $tour = getTour($id);
+                                    $images = getTourImages($id);
+                                    ?>
+                                    <div class="col-md-6 offset-3 col-sm-6">
+                                        <div class="box-skin-1">
+                                            <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
+                                            <div>
+                                                <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php echo $content['tour_name']; ?> </a></h4>
+                                                <p class="text-white">
+                                                    <?php echo $content['tour_intro']; ?>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                    <?php
+                                }
+                                if (sizeof($tour_ids) > 3) {
+                                    $id = $tour_ids[3]['tour_id'];
+                                    $content = getTourContent($id, $lang);
+                                    $tour = getTour($id);
+                                    $images = getTourImages($id);
+                            ?>
                             <div class="col-md-6 offset-3 col-sm-6">
                                 <div class="box-skin-1">
-                                    <img src="images/lg_page-1_img03.jpg" data-srcset-base="images/" data-srcset-ext="_page-1_img03.jpg" data-srcset="lg 991w, md 1199w, lg 1400w" alt="" width="370" height="357">
+                                    <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
                                     <div>
-                                        <h4 class="text-primary">03/<br><a href="#">Customizable tours</a></h4>
+                                        <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php echo $content['tour_name']; ?> </a></h4>
                                         <p class="text-white">
-                                            Build your perfect tour yourself.
+                                            <?php echo $content['tour_intro']; ?>
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 offset-3 col-sm-6">
-                                <div class="box-skin-1">
-                                    <img src="images/lg_page-1_img04.jpg" data-srcset-base="images/" data-srcset-ext="_page-1_img04.jpg" data-srcset="lg 991w, md 1199w, lg 1400w" alt="" width="370" height="357">
-                                    <div>
-                                        <h4 class="text-primary">04/<br><a href="#">Luxury hotels</a></h4>
-                                        <p class="text-white">
-                                            Top-grade suites for the most<br>demanding travelers.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
