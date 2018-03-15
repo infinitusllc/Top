@@ -70,11 +70,11 @@
     <header class="page-header">
         <div class="container">
             <!-- RD Navbar Brand -->
-            <div class="rd-navbar-brand">
+            <!-- <div class="rd-navbar-brand">
                 <a href="index.php" class="brand-name primary-color">
                     &#95;world<span class="text-primary">around</span><span class="brand-slogan text-regular">travel operator</span>
                 </a>
-           </div>
+           </div> -->
            <!-- END RD Navbar Brand -->
 
        </div>
@@ -100,7 +100,7 @@
                     </form>
 
                 <?php } else { ?>
-                    <p style="display: inline-block; margin: 5px"> <span style="font-weight:bold"> <?php echo $contents['main_page_username']; ?> </span> <?php echo $_SESSION['user']['name']; ?> </p>
+                    <p style="display: inline-block; margin: 5px"> <span style="font-weight:none"> <?php echo $contents['main_page_username']; ?> </span> <?php echo $_SESSION['user']['name']; ?> </p>
                     <form action="profile.php" style="display: inline-block; margin: 5px">
                         <input type="submit" value="ჩემი პროფილი" />
                     </form>
@@ -313,7 +313,9 @@
             <input type="hidden" name="form-type" value="contact"/>
             <!-- END RD Mailform Type -->
             <fieldset>
-                <img src="images/logo_toptravel.png" data-srcset-base="images/" data-srcset-ext="logo_toptravel.png" alt="" width="234" height="54">
+                <a href="index.php" class="brand-name primary-color">
+					<img src="images/logo.png" data-srcset-base="images/" data-srcset-ext="logo.png" alt="" width="100" height="100">
+				</a>
                 <!--<h4 class="text-bold">მოძებნე ტური</h4>-->
                 <p>ტურის მიმართულება</p>
                 <label data-add-placeholder>
@@ -371,7 +373,7 @@
                         <p>
                             <?php echo $generics['about'][$lang_key]['intro']; ?>
                         </p>
-                        <a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>">&#8212; read more</a>
+                        <a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>">- <?php echo $contents['read_more']; ?>..</a>
                     </div>
                     <div class="col-md-3 col-xs-6 col-md-preffix-1">
                         <ul class="marked-list">

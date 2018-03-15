@@ -7720,7 +7720,7 @@ h1, h2, h3, h4, h5, h6,
 
     h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover,
     .heading-1 a:hover, .heading-2 a:hover, .heading-3 a:hover, .heading-4 a:hover, .heading-5 a:hover, .heading-6 a:hover {
-        color: #642887;
+        color: #67498c;
     }
 
 h1, .heading-1 {
@@ -7810,18 +7810,18 @@ p, .list, .contact-info {
 }
 
     p a:hover, .list a:hover, .contact-info a:hover {
-        color: #642887;
+        color: #67498c;
     }
 
 mark {
     display: inline-block;
     padding: 5px;
     color: #FFF;
-    background: #642887;
+    background: #67498c;
 }
 
 em {
-    color: #642887;
+    color: #67498c;
 }
 
 small, .small {
@@ -8078,7 +8078,7 @@ hr {
 * @subsection   Colors
 */
 html body .page .text-primary {
-    color: #642887;
+    color: #67498c;
 }
 
 html body .page .text-white {
@@ -8093,7 +8093,7 @@ html body .page .text-contrast-1 {
 * @subsection   Backgrounds
 */
 .bg-primary {
-    background: #642887;
+    background: #67498c;
 }
 
     .bg-primary, .bg-primary h1, .bg-primary h2, .bg-primary h3, .bg-primary h4, .bg-primary h5, .bg-primary h6, .bg-primary .heading-1, .bg-primary .heading-2, .bg-primary .heading-3, .bg-primary .heading-4, .bg-primary .heading-5, .bg-primary .heading-6 {
@@ -12142,7 +12142,7 @@ html:not(.lt-ie10) .not-animated {
 
 .list1 span {
     float: left;
-    color: #642887;
+    color: #67498c;
     margin-left: -7px;
     transition: .3s all ease;
 }
@@ -12221,11 +12221,11 @@ html:not(.lt-ie10) .not-animated {
 }
 
 .list1 li h2:hover a {
-    color: #642887;
+    color: #67498c;
 }
 
     .list1 li h2:hover a span {
-        color: #642887;
+        color: #67498c;
     }
 
 .list1 li:hover .icon-lg {
@@ -12382,7 +12382,7 @@ html:not(.lt-ie10) .not-animated {
             font-size: 18px;
             line-height: 52px;
             font-weight: 700;
-            color: #642887;
+            color: #67498c;
             position: relative;
         }
 
@@ -12569,11 +12569,11 @@ html:not(.lt-ie10) .not-animated {
     }
 
     .contact-info dl dd a:hover {
-        color: #642887;
+        color: #67498c;
     }
 
         .contact-info dl dd a:hover span {
-            color: #642887;
+            color: #67498c;
         }
 
 /*
@@ -12730,7 +12730,8 @@ html:not(.lt-ie10) .not-animated {
     }
 
 .btn-default {
-    color: #642887;
+    text-transform: none;
+    color: #67498c;
     background: transparent;
     position: relative;
     z-index: 1;
@@ -12740,10 +12741,10 @@ html:not(.lt-ie10) .not-animated {
     .btn-default:before {
         content: "";
         position: absolute;
-        left: 0px;
-        bottom: -4px;
+        left: 11px;
+        bottom: 0px;
         width: 0px;
-        height: 17px;
+        height: 29px;
         z-index: -1;
         transition: .3s all ease;
         background: #efefef;
@@ -12754,17 +12755,19 @@ html:not(.lt-ie10) .not-animated {
     }
 
         .btn-default:hover:before, .btn-default:active:before {
-            width: 175px;
+            width: 100%;
         }
 
 .btn-primary {
     color: #fff;
-    /*background: #642887;*/
-    background: linear-gradient(to top right, #58257F, #B21F66);
+    background: #67498c;
+    /*background: linear-gradient(to top right, #58257F, #B21F66);*/
 }
 
     .btn-primary:hover, .btn-primary:active {
-        background: linear-gradient(to top right, #B21F66, #58257F);
+        color: #fff;
+        background: #6f588a;
+        /*background: linear-gradient(to top right, #B21F66, #58257F);*/
     }
 
 .btn.fa-facebook {
@@ -12896,12 +12899,12 @@ html:not(.lt-ie10) .not-animated {
 
 .icon-primary {
     color: #FFF;
-    background: #642887;
-    border-color: #642887;
+    background: #67498c;
+    border-color: #67498c;
 }
 
 a.icon-primary:hover {
-    background: #642887;
+    background: #67498c;
 }
 
 .icon-xs.fa-facebook,
@@ -12924,7 +12927,7 @@ a.icon-primary:hover {
 .icon-md.fa-twitter,
 .icon-lg.fa-twitter,
 .icon-xl.fa-twitter {
-    color: #642887;
+    color: #67498c;
     width: 18px;
     height: 30px;
     text-align: center;
@@ -13784,7 +13787,7 @@ div .rd-mailform1 .mfControls {
                 -webkit-border-radius: 50%;
                 -moz-border-radius: 50%;
                 border-radius: 50%;
-                background: #642887;
+                background: #67498c;
                 opacity: 0;
                 z-index: -1;
                 transition: .4s all ease-in-out;
@@ -13976,7 +13979,7 @@ div .rd-mailform1 .mfControls {
         }
 
             .mfDatePicker table td:hover {
-                color: #642887;
+                color: #67498c;
             }
 
             .mfDatePicker table td.dp-offset {
@@ -13990,7 +13993,7 @@ div .rd-mailform1 .mfControls {
 
             .mfDatePicker table td.dp-selected {
                 color: #fff;
-                background: #642887;
+                background: #67498c;
             }
 
 .mfDatePicker_title {
@@ -14007,7 +14010,7 @@ div .rd-mailform1 .mfControls {
 }
 
     .mfDatePicker_next:hover, .mfDatePicker_prev:hover {
-        color: #642887;
+        color: #67498c;
     }
 
 .mfDatePicker_panel {
@@ -14092,7 +14095,7 @@ div .rd-mailform1 .mfControls {
     font-size: 24px;
     line-height: 46px;
     color: #FFF;
-    background: #642887;
+    background: #67498c;
     border-radius: 50%;
     position: fixed;
     right: 15px;
@@ -14209,7 +14212,7 @@ div .rd-mailform1 .mfControls {
         }
 
             .responsive-tabs-variant-2 .resp-tabs-list > li.resp-tab-active .btn {
-                color: #642887;
+                color: #67498c;
             }
 
             .responsive-tabs-variant-2 .resp-tabs-list > li.resp-tab-active:before, .responsive-tabs-variant-2 .resp-tabs-list > li.resp-tab-active:after {
@@ -14221,7 +14224,7 @@ div .rd-mailform1 .mfControls {
             }
 
                 .responsive-tabs-variant-2 .resp-tabs-list > li.resp-tab-active > .btn:hover {
-                    color: #642887;
+                    color: #67498c;
                 }
 
             .responsive-tabs-variant-2 .resp-tabs-list > li > .btn {
@@ -14254,7 +14257,7 @@ div .rd-mailform1 .mfControls {
             }
 
             .responsive-tabs-variant-2 .resp-accordion:hover, .responsive-tabs-variant-2 .resp-accordion.resp-tab-active, .responsive-tabs-variant-2 .resp-tabs-list > li:hover, .responsive-tabs-variant-2 .resp-tabs-list > li.resp-tab-active {
-                color: #642887;
+                color: #67498c;
             }
 
     .responsive-tabs-variant-2 .btn-default {
@@ -14731,7 +14734,7 @@ div .rd-mailform1 .mfControls {
     height: 100%;
     width: 100%;
     position: relative;
-    background: #642887;
+    background: #67498c;
     left: 0;
     top: 0;
 }
