@@ -7859,7 +7859,7 @@ hr {
 }
 
 * + p {
-    margin-top: 40px;
+    margin-top: 15px;
 }
 
 * + .btn {
@@ -13019,7 +13019,7 @@ div .rd-mailform1 {
     div .rd-mailform1 {
         position: absolute;
         width: 370px;
-        padding: 40px 35px 38px 33px;
+        padding: 20px 35px 38px 33px;
         top: 176px;
     }
 }
