@@ -114,7 +114,7 @@
                     </form>
                 <?php } ?>
                 <a href="index.php?lang=geo"> <img src="images/geo.png"> </a>
-                <a href="index.php?lang=eng"> <img src="images/eng.png"> </a>face
+                <a href="index.php?lang=eng"> <img src="images/eng.png"> </a>
                 <a href="index.php?lang=rus"> <img src="images/rus.png"> </a>
 
             </div>
