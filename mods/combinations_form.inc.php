@@ -35,6 +35,7 @@
         $options_links_array['currency'] = "<option value=\"currency\"> ვალუტა </option>";
         $options_links_array['food_options'] = "<option value=\"food_options\"> კვება </option>";
         $options_links_array['countries'] = "<option value=\"countries\"> ქვეყნები </option>";
+        $options_links_array['categories'] = "<option value=\"categories\"> კატეგორიები </option>";
 
         switch ($option) {
             case "currency":
@@ -55,6 +56,13 @@
                 echo $options_links_array['countries'];
                 foreach ($options_links_array as $item){
                     if ($item != "<option value=\"countries\"> ქვეყნები </option>")
+                        echo $item;
+                }
+                break;
+            case "categories":
+                echo $options_links_array['categories'];
+                foreach ($options_links_array as $item){
+                    if ($item != "<option value=\"categories\"> კატეგორიები </option>")
                         echo $item;
                 }
                 break;
@@ -119,6 +127,32 @@
                 ?>
             </div>
         </form>
+    <?php } else if ($option == "categories") { ?>
+    <form id="category_form" action="includes/add_category.inc.php" method="post" accept-charset="UTF-8">
+        <div style="width: 500px; margin: auto;">
+            <p> ახალი მნიშვნელობა (აუცილებელია ყველას შევსება): </p>
+            <?php
+            for ($i = 0; $i<sizeof($languages); $i++){ ?>
+                <p> ცვლადის მნიშვნელობა - <?php echo $languages[$i]['name']; ?> </p>
+                <input name="value_<?php echo $languages[$i]['id'] ?>" class = "textInput" placeholder="" id = "value"
+                       value="<?php if (isset($tr[$i+1])) { echo $tr[$i+1]; }
+                       ?>" /> </br>
+
+            <?php } ?>
+            <button onclick="document.getElementById('category_form').submit();" style="margin-left: 100px" type="submit" class="button sub" name="submit" value="client"> დამატება </button>
+            <?php
+            include"includes/tour_categories.inc.php";
+
+            echo "<h4 style='text-align: center'> არსებული ოფციები: </h4>";
+
+            if(!empty($tour_categories[0])) {
+                foreach ($tour_categories as $tg) {
+                    echo $tg['tour_category'] . "</br><hr>";
+                }
+            }
+            ?>
+        </div>
+    </form>
     <?php } ?>
 
     <?php if (isset($_GET["message"])) {

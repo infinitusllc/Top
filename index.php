@@ -386,25 +386,20 @@
                     </div>
                     <div class="col-md-3 col-xs-6 col-md-preffix-1">
                         <ul class="marked-list">
-                            <li><a href="#">&#8212; Asia-Pacific</a></li>
-                            <li><a href="#">&#8212; France</a></li>
-                            <li><a href="#">&#8212; Italy</a></li>
-                            <li><a href="#">&#8212; Spain</a></li>
-                            <li><a href="#">&#8212; Rest of Europe</a></li>
-                            <li><a href="#">&#8212; Africa &#38; Middle East</a></li>
-                            <li><a href="#">&#8212; North America</a></li>
-                            <li><a href="#">&#8212; Latin America</a></li>
+                            <?php
+                                foreach ($categories as $category) {
+                            ?>
+                            <li><a href="#">&#8212; <?php echo $category['tour_category']; ?></a></li>
+                            <?php } ?>
                         </ul>
                     </div>
                     <div class="col-md-3 col-xs-6 col-md-preffix-1">
                         <ul class="marked-list">
-                            <li><a href="#">&#8212; Biking</a></li>
-                            <li><a href="#">&#8212; Walking</a></li>
-                            <li><a href="#">&#8212; Family</a></li>
-                            <li><a href="#">&#8212; Food + Wine</a></li>
-                            <li><a href="#">&#8212; Multi-Active</a></li>
-                            <li><a href="#">&#8212; Wildlife</a></li>
-                            <li><a href="#">&#8212; Corporate</a></li>
+                            <?php
+                            foreach ($types as $type) {
+                                ?>
+                                <li><a href="#">&#8212; <?php echo $type['tour_type']; ?></a></li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>
