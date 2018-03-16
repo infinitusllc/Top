@@ -28,7 +28,7 @@
         }
     }  ?>
 
-    <form id="tour-form" action="includes/add_slide.inc.php" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+    <form id="slide-form" action="includes/add_slide.inc.php" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
 
         <ul>
             <?php
@@ -46,7 +46,7 @@
 
                 <div style="width: 800px; margin: auto; padding-top: 50px; text-align: center">
                     <p style="text-align: center"> სლაიდის ინტრო: * </p>
-                    <textarea name="slide_intro_<?php echo $language['keyword']; ?>" form="tour-form" class="textInput htmlClass" id="slide_intro_<?php echo $language['keyword']; ?>" placeholder="ინტრო">  </textarea> </br>
+                    <textarea name="slide_intro_<?php echo $language['keyword']; ?>" form="slide-form" class="textInput htmlClass" id="slide_intro_<?php echo $language['keyword']; ?>" placeholder="ინტრო">  </textarea> </br>
                     <script>
                         CKEDITOR.replace( "slide_intro_<?php echo $language['keyword']; ?>" );
                     </script>
@@ -54,7 +54,7 @@
 
                 <div style="width: 800px; margin: auto; margin-bottom: 100px; padding-top: 50px">
                     <p style="text-align: center"> სლაიდის აღწერა: </p>
-                    <textarea name="slide_description_<?php echo $language['keyword']; ?>" form="tour-form" class="textInput htmlClass" placeholder="*">  </textarea> </br>
+                    <textarea name="slide_description_<?php echo $language['keyword']; ?>" form="slide-form" class="textInput htmlClass" placeholder="*">  </textarea> </br>
                     <script>
                         CKEDITOR.replace( "slide_description_<?php echo $language['keyword']; ?>" );
                     </script>
@@ -66,21 +66,21 @@
             </div>
         <?php } ?>
 
-        <div id="slide_non_tr" style="display: inline-block; border: 1px solid #ccc; width: 1200px;">
+        <div id="slide_non_tr" style="display: inline-block; border: 1px solid #ccc; width: 100%;">
            <div style="width: 200px; margin:auto">
                <div style="width: 600px; margin: auto;">
                    <p> ქივორდი (იუზერი ვერ ხედავს): * </p>
-                   <input name="slide_name_<?php echo $language['keyword']; ?>" class="textInput" placeholder="*" id="slide_name_<?php echo $language['keyword']; ?>"/> </br>
+                   <input name="slide_keyword" class="textInput" placeholder="*" id="slide_name_<?php echo $language['keyword']; ?>"/> </br>
                     <p> შესაბამისი ტურის url </p>
-                   <input name="slide_url_<?php echo $language['keyword']; ?>" class="textInput" placeholder="*" id="slide_name_<?php echo $language['keyword']; ?>"/> </br>
+                   <input name="slide_tour_url" class="textInput" placeholder="*" id="slide_name_<?php echo $language['keyword']; ?>"/> </br>
                </div>
                <p> სურათი: </p>
-               <input type="file" name="fileToUpload" id="fileToUpload"> </br>
+               <input type="file" name="fileToUpload" id="fileToUpload" style="margin-left: 100px;"> </br>
            </div>
         </div>
 
         <div style="width: 500px; margin: 50px auto auto;">
-            <button onclick="document.getElementById('tour-form').submit();" type="submit" class="sub button"
+            <button onclick="document.getElementById('slide-form').submit();" type="submit" class="sub button"
                     name="submit" value="company"> შექმნა </button>
         </div>
     </form>

@@ -222,6 +222,9 @@ switch ($tab) {
     case "generic":
         ?> <style> #generic_page_form { display: block; } </style> <?php
         break;
+    case "slide":
+        ?> <style> #slide_form { display: block; } </style> <?php
+        break;
     default:
         ?> <style> #tour_form { display: block; } </style> <?php
         break;
