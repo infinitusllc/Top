@@ -317,22 +317,31 @@
 					<img src="images/logo.png" data-srcset-base="images/" data-srcset-ext="logo.png" alt="" width="100" height="100">
 				</a>
                 <!--<h4 class="text-bold">მოძებნე ტური</h4>-->
-                <p>ტურის მიმართულება</p>
+                <p>ტურის კატეგორია</p>
                 <label data-add-placeholder>
-                    <select name="gender">
-                        <option>ქვეყანა</option>
-                        <option>America</option>
-                        <option>Canada</option>
-                        <option>Mexico</option>
+                    <select name="tour_category">
+                        <?php
+                            require_once "includes/categories.inc.php";
+                            $categories = getCategories($lang_key);
+                            foreach ($categories as $category) {
+                                ?>
+                                <option value="<?php echo $category['tour_category_id']; ?>"> <?php echo $category['tour_category']; ?> </option>
+                                <?php
+                            }
+                        ?>
                     </select>
                 </label>
                 <p>ტურის ტიპი</p>
                 <label data-add-placeholder>
                     <select name="gender">
-                        <option>შიდა/გარე</option>
-                        <option>Business tour</option>
-                        <option>Family tour</option>
-                        <option>Group tour</option>
+                        <?php
+                        $types = getTypes($lang_key);
+                        foreach ($types as $type) {
+                            ?>
+                            <option value="<?php echo $type['id']; ?>"> <?php echo $type['tour_type']; ?> </option>
+                            <?php
+                        }
+                        ?>
                     </select>
                 </label>
                 <p>სავარაუდო თარიღი</p>
