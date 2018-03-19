@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * returns a list of categories in the given language
+ * @param $lang (int)
+ * @return array
+ */
 function getCategories($lang)
 {
     include "dbc.inc.php";

@@ -11,18 +11,9 @@
     </br>
     <a href="index.php"> <p style="max-width: 150px; margin: auto"> უკან დაბრუნება </p></a>
     </br>
-    <select id="langChange" style="padding:3px;
-    width: 300px; height:40px;
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    border-radius:4px;
-    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    background: #f8f8f8;
-    color:#888;
-    border:none;
-    outline:none;
+    <select id="langChange" style="padding:3px; width: 300px; height:40px; -webkit-border-radius:4px; -moz-border-radius:4px;
+    border-radius:4px; -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset; -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;background: #f8f8f8; color:#888; border:none; outline:none;
     cursor:pointer; margin-left: 40.5%" onchange="changeLanguage(this)">
         <?php
 
@@ -36,6 +27,7 @@
         $options_links_array['food_options'] = "<option value=\"food_options\"> კვება </option>";
         $options_links_array['countries'] = "<option value=\"countries\"> ქვეყნები </option>";
         $options_links_array['categories'] = "<option value=\"categories\"> კატეგორიები </option>";
+        $options_links_array['types'] = "<option value=\"types\"> ტიპები (ქვეკატ.) </option>";
 
         switch ($option) {
             case "currency":
@@ -63,6 +55,13 @@
                 echo $options_links_array['categories'];
                 foreach ($options_links_array as $item){
                     if ($item != "<option value=\"categories\"> კატეგორიები </option>")
+                        echo $item;
+                }
+                break;
+            case "types":
+                echo $options_links_array['types'];
+                foreach ($options_links_array as $item){
+                    if ($item != "<option value=\"types\"> ტიპები (ქვეკატ.) </option>")
                         echo $item;
                 }
                 break;
@@ -128,33 +127,75 @@
             </div>
         </form>
     <?php } else if ($option == "categories") { ?>
-    <form id="category_form" action="includes/add_category.inc.php" method="post" accept-charset="UTF-8">
-        <div style="width: 500px; margin: auto;">
-            <p> ახალი მნიშვნელობა (აუცილებელია ყველას შევსება): </p>
-            <?php
-            for ($i = 0; $i<sizeof($languages); $i++){ ?>
-                <p> ცვლადის მნიშვნელობა - <?php echo $languages[$i]['name']; ?> </p>
-                <input name="value_<?php echo $languages[$i]['id'] ?>" class = "textInput" placeholder="" id = "value"
-                       value="<?php if (isset($tr[$i+1])) { echo $tr[$i+1]; }
-                       ?>" /> </br>
+        <form id="category_form" action="includes/add_category.inc.php" method="post" accept-charset="UTF-8">
+            <div style="width: 500px; margin: auto;">
+                <p> ახალი მნიშვნელობა (აუცილებელია ყველას შევსება): </p>
+                <?php
+                for ($i = 0; $i<sizeof($languages); $i++){ ?>
+                    <p> ცვლადის მნიშვნელობა - <?php echo $languages[$i]['name']; ?> </p>
+                    <input name="value_<?php echo $languages[$i]['id'] ?>" class = "textInput" placeholder="" id = "value"
+                           value="<?php if (isset($tr[$i+1])) { echo $tr[$i+1]; }
+                           ?>" /> </br>
 
-            <?php } ?>
-            <button onclick="document.getElementById('category_form').submit();" style="margin-left: 100px" type="submit" class="button sub" name="submit" value="client"> დამატება </button>
-            <?php
-            include"includes/tour_categories.inc.php";
+                <?php } ?>
+                <button onclick="document.getElementById('category_form').submit();" style="margin-left: 100px" type="submit" class="button sub" name="submit" value="client"> დამატება </button>
+                <?php
+                include"includes/tour_categories.inc.php";
 
-            echo "<h4 style='text-align: center'> არსებული ოფციები: </h4>";
+                echo "<h4 style='text-align: center'> არსებული ოფციები: </h4>";
 
-            if(!empty($tour_categories[0])) {
-                foreach ($tour_categories as $tg) {
-                    echo $tg['tour_category'] . "</br><hr>";
+                if(!empty($tour_categories[0])) {
+                    foreach ($tour_categories as $tg) {
+                        echo $tg['tour_category'] . "</br><hr>";
+                    }
                 }
-            }
-            ?>
-        </div>
-    </form>
-    <?php } ?>
+                ?>
+            </div>
+        </form>
+    <?php }else if ($option == "types") { ?>
+        <form id="type_form" action="includes/add_type.inc.php" method="post" accept-charset="UTF-8">
+            <div style="width: 500px; margin: auto;">
+                <p> ახალი მნიშვნელობა (აუცილებელია ყველას შევსება): </p>
+                <?php
+                for ($i = 0; $i<sizeof($languages); $i++){ ?>
+                    <p> ცვლადის მნიშვნელობა - <?php echo $languages[$i]['name']; ?> </p>
+                    <input name="value_<?php echo $languages[$i]['id'] ?>" class = "textInput" placeholder="" id = "value"
+                           value="<?php if (isset($tr[$i+1])) { echo $tr[$i+1]; }
+                           ?>" /> </br>
 
+                <?php }
+                ?>
+                <p> კატეგორია </p>
+                <select name="category" style="padding:3px; width: 300px; height:40px; -webkit-border-radius:4px; -moz-border-radius:4px;
+    border-radius:4px; -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset; -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;background: #f8f8f8; color:#888; border:none; outline:none;
+    cursor:pointer; margin-left: 100px">
+                    <?php
+                    include"includes/categories.inc.php";
+                    $tour_categories = getCategories(1);
+                    $tour_types = getTypes(1);
+                    foreach ($tour_categories as $category) {
+                        ?>
+                        <option value="<?php echo $category['tour_category_id']; ?>"> <?php echo $category['tour_category']; ?> </option>
+                    <?php } ?>
+                </select>
+
+                <button onclick="document.getElementById('type_form').submit();" style="margin-left: 100px" type="submit" class="button sub" name="submit" value="client"> დამატება </button>
+
+                <?php
+
+                echo "<h4 style='text-align: center'> არსებული ოფციები: </h4>";
+
+                if(!empty($tour_types[0])) {
+                    foreach ($tour_types as $tp) {
+                        echo $tp['tour_type'] . "</br><hr>";
+                    }
+                }
+
+                ?>
+            </div>
+        </form>
+    <?php } ?>
     <?php if (isset($_GET["message"])) {
         $message = $_GET["message"];
         switch ($message) {

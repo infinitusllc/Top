@@ -20,10 +20,8 @@ if(isset($_POST['submit'])) {
         }
     }
 
+    header("Location: ../admin.php?tab=combinations&options=categories&message=success");
+    exit();
 
-    if (mysqli_query($conn, $sql)) {
-        header("Location: ../admin.php?tab=combinations&options=currency&message=success");
-        exit();
-    }
 
 }
