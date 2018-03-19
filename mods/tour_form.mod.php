@@ -154,6 +154,8 @@
                 <input type="file" name="fileToUpload2" id="fileToUpload2"> </br>
                 <input type="file" name="fileToUpload3" id="fileToUpload3"> </br>
                 <input type="file" name="fileToUpload4" id="fileToUpload4"> </br>
+                <input type="checkbox" name="rec" value="true"> რეკომენდირებული (გამოჩნდება მთავარ გვერდზე, მაქს. 4)<br><br>
+
             </div>
         </div>
         <div style="width: 500px; margin: 50px auto auto;">

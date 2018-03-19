@@ -48,8 +48,15 @@ if(isset($_POST['submit'])) {
         $sql1 = "INSERT INTO tours (country, category, type, price, currency, quantity_adult, quantity_child, quantity_small, food_options,
                                       hotel_stars, created_time)
                             VALUES ($country, $category, $type, $price, $currency, $q_adult, $q_kid, $q_small, $food_option, $hotel_stars, '$time')";
-        echo $sql1."</br>";
+
+        if(isset($_POST['rec']) && $_POST['rec'] == 'true') {
+            $sql1 = "INSERT INTO tours (country, category, type, price, currency, quantity_adult, quantity_child, quantity_small, food_options,
+                                      hotel_stars, created_time, is_recommended)
+                            VALUES ($country, $category, $type, $price, $currency, $q_adult, $q_kid, $q_small, $food_option, $hotel_stars, '$time', 1)";
+        }
+
         if (mysqli_query($conn, $sql1)) {
+
             $sql2 = "SELECT tour_id FROM tours WHERE created_time = '$time'";
             echo $sql2."</br>";
             $result2 = mysqli_query($conn, $sql2);
