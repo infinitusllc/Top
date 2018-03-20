@@ -67,51 +67,62 @@
             var value = selectObject.value;
             window.location.href = 'tour_page.php?lang=' + value + '&id=' + <?php echo $id;?> + 'lang=' + <?php echo $lang; ?>;
         }
+
+        function openNav() {
+            document.getElementById("myNav").style.display = "block";
+            document.getElementById("content-section").style.display = "none";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.display = "none";
+            document.getElementById("content-section").style.display = "block";
+        }
+
     </script>
 
 </head>
 <body>
 
-<div style="position:relative; left: 40%; padding: 5px; margin-bottom: 50px">
-    <?php
-    if (!isset($_SESSION["logged"]) || $_SESSION["logged"] == false) { ?>
-        <form id="login_form" action="includes/login.inc.php" method="post"
-              style="display: inline-block; margin: 5px">
-            <input type="text" name="e_mail" placeholder="e-mail"/>
-            <input type="password" name="password" placeholder="password"/>
-            <button type="submit" class="button sub" name="submit"> შესვლა</button>
+<div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content" style="background-color: gray; width: fit-content; padding: 50px; margin: auto">
+        <h4 style="margin-bottom: 15px"> შესვლა </h4>
+        <form id="login_form" action="includes/login.inc.php" method="post">
+            <input type="text" name="e_mail" placeholder="e-mail" style="border: solid darkgray; background-color: floralwhite"/> <br> <br>
+            <input type="password" name="password" placeholder="password" style="border: solid darkgray; background-color: floralwhite"/> <br> <br>
+            <button type="submit" class="button sub" name="submit" style="border: solid darkgray; padding: 10px"> შესვლა</button> <br> <br>
         </form>
-
         <form action="registration.php" style="display: inline-block; margin: 5px">
-            <input type="submit" value="რეგისტრაცია" />
+            <input type="submit" value="რეგისტრაცია" style="border: solid darkgray; padding: 10px"/>
         </form>
-
-    <?php } else { ?>
-        <p style="display: inline-block; margin: 5px"> <span style="font-weight:none"> <?php echo $contents['main_page_username']; ?> </span> <?php echo $_SESSION['user']['name']; ?> </p>
-        <form action="profile.php" style="display: inline-block; margin: 5px">
-            <input type="submit" value="ჩემი პროფილი" />
-        </form>
-        <?php if ($_SESSION['user']['is_admin'] == 1) { ?>
-            <form action="admin.php" style="display: inline-block; margin: 5px">
-                <input type="submit" value="ადმინის პანელი" />
-            </form>
-        <?php } ?>
-        <form action="includes/logout.inc.php" style="display: inline-block; margin: 5px">
-            <input type="submit" value="გამოსვლა" />
-        </form>
-    <?php }
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
-        }
-    ?>
-    <form action="index.php" style="display: inline-block; margin: 5px">
-        <input type="submit" value="მთავარი გვერდი" />
-    </form>
-    <a href="tour_page.php?lang=geo&id=<?php echo $id;?>"> <img src="images/geo.png"> </a>
-    <a href="tour_page.php?lang=eng&id=<?php echo $id;?>"> <img src="images/eng.png"> </a>
-    <a href="tour_page.php?lang=rus&id=<?php echo $id;?>"> <img src="images/rus.png"> </a>
-
+    </div>
 </div>
+
+<section id="content-section">
+    <!-- bonus header -->
+    <!--          if not logged in      -->
+    <?php if (!isset($_SESSION["logged"]) || $_SESSION["logged"] == false) { ?>
+    <section style="width: 50%; position:relative; left: 70%">
+        <span style="cursor:pointer" onclick="openNav()">&#9776; შესვლა / რეგისტრაცია </span>
+        <?php } else { ?>
+        <div style="width: 50%;  position:relative; left: 40%">
+            <p style="display: inline-block; margin: 5px"> <span> <?php echo $contents['main_page_username']; ?> </span> <?php echo $_SESSION['user']['name']; ?> </p>
+            <form action="profile.php" style="display: inline-block; margin: 5px">
+                <input type="submit" value="ჩემი პროფილი" />
+            </form>
+            <?php if ($_SESSION['user']['is_admin'] == 1) { ?>
+                <form action="admin.php" style="display: inline-block; margin: 5px">
+                    <input type="submit" value="ადმინის პანელი" />
+                </form>
+            <?php } ?>
+            <form action="includes/logout.inc.php" style="display: inline-block; margin: 5px">
+                <input type="submit" value="გამოსვლა" />
+            </form>
+            <?php } ?>
+            <a href="index.php?lang=geo"> <img src="images/geo.png"> </a>
+            <a href="index.php?lang=eng"> <img src="images/eng.png"> </a>
+            <a href="index.php?lang=rus"> <img src="images/rus.png"> </a>
+    </div>
 
 <div style="width: 20%; float: left; display: inline-block; text-align: center">
     <?php
@@ -136,7 +147,7 @@
         <?php } ?>
     </div>
 </div>
-
+</section>
 <!--========================================================
                               FOOTER
     ==========================================================-->
@@ -188,6 +199,7 @@
         </div>
     </div>
     <!-- Coded by crash -->
+
 </footer>
 
 </body>

@@ -16,6 +16,16 @@
     <![endif]-->
 
     <script>
+        function openNav() {
+            document.getElementById("myNav").style.display = "block";
+            document.getElementById("content-section").style.display = "none";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.display = "none";
+            document.getElementById("content-section").style.display = "block";
+        }
+
         function displayTypes(selectObject) {
             var value = selectObject.value;
             if (value === '-1') {
@@ -61,8 +71,24 @@
 
 </head>
 <body>
+
+<div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content" style="background-color: gray; width: fit-content; padding: 50px; margin: auto">
+        <h4 style="margin-bottom: 15px"> შესვლა </h4>
+        <form id="login_form" action="includes/login.inc.php" method="post">
+            <input type="text" name="e_mail" placeholder="e-mail" style="border: solid darkgray; background-color: floralwhite"/> <br> <br>
+            <input type="password" name="password" placeholder="password" style="border: solid darkgray; background-color: floralwhite"/> <br> <br>
+            <button type="submit" class="button sub" name="submit" style="border: solid darkgray; padding: 10px"> შესვლა</button> <br> <br>
+        </form>
+        <form action="registration.php" style="display: inline-block; margin: 5px">
+            <input type="submit" value="რეგისტრაცია" style="border: solid darkgray; padding: 10px"/>
+        </form>
+    </div>
+</div>
+
 <!-- The Main Wrapper -->
-<div class="page">
+<div id="content-section" class="page">
 
     <!--For older internet explorer-->
     <div class="old-ie" style='background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;'>
@@ -92,24 +118,16 @@
                               CONTENT
     =========================================================-->
     <main class="page-content">
+
         <section>
-
             <!-- bonus header -->
-            <div style="position:relative; left: 40%; padding: 5px;">
+                <!--          if not logged in      -->
                 <?php if (!isset($_SESSION["logged"]) || $_SESSION["logged"] == false) { ?>
-                    <form id="login_form" action="includes/login.inc.php" method="post"
-                          style="display: inline-block; margin: 5px">
-                        <input type="text" name="e_mail" placeholder="e-mail"/>
-                        <input type="password" name="password" placeholder="password"/>
-                        <button type="submit" class="button sub" name="submit"> შესვლა</button>
-                    </form>
-
-                    <form action="registration.php" style="display: inline-block; margin: 5px">
-                        <input type="submit" value="რეგისტრაცია" />
-                    </form>
-
+            <div style="width: 50%; position:relative; left: 70%">
+                    <span style="cursor:pointer" onclick="openNav()">&#9776; შესვლა / რეგისტრაცია </span>
                 <?php } else { ?>
-                    <p style="display: inline-block; margin: 5px"> <span style="font-weight:none"> <?php echo $contents['main_page_username']; ?> </span> <?php echo $_SESSION['user']['name']; ?> </p>
+            <div style="width: 50%;  position:relative; left: 40%">
+                <p style="display: inline-block; margin: 5px"> <span> <?php echo $contents['main_page_username']; ?> </span> <?php echo $_SESSION['user']['name']; ?> </p>
                     <form action="profile.php" style="display: inline-block; margin: 5px">
                         <input type="submit" value="ჩემი პროფილი" />
                     </form>
@@ -125,7 +143,6 @@
                 <a href="index.php?lang=geo"> <img src="images/geo.png"> </a>
                 <a href="index.php?lang=eng"> <img src="images/eng.png"> </a>
                 <a href="index.php?lang=rus"> <img src="images/rus.png"> </a>
-
             </div>
 
         <!-- Swiper -->
@@ -314,7 +331,7 @@
           <a class="btn" href="#ex1">ჩასქროლე</a>
         </div>
     </section>
-    <section>
+    <section id="tour-search-section">
        <div class="container">
         <!-- RD Mailform -->
         <form class='rd-mailform1' method="post" action="includes/tour_search.inc.php">
