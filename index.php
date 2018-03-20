@@ -18,7 +18,11 @@
     <script>
         function displayTypes(selectObject) {
             var value = selectObject.value;
-            window.location.href = 'index.php?category=' + value;
+            if (value === '-1') {
+                window.location.href = 'index.php?';
+            } else {
+                window.location.href = 'index.php?category=' + value;
+            }
         }
 
         function changeLanguage(selectObject) {
@@ -313,7 +317,7 @@
     <section>
        <div class="container">
         <!-- RD Mailform -->
-        <form class='rd-mailform1' method="post" action="bat/rd-mailform.php">
+        <form class='rd-mailform1' method="post" action="includes/tour_search.inc.php">
             <!-- RD Mailform Type -->
             <input type="hidden" name="form-type" value="contact"/>
             <!-- END RD Mailform Type -->
@@ -328,19 +332,39 @@
                         <?php
                             require_once "includes/categories.inc.php";
                             $categories = getCategories($lang_key);
+                            if (isset($_GET['category'])) {
+                                foreach ($categories as $category) {
+                                    if ($category['tour_category_id'] == $_GET['category']) { ?>
+                                        <option value="<?php echo $category['tour_category_id']; ?>"> <?php echo $category['tour_category']; ?> </option>
+                                        <option value="-1"> ნებისმიერი </option>
+                                    <?php
+                                        break;
+                                    }
+                                }
+                            } else {
+                                echo "";?>
+                                <option value="-1"> ნებისმიერი </option>
+                            <?php }
                             foreach ($categories as $category) {
-                                ?>
-                                <option value="<?php echo $category['tour_category_id']; ?>"> <?php echo $category['tour_category']; ?> </option>
-                                <?php
+                                if (! (isset($_GET['category']) and $_GET['category'] === $category['tour_category_id'])) {
+                                    ?>
+                                    <option value="<?php echo $category['tour_category_id']; ?>"> <?php echo $category['tour_category']; ?> </option>
+                                    <?php
+                                }
                             }
                         ?>
                     </select>
                 </label>
                 <p>ტურის ტიპი</p>
                 <label data-add-placeholder>
-                    <select name="gender">
+                    <select name="tour_type">
+                        <option value="-1"> ნებისმიერი </option>
                         <?php
                         $types = getTypes($lang_key);
+                        if (isset($_GET['category'])) {
+                            $types = getTypesByCategory($lang_key, $_GET['category']);
+                        }
+
                         foreach ($types as $type) {
                             ?>
                             <option value="<?php echo $type['id']; ?>"> <?php echo $type['tour_type']; ?> </option>
@@ -349,23 +373,23 @@
                         ?>
                     </select>
                 </label>
+            <?php
+            ?>
                 <p>ქალაქი / ქალაქები: </p>
                 <label data-add-placeholder>
                     <input type="text"
-                           name="cities"
-                           data-placeholder="ყაზბეგი"/>
+                           name="tour_cities"/>
                 </label>
                 <p>ტურის სახელი:</p>
                 <label data-add-placeholder>
                     <input type="text"
-                           name="tour_name"
-                           data-placeholder="თბილისის ტური"/>
+                           name="tour_name"/>
                 </label>
+                <input type="hidden" name="lang" value="<?php echo $lang; ?>">
                 <div class="mfControls">
-                    <button class="btn btn-sm btn-primary" type="submit">ძებნა</button>
+                    <button class="btn btn-sm btn-primary" type="submit" name="submit">ძებნა</button>
                 </div>
                 <div class="mfInfo"></div>
-
         </form>
         <!-- END RD Mailform -->
     </div>
