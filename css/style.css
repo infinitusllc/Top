@@ -13778,7 +13778,6 @@ div .rd-mailform1 .mfControls {
             }
 
             .mfSelect .dropdown .option:after {
-                content: '';
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -13874,7 +13873,6 @@ div .rd-mailform1 .mfControls {
         }
 
         .mfSelect .value:before {
-            content: '';
             background: url("../images/arrow.png") no-repeat;
             width: 10px;
             height: 6px;
@@ -13885,7 +13883,6 @@ div .rd-mailform1 .mfControls {
         .mfSelect .value:after {
             width: 10px;
             height: 6px;
-            content: '';
             background: url("../images/arrow.png") no-repeat;
             -webkit-transform: rotate(-180deg) scale(0);
             transform: rotate(-180deg) scale(0);

@@ -16,6 +16,11 @@
     <![endif]-->
 
     <script>
+        function displayTypes(selectObject) {
+            var value = selectObject.value;
+            window.location.href = 'index.php?category=' + value;
+        }
+
         function changeLanguage(selectObject) {
             var value = selectObject.value;
             window.location.href = 'index.php?lang=' + value;
@@ -308,18 +313,18 @@
     <section>
        <div class="container">
         <!-- RD Mailform -->
-        <form class='rd-mailform rd-mailform1' method="post" action="bat/rd-mailform.php">
+        <form class='rd-mailform1' method="post" action="bat/rd-mailform.php">
             <!-- RD Mailform Type -->
             <input type="hidden" name="form-type" value="contact"/>
             <!-- END RD Mailform Type -->
-            <fieldset>
+
                 <a href="index.php" class="brand-name primary-color">
 					<img src="images/logo.png" data-srcset-base="images/" data-srcset-ext="logo.png" alt="" width="100" height="100">
 				</a>
                 <!--<h4 class="text-bold">მოძებნე ტური</h4>-->
                 <p>ტურის კატეგორია</p>
                 <label data-add-placeholder>
-                    <select name="tour_category">
+                    <select name="tour_category" onchange="displayTypes(this)">
                         <?php
                             require_once "includes/categories.inc.php";
                             $categories = getCategories($lang_key);
@@ -344,25 +349,23 @@
                         ?>
                     </select>
                 </label>
-                <p>სავარაუდო თარიღი</p>
+                <p>ქალაქი / ქალაქები: </p>
                 <label data-add-placeholder>
-                    <input type="date"
-                           name="birthday"
-                           data-placeholder="დდ / თთ / წწ"
-                           data-constraints="@Date"/>
+                    <input type="text"
+                           name="cities"
+                           data-placeholder="ყაზბეგი"/>
                 </label>
-                <p>ხანგრძლივობა</p>
+                <p>ტურის სახელი:</p>
                 <label data-add-placeholder>
-                    <input type="date"
-                           name="birthday"
-                           data-placeholder="დდ / თთ / წწ"
-                           data-constraints="@Date"/>
+                    <input type="text"
+                           name="tour_name"
+                           data-placeholder="თბილისის ტური"/>
                 </label>
                 <div class="mfControls">
                     <button class="btn btn-sm btn-primary" type="submit">ძებნა</button>
                 </div>
                 <div class="mfInfo"></div>
-            </fieldset>
+
         </form>
         <!-- END RD Mailform -->
     </div>
