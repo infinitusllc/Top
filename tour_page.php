@@ -69,12 +69,12 @@
         }
 
         function openNav() {
-            document.getElementById("myNav").style.display = "block";
+            document.getElementById("login-form").style.display = "block";
             document.getElementById("content-section").style.display = "none";
         }
 
         function closeNav() {
-            document.getElementById("myNav").style.display = "none";
+            document.getElementById("login-form").style.display = "none";
             document.getElementById("content-section").style.display = "block";
         }
 
@@ -83,20 +83,8 @@
 </head>
 <body>
 
-<div id="myNav" class="overlay">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <div class="overlay-content" style="background-color: gray; width: fit-content; padding: 50px; margin: auto">
-        <h4 style="margin-bottom: 15px"> შესვლა </h4>
-        <form id="login_form" action="includes/login.inc.php" method="post">
-            <input type="text" name="e_mail" placeholder="e-mail" style="border: solid darkgray; background-color: floralwhite"/> <br> <br>
-            <input type="password" name="password" placeholder="password" style="border: solid darkgray; background-color: floralwhite"/> <br> <br>
-            <button type="submit" class="button sub" name="submit" style="border: solid darkgray; padding: 10px"> შესვლა</button> <br> <br>
-        </form>
-        <form action="registration.php" style="display: inline-block; margin: 5px">
-            <input type="submit" value="რეგისტრაცია" style="border: solid darkgray; padding: 10px"/>
-        </form>
-    </div>
-</div>
+<!-- login form -->
+<?php include "mods/login_form.mod.php"; ?>
 
 <section id="content-section">
     <!-- bonus header -->
