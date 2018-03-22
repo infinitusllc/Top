@@ -320,6 +320,7 @@
                 <a class="btn" href="#ex1">ჩასქროლე</a>
             </div>
         </section>
+
         <section>
             <div class="container">
                 <!-- RD Mailform -->
@@ -433,7 +434,7 @@
                                     <img src="<?php echo $image; ?>"  alt="tour_image" width="100%" height="100%">
                                     <div>
                                         <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($name)) { echo $name; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
-                                        <p class="text-white" style="max-width: 80%">
+                                        <p class="text-white" style="max-width: 40%; margin: auto">
                                             <?php echo $intro; ?>
                                         </p>
                                     </div>

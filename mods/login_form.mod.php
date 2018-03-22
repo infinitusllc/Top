@@ -1,5 +1,4 @@
 <?php
-$_SESSION['user'];
 if(isset($_COOKIE['e_mail']) and isset($_COOKIE['password'])
     and !empty($_COOKIE['e_mail']) and !empty($_COOKIE['password'])
     and (!isset($_SESSION["logged"]) || $_SESSION["logged"] == false)

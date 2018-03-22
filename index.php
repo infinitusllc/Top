@@ -338,14 +338,13 @@
                     </ul>
                     <ul class="navbar-user">
                         <li>
-                        <li><a href="index.php?lang=rus"><span onclick="openNav()" class="material-icons-account_circle"></span></a></li>
+                        <li><a href="#"><span onclick="openNav()" class="material-icons-account_circle"></span></a></li>
                         </li>
                     </ul>
 
                 </div>
                 <!-- END RD Mailform -->
-    </div>
-    </section>
+            </section>
     <section id="tour-search-section">
         <div class="container">
             <!-- RD Mailform -->
@@ -780,6 +779,7 @@
         </div>
         <!-- Coded by crash -->
     </footer>
+    </div>
     </div>
     <!-- Core Scripts -->
     <script src="js/core.min.js"></script>
