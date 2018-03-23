@@ -31,7 +31,7 @@
 
     ?>
 
-    <form id="generic-form" action="includes/add_generic.inc.php" method="post" accept-charset="UTF-8">
+    <form id="generic-form" action="includes/add_generic.inc.php" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
         <?php
             $keyword = "";
             if (isset($_GET['keyword'])) {
@@ -92,6 +92,9 @@
         <?php } ?>
 
         <div style="width: 500px; margin: 50px auto 100px;">
+            <p> სურათი: </p>
+            <input type="file" name="fileToUpload" id="fileToUpload"> </br>
+
             <button onclick="document.getElementById('generic-form').submit();" type="submit" class="sub button"
                     name="submit" value="company"> შექმნა </button>
         </div>

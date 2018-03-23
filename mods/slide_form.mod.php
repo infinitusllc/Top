@@ -45,6 +45,8 @@
                 <h3 style="text-align: center"> ენა: <?php echo $language['name'] ?> </h3>
 
                 <div style="width: 800px; margin: auto; padding-top: 50px; text-align: center">
+                    <p style="margin:auto"> სათაური </p>
+                    <input type="text" name="slide_title_<?php echo $language['keyword']; ?>" title="title">
                     <p style="text-align: center"> სლაიდის ინტრო: * </p>
                     <textarea name="slide_intro_<?php echo $language['keyword']; ?>" form="slide-form" class="textInput htmlClass" id="slide_intro_<?php echo $language['keyword']; ?>" placeholder="ინტრო">  </textarea> </br>
                     <script>

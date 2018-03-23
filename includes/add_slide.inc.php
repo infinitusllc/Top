@@ -38,11 +38,12 @@ if(isset($_POST['submit'])) {
 
         foreach ($languages as $language) {
             $suffix = $language['keyword'];
+            $slide_title = mysqli_real_escape_string($conn, $_POST["slide_title_$suffix"]);
             $slide_intro = mysqli_real_escape_string($conn, $_POST["slide_intro_$suffix"]);
             $slide_description = mysqli_real_escape_string($conn, $_POST["slide_description_$suffix"]);
 
-            $sql = "INSERT INTO slide_content (slide_id, intro, description, lang_key) 
-                                       VALUES ($id, '$slide_intro', '$slide_description', '$suffix')";
+            $sql = "INSERT INTO slide_content (slide_id, intro, description, lang_key, title) 
+                                       VALUES ($id, '$slide_intro', '$slide_description', '$suffix', '$slide_title')";
             mysqli_query($conn, $sql);
         }
 
@@ -53,7 +54,7 @@ if(isset($_POST['submit'])) {
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
         // Check if image file is a actual image or fake image
         if (isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["fileToUpload".$j]["tmp_name"]);
+            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
             if ($check !== false) {
                 echo "File is an image - " . $check["mime"] . ".";
                 $uploadOk = 1;
@@ -63,7 +64,7 @@ if(isset($_POST['submit'])) {
             }
         }
         // Check file size
-        if ($_FILES["fileToUpload".$j]["size"] > 500000) {
+        if ($_FILES["fileToUpload"]["size"] > 500000) {
             echo "Sorry, your file is too large.";
             $uploadOk = 0;
         }
@@ -79,13 +80,12 @@ if(isset($_POST['submit'])) {
             // if everything is ok, try to upload file
         } else {
             $temp = explode(".", $_FILES["fileToUpload"]["name"]);
-            $newfilename = $id . $j . '.' . end($temp);
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../images/tour_images/" . $newfilename)) {
+            $newfilename = $id . '.' . end($temp);
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../images/slide_images/" . $newfilename)) {
                 echo "The file " . $newfilename . " has been uploaded."."</br>";
                 $url = 'images/slide_images/' . $newfilename;
                 $sql = "UPDATE slide SET image_url = '$url' WHERE id = $id";
-                echo $sql."</br>";
-                $result = mysqli_query($conn, $sql);
+                mysqli_query($conn, $sql);
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }

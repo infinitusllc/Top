@@ -41,30 +41,28 @@
         }
     </script>
     <?php
-    session_start();
-    $logged = $_SESSION['admin'];
-    if (!isset($logged) || $logged == false){
-    header("Location: ind.php");
-    exit();
-    }
-    ?>
+        session_start();
+        $logged = $_SESSION['admin'];
+        if (!isset($logged) || $logged == false){
+            header("Location: ind.php");
+            exit();
+        }
 
-    <?php
-    include "includes/tr.inc.php";
-    $lang = "geo";
-    if (isset($_GET['lang'])){
-    $lang = $_GET['lang'];
-    }
+        include "includes/tr.inc.php";
+        $lang = "geo";
+        if (isset($_GET['lang'])){
+            $lang = $_GET['lang'];
+        }
 
-    $lang_key = 1;
-    switch ($lang) {
-    case "rus":
-    $lang_key = 3;
-    break;
-    case "eng":
-    $lang_key = 2;
-    break;
-    }
+        $lang_key = 1;
+        switch ($lang) {
+            case "rus":
+                $lang_key = 3;
+                break;
+            case "eng":
+                $lang_key = 2;
+                break;
+        }
 
     $contents = getTranslations($lang);
     ?>
@@ -113,205 +111,35 @@
                 <!-- Swiper -->
                 <div class="swiper-container swiper-slider" data-height="853px" data-min-height="500px" data-autoplay="false">
                     <div class="swiper-wrapper">
+                        <?php
+                            require_once "includes/slides.inc.php";
+                            $slides = getSlides($lang);
+                            $i = 1;
+                            foreach ($slides as $slide) {
+                        ?>
                         <div class="swiper-slide" data-slide-bg="images/page-01_slide01.jpg" style="background-image: url('images/page-01_slide01.jpg');">
                             <div class="swiper-slide-caption">
                                 <div class="container">
                                     <div class="row text-center text-lg-left">
                                         <div class="col-lg-3 col-md-12 preffix-1">
-                                            <h2 class="text-bold">01</h2>
-                                            <h2 class="text-bold">გუდაური</h2>
-                                            <p>
-                                                გუდაური საქართველოში ერთ-ერთი ყველაზე<br>
-                                                პოპულარული და ტურისტულად ატვირთული <br>
-                                                სამთო - სათხილამურო რეგიონია, რომელიც <br>
-                                                პოპულარობით სარგებლობს, როგორც ზამთარში,<br>
-                                                ასევე ზაფხულში. ის საშუალებას გაძლევთ ისიამოვნოთ <br>
-                                                ულამაზესი მთის პეიზაჟებით, ითხილამუროთ.. <br>
-                                            </p>
+                                            <h2 class="text-bold"> <?php echo $i++; ?> </h2>
+                                            <h2 class="text-bold"> <?php echo $slide['title']; ?> </h2>
+
+                                            <?php echo $slide['intro']; ?>
+
                                         </div>
                                         <div class="col-lg-4 col-md-12 offset-1 display_none">
-                                            <p>
-                                                ფასში შედის: <br>
-                                                •	დახვედრა<br>
-                                                •	მგზავრობა<br>
-                                                •	გიდის მომსახურება<br>
-                                                •	სასტუმროში განთავსება<br>
-                                                •	სასრიალო აბონიმენტის ღირებულება<br>
-                                                •	მწვრთნელის მომსახურება (თხილამურით სრიალისას)<br>
-                                                •	კვება<br>
-                                                გერგეთი, სნო, მყინვარი...
-                                            </p>
+
+                                            <?php echo $slide['description']; ?>
+
                                             <!--<h3 class="text-bold">ღირებულება 899 USD-დან</h3>-->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide" data-slide-bg="images/page-01_slide02.jpg" style="background-image: url('images/page-01_slide02.jpg');">
-                            <div class="swiper-slide-caption">
-                                <div class="container">
-                                    <div class="row text-center text-lg-left">
-                                        <div class="col-lg-3 col-md-12 preffix-1">
-                                            <h2 class="text-bold">01</h2>
-                                            <h2 class="text-bold">გუდაური</h2>
-                                            <p>
-                                                გუდაური საქართველოში ერთ-ერთი ყველაზე<br>
-                                                პოპულარული და ტურისტულად ატვირთული <br>
-                                                სამთო - სათხილამურო რეგიონია, რომელიც <br>
-                                                პოპულარობით სარგებლობს, როგორც ზამთარში,<br>
-                                                ასევე ზაფხულში. ის საშუალებას გაძლევთ ისიამოვნოთ <br>
-                                                ულამაზესი მთის პეიზაჟებით, ითხილამუროთ.. <br>
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-4 col-md-12 offset-1 display_none">
-                                            <p>
-                                                ფასში შედის: <br>
-                                                •	დახვედრა<br>
-                                                •	მგზავრობა<br>
-                                                •	გიდის მომსახურება<br>
-                                                •	სასტუმროში განთავსება<br>
-                                                •	სასრიალო აბონიმენტის ღირებულება<br>
-                                                •	მწვრთნელის მომსახურება (თხილამურით სრიალისას)<br>
-                                                •	კვება<br>
-                                                გერგეთი, სნო, მყინვარი...
-                                            </p>
-                                            <!--<h3 class="text-bold">ღირებულება 899 USD-დან</h3>-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" data-slide-bg="images/page-01_slide03.jpg" style="background-image: url('images/page-01_slide03.jpg');">
-                            <div class="swiper-slide-caption">
-                                <div class="container">
-                                    <div class="row text-center text-lg-left">
-                                        <div class="col-lg-3 col-md-12 preffix-1">
-                                            <h2 class="text-bold">01</h2>
-                                            <h2 class="text-bold">გუდაური</h2>
-                                            <p>
-                                                გუდაური საქართველოში ერთ-ერთი ყველაზე<br>
-                                                პოპულარული და ტურისტულად ატვირთული <br>
-                                                სამთო - სათხილამურო რეგიონია, რომელიც <br>
-                                                პოპულარობით სარგებლობს, როგორც ზამთარში,<br>
-                                                ასევე ზაფხულში. ის საშუალებას გაძლევთ ისიამოვნოთ <br>
-                                                ულამაზესი მთის პეიზაჟებით, ითხილამუროთ.. <br>
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-4 col-md-12 offset-1 display_none">
-                                            <p>
-                                                ფასში შედის: <br>
-                                                •	დახვედრა<br>
-                                                •	მგზავრობა<br>
-                                                •	გიდის მომსახურება<br>
-                                                •	სასტუმროში განთავსება<br>
-                                                •	სასრიალო აბონიმენტის ღირებულება<br>
-                                                •	მწვრთნელის მომსახურება (თხილამურით სრიალისას)<br>
-                                                •	კვება<br>
-                                                გერგეთი, სნო, მყინვარი...
-                                            </p>
-                                            <!--<h3 class="text-bold">ღირებულება 899 USD-დან</h3>-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" data-slide-bg="images/page-01_slide04.jpg" style="background-image: url('images/page-01_slide04.jpg');">
-                            <div class="swiper-slide-caption">
-                                <div class="container">
-                                    <div class="row text-center text-lg-left">
-                                        <div class="col-lg-3 col-md-12 preffix-1">
-                                            <h2 class="text-bold">01</h2>
-                                            <h2 class="text-bold">გუდაური</h2>
-                                            <p>
-                                                გუდაური საქართველოში ერთ-ერთი ყველაზე<br>
-                                                პოპულარული და ტურისტულად ატვირთული <br>
-                                                სამთო - სათხილამურო რეგიონია, რომელიც <br>
-                                                პოპულარობით სარგებლობს, როგორც ზამთარში,<br>
-                                                ასევე ზაფხულში. ის საშუალებას გაძლევთ ისიამოვნოთ <br>
-                                                ულამაზესი მთის პეიზაჟებით, ითხილამუროთ.. <br>
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-4 col-md-12 offset-1 display_none">
-                                            <p>
-                                                ფასში შედის: <br>
-                                                •	დახვედრა<br>
-                                                •	მგზავრობა<br>
-                                                •	გიდის მომსახურება<br>
-                                                •	სასტუმროში განთავსება<br>
-                                                •	სასრიალო აბონიმენტის ღირებულება<br>
-                                                •	მწვრთნელის მომსახურება (თხილამურით სრიალისას)<br>
-                                                •	კვება<br>
-                                                გერგეთი, სნო, მყინვარი...
-                                            </p>
-                                            <!--<h3 class="text-bold">ღირებულება 899 USD-დან</h3>-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--<div class="swiper-slide" data-slide-bg="images/page-01_slide05.jpg">
-                            <div class="swiper-slide-caption">
-                                <div class="container">
-                                    <div class="row text-center text-lg-left">
-                                        <div class="col-lg-3 col-md-12 preffix-1">
-                                            <h2 class="text-bold">02/</h2>
-                                            <h2 class="text-bold">UK</h2>
-                                            <p>
-                                                6-7 nights, airfare,<br>
-                                                3-5 star hotels
-                                            </p>
-                                            <h4>
-                                                London, Liverpool,<br>
-                                                Edinburgh...
-                                            </h4>
-                                        </div>
-                                        <div class="col-lg-4 col-md-12 offset-1 display_none">
-                                            <p>
-                                                We handpicked hundreds of the most spectacular destinations on all
-                                                continents. Relax your body and
-                                                soul in the most remote corners <br>
-                                                of the world.
-                                            </p>
-                                            <h3 class="text-bold">from 799USD</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <div class="swiper-slide" data-slide-bg="images/page-01_slide07.jpg" style="background-image: url('images/page-01_slide07.jpg');">
-                            <div class="swiper-slide-caption">
-                                <div class="container">
-                                    <div class="row text-center text-lg-left">
-                                        <div class="col-lg-3 col-md-12 preffix-1">
-                                            <h2 class="text-bold">01</h2>
-                                            <h2 class="text-bold">გუდაური</h2>
-                                            <p>
-                                                გუდაური საქართველოში ერთ-ერთი ყველაზე<br>
-                                                პოპულარული და ტურისტულად ატვირთული <br>
-                                                სამთო - სათხილამურო რეგიონია, რომელიც <br>
-                                                პოპულარობით სარგებლობს, როგორც ზამთარში,<br>
-                                                ასევე ზაფხულში. ის საშუალებას გაძლევთ ისიამოვნოთ <br>
-                                                ულამაზესი მთის პეიზაჟებით, ითხილამუროთ.. <br>
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-4 col-md-12 offset-1 display_none">
-                                            <p>
-                                                ფასში შედის: <br>
-                                                •	დახვედრა<br>
-                                                •	მგზავრობა<br>
-                                                •	გიდის მომსახურება<br>
-                                                •	სასტუმროში განთავსება<br>
-                                                •	სასრიალო აბონიმენტის ღირებულება<br>
-                                                •	მწვრთნელის მომსახურება (თხილამურით სრიალისას)<br>
-                                                •	კვება<br>
-                                                გერგეთი, სნო, მყინვარი...
-                                            </p>
-                                            <!--<h3 class="text-bold">ღირებულება 899 USD-დან</h3>-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
+
                     </div>
                     <!-- Slider Navigation -->
                     <div class="swiper-button-prev"></div>
@@ -454,46 +282,32 @@
         </div>
     </section>
     <!-- End Welcome -->
+
+
+
     <!-- Carousel -->
     <section class="well-sm">
         <div class="container">
             <!--<h2>New Tours</h2>-->
             <div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
-                <div class="owl-item">
-                    <img src="images/lg_page-1_img05.jpg" data-srcset-base="images/" data-srcset-ext="_page-1_img05.jpg" data-srcset="lg 991w, md 1199w, lg 1400w" alt="" width="1170" height="451">
-                    <div class="box-text">
-                        <h3>Spain tours</h3>
-                        <p class="text-white">
-                            If passion is what you're after, Spain is the answer. With sultry Flamenco shows, mouthwatering tapas, and the luxury of private guide, you'll discover a new rhythm of
-                            life.
-                        </p>
-                        <a class="btn btn-xs btn-default" href="#">&#8212; view tours</a>
+                <?php
+                    require_once "includes/events.inc.php";
+                    $events = getEvents($lang_key);
+
+                    foreach ($events as $event) {
+                        $img_src = $event['image_url'];
+                ?>
+                    <div class="owl-item">
+                        <img src="<?php echo $img_src ?>"  alt="" width="1170" height="451">
+                        <div class="box-text">
+                            <h3> <?php echo $event['title']; ?> </h3>
+                            <p class="text-white">
+                                <?php echo $event['intro']; ?>
+                            </p>
+                            <a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $event['keyword'];?>">&#8212; სრულად ნახვა </a>
+                        </div>
                     </div>
-                </div>
-                <div class="owl-item">
-                    <img src="images/lg_page-1_img06.jpg" data-srcset-base="images/" data-srcset-ext="_page-1_img06.jpg" data-srcset="lg 991w, md 1199w, lg 1400w" alt="" width="1170" height="451">
-                    <div class="box-text">
-                        <h3>Thailand tours</h3>
-                        <p class="text-white">
-                            Venture deep into the jungle to lost cities and experience the kaleidoscope that is Bangkok with private guide and then relax on serene beaches. A gateway to all South
-                            East Asia, Thailand awaits.
-                        </p>
-                        <a class="btn btn-xs btn-default" href="#">&#8212; view tours</a>
-                    </div>
-                </div>
-                <div class="owl-item">
-                    <img src="images/lg_page-1_img07.jpg" data-srcset-base="images/" data-srcset-ext="_page-1_img07.jpg" data-srcset="lg 991w, md 1199w, lg 1400w" alt="" width="1170" height="451">
-                    <div class="box-text">
-                        <h3>Italy tours</h3>
-                        <p class="text-white">
-                            So rich in historic, cultural, and gastronomic treasures,
-                            the only way to experience Italy is your way –
-                            with private guide and an itinerary perfectly
-                            matched to your passions.
-                        </p>
-                        <a class="btn btn-xs btn-default" href="#">&#8212; view tours</a>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
             <div class="carousel-counter-container">
                 <div class="current-counter"></div>
@@ -504,6 +318,9 @@
         </div>
     </section>
     <!-- End Carousel -->
+
+
+
     <!-- Welcome -->
     <section class="well-md" id="ex1">
         <div class="container">

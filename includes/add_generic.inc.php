@@ -56,11 +56,58 @@ if(isset($_POST['submit'])) {
                 } else {
                     $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, group_id, keyword) VALUES 
                                                     ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', $id, '$genpage_keyword')";
-                    $result = mysqli_query($conn, $sql);
+                    mysqli_query($conn, $sql);
                 }
             }
         }
-        header("Location: ../admin.php?tab=generic&message=success");
-        exit();
+
+        // adding images
+        $target_dir = "../images/generic_images/";
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        // Check if image file is a actual image or fake image
+        if (isset($_POST["submit"])) {
+            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+            if ($check !== false) {
+                echo "File is an image - " . $check["mime"] . ".";
+                $uploadOk = 1;
+            } else {
+                echo "File is not an image.";
+                $uploadOk = 0;
+            }
+        }
+        // Check file size
+        if ($_FILES["fileToUpload"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+        // Allow certain file formats
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif") {
+            echo "only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            $temp = explode(".", $_FILES["fileToUpload"]["name"]);
+            $newfilename = $id . '.' . end($temp);
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../images/tour_images/" . $newfilename)) {
+                echo "The file " . $newfilename . " has been uploaded."."</br>";
+                $url = 'images/generic_images/' . $newfilename;
+                $sql = "UPDATE generic_page_content SET image_url = '$url' WHERE group_id = $id";
+                mysqli_query($conn, $sql);
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+
+        //  /adding an image
+//
+//        header("Location: ../admin.php?tab=generic&message=success");
+//        exit();
     }
 }
