@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en" class="wide wow-animation">
 <head>
     <!-- Site Title -->
@@ -115,8 +115,8 @@
                             $slides = getSlides($lang);
                             $i = 1;
                             foreach ($slides as $slide) {
-                        ?>
-                        <div class="swiper-slide" data-slide-bg="images/page-01_slide01.jpg" style="background-image: url('images/page-01_slide01.jpg');">
+                                $img = $slide['image_url']; ?>
+                        <div class="swiper-slide" data-slide-bg="<?php echo $img; ?>" style="background-image: url('<?php echo $img; ?>');">
                             <div class="swiper-slide-caption">
                                 <div class="container">
                                     <div class="text-center text-lg-left">
