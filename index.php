@@ -122,7 +122,7 @@
                                     <div class="text-center text-lg-left">
                                         <div class="col-lg-3 col-md-12">
                                             <!-- <h2 class="text-bold"> <?php echo $i++; ?> </h2> -->
-                                            <h2 class="text-bold"> <?php echo $slide['title']; ?> </h2>
+                                            <h2 class="text-bold"> <a href="<?php echo $slide['tour_url']; ?>"> <?php echo $slide['title']; ?> </a> </h2>
                                             <?php echo $slide['intro']; ?>
                                         </div>
                                         <!-- <div class="col-lg-4 col-md-12 offset-1 display_none">
@@ -315,8 +315,7 @@
                         $id = $tour_ids[0]['tour_id'];
                         $content = getTourContent($id, $lang);
                         $tour = getTour($id);
-                        $images = getTourImages($id);
-                        ?>
+                        $images = getTourImages($id); ?>
                         <div class="col-md-6 col-sm-6">
                             <div class="box-skin-1">
                                 <img src="<?php echo $images[0]['image_url']; ?>" alt="tour_image" width="100%" height="100%">
