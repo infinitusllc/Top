@@ -290,28 +290,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <ul class="list1 text-sm-left text-center">
-                        <li>
-                            <span class="icon-lg material-icons-explore"></span>
-                            <h2>
-                                <a href="#">
-                                    ჩვენი<br />მხარდაჭერა
-                                </a>
-                            </h2>
-                        </li>
-                        <li>
-                            <span class="icon-lg material-icons-drafts"></span>
-                            <h2> <a href="#">გამოწერე<br />ჩვენი სიახლეები</a></h2>
-                        </li>
-                        <li>
-                            <span class="icon-lg material-icons-mouse"></span>
-                            <h2> <a href="#">გააკეთე<br />რეზერვაცია</a></h2>
-                        </li>
-                        <li>
-                            <span class="icon-lg material-icons-assignment"></span>
-                            <h2> <a href="#">დარეგისტრირდი<br />გახდი მოგზაური</a></h2>
-                        </li>
+                    <?php
+                        require_once "includes/categories.inc.php";
+
+                        $types = getTypes($lang_key);
+                        foreach ($types as $type) {
+                            echo $type['tour_type'];
+                            $categories = getCategoriesByType($lang_key, $type['group_id']);
+                            ?>
+                    <ul class="type-list" style="margin-bottom: 50px;">
+                        <?php foreach ($categories as $category) { ?>
+                            <li class="category-list-item"> <?php echo $category['tour_category']; ?> </li>
+                        <?php } ?>
                     </ul>
+                    <?php } ?>
                 </div>
                 <div class="col-md-8 offset-2 text-lg-left text-center">
                     <div class="row">
