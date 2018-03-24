@@ -106,7 +106,6 @@
         CONTENT
         =========================================================-->
         <main class="page-content">
-
             <section>
                 <!-- Swiper -->
                 <div class="swiper-container swiper-slider" data-height="853px" data-min-height="500px" data-autoplay="false">
@@ -120,20 +119,16 @@
                         <div class="swiper-slide" data-slide-bg="images/page-01_slide01.jpg" style="background-image: url('images/page-01_slide01.jpg');">
                             <div class="swiper-slide-caption">
                                 <div class="container">
-                                    <div class="row text-center text-lg-left">
-                                        <div class="col-lg-3 col-md-12 preffix-1">
-                                            <h2 class="text-bold"> <?php echo $i++; ?> </h2>
+                                    <div class="text-center text-lg-left">
+                                        <div class="col-lg-3 col-md-12">
+                                            <!-- <h2 class="text-bold"> <?php echo $i++; ?> </h2> -->
                                             <h2 class="text-bold"> <?php echo $slide['title']; ?> </h2>
-
                                             <?php echo $slide['intro']; ?>
-
                                         </div>
-                                        <div class="col-lg-4 col-md-12 offset-1 display_none">
-
+                                        <!-- <div class="col-lg-4 col-md-12 offset-1 display_none">
                                             <?php echo $slide['description']; ?>
-
-                                            <!--<h3 class="text-bold">ღირებულება 899 USD-დან</h3>-->
-                                        </div>
+                                            <h3 class="text-bold">ღირებულება 899 USD-დან</h3>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +142,8 @@
                 </div>
                 <!-- END Swiper -->
                 <div id="sc_down">
-                    <a class="btn" href="#ex1">ჩასქროლე</a>
+                    <a href="#ex1"><div class="mouse"></div></a>
+					<a href="#ex1" class="mouse-hover"><div class="mouse"></div></a>
                 </div>
             </section>
             <section id="rd-topmenu">
@@ -160,9 +156,12 @@
                         <li><a href="#contact">  კონტაქტი </a></li>
                     </ul>
                     <ul class="navbar-flags">
-                        <li><a href="index.php?lang=geo"> <img src="images/geo.png"> </a></li>
+                        <li><a href="index.php?lang=geo"> <img src="images/geo-scr.png"> </a></li>
+                        <li><a href="index.php?lang=eng"> <img src="images/eng-scr.png"> </a></li>
+                        <li><a href="index.php?lang=rus"> <img src="images/rus-scr.png"> </a></li>
+						<!-- <li><a href="index.php?lang=geo"> <img src="images/geo.png"> </a></li>
                         <li><a href="index.php?lang=eng"> <img src="images/eng.png"> </a></li>
-                        <li><a href="index.php?lang=rus"> <img src="images/rus.png"> </a></li>
+                        <li><a href="index.php?lang=rus"> <img src="images/rus.png"> </a></li> -->
                     </ul>
                     <ul class="navbar-user">
                         <li>
@@ -173,80 +172,6 @@
                 </div>
                 <!-- END RD Mailform -->
             </section>
-    <section id="tour-search-section">
-        <div class="container">
-            <!-- RD Mailform -->
-            <form class='rd-mailform1' method="post" action="includes/tour_search.inc.php">
-                <!-- RD Mailform Type -->
-                <input type="hidden" name="form-type" value="contact" />
-                <!-- END RD Mailform Type -->
-                <!--<h4 class="text-bold">მოძებნე ტური</h4>-->
-                <p>ტურის კატეგორია</p>
-                <label data-add-placeholder>
-                    <select name="tour_category" onchange="displayTypes(this)" style="width: 302px;height: 36px;    border: 1px solid #9f9f9f;">
-                        <?php
-                        require_once "includes/categories.inc.php";
-                        $categories = getCategories($lang_key);
-                        if (isset($_GET['category'])) {
-                        foreach ($categories as $category) {
-                        if ($category['tour_category_id'] == $_GET['category']) { ?>
-                        <option value="<?php echo $category['tour_category_id']; ?>"> <?php echo $category['tour_category']; ?> </option>
-                        <option value="-1"> არიჩიეთ კატეგორია </option>
-                        <?php
-                        break;
-                        }
-                        }
-                        } else {
-                        echo "";?>
-                        <option value="-1"> არიჩიეთ კატეგორია </option>
-                        <?php }
-                        foreach ($categories as $category) {
-                        if (! (isset($_GET['category']) and $_GET['category'] === $category['tour_category_id'])) {
-                        ?>
-                        <option value="<?php echo $category['tour_category_id']; ?>"> <?php echo $category['tour_category']; ?> </option>
-                        <?php
-                        }
-                        }
-                        ?>
-                    </select>
-                </label>
-                <p>ტურის ტიპი</p>
-                <label data-add-placeholder>
-                    <select name="tour_type" style="width: 302px;  height: 36px;  border: 1px solid #9f9f9f;">
-                        <option value="-1"> არიჩიეთ ტიპი </option>
-                        <?php
-                        $types = getTypes($lang_key);
-                        if (isset($_GET['category'])) {
-                        $types = getTypesByCategory($lang_key, $_GET['category']);
-                        }
-
-                        foreach ($types as $type) {
-                        ?>
-                        <option value="<?php echo $type['id']; ?>"> <?php echo $type['tour_type']; ?> </option>
-                        <?php
-                        }
-                        ?>
-                    </select>
-                </label>
-                <?php
-                ?>
-                <p>ქალაქი: </p>
-                <label data-add-placeholder>
-                    <input type="text" style="width: 302px;    border: 1px solid #9f9f9f;" name="tour_cities" />
-                </label>
-                <p>ტურის სახელი:</p>
-                <label data-add-placeholder>
-                    <input type="text" style="width: 302px;    border: 1px solid #9f9f9f;" name="tour_name" />
-                </label>
-                <input type="hidden" name="lang" value="<?php echo $lang; ?>">
-                <div class="mfControls">
-                    <button class="btn btn-sm btn-primary" type="submit" name="submit">ძებნა</button>
-                </div>
-                <div class="mfInfo"></div>
-            </form>
-            <!-- END RD Mailform -->
-        </div>
-    </section>
     <!-- Welcome -->
     <section class="well-welcome" id="ex1">
         <div class="container">

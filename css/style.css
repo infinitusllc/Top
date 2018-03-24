@@ -8038,11 +8038,62 @@ hr {
 /*
 * @subsection   Scroll Down
 */
+.mouse {
+    width: 25px;
+    height: 45px;
+    border: 2px solid #fff;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    margin-left: -12.5px;
+    border-radius: 12px;
+}
+@-webkit-keyframes rotateplane {
+    0%   {top:10px;}
+    25%  {top:14px;}
+    50%  {top:19px;}
+    75%  {top:24px;}
+    100% {top:28px;}
+}
+@-moz-keyframes rotateplane {
+    0%   {top:10px;}
+    25%  {top:14px;}
+    50%  {top:19px;}
+    75%  {top:24px;}
+    100% {top:28px;}
+}
+@-o-keyframes rotateplane {
+    0%   {top:10px;}
+    25%  {top:14px;}
+    50%  {top:19px;}
+    75%  {top:24px;}
+    100% {top:28px;}
+}
+.mouse::after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    background-color: #fff;
+    border-radius: 100%;
+    left: 50%;
+    top:10px;
+    margin-left: -2.5px;
+    transition:all 0.3s ease-in;
+ 
+    -webkit-animation-name: rotateplane; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 2s; /* Chrome, Safari, Opera */
+    animation-name: rotateplane;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+
 #sc_down {
     color: #fff;
     text-align: center;
     z-index: 22;
-    bottom: 51px;
+    /*bottom: 51px;*/
     font-weight: 700;
     letter-spacing: 1.8px;
     position: relative;
@@ -8058,7 +8109,7 @@ hr {
             top: -25px;
             left: 50%;
             margin-left: -10px;
-            background: url("../images/arrow_sc_down.png") 0px -100px no-repeat;
+            /*background: url("../images/arrow_sc_down.png") 0px -100px no-repeat;*/
             width: 21px;
             height: 100px;
             overflow: hidden;
@@ -14686,7 +14737,7 @@ div .rd-mailform1 .mfControls {
     transition: .3s all ease;
     display: none;
     position: absolute;
-    top: 20.5%;
+    top: 43%;
     overflow: hidden;
     line-height: 66px;
     text-align: center;
