@@ -7,21 +7,11 @@ if(isset($_POST['submit'])) {
     include "languages.inc.php";
     $isChange = mysqli_real_escape_string($conn, $_POST["change"]);
 
-    $empty = 1;
     foreach ($languages as $language) {
         $suffix = $language['keyword'];
         $slide_intro = mysqli_real_escape_string($conn, $_POST["slide_intro_$suffix"]);
         $slide_description = mysqli_real_escape_string($conn, $_POST["slide_description_$suffix"]);
-
-        if (!empty($slide_intro) && !empty($slide_description))
-            $empty = 0;
     }
-
-    if ($empty == 1) {
-        header("Location: ../admin.php?tab=generic&message=error1");
-        exit();
-    }
-
 
     if ($conn) {
         $change = mysqli_real_escape_string($conn, $_POST['is_change']);
@@ -39,12 +29,11 @@ if(isset($_POST['submit'])) {
 
             foreach ($languages as $language) {
                 $suffix = $language['keyword'];
-                $slide_title = mysqli_real_escape_string($conn, $_POST["slide_title_$suffix"]);
                 $slide_intro = mysqli_real_escape_string($conn, $_POST["slide_intro_$suffix"]);
                 $slide_description = mysqli_real_escape_string($conn, $_POST["slide_description_$suffix"]);
 
-                $sql = "INSERT INTO slide_content (slide_id, intro, description, lang_key, title) 
-                                           VALUES ($id, '$slide_intro', '$slide_description', '$suffix', '$slide_title')";
+                $sql = "INSERT INTO slide_content (slide_id, intro, description, lang_key) 
+                                           VALUES ($id, '$slide_intro', '$slide_description', '$suffix')";
                 mysqli_query($conn, $sql);
             }
 
@@ -116,7 +105,7 @@ if(isset($_POST['submit'])) {
                 $slide_intro = mysqli_real_escape_string($conn, $_POST["slide_intro_$suffix"]);
                 $slide_description = mysqli_real_escape_string($conn, $_POST["slide_description_$suffix"]);
 
-                $sql = "UPDATE slide_content SET intro = '$slide_intro', description = '$slide_description', title = '$slide_title'
+                $sql = "UPDATE slide_content SET intro = '$slide_intro', description = '$slide_description'
                                     WHERE lang_key = '$suffix' AND slide_id = $id";
                 mysqli_query($conn, $sql);
             }

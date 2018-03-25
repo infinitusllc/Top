@@ -122,8 +122,7 @@
                                     <div class="text-center text-lg-left">
                                         <div class="col-lg-3 col-md-12">
                                             <!-- <h2 class="text-bold"> <?php echo $i++; ?> </h2> -->
-                                            <h2 class="text-bold"> <a href="<?php echo $slide['tour_url']; ?>"> <?php echo $slide['title']; ?> </a> </h2>
-                                            <?php echo $slide['intro']; ?>
+                                            <a href="<?php echo $slide['tour_url']; ?>"> <?php echo $slide['intro']; ?> </a>
                                         </div>
                                         <!-- <div class="col-lg-4 col-md-12 offset-1 display_none">
                                             <?php echo $slide['description']; ?>

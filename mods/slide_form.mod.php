@@ -67,9 +67,7 @@
                 <h3 style="text-align: center"> ენა: <?php echo $language['name'] ?> </h3>
 
                 <div style="width: 800px; margin: auto; padding-top: 50px; text-align: center">
-                    <p style="margin:auto"> სათაური </p>
-                    <input type="text" name="slide_title_<?php echo $language['keyword']; ?>" title="title" <?php if($change) echo 'value="'.$s['title'].'"'; ?>>
-                    <p style="text-align: center"> სლაიდის ინტრო: * </p>
+                    <p style="text-align: center"> სლაიდის ინტრო: </p>
                     <textarea name="slide_intro_<?php echo $language['keyword']; ?>" form="slide-form" class="textInput htmlClass" id="slide_intro_<?php echo $language['keyword']; ?>" placeholder="ინტრო"> <?php if($change) echo $s['intro']; ?> </textarea> </br>
                     <script>
                         CKEDITOR.replace( "slide_intro_<?php echo $language['keyword']; ?>" );
@@ -95,7 +93,7 @@
                    <p> ქივორდი (იუზერი ვერ ხედავს): * </p>
                    <input name="slide_keyword" class="textInput" placeholder="*" id="slide_name_<?php echo $language['keyword']; ?>" <?php if($change) echo 'value="'.$s['keyword'].'"'; ?>/> </br>
                     <p> შესაბამისი ტურის url </p>
-                   <input name="slide_tour_url" class="textInput" placeholder="*" id="slide_name_<?php echo $language['keyword']; ?>" <?php if($change) echo 'value="'.$s['tour_url'].'"'; ?>/> </br>
+                   <input name="slide_tour_url" class="textInput" placeholder="" id="slide_name_<?php echo $language['keyword']; ?>" <?php if($change) echo 'value="'.$s['tour_url'].'"'; ?>/> </br>
                </div>
                <p> სურათი: </p>
                <input type="file" name="fileToUpload" id="fileToUpload" style="margin-left: 100px;"> </br>
