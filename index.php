@@ -124,8 +124,8 @@
                                             <!-- <h2 class="text-bold"> <?php echo $i++; ?> </h2> -->
                                             <a href="<?php echo $slide['tour_url']; ?>"> <?php echo $slide['intro']; ?> </a>
                                         </div>
+                                        <?php echo $slide['description']; ?>
                                         <!-- <div class="col-lg-4 col-md-12 offset-1 display_none">
-                                            <?php echo $slide['description']; ?>
                                             <h3 class="text-bold">ღირებულება 899 USD-დან</h3>
                                         </div> -->
                                     </div>
