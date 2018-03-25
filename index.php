@@ -122,7 +122,7 @@
                                     <div class="text-center text-lg-left">
                                         <div class="col-lg-3 col-md-12">
                                             <!-- <h2 class="text-bold"> <?php echo $i++; ?> </h2> -->
-                                            <h2 class="text-bold"> <?php echo $slide['title']; ?> </h2>
+                                            <h2 class="text-bold text-slide-title"> <?php echo $slide['title']; ?> </h2>
                                             <?php echo $slide['intro']; ?>
                                         </div>
                                         <!-- <div class="col-lg-4 col-md-12 offset-1 display_none">

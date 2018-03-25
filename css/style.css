@@ -202,6 +202,8 @@ html.boxed .page {
     margin-right: -15px;*/
 }
 
+
+
 [class*='col-'] {
     padding-left: 15px;
     padding-right: 15px;
@@ -8346,6 +8348,17 @@ html body .page .text-contrast-1 {
     font-weight: 600;
 }
 
+.text-slide-title {
+    font-size: 150px;
+    text-align: center;
+    padding-top: 212px;
+    text-shadow: 0px 1px 0px #333;
+    /* font-family: "BPG Arial Caps",sans-serif; */
+    /* opacity: 0; */
+}
+
+
+
 .text-bold, strong {
     font-weight: 700;
 }
@@ -13031,12 +13044,12 @@ a.icon-primary:hover {
 * @version      2.0.0
 */
 .rd-navbar-brand {
-    padding-top: 21px;
+    padding-top: 4px;
     margin-left: 2px;
     letter-spacing: 2.4px;
     text-transform: uppercase;
     position: absolute;
-    z-index: 11;
+    z-index: 71;
 }
 
 @media (max-width: 1600px) {
@@ -13080,10 +13093,14 @@ div .navbar-nav {
 @media (min-width: 1200px) {
     div .navbar-nav {
         position: absolute;
-        width: 512px;
-        padding: 0px 0px 20px 0px;
-        top: 62px;
-        left: 800px;
+        width: 1903px;
+        padding: 44px 0px 40px 773px;
+        top: 0px;
+        left: 0px;
+        background-color: #f4f2f2;
+        opacity: 0.9;
+        /* box-shadow: 1px 1px 1px #818189; */
+        /* color: #fff; */
     }
 }
 
@@ -13115,20 +13132,19 @@ div .navbar-nav {
         padding-top: 10px;
         padding-bottom: 10px;
         line-height: 20px;
-        text-shadow: 1px 1px 1px #333;
-        color: white;
+        /* text-shadow: 0px 0px 1px #333; */
+        color: #333;
+        font-size: 19px;
     }
 
 @media (max-width:767px) {
     .navbar-nav .open .dropdown-menu {
-        position: static;
-        float: none;
-        width: auto;
-        margin-top: 0;
-        background-color: transparent;
-        border: 0;
-        -webkit-box-shadow: none;
-        box-shadow: none
+            padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px;
+    /* text-shadow: 0px 0px 1px #333; */
+    color: #333;
+    font-size: 19px;
     }
 
         .navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .dropdown-menu > li > a {
@@ -13171,8 +13187,9 @@ div .navbar-flags {
         position: absolute;
         width: 512px;
         padding: 0;
-        top: 62px;
-        left: 1310px;
+        top: 30px;
+        left: 1300px;
+        /* opacity: 0; */
     }
 }
 
@@ -13261,9 +13278,10 @@ div .navbar-user {
         position: absolute;
         width: 770px;
         padding: 0;
-        top: 63px;
-        left: 1451px;
-        font-size: 43px;
+        top: 43px;
+        left: 1460px;
+        font-size: 37px;
+        /* opacity: 0; */
     }
 }
 
@@ -13295,7 +13313,7 @@ div .navbar-user {
         padding-top: 10px;
         padding-bottom: 10px;
         line-height: 20px;
-        text-shadow: 1px 1px 1px #333;
+        /* text-shadow: 1px 1px 1px #333; */
         color: #6f588a;
     }
 
@@ -14708,12 +14726,12 @@ div .rd-mailform1 .mfControls {
 }
 
     .swiper-button-prev:hover {
-        background-position: -310px 0px;
+        background-position: -39px 0px;
     }
 
 .swiper-button-next {
     background: url("../images/slide-next.png") no-repeat;
-    background-position: -530px 0px;
+    background-position: -59px 0px;
 }
 
 @media (min-width: 2050px) {
@@ -14723,7 +14741,7 @@ div .rd-mailform1 .mfControls {
 }
 
 .swiper-button-next:hover {
-    background-position: -220px 0px;
+    background-position: 0px 0px;
 }
 
 @media (min-width: 2050px) {
@@ -14744,7 +14762,7 @@ div .rd-mailform1 .mfControls {
     z-index: 10;
     cursor: pointer;
     color: #fff;
-    width: 90px;
+    width: 40px;
     height: 66px;
 }
 
@@ -14772,7 +14790,7 @@ div .rd-mailform1 .mfControls {
 @media (max-width: 1199px) {
     .swiper-button-prev,
     .swiper-button-next {
-        width: 90px;
+        width: 40px;
         top: 80.2%;
     }
 }
