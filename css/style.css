@@ -13261,7 +13261,7 @@ div .navbar-user {
         position: absolute;
         width: 770px;
         padding: 0;
-        top: 63px;
+        top: 70px;
         left: 1451px;
         font-size: 43px;
     }
@@ -13269,7 +13269,7 @@ div .navbar-user {
 
 @media (max-width: 1600px) {
     div .navbar-user {
-        top: 106px;
+        top: 116px;
     }
 }
 
@@ -13286,7 +13286,7 @@ div .navbar-user {
     position: absolute;
     width: 770px;
     padding: 20px 35px 38px 33px;
-    top: 23px;
+    top: 33px;
     left: 500px;
     z-index: 27;
 }

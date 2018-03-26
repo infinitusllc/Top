@@ -18,12 +18,12 @@
     <script>
         function openNav() {
             document.getElementById("login-form").style.display = "block";
-            document.getElementById("content-section").style.display = "none";
+            // document.getElementById("content-section").style.display = "none";
         }
 
         function closeNav() {
             document.getElementById("login-form").style.display = "none";
-            document.getElementById("content-section").style.display = "block";
+            // document.getElementById("content-section").style.display = "block";
         }
 
         function displayTypes(selectObject) {
@@ -87,11 +87,36 @@
         <!--========================================================
         HEADER
         =========================================================-->
+        <div style="position: fixed; top: 0; background-color: lavender; width: 100%; height: 60px; z-index: 100">
+            <section id="rd-topmenu">
+                <div style="position: relative; bottom: 50px">
+                    <!-- RD Mailform -->
+                    <ul class="navbar-nav">
+                        <li><a href="#news">ტურები</a></li>
+                        <li><a href="#products">ჩვენს შესახებ</a></li>
+                        <li><a href="#faculity-member">პარტნიორები</a></li>
+                        <li><a href="#contact">  კონტაქტი </a></li>
+                    </ul>
+                    <ul class="navbar-flags">
+                        <li><a href="index.php?lang=geo"> <img src="images/geo-scr.png"> </a></li>
+                        <li><a href="index.php?lang=eng"> <img src="images/eng-scr.png"> </a></li>
+                        <li><a href="index.php?lang=rus"> <img src="images/rus-scr.png"> </a></li>
+                        <!-- <li><a href="index.php?lang=geo"> <img src="images/geo.png"> </a></li>
+                        <li><a href="index.php?lang=eng"> <img src="images/eng.png"> </a></li>
+                        <li><a href="index.php?lang=rus"> <img src="images/rus.png"> </a></li> -->
+                    </ul>
+                    <ul class="navbar-user" >
+                        <li><a href="#"><span onclick="openNav()" class="material-icons-account_circle"></span></a></li>
+                    </ul>
+
+                </div>
+        </div>
+
         <header class="page-header">
             <div class="container">
                 <!-- RD Navbar Brand -->
                 <div class="rd-navbar-brand">
-                    <a href="index.php" class="brand-name primary-color">
+                    <a href="index.php" class="brand-name primary-color" style="position: relative; top: 60px">
                         <img src="images/logo1.png" data-srcset-base="images/" data-srcset-ext="logo.png" alt="" width="322" height="100">
                     </a>
                     <!--<a href="index.php" class="brand-name primary-color">
@@ -105,7 +130,7 @@
         <!--========================================================
         CONTENT
         =========================================================-->
-        <main class="page-content">
+        <main class="page-content" style="margin-top: 30px">
             <section>
                 <!-- Swiper -->
                 <div class="swiper-container swiper-slider" data-height="853px" data-min-height="500px" data-autoplay="false">
@@ -145,30 +170,7 @@
 					<a href="#ex1" class="mouse-hover"><div class="mouse"></div></a>
                 </div>
             </section>
-            <section id="rd-topmenu">
-                <div class="container">
-                    <!-- RD Mailform -->
-                    <ul class="navbar-nav">
-                        <li><a href="#news">ტურები</a></li>
-                        <li><a href="#products">ჩვენს შესახებ</a></li>
-                        <li><a href="#faculity-member">პარტნიორები</a></li>
-                        <li><a href="#contact">  კონტაქტი </a></li>
-                    </ul>
-                    <ul class="navbar-flags">
-                        <li><a href="index.php?lang=geo"> <img src="images/geo-scr.png"> </a></li>
-                        <li><a href="index.php?lang=eng"> <img src="images/eng-scr.png"> </a></li>
-                        <li><a href="index.php?lang=rus"> <img src="images/rus-scr.png"> </a></li>
-						<!-- <li><a href="index.php?lang=geo"> <img src="images/geo.png"> </a></li>
-                        <li><a href="index.php?lang=eng"> <img src="images/eng.png"> </a></li>
-                        <li><a href="index.php?lang=rus"> <img src="images/rus.png"> </a></li> -->
-                    </ul>
-                    <ul class="navbar-user">
-                        <li>
-                        <li><a href="#"><span onclick="openNav()" class="material-icons-account_circle"></span></a></li>
-                        </li>
-                    </ul>
 
-                </div>
                 <!-- END RD Mailform -->
             </section>
     <!-- Welcome -->
