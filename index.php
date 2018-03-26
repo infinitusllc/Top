@@ -87,30 +87,7 @@
         <!--========================================================
         HEADER
         =========================================================-->
-        <div style="position: fixed; top: 0; background-color: lavender; width: 100%; height: 60px; z-index: 100">
-            <section id="rd-topmenu">
-                <div style="position: relative; bottom: 50px">
-                    <!-- RD Mailform -->
-                    <ul class="navbar-nav">
-                        <li><a href="#news">ტურები</a></li>
-                        <li><a href="#products">ჩვენს შესახებ</a></li>
-                        <li><a href="#faculity-member">პარტნიორები</a></li>
-                        <li><a href="#contact">  კონტაქტი </a></li>
-                    </ul>
-                    <ul class="navbar-flags">
-                        <li><a href="index.php?lang=geo"> <img src="images/geo-scr.png"> </a></li>
-                        <li><a href="index.php?lang=eng"> <img src="images/eng-scr.png"> </a></li>
-                        <li><a href="index.php?lang=rus"> <img src="images/rus-scr.png"> </a></li>
-                        <!-- <li><a href="index.php?lang=geo"> <img src="images/geo.png"> </a></li>
-                        <li><a href="index.php?lang=eng"> <img src="images/eng.png"> </a></li>
-                        <li><a href="index.php?lang=rus"> <img src="images/rus.png"> </a></li> -->
-                    </ul>
-                    <ul class="navbar-user" >
-                        <li><a href="#"><span onclick="openNav()" class="material-icons-account_circle"></span></a></li>
-                    </ul>
-
-                </div>
-        </div>
+        <?php include "mods/header.mod.php"; ?>
 
         <header class="page-header">
             <div class="container">
@@ -130,49 +107,9 @@
         <!--========================================================
         CONTENT
         =========================================================-->
-        <main class="page-content" style="margin-top: 30px">
-            <section>
-                <!-- Swiper -->
-                <div class="swiper-container swiper-slider" data-height="853px" data-min-height="500px" data-autoplay="false">
-                    <div class="swiper-wrapper">
-                        <?php
-                            require_once "includes/slides.inc.php";
-                            $slides = getSlides($lang);
-                            $i = 1;
-                            foreach ($slides as $slide) {
-                                $img = $slide['image_url']; ?>
-                        <div class="swiper-slide" data-slide-bg="<?php echo $img; ?>" style="background-image: url('<?php echo $img; ?>');">
-                            <div class="swiper-slide-caption">
-                                <div class="container">
-                                    <div class="text-center text-lg-left">
-                                        <div class="col-lg-3 col-md-12">
-                                            <!-- <h2 class="text-bold"> <?php echo $i++; ?> </h2> -->
-                                            <a href="<?php echo $slide['tour_url']; ?>"> <?php echo $slide['intro']; ?> </a>
-                                        </div>
-                                        <?php echo $slide['description']; ?>
-                                        <!-- <div class="col-lg-4 col-md-12 offset-1 display_none">
-                                            <h3 class="text-bold">ღირებულება 899 USD-დან</h3>
-                                        </div> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <?php } ?>
 
-                    </div>
-                    <!-- Slider Navigation -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-                <!-- END Swiper -->
-                <div id="sc_down">
-                    <a href="#ex1"><div class="mouse"></div></a>
-					<a href="#ex1" class="mouse-hover"><div class="mouse"></div></a>
-                </div>
-            </section>
+        <?php include "mods/slide_display.mod.php"; ?>
 
-                <!-- END RD Mailform -->
-            </section>
     <!-- Welcome -->
     <section class="well-welcome" id="ex1">
         <div class="container">
