@@ -3,7 +3,23 @@
                 <div style="position: relative; bottom: 50px">
                     <!-- RD Mailform -->
                     <ul class="navbar-nav" style="width: fit-content; position: absolute; left: 500px;">
-                        <li><a href="#news">ტურები</a></li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="dropbtn">ტურები</button>
+                                <div class="dropdown-content">
+                                    <?php
+                                    require_once "includes/categories.inc.php";
+
+                                    $types = getTypes($lang_key);
+                                    foreach ($types as $type) { ?>
+                                    <form id="<?php echo $type['tour_type'].'_tours1'; ?>" method="post" action="includes/tour_search.inc.php">
+                                        <input type="hidden" name="tour_type" value="<?php echo $type['id']; ?>">
+                                        <p style="text-align: center"> <a href="#" onclick="document.getElementById(<?php echo "'".$type['tour_type']."_tours1'"; ?>).submit();"><?php echo $type['tour_type']; ?></a></p>
+                                    </form>
+                                    <?php }?>
+                                </div>
+                            </div>
+                        </li>
                         <?php
                             if (isset($_SESSION["logged"]) && $_SESSION["logged"] == true) {
                         ?>

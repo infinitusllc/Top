@@ -29,9 +29,9 @@
         function displayTypes(selectObject) {
             var value = selectObject.value;
             if (value === '-1') {
-                window.location.href = 'index.php?';
+                window.location.href = 'search_results.php?';
             } else {
-                window.location.href = 'index.php?category=' + value;
+                window.location.href = 'search_results.php?category=' + value;
             }
         }
 
