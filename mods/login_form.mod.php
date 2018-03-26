@@ -8,7 +8,7 @@ if(isset($_COOKIE['e_mail']) and isset($_COOKIE['password'])
 }
 ?>
 
-<div id="login-form" class="overlay">
+<div id="login-form" class="overlay" style="z-index: 110">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content" style="background-color: gray; width: fit-content; padding: 50px; margin: auto">
         <h4 style="margin-bottom: 15px"> შესვლა </h4>

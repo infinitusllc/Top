@@ -29,9 +29,9 @@
         function displayTypes(selectObject) {
             var value = selectObject.value;
             if (value === '-1') {
-                window.location.href = 'index.php?';
+                window.location.href = 'search_results.php?';
             } else {
-                window.location.href = 'index.php?category=' + value;
+                window.location.href = 'search_results.php?category=' + value;
             }
         }
 
@@ -91,6 +91,8 @@
     <!--========================================================
                               HEADER
     =========================================================-->
+    <?php include "mods/header.mod.php"; ?>
+
     <header class="page-header">
         <div class="container">
             <!-- RD Navbar Brand -->
@@ -109,213 +111,9 @@
     <main class="page-content">
         <section>
 
-            <!-- bonus header -->
-            <!--          if not logged in      -->
-            <?php if (!isset($_SESSION["logged"]) || $_SESSION["logged"] == false) { ?>
-            <div style="width: 50%; position:relative; left: 70%">
-                <span style="cursor:pointer" onclick="openNav()">&#9776; შესვლა / რეგისტრაცია </span>
-                <?php } else { ?>
-                <div style="width: 50%;  position:relative; left: 40%">
-                    <p style="display: inline-block; margin: 5px"> <span> <?php echo $contents['main_page_username']; ?> </span> <?php echo $_SESSION['user']['name']; ?> </p>
-                    <form action="profile.php" style="display: inline-block; margin: 5px">
-                        <input type="submit" value="ჩემი პროფილი" />
-                    </form>
-                    <?php if ($_SESSION['user']['is_admin'] == 1) { ?>
-                        <form action="admin.php" style="display: inline-block; margin: 5px">
-                            <input type="submit" value="ადმინის პანელი" />
-                        </form>
-                    <?php } ?>
-                    <form action="includes/logout.inc.php" style="display: inline-block; margin: 5px">
-                        <input type="submit" value="გამოსვლა" />
-                    </form>
-                    <?php } ?>
-                    <a href="index.php?lang=geo"> <img src="images/geo.png"> </a>
-                    <a href="index.php?lang=eng"> <img src="images/eng.png"> </a>
-                    <a href="index.php?lang=rus"> <img src="images/rus.png"> </a>
-             </div>
-
             <!-- Swiper -->
-            <div class="swiper-container swiper-slider" data-height="853px" data-min-height="500px" data-autoplay="false">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" data-slide-bg="images/page-01_slide01.jpg" style="background-image: url('images/page-01_slide01.jpg');">
-                        <div class="swiper-slide-caption">
-                            <div class="container">
-                                <div class="row text-center text-lg-left">
-                                    <div class="col-lg-3 col-md-12 preffix-1">
-                                        <h2 class="text-bold">01/</h2>
-                                        <h2 class="text-bold">გერგეთი</h2>
-                                        <p>
-                                            6-7 ღამე, ბილეთების საფასური,<br>
-                                            3-5 ვარსკვლავიანი სასტუმროები
-                                        </p>
-                                        <h4>
-                                            ქართლი, ყაზბეგის რაიონი,<br>
-                                            გერგეთი, სნო, მყინვარი...
-                                        </h4>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12 offset-1 display_none">
-                                        <p>
-                                            შესანიშნავი ბუნება, დაუვიწყარი სანახაობა და სიმაღლეები. სათხილამურო ტრასები და სრული მომსახურება, ტრანსპორტირება და დაბინავება.
-                                            თქვენ შესაძლებლობა გეძლევათ იხილოთ<br>
-                                            უმშვენიერესი მწვერვალები.
-                                        </p>
-                                        <h3 class="text-bold">ღირებულება 899 USD-დან</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" data-slide-bg="images/page-01_slide02.jpg"  style="background-image: url('images/page-01_slide02.jpg');">
-                        <div class="swiper-slide-caption">
-                            <div class="container">
-                                <div class="row text-center text-lg-left">
-                                    <div class="col-lg-3 col-md-12 preffix-1">
-                                        <h2 class="text-bold">02/</h2>
-                                        <h2 class="text-bold">UK</h2>
-                                        <p>
-                                            6-7 nights, airfare,<br>
-                                            3-5 star hotels
-                                        </p>
-                                        <h4>
-                                            London, Liverpool,<br>
-                                            Edinburgh...
-                                        </h4>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12 offset-1 display_none">
-                                        <p>
-                                            We handpicked hundreds of the most spectacular destinations on all
-                                            continents. Relax your body and
-                                            soul in the most remote corners <br>
-                                            of the world.
-                                        </p>
-                                        <h3 class="text-bold">from 799USD</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" data-slide-bg="images/page-01_slide03.jpg"  style="background-image: url('images/page-01_slide03.jpg');">
-                        <div class="swiper-slide-caption">
-                            <div class="container">
-                                <div class="row text-center text-lg-left">
-                                    <div class="col-lg-3 col-md-12 preffix-1">
-                                        <h2 class="text-bold">03/</h2>
-                                        <h2 class="text-bold">Islands</h2>
-                                        <p>
-                                            6-7 nights, airfare,<br>
-                                            3-5 star hotels
-                                        </p>
-                                        <h4>
-                                            Bora-Bora, Hawaii,<br>
-                                            Maldives...
-                                        </h4>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12 offset-1 display_none">
-                                        <p>
-                                            We handpicked hundreds of the most spectacular destinations on all
-                                            continents. Relax your body and
-                                            soul in the most remote corners <br>
-                                            of the world.
-                                        </p>
-                                        <h3 class="text-bold">from 699USD</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" data-slide-bg="images/page-01_slide04.jpg" style="background-image: url('images/page-01_slide04.jpg');">
-                        <div class="swiper-slide-caption">
-                            <div class="container">
-                                <div class="row text-center text-lg-left">
-                                    <div class="col-lg-3 col-md-12 preffix-1">
-                                        <h2 class="text-bold">01/</h2>
-                                        <h2 class="text-bold">China</h2>
-                                        <p>
-                                            6-7 nights, airfare,<br>
-                                            3-5 star hotels
-                                        </p>
-                                        <h4>
-                                            Beijing, Shanghai,<br>
-                                            Xi'an, Tibet ...
-                                        </h4>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12 offset-1 display_none">
-                                        <p>
-                                            We handpicked hundreds of the most spectacular destinations on all
-                                            continents. Relax your body and
-                                            soul in the most remote corners <br>
-                                            of the world.
-                                        </p>
-                                        <h3 class="text-bold">from 899 USD</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--<div class="swiper-slide" data-slide-bg="images/page-01_slide05.jpg">
-                        <div class="swiper-slide-caption">
-                            <div class="container">
-                                <div class="row text-center text-lg-left">
-                                    <div class="col-lg-3 col-md-12 preffix-1">
-                                        <h2 class="text-bold">02/</h2>
-                                        <h2 class="text-bold">UK</h2>
-                                        <p>
-                                            6-7 nights, airfare,<br>
-                                            3-5 star hotels
-                                        </p>
-                                        <h4>
-                                            London, Liverpool,<br>
-                                            Edinburgh...
-                                        </h4>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12 offset-1 display_none">
-                                        <p>
-                                            We handpicked hundreds of the most spectacular destinations on all
-                                            continents. Relax your body and
-                                            soul in the most remote corners <br>
-                                            of the world.
-                                        </p>
-                                        <h3 class="text-bold">from 799USD</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                    <div class="swiper-slide" data-slide-bg="images/page-01_slide07.jpg" style="background-image: url('images/page-01_slide07.jpg');">
-                        <div class="swiper-slide-caption">
-                            <div class="container">
-                                <div class="row text-center text-lg-left">
-                                    <div class="col-lg-3 col-md-12 preffix-1">
-                                        <h2 class="text-bold">03/</h2>
-                                        <h2 class="text-bold">Islands</h2>
-                                        <p>
-                                            6-7 nights, airfare,<br>
-                                            3-5 star hotels
-                                        </p>
-                                        <h4>
-                                            Bora-Bora, Hawaii,<br>
-                                            Maldives...
-                                        </h4>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12 offset-1 display_none">
-                                        <p>
-                                            We handpicked hundreds of the most spectacular destinations on all
-                                            continents. Relax your body and
-                                            soul in the most remote corners <br>
-                                            of the world.
-                                        </p>
-                                        <h3 class="text-bold">from 699USD</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Slider Navigation -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-            <!-- END Swiper -->
+                <?php include "mods/slide_display.mod.php"; ?>
+                <!-- END Swiper -->
             <div id="sc_down">
                 <a class="btn" href="#ex1">ჩასქროლე</a>
             </div>

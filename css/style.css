@@ -13093,14 +13093,9 @@ div .navbar-nav {
 @media (min-width: 1200px) {
     div .navbar-nav {
         position: absolute;
-        width: 1903px;
-        padding: 44px 0px 40px 773px;
-        top: 0px;
-        left: 0px;
-        background-color: #f4f2f2;
-        opacity: 0.9;
-        /* box-shadow: 1px 1px 1px #818189; */
-        /* color: #fff; */
+        width: 512px;
+        padding: 0px 0px 20px 0px;
+        top: 62px;
     }
 }
 
@@ -13124,7 +13119,6 @@ div .navbar-nav {
     width: 770px;
     padding: 20px 35px 38px 33px;
     top: 23px;
-    left: 500px;
     z-index: 27;
 }
 
@@ -13278,16 +13272,15 @@ div .navbar-user {
         position: absolute;
         width: 770px;
         padding: 0;
-        top: 43px;
-        left: 1460px;
-        font-size: 37px;
-        /* opacity: 0; */
+        top: 70px;
+        left: 1451px;
+        font-size: 43px;
     }
 }
 
 @media (max-width: 1600px) {
     div .navbar-user {
-        top: 106px;
+        top: 116px;
     }
 }
 
@@ -13304,7 +13297,7 @@ div .navbar-user {
     position: absolute;
     width: 770px;
     padding: 20px 35px 38px 33px;
-    top: 23px;
+    top: 33px;
     left: 500px;
     z-index: 27;
 }
@@ -15681,4 +15674,42 @@ div .rd-mailform1 .mfControls {
         top: 15px;
         right: 35px;
     }
+}
+
+
+.dropbtn {
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: rgba(56, 48, 50, 0.84);
 }

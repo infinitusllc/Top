@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-
-if(isset($_POST['submit'])) {
     include 'dbc.inc.php';
 
     $category = mysqli_real_escape_string($conn, $_POST['tour_category']);
@@ -28,6 +26,9 @@ WHERE language_key = 'geo' AND is_deleted = 0 and is_main = 1";
         $sql = $sql." AND tour_name LIKE '%$name%'";
     }
 
+    echo $category."<br>";
+    echo $type;
+
     $result = mysqli_query($conn, $sql);
 
     $tours = [];
@@ -40,5 +41,3 @@ WHERE language_key = 'geo' AND is_deleted = 0 and is_main = 1";
 
     header("Location: ../search_results.php");
     exit();
-
-}
