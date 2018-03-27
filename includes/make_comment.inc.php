@@ -22,6 +22,15 @@ if (isset($_POST['submit'])) {
                           VALUES ($tour_id, $user_id, '$subject', '$comment', '$time')";
     echo $sql;
     if (mysqli_query($conn, $sql)) {
+        $to = "turdzeladze@gmail.com, somebodyelse@example.com";
+        $subject = "toptravel email";
+
+        $message = "აიჯფნდიასნჯლცვკნეაფვჯნაზდკლჯ დსნივჯ ";
+
+        // More headers
+        $headers .= 'From: <top-travel@example.com>' . "\r\n";
+
+        mail($to,$subject,$message,$headers);
         header("Location: ../$url");
         exit();
     } else {

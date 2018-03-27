@@ -16,3 +16,17 @@ function getCommentsByTour($tour_id) {
     }
     return $comments;
 }
+
+function getReviews() {
+    include "dbc.inc.php";
+
+    $sql = "SELECT * FROM reviews WHERE is_deleted = 0";
+    $result = mysqli_query($conn, $sql);
+
+    $reviews = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        array_push($reviews, $row);
+    }
+
+    return $reviews;
+}
