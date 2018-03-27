@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="wide wow-animation">
 <head>
     <!-- Site Title -->
@@ -251,7 +251,6 @@
                             </form>
                         <?php } ?>
                     </ul>
-                    <?php } ?>
                 </div>
                 <div class="col-md-8 offset-2 text-lg-left text-center">
                     <form id="all-tours" method="post" action="includes/tour_search.inc.php">
