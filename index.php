@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en" class="wide wow-animation">
 <head>
     <!-- Site Title -->
@@ -181,55 +181,35 @@
         </div>
     </section>
     <!-- End Carousel -->
-
-
-
-    <!-- Welcome -->
-    <section class="well-md" id="ex1">
+	    <!-- Index-list -->
+    <section class="well-xs">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>საქართველო..</h2>
-                    <h4>
-                        <?php
-                        include "includes/get_generics.inc.php";
-                        echo $generics['about'][$lang_key]['title'];
-                        ?>
-                    </h4>
-                    <p>
-                        <?php echo $generics['about'][$lang_key]['intro']; ?>
-                    </p>
-                    <a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>">- <?php echo $contents['read_more']; ?>..</a>
-                </div>
-<!--                ????-->
-<!--                <div class="col-md-3 col-xs-6 col-md-preffix-1">-->
-<!--                    <ul class="marked-list">-->
-<!--                        --><?php
-//                        foreach ($categories as $category) {
-//                        ?>
-<!--                        <li><a href="#">&#8212; --><?php //echo $category['tour_category']; ?><!--</a></li>-->
-<!--                        --><?php //} ?>
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <div class="col-md-3 col-xs-6 col-md-preffix-1">-->
-<!--                    <ul class="marked-list">-->
-<!--                        --><?php
-//                        foreach ($types as $type) {
-//                        ?>
-<!--                        <li><a href="#">&#8212; --><?php //echo $type['tour_type']; ?><!--</a></li>-->
-<!--                        --><?php //} ?>
-<!--                    </ul>-->
-<!--                </div>-->
-            </div>
+            <ul class="row list2">
+				<li class="col-md-3">
+                    <span class="icon-lg material-icons-assignment"></span>
+                    <h2> <a href="#">დარეგისტრირდი<br />გახდი მოგზაური</a></h2>
+                </li>
+                <li class="col-md-3">
+                    <span class="icon-lg material-icons-mouse"></span>
+                    <h2> <a href="#">გააკეთე<br />რეზერვაცია</a></h2>
+                </li>
+                <li class="col-md-3">
+                    <span class="icon-lg material-icons-drafts"></span>
+                    <h2> <a href="#">გამოწერე<br />ჩვენი სიახლეები</a></h2>
+                </li>
+				<li class="col-md-3">
+                    <span class="icon-lg material-icons-explore"></span>
+                    <h2><a href="#">ჩვენი<br />მხარდაჭერა</a></h2>
+                </li>
+            </ul>
         </div>
     </section>
-    <!-- End Welcome -->
-
-    <!-- List + Box-skin -->
+    <!-- End Index-list -->
+	<!-- List + Box-skin -->
     <section class="well-xs">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 category">
                     <?php
                         require_once "includes/categories.inc.php";
 
@@ -237,25 +217,26 @@
                         foreach ($types as $type) {?>
                             <form id="<?php echo $type['tour_type'].'_tours'; ?>" method="post" action="includes/tour_search.inc.php">
                                 <input type="hidden" name="tour_type" value="<?php echo $type['id']; ?>">
-                                <h4 style="text-align: center"> <a href="#" onclick="document.getElementById(<?php echo "'".$type['tour_type']."_tours'"; ?>).submit();"><?php echo $type['tour_type']; ?></a></h4>
+                                <h4> <a href="#" onclick="document.getElementById(<?php echo "'".$type['tour_type']."_tours'"; ?>).submit();"><?php echo $type['tour_type']; ?></a></h4>
                             </form>
                         <?php
                             $categories = getCategoriesByType($lang_key, $type['group_id']);
                             ?>
-                    <ul class="type-list" style="margin-bottom: 50px;">
+                    <ul class="type-list">
                         <?php foreach ($categories as $category) { ?>
                             <form id="<?php echo $category['tour_category'].'_category'; ?>" method="post" action="includes/tour_search.inc.php">
                                 <input type="hidden" name="tour_category" value="<?php echo $category['tour_category_id']; ?>">
                                 <input type="hidden" name="tour_type" value="<?php echo $type['id']; ?>">
-                                <li class="category-list-item"> <a href="#" onclick="document.getElementById(<?php echo "'".$category['tour_category']."_category'"; ?>).submit();"> <?php echo $category['tour_category']; ?> </a> </li>
+                                <li class="category-list-item">- <a href="#" onclick="document.getElementById(<?php echo "'".$category['tour_category']."_category'"; ?>).submit();"> <?php echo $category['tour_category']; ?> </a> </li>
                             </form>
                         <?php } ?>
                     </ul>
+                    <?php } ?>
                 </div>
-                <div class="col-md-8 offset-2 text-lg-left text-center">
-                    <form id="all-tours" method="post" action="includes/tour_search.inc.php">
+                <div class="col-md-8 offset-2 text-lg-left">
+                    <!-- <form id="all-tours" method="post" action="includes/tour_search.inc.php">
                         <h4 style="text-align: center"> <a href="#" onclick="document.getElementById('all-tours').submit();">ტურები</a></h4>
-                    </form>
+                    </form> -->
                     <div class="row">
                         <?php
                         include 'includes/get_tour.inc.php';
@@ -339,63 +320,6 @@
         </div>
     </section>
     <!-- End List + Box-skin -->
-    <!-- Index-list -->
-    <section class="well-xs">
-        <div class="container">
-            <ul class="row index-list">
-                <li class="col-md-4">
-                    <h4>
-                        Construct your own tour
-                        with our Tour Builder
-                    </h4>
-                    <p>
-                        Now you can build and customize
-                        your very own tour that will meet all
-                        your needs and requirements. With
-                        the help of our brand new online tour
-                        builder you will be able to add or
-                        remove any tour features except the
-                        crucial ones. Thanks to the modular
-                        system, the process is fast and easy.
-                    </p>
-                    <a class="btn btn-xs btn-default" href="#">&#8212; read more</a>
-                </li>
-                <li class="col-md-4">
-                    <h4>
-                        Browse our most popular
-                        tours
-                    </h4>
-                    <p>
-                        We prepared a digest of our most
-                        demanded offers to help you
-                        decide. Included are the tours that
-                        received the highest score from our
-                        clients. Here you will find the most
-                        popular cruises, beach resorts,
-                        safaris and culinary travel programs.
-                    </p>
-                    <a class="btn btn-xs btn-default" href="#">&#8212; read more</a>
-                </li>
-                <li class="col-md-4">
-                    <h4>
-                        Meet our professional team of travel agents.
-                    </h4>
-                    <p>
-                        Our agents have 21 years of
-                        experience on the average, and more
-                        than 500 years in total. They are
-                        professionals, whose main goal is to
-                        make your trip unforgettable. Our
-                        travel advisors are ready to help you
-                        today with everything you need
-                        to travel.
-                    </p>
-                    <a class="btn btn-xs btn-default" href="#">&#8212; read more</a>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <!-- End Index-list -->
     <!-- RD Google Map -->
     <div class="rd-google-map margin-negative-top box-hover">
         <div id="google-map" class="rd-google-map__model"></div>
