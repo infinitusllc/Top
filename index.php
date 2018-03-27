@@ -64,6 +64,9 @@
                 break;
         }
 
+        $_SESSION['lang'] = $lang;
+        $_SESSION['lang_key'] = $lang_key;
+
     $contents = getTranslations($lang);
     ?>
 

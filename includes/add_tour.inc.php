@@ -43,6 +43,7 @@ if(isset($_POST['submit'])) {
 
     //error handlers
     if ($conn) {
+        date_default_timezone_set('Europe/Samara');
 
         $time = date('c');
         $sql1 = "INSERT INTO tours (country, category, type, price, currency, quantity_adult, quantity_child, quantity_small, food_options,
