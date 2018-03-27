@@ -140,12 +140,28 @@
         <?php
             require_once "includes/comments.inc.php";
             $comments = getCommentsByTour($id);
-            foreach ($comments as $comment) { ?>
+            $first = true;
+            foreach ($comments as $comment) {
+                    if($first) { ?>
                 <div style="width: 60%; margin: auto; background-color: ghostwhite; padding: 20px; border: dotted gray">
+                    <?php
+                    $first = false;
+                    } else { ?>
+                <div style="width: 60%; margin: auto; background-color: ghostwhite; padding: 20px; border: dotted gray; border-top: none">
+                    <?php } ?>
                     <p> <strong>კომენტატორი:</strong> <?php echo $comment['first_name']." ".$comment['last_name']; ?> <br>
                         <strong>საკითხი:</strong> <?php echo $comment['subject']; ?> </p>
                     <p style="text-align: center"> <?php echo $comment['comment']; ?> </p>
                     <p style="text-align: right"> <?php echo $comment['time']; ?> </p>
+
+                    <?php if (isset($_SESSION["logged"]) and $_SESSION["logged"] and $_SESSION['user']['is_admin'] == 1
+                                    or $_SESSION['user']['id'] == $comment['user_id']) { ?>
+                        <form id="delete-comment" action="includes/delete_comment.inc.php" method="post" style="text-align: center">
+                            <input type="hidden" value="<?php echo $comment['id']; ?>" name="id">
+                            <input type="hidden" name="url" value="tour_page.php?id=<?php echo $id;?>&lang=<?php echo $lang; ?>">
+                            <input type="submit" name="submit" value="წაშლა" style="color: red">
+                        </form>
+                    <?php } ?>
                 </div>
         <?php } ?>
     </div>
