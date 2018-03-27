@@ -63,11 +63,6 @@
     ?>
 
     <script>
-        function changeLanguage(selectObject) {
-            var value = selectObject.value;
-            window.location.href = 'tour_page.php?lang=' + value + '&id=' + <?php echo $id;?> + 'lang=' + <?php echo $lang; ?>;
-        }
-
         function openNav() {
             document.getElementById("myNav").style.display = "block";
             document.getElementById("content-section").style.display = "none";
@@ -101,52 +96,59 @@
 <section id="content-section">
     <!-- bonus header -->
     <!--          if not logged in      -->
-    <?php if (!isset($_SESSION["logged"]) || $_SESSION["logged"] == false) { ?>
-    <div style="width: 30%; position:relative; left: 70%">
-        <span style="cursor:pointer" onclick="openNav()">&#9776; შესვლა / რეგისტრაცია </span>
-        <?php } else { ?>
-        <div style="width: 50%;  position:relative; left: 40%">
-            <p style="display: inline-block; margin: 5px"> <span> <?php echo $contents['main_page_username']; ?> </span> <?php echo $_SESSION['user']['name']; ?> </p>
-            <form action="profile.php" style="display: inline-block; margin: 5px">
-                <input type="submit" value="ჩემი პროფილი" />
-            </form>
-            <?php if ($_SESSION['user']['is_admin'] == 1) { ?>
-                <form action="admin.php" style="display: inline-block; margin: 5px">
-                    <input type="submit" value="ადმინის პანელი" />
-                </form>
-            <?php } ?>
-            <form action="includes/logout.inc.php" style="display: inline-block; margin: 5px">
-                <input type="submit" value="გამოსვლა" />
-            </form>
-            <?php } ?>
-            <a href="index.php?lang=geo"> <img src="images/geo.png"> </a>
-            <a href="index.php?lang=eng"> <img src="images/eng.png"> </a>
-            <a href="index.php?lang=rus"> <img src="images/rus.png"> </a>
+    <?php include "mods/header.mod.php"; ?>
+<div style="margin-top: 60px;">
+    <div style="width: 20%; float: left; display: inline-block; text-align: center">
+        <?php
+            require_once "includes/categories.inc.php";
+            $categories = getCategories($lang_key);
+            foreach ($categories as $category) {
+                echo "<a href='#'> <p style='display: inline-block; margin-top: 10px'>".$category['tour_category']."</p></a></br>";
+            }
+        ?>
     </div>
 
-<div style="width: 20%; float: left; display: inline-block; text-align: center">
-    <?php
-        require_once "includes/categories.inc.php";
-        $categories = getCategories($lang_key);
-        foreach ($categories as $category) {
-            echo "<a href='#'> <p style='display: inline-block; margin-top: 10px'>".$category['tour_category']."</p></a></br>";
-        }
-    ?>
+    <div style="width: 80%; float: left; display: inline-block;">
+        <h1 style="text-align: center; color:black"> <?php echo $tour_content['tour_name']; ?> </h1></br>
+        <h4 style="text-align: center"> <?php echo $tour_content['tour_intro']; ?> </h4></br>
+        <div style="max-width: 60%; margin: auto auto 30px;"> <?php echo $tour_content['tour_description']; ?> </div>
+
+        <div name="images" style="width: 800px; margin: auto">
+            <?php for ($i=0; $i<sizeof($tour_images); $i++) {
+                if ($i == 0) echo "<p style='text-align: center'> ძირითადი სურათი: </p>"
+                ?>
+                <img src="<?php echo $tour_images[$i]['image_url'] ?>" style="width:800px; margin-bottom: 100px"> </br>
+            <?php } ?>
+        </div>
+    </div>
 </div>
 
-<div style="width: 80%; float: left; display: inline-block">
-    <h1 style="text-align: center; color:black"> <?php echo $tour_content['tour_name']; ?> </h1></br>
-    <h4 style="text-align: center"> <?php echo $tour_content['tour_intro']; ?> </h4></br>
-    <div style="max-width: 60%; margin: auto auto 30px;"> <?php echo $tour_content['tour_description']; ?> </div>
+<div style="width: 80%; margin-left: 20%;">
+    <div style="width: 80%; margin: auto;">
+        <form id="comment-form" action="includes/make_comment.inc.php" method="post" accept-charset="UTF-8" style="text-align: center; margin-bottom: 20px">
+            <p> საკითხი: </p>
+            <input name="subject" style="border: solid grey; outline: grey">
+            <p> კომენტარი: </p>
+            <textarea name="comment" style="border: solid grey; outline: grey; width: 60%; height: 20%"></textarea> <br><br>
+            <input type="submit" name="submit" value="დაკომენტარება" style="outline: gray; border: solid gray; padding: 10px">
 
-    <div name="images" style="width: 800px; margin: auto">
-        <?php for ($i=0; $i<sizeof($tour_images); $i++) {
-            if ($i == 0) echo "<p style='text-align: center'> ძირითადი სურათი: </p>"
-            ?>
-            <img src="<?php echo $tour_images[$i]['image_url'] ?>" style="width:800px; margin-bottom: 100px"> </br>
+            <input type="hidden" name="user_id" value="<?php if (isset($_SESSION["logged"]) and $_SESSION["logged"]) {echo $_SESSION['user']['id']; } else {echo '-1'; } ?>">
+            <input type="hidden" name="tour_id" value="<?php echo $id; ?>">
+            <input type="hidden" name="url" value="tour_page.php?id=<?php echo $id;?>&lang=<?php echo $lang; ?>">
+        </form>
+
+        <?php
+            require_once "includes/comments.inc.php";
+            $comments = getCommentsByTour($id);
+            foreach ($comments as $comment) { ?>
+                <div style="width: 60%; margin: auto; background-color: ghostwhite; padding: 20px; border: dotted gray">
+                    <p> <strong>კომენტატორი:</strong> <?php echo $comment['first_name']." ".$comment['last_name']; ?> <br>
+                        <strong>საკითხი:</strong> <?php echo $comment['subject']; ?> </p>
+                    <p style="text-align: center"> <?php echo $comment['comment']; ?> </p>
+                    <p style="text-align: right"> <?php echo $comment['time']; ?> </p>
+                </div>
         <?php } ?>
     </div>
-</div>
 </div>
 <!--========================================================
                               FOOTER
