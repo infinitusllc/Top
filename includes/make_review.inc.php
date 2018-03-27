@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-echo "bla";
+
 if (isset($_POST['submit'])) {
     include "dbc.inc.php";
 
