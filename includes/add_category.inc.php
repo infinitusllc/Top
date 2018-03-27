@@ -9,7 +9,7 @@ if(isset($_POST['submit'])) {
     $id = mysqli_real_escape_string($conn, $_POST['group_id']);
 
     echo $id."<br>";
-    if (isset($id)) {   // changing existing category
+    if (isset($id) and !empty($group_id)) {   // changing existing category
         $group_id =  $id;
         for ($i=1; $i<=sizeof($languages); $i++) {
             $value = mysqli_real_escape_string($conn, $_POST["value_$i"]);
@@ -17,6 +17,12 @@ if(isset($_POST['submit'])) {
             echo $sql;
             mysqli_query($conn, $sql);
         }
+
+        $type = mysqli_real_escape_string($conn, $_POST['type']);
+
+        $sql = "UPDATE category_to_type SET type_id = $type WHERE category_id = $group_id";
+        mysqli_query($conn, $sql);
+
         header("Location: ../admin.php?tab=combinations&option=categories&message=success");
         exit();
     } else {    // creating new category
@@ -34,6 +40,11 @@ if(isset($_POST['submit'])) {
                 mysqli_query($conn, $sql);
             }
         }
+
+        $type = mysqli_real_escape_string($conn, $_POST['type']);
+
+        $sql = "INSERT INTO category_to_type (category_id, type_id) VALUES ($group_id, $type)";
+        mysqli_query($conn, $sql);
 
         header("Location: ../admin.php?tab=combinations&option=categories&message=success");
         exit();

@@ -37,6 +37,25 @@ function getCategory($id, $lang_key) {
     return $tour_categories;
 }
 
+
+function getTypeById($group_id, $lang_key) {
+    include "dbc.inc.php";
+
+    $sql = "SELECT * FROM tour_types WHERE language_key = $lang_key AND group_id = $group_id";
+    $result = mysqli_query($conn, $sql);
+
+    $tour_categories = [];
+
+    $i = 0;
+    while ($row = mysqli_fetch_assoc($result)) {
+        $tour_categories[$i] = $row;
+        $i++;
+    }
+
+    return $tour_categories;
+}
+
+
 function getTypes($lang_key) {
     include "dbc.inc.php";
 

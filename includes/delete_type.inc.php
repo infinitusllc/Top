@@ -6,18 +6,18 @@ if (isset($_SESSION['user']) and $_SESSION['logged'] == true and $_SESSION['user
         include 'dbc.inc.php';
 
         $group_id = $_GET['id'];
-        $sql = "DELETE FROM tour_categories WHERE group_id = $group_id";
+        $sql = "DELETE FROM tour_types WHERE group_id = $group_id";
 
         if (mysqli_query($conn, $sql)) {
             mysqli_query($conn, "DELETE FROM category_to_type WHERE group_id = $group_id");
-            header("Location: ../admin.php?tab=combinations&option=categories&message=success");
+            header("Location: ../admin.php?tab=combinations&option=types&message=success");
             exit();
         } else {
-            header("Location: ../admin.php?tab=combinations&option=categories&message=error");
+            header("Location: ../admin.php?tab=combinations&option=types&message=error");
             exit();
         }
     }
 } else {
-    header("Location: ../admin.php?tab=combinations&option=categories&message=notLogged");
+    header("Location: ../admin.php?tab=combinations&option=types&message=notLogged");
     exit();
 }
