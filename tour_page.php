@@ -154,8 +154,8 @@
                     <p style="text-align: center"> <?php echo $comment['comment']; ?> </p>
                     <p style="text-align: right"> <?php echo $comment['time']; ?> </p>
 
-                    <?php if (isset($_SESSION["logged"]) and $_SESSION["logged"] and $_SESSION['user']['is_admin'] == 1
-                                    or $_SESSION['user']['id'] == $comment['user_id']) { ?>
+                    <?php if (isset($_SESSION["logged"]) and $_SESSION["logged"] and ($_SESSION['user']['is_admin'] == 1
+                                    or $_SESSION['user']['id'] == $comment['user_id'])) { ?>
                         <form id="delete-comment" action="includes/delete_comment.inc.php" method="post" style="text-align: center">
                             <input type="hidden" value="<?php echo $comment['id']; ?>" name="id">
                             <input type="hidden" name="url" value="tour_page.php?id=<?php echo $id;?>&lang=<?php echo $lang; ?>">
