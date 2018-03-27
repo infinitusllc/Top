@@ -25,7 +25,7 @@
         $options_links_array = [];
         $options_links_array['currency'] = "<option value=\"currency\"> ვალუტა </option>";
         $options_links_array['food_options'] = "<option value=\"food_options\"> კვება </option>";
-//        $options_links_array['countries'] = "<option value=\"countries\"> ქვეყნები </option>";
+        $options_links_array['countries'] = "<option value=\"countries\"> ქვეყნები </option>";
         $options_links_array['categories'] = "<option value=\"categories\"> კატეგორიები </option>";
         $options_links_array['types'] = "<option value=\"types\"> ტიპები (ქვეკატ.) </option>";
 
@@ -66,6 +66,16 @@
                 }
                 break;
         }
+
+        $lang_key = 1;
+        $lang = 'geo';
+
+        if (isset($_SESSION['lang_key']))
+            $lang_key = $_SESSION['lang_key'];
+        if (isset($_SESSION['lang_key']))
+            $lang = $_SESSION['lang'];
+
+
         ?>
     </select>
     </br>
@@ -98,8 +108,7 @@
                 for ($i = 0; $i<sizeof($languages); $i++){ ?>
                     <p> ცვლადის მნიშვნელობა - <?php echo $languages[$i]['name']; ?> </p>
                     <input name="value_<?php echo $languages[$i]['id'] ?>" class = "textInput" placeholder="" id = "value"
-                           value="<?php if (isset($tr[$i+1])) { echo $tr[$i+1]; }
-                           ?>" /> </br>
+                           value="<?php if (isset($tr[$i+1])) { echo $tr[$i+1]; } ?>" /> </br>
 
                 <?php } ?>
                 <button onclick="document.getElementById('food_options-form').submit();" style="margin-left: 100px" type="submit" class="button sub" name="submit" value="client"> დამატება </button>
@@ -131,27 +140,37 @@
             <div style="width: 500px; margin: auto;">
                 <p> ახალი მნიშვნელობა (აუცილებელია ყველას შევსება): </p>
                 <?php
-                for ($i = 0; $i<sizeof($languages); $i++){ ?>
+                require_once 'includes/categories.inc.php';
+                $category = null;
+                for ($i = 0; $i<sizeof($languages); $i++){
+                    if (isset($_GET['id'])) {
+                        $category = getCategory($_GET['id'], $languages[$i]['id']);
+                    } ?>
                     <p> ცვლადის მნიშვნელობა - <?php echo $languages[$i]['name']; ?> </p>
-                    <input name="value_<?php echo $languages[$i]['id'] ?>" class = "textInput" placeholder="" id = "value"
-                           value="<?php if (isset($tr[$i+1])) { echo $tr[$i+1]; }
-                           ?>" /> </br>
-
+                    <input name="value_<?php echo $languages[$i]['id'] ?>" class = "textInput" id = "value"
+                           value="<?php if ( isset($category[0]) ) { echo $category[0]['tour_category']; $category = null; } ?>" /> </br>
                 <?php } ?>
                 <button onclick="document.getElementById('category_form').submit();" style="margin-left: 100px" type="submit" class="button sub" name="submit" value="client"> დამატება </button>
-                <?php
+            </div>
+            <?php if (isset($_GET['id'])) {?>
+            <input type="hidden" id="id" name="group_id" value="<?php echo $_GET['id']; ?>" title="group_id">
+            <?php } ?>
+        </form>
+        <div style="width: 500px; margin: auto;">
+            <?php
                 include"includes/tour_categories.inc.php";
 
                 echo "<h4 style='text-align: center'> არსებული ოფციები: </h4>";
 
                 if(!empty($tour_categories[0])) {
-                    foreach ($tour_categories as $tg) {
-                        echo $tg['tour_category'] . "</br><hr>";
-                    }
-                }
-                ?>
+                    foreach ($tour_categories as $tg) { ?>
+                <p style="text-align: center"> <?php echo $tg['tour_category']; ?> ----
+                    <a href="admin.php?tab=combinations&option=categories&id=<?php echo $tg['group_id']; ?>"> შეცვლა <a/> -
+                    <a href="includes/delete_category.inc.php?id=<?php echo $tg['tour_category_id']; ?>"> წაშლა <a/></p><br>
+                    <?php }
+                } ?>
             </div>
-        </form>
+
     <?php }else if ($option == "types") { ?>
         <form id="type_form" action="includes/add_type.inc.php" method="post" accept-charset="UTF-8">
             <div style="width: 500px; margin: auto;">
@@ -160,11 +179,8 @@
                 for ($i = 0; $i<sizeof($languages); $i++){ ?>
                     <p> ცვლადის მნიშვნელობა - <?php echo $languages[$i]['name']; ?> </p>
                     <input name="value_<?php echo $languages[$i]['id'] ?>" class = "textInput" placeholder="" id = "value"
-                           value="<?php if (isset($tr[$i+1])) { echo $tr[$i+1]; }
-                           ?>" /> </br>
-
-                <?php }
-                ?>
+                           value="<?php if (isset($tr[$i+1])) { echo $tr[$i+1]; } ?>" /> </br>
+                <?php } ?>
                 <p> კატეგორია </p>
                 <select name="category" style="padding:3px; width: 300px; height:40px; -webkit-border-radius:4px; -moz-border-radius:4px;
     border-radius:4px; -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset; -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;

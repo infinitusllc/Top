@@ -18,7 +18,22 @@ function getCategories($lang) {
         $tour_categories[$i] = $row;
         $i++;
     }
+    return $tour_categories;
+}
 
+function getCategory($id, $lang_key) {
+    include "dbc.inc.php";
+
+    $sql = "SELECT * FROM tour_categories WHERE group_id = $id AND language_key = $lang_key";
+    $result = mysqli_query($conn, $sql);
+
+    $tour_categories = [];
+
+    $i = 0;
+    while ($row = mysqli_fetch_assoc($result)) {
+        $tour_categories[$i] = $row;
+        $i++;
+    }
     return $tour_categories;
 }
 
