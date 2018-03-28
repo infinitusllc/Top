@@ -44,6 +44,7 @@ time, mark, audio, video, button, input, textarea {
     padding: 0;
     border: 0;
     font: inherit;
+    it; */
     vertical-align: top;
 }
 
@@ -102,6 +103,12 @@ button, input, textarea, select {
 *:before,
 *:after {
     box-sizing: border-box;
+    box;
+    box;
+    ox; */
+    ox; */
+    ox; */
+    ox; */
 }
 
 a,
@@ -125,7 +132,7 @@ img {
 
 a, button, input {
     transition: .3s all ease;
-    /*border: 1px solid #6f588a;*/
+    /* border: 1px solid #6f588a; */
 }
 
 /*
@@ -185,6 +192,7 @@ html.boxed .page {
 @media (min-width: 1200px) {
     .container {
         max-width: 1200px;
+        text-align: center;
     }
 }
 
@@ -7707,7 +7715,7 @@ html.lt-ie11 .old-ie {
 }
 
 body {
-    /*font-family: "BPG Arial Caps 2010", "Montserrat", sans-serif;*/
+    /* font-family: "BPG Arial Caps 2010", "Montserrat", sans-serif; */
     font-family: "BPG Arial", "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 18px;
@@ -7725,8 +7733,8 @@ body {
 
 @media (min-width: 992px) {
     body {
-        font-size: 18px;
-        line-height: 28px;
+        /* font-size: 18px; */
+        /* line-height: 28px; */
     }
 }
 
@@ -7831,6 +7839,7 @@ h6, .heading-6 {
 
 p, .list, .contact-info {
     font-weight: 300;
+    font-size: 17px;
 }
 
     p a:hover, .list a:hover, .contact-info a:hover {
@@ -8018,7 +8027,7 @@ hr {
     }
 }
 .well-welcome {
-    padding-top: 52px;
+    padding-top: 77px;
     padding-bottom: 37px;
 }
 
@@ -12978,7 +12987,7 @@ html:not(.lt-ie10) .not-animated {
     background: transparent;
     position: relative;
     z-index: 1;
-    /*letter-spacing: 1.5px;*/
+    /* letter-spacing: 1.5px; */
 }
 
     .btn-default:before {
@@ -15482,6 +15491,10 @@ div .rd-mailform1 .mfControls {
         }
 }
 
+.box-text .btn {
+    margin-top: 20px;
+}
+
 @media (min-width: 992px) {
     .owl-carousel .owl-item .box-text {
         width: 54%;
@@ -15489,7 +15502,7 @@ div .rd-mailform1 .mfControls {
     }
 
         .owl-carousel .owl-item .box-text .btn {
-            margin-top: 20px;
+            /* margin-top: 20px; */
         }
 }
 

@@ -110,40 +110,15 @@
         <!--========================================================
         CONTENT
         =========================================================-->
-
-        <?php include "mods/slide_display.mod.php"; ?>
+        
+		<?php include "mods/slide_display.mod.php"; ?>
 
     <!-- Welcome -->
     <section class="well-welcome" id="ex1">
         <div class="container">
-            <div class="row" style="text-align: center;">
-                <!--<h2>საქართველო..</h2>
-                    <h4>
-                        <?php
-                        include "includes/get_generics.inc.php";
-                        echo $generics['about'][$lang_key]['title'];
-                        ?>
-                    </h4>-->
-                    <?php echo $generics['about'][$lang_key]['intro']; ?>
-                    <a class="btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>">- <?php echo $contents['read_more']; ?>..</a>
-                <!--<div class="col-md-3 col-xs-6 col-md-preffix-1">
-                    <ul class="marked-list">
-                        <?php
-                            foreach ($categories as $category) {
-                        ?>
-                        <li><a href="#">&#8212; <?php echo $category['tour_category']; ?></a></li>
-                        <?php } ?>
-                    </ul>
-                </div>
-                <div class="col-md-3 col-xs-6 col-md-preffix-1">
-                    <ul class="marked-list">
-                        <?php
-                            foreach ($types as $type) {
-                        ?>
-                        <li><a href="#">&#8212; <?php echo $type['tour_type']; ?></a></li>
-                        <?php } ?>
-                    </ul>
-                </div>-->
+            <div>
+				<?php echo $generics['about'][$lang_key]['intro']; ?>
+				<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>">- <?php echo $contents['read_more']; ?>..</a>
             </div>
         </div>
     </section>
