@@ -114,13 +114,12 @@
                 </select>
 
                 <p> ტიპი: </p>
-                <select name="type" id="type"
-                        style="margin-left: 100px; margin-bottom:30px; width: 200px; height: 25px">
+                <select name="type" id="type" style="margin-left: 100px; margin-bottom:30px; width: 200px; height: 25px">
                     <?php
                     include "includes/tour_types.inc.php";
                     for ($i = 0; $i < sizeof($tour_types); $i++) {
                         $n = $tour_types[$i]['tour_type'];
-                        $v = $tour_types[$i]['tour_type_id'];
+                        $v = $tour_types[$i]['id'];
                         echo "<option value='$v'> $n </option>";
                     }
                     ?>

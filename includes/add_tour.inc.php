@@ -22,6 +22,9 @@ if(isset($_POST['submit'])) {
     if(empty($q_small)) $q_small = 0;
     if(empty($hotel_stars)) $hotel_stars = 0;
 
+
+    print_r($_POST);
+
     include "languages.inc.php";
 
     $empty = 1;
@@ -30,8 +33,6 @@ if(isset($_POST['submit'])) {
         $tour_name = mysqli_real_escape_string($conn, $_POST["tour_name_$suffix"]);
         $tour_description = mysqli_real_escape_string($conn, $_POST["tour_intro_$suffix"]);
 
-        echo $tour_name;
-        echo "</br>";
         if (!empty($tour_name) && !empty($tour_description))
             $empty = 0;
     }
@@ -55,6 +56,8 @@ if(isset($_POST['submit'])) {
                                       hotel_stars, created_time, is_recommended)
                             VALUES ($country, $category, $type, $price, $currency, $q_adult, $q_kid, $q_small, $food_option, $hotel_stars, '$time', 1)";
         }
+
+        echo $sql1;
 
         if (mysqli_query($conn, $sql1)) {
 
@@ -137,5 +140,8 @@ if(isset($_POST['submit'])) {
             exit();
         }
     }
+//
+//    header("Location: ../admin.php?message=შეცდომა");
+//    exit();
 
 }

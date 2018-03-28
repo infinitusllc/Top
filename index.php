@@ -243,7 +243,7 @@
                     <div class="row">
                         <?php
                         include 'includes/get_tour.inc.php';
-                        $tour_ids = getLatestTourIds();
+                        $tour_ids = getRecommendedTourIds(6);
 
                         if (sizeof($tour_ids) > 0) {
                             $id = $tour_ids[0]['tour_id'];
@@ -286,7 +286,7 @@
                             $tour = getTour($id);
                             $images = getTourImages($id);
                             ?>
-                            <div class="col-md-6 offset-3 col-sm-6">
+                            <div class="col-md-6 offset-3 col-sm-6" style="margin-bottom: 30px">
                                 <div class="box-skin-1">
                                     <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
                                     <div>
@@ -297,15 +297,47 @@
                                     </div>
                                 </div>
                             </div>
-                        <?php
-                        }
-                        if (sizeof($tour_ids) > 3) {
+                        <?php } if (sizeof($tour_ids) > 3) {
                             $id = $tour_ids[3]['tour_id'];
                             $content = getTourContent($id, $lang);
                             $tour = getTour($id);
                             $images = getTourImages($id);
                             ?>
-                            <div class="col-md-6 offset-3 col-sm-6">
+                            <div class="col-md-6 offset-3 col-sm-6" style="margin-bottom: 30px">
+                                <div class="box-skin-1">
+                                    <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
+                                    <div>
+                                        <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
+                                        <p class="text-white">
+                                            <?php echo $content['tour_intro']; ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } if (sizeof($tour_ids) > 4) {
+                            $id = $tour_ids[4]['tour_id'];
+                            $content = getTourContent($id, $lang);
+                            $tour = getTour($id);
+                            $images = getTourImages($id);
+                            ?>
+                            <div class="col-md-6 offset-6 col-sm-6">
+                                <div class="box-skin-1">
+                                    <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
+                                    <div>
+                                        <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
+                                        <p class="text-white">
+                                            <?php echo $content['tour_intro']; ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php }  if (sizeof($tour_ids) > 5) {
+                            $id = $tour_ids[4]['tour_id'];
+                            $content = getTourContent($id, $lang);
+                            $tour = getTour($id);
+                            $images = getTourImages($id);
+                            ?>
+                            <div class="col-md-6 offset-6 col-sm-6">
                                 <div class="box-skin-1">
                                     <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
                                     <div>
