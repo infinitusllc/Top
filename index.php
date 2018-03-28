@@ -332,7 +332,7 @@
                                 </div>
                             </div>
                         <?php }  if (sizeof($tour_ids) > 5) {
-                            $id = $tour_ids[4]['tour_id'];
+                            $id = $tour_ids[5]['tour_id'];
                             $content = getTourContent($id, $lang);
                             $tour = getTour($id);
                             $images = getTourImages($id);
