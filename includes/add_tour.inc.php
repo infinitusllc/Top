@@ -30,8 +30,6 @@ if(isset($_POST['submit'])) {
         $tour_name = mysqli_real_escape_string($conn, $_POST["tour_name_$suffix"]);
         $tour_description = mysqli_real_escape_string($conn, $_POST["tour_intro_$suffix"]);
 
-        echo $tour_name;
-        echo "</br>";
         if (!empty($tour_name) && !empty($tour_description))
             $empty = 0;
     }
@@ -137,5 +135,8 @@ if(isset($_POST['submit'])) {
             exit();
         }
     }
+
+    header("Location: ../admin.php?message=შეცდომა");
+    exit();
 
 }

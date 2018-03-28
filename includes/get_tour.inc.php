@@ -43,10 +43,10 @@ function getTourImages($id) {
     return $images;
 }
 
-function getLatestTourIds(){
+function getRecommendedTourIds($num){
     include "dbc.inc.php";
 
-    $sql = "SELECT tour_id FROM tours ORDER BY created_time DESC LIMIT 4";
+    $sql = "SELECT tour_id FROM tours WHERE is_recommended = 1 ORDER BY created_time DESC LIMIT $num";
     $result_sql = mysqli_query($conn, $sql);
 
     $tour = null;
