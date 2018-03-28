@@ -26,8 +26,6 @@ WHERE language_key = 'geo' AND is_deleted = 0 and is_main = 1";
         $sql = $sql." AND tour_name LIKE '%$name%'";
     }
 
-    echo $category."<br>";
-    echo $type;
 
     $result = mysqli_query($conn, $sql);
 

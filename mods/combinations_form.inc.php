@@ -148,7 +148,7 @@
                     } ?>
                     <p> ცვლადის მნიშვნელობა - <?php echo $languages[$i]['name']; ?> </p>
                     <input name="value_<?php echo $languages[$i]['id'] ?>" class = "textInput" id = "value"
-                           value="<?php if ( isset($category[0]) ) { echo $category[0]['tour_category']; $category = null; } ?>" /> </br>
+                           value="<?php if ( isset($category[0]) ) { echo $category[0]['tour_category']; } ?>" /> </br>
                 <?php } ?>
 
                 <p> ტიპი </p>

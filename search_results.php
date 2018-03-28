@@ -31,7 +31,7 @@
             if (value === '-1') {
                 window.location.href = 'search_results.php?';
             } else {
-                window.location.href = 'search_results.php?category=' + value;
+                window.location.href = 'search_results.php?type=' + value;
             }
         }
 
@@ -131,55 +131,44 @@
                         <img src="images/logo.png" data-srcset-base="images/" data-srcset-ext="logo.png" alt="" width="100" height="100">
                     </a>
                     <!--<h4 class="text-bold">მოძებნე ტური</h4>-->
-                    <p>ტურის კატეგორია</p>
-                    <label data-add-placeholder>
-                        <select name="tour_category" onchange="displayTypes(this)">
-                            <?php
-                            require_once "includes/categories.inc.php";
-                            $categories = getCategories($lang_key);
-                            if (isset($_GET['category'])) {
-                                foreach ($categories as $category) {
-                                    if ($category['tour_category_id'] == $_GET['category']) { ?>
-                                        <option value="<?php echo $category['tour_category_id']; ?>"> <?php echo $category['tour_category']; ?> </option>
-                                        <option value="-1"> ნებისმიერი </option>
-                                        <?php
-                                        break;
-                                    }
-                                }
-                            } else {
-                                echo "";?>
-                                <option value="-1"> ნებისმიერი </option>
-                            <?php }
-                            foreach ($categories as $category) {
-                                if (! (isset($_GET['category']) and $_GET['category'] === $category['tour_category_id'])) {
-                                    ?>
-                                    <option value="<?php echo $category['tour_category_id']; ?>"> <?php echo $category['tour_category']; ?> </option>
-                                    <?php
-                                }
-                            }
-                            ?>
-                        </select>
-                    </label>
+
                     <p>ტურის ტიპი</p>
                     <label data-add-placeholder>
-                        <select name="tour_type">
+                        <select name="tour_type" onchange="displayTypes(this)">
                             <option value="-1"> ნებისმიერი </option>
                             <?php
+                            require_once "includes/categories.inc.php";
                             $types = getTypes($lang_key);
-                            if (isset($_GET['category'])) {
-                                $types = getTypesByCategory($lang_key, $_GET['category']);
-                            }
 
-                            foreach ($types as $type) {
-                                ?>
+                            foreach ($types as $type) {?>
                                 <option value="<?php echo $type['id']; ?>"> <?php echo $type['tour_type']; ?> </option>
                                 <?php
+                            } ?>
+                        </select>
+                    </label>
+
+                    <p>ტურის კატეგორია</p>
+                    <label data-add-placeholder>
+                        <select name="tour_category"">
+                            <?php
+                            $categories = getCategories($lang_key);
+
+                            if(isset($_GET['type'])) {
+                                echo "=======================";
+                                $categories = getCategoriesByType($lang_key, $_GET['type']);
+                                print_r($categories);
+                            } ?>
+
+                            <option value="-1"> ნებისმიერი </option>
+
+                        <?php
+                            foreach ($categories as $category) { ?>
+                                    <option value="<?php echo $category['tour_category_id']; ?>"> <?php echo $category['tour_category']; ?> </option>
+                                    <?php
                             }
                             ?>
                         </select>
                     </label>
-                    <?php
-                    ?>
                     <p>ქალაქი / ქალაქები: </p>
                     <label data-add-placeholder>
                         <input type="text"
