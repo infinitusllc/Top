@@ -1,7 +1,7 @@
 <?php
 include "dbc.inc.php";
 
-$sql = "SELECT * FROM tour_types";
+$sql = "SELECT * FROM tour_types ORDER BY `index` DESC";
 $result = mysqli_query($conn, $sql);
 
 $tour_types = [];

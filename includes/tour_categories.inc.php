@@ -1,7 +1,7 @@
 <?php
     include "dbc.inc.php";
 
-    $sql = "SELECT * FROM tour_categories WHERE language_key = 1";
+    $sql = "SELECT * FROM tour_categories WHERE language_key = 1 ORDER BY `index` DESC";
     $result = mysqli_query($conn, $sql);
 
     $tour_categories = [];

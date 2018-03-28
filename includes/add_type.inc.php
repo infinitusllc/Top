@@ -17,6 +17,13 @@ if(isset($_POST['submit'])) {
                 exit();
             }
         }
+
+        $index = mysqli_real_escape_string($conn, $_POST['index']);
+        if (isset($index) and !empty($index)) {
+            $sql = "UPDATE tour_types SET `index` = $index WHERE group_id = $group_id";
+            mysqli_query($conn, $sql);
+        }
+
         header("Location: ../admin.php?tab=combinations&option=types&message=success");
         exit();
     } else {
@@ -40,6 +47,12 @@ if(isset($_POST['submit'])) {
                     exit();
                 }
             }
+        }
+
+        $index = mysqli_real_escape_string($conn, $_POST['index']);
+
+        if (isset($index) and !empty($index)) {
+            mysqli_query($conn, "UPDATE tour_types SET `index` = $index WHERE group_id = $group_id");
         }
 
         header("Location: ../admin.php?tab=combinations&option=types&message=success");

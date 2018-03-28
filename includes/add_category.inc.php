@@ -18,6 +18,12 @@ if(isset($_POST['submit'])) {
             mysqli_query($conn, $sql);
         }
 
+        $index = mysqli_real_escape_string($conn, $_POST['index']);
+
+        if (isset($index) and !empty($index)) {
+            mysqli_query($conn, "UPDATE tour_categories SET `index` = $index WHERE group_id = $group_id");
+        }
+
         $type = mysqli_real_escape_string($conn, $_POST['type']);
 
         $sql = "UPDATE category_to_type SET type_id = $type WHERE category_id = $group_id";
@@ -39,6 +45,12 @@ if(isset($_POST['submit'])) {
                 $sql = "UPDATE tour_categories SET group_id = $group_id WHERE tour_category_id = $group_id";
                 mysqli_query($conn, $sql);
             }
+        }
+
+        $index = mysqli_real_escape_string($conn, $_POST['index']);
+
+        if (isset($index) and !empty($index)) {
+            mysqli_query($conn, "UPDATE tour_categories SET `index` = $index WHERE group_id = $group_id");
         }
 
         $type = mysqli_real_escape_string($conn, $_POST['type']);

@@ -162,7 +162,8 @@
                         <option value="<?php echo $type['id']; ?>"> <?php echo $type['tour_type']; ?> </option>
                     <?php } ?>
                 </select>
-
+                <p>ინდექსი: </p>
+                <input name="index" type="textInput" style="margin-left: 100px" value="<?php if (isset($category[0])) { echo $category[0]['index']; } else { echo '1'; } ?>">
                 <button onclick="document.getElementById('category_form').submit();" style="margin-left: 100px" type="submit" class="button sub" name="submit" value="client"> დამატება </button>
             </div>
             <?php if (isset($_GET['id'])) {?>
@@ -204,7 +205,8 @@
                     <input name="value_<?php echo $languages[$i]['id'] ?>" class = "textInput" placeholder="" id = "value"
                            value="<?php if (isset($type[0])) { echo $type[0]['tour_type']; } ?>" /> </br>
                 <?php } ?>
-
+                <p>ინდექსი: </p>
+                <input name="index" type="textInput" style="margin-left: 100px" value="<?php if (isset($type[0])) { echo $type[0]['index']; } else { echo '1'; } ?>">
                 <button onclick="document.getElementById('type_form').submit();" style="margin-left: 100px" type="submit" class="button sub" name="submit" value="client"> დამატება </button>
             </div>
         </form>
