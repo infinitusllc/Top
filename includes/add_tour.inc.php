@@ -22,9 +22,6 @@ if(isset($_POST['submit'])) {
     if(empty($q_small)) $q_small = 0;
     if(empty($hotel_stars)) $hotel_stars = 0;
 
-
-    print_r($_POST);
-
     include "languages.inc.php";
 
     $empty = 1;
@@ -56,8 +53,6 @@ if(isset($_POST['submit'])) {
                                       hotel_stars, created_time, is_recommended)
                             VALUES ($country, $category, $type, $price, $currency, $q_adult, $q_kid, $q_small, $food_option, $hotel_stars, '$time', 1)";
         }
-
-        echo $sql1;
 
         if (mysqli_query($conn, $sql1)) {
 
@@ -140,8 +135,8 @@ if(isset($_POST['submit'])) {
             exit();
         }
     }
-//
-//    header("Location: ../admin.php?message=შეცდომა");
-//    exit();
+
+    header("Location: ../admin.php?message=შეცდომა");
+    exit();
 
 }
