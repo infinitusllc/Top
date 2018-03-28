@@ -154,7 +154,6 @@
                             $categories = getCategories($lang_key);
 
                             if(isset($_GET['type'])) {
-                                echo "=======================";
                                 $categories = getCategoriesByType($lang_key, $_GET['type']);
                                 print_r($categories);
                             } ?>
@@ -197,6 +196,8 @@
 
     <?php
     $tours = $_SESSION['tours'];
+
+    echo "sizeof(tours) ".sizeof($tours)."<br>";
     for ($i=0; $i < sizeof($tours); $i+=4) {
     ?>
         <section class="well-xs">
@@ -208,14 +209,11 @@
                 <div class="col-md-8 offset-2 text-lg-left text-center">
                     <div class="row">
                         <?php
-                        include 'includes/get_tour.inc.php';
-
                         if (sizeof($tours) > $i) {
                             $id = $tours[$i]['tour_id'];
                             $name = $tours[$i]['tour_name'];
                             $intro = $tours[$i]['tour_intro'];
-                            $image = $tours[$i]['image_url'];
-                            ?>
+                            $image = $tours[$i]['image_url']; ?>
                             <div class="col-md-6 col-sm-6">
                                 <div class="box-skin-1">
                                     <img src="<?php echo $image; ?>"  alt="tour_image" width="100%" height="100%">
@@ -232,8 +230,7 @@
                             $id = $tours[$i + 1]['tour_id'];
                             $name = $tours[$i + 1]['tour_name'];
                             $intro = $tours[$i + 1]['tour_intro'];
-                            $image = $tours[$i + 1]['image_url'];
-                            ?>
+                            $image = $tours[$i + 1]['image_url']; ?>
                             <div class="col-md-6 col-sm-6">
                                 <div class="box-skin-1">
                                     <img src="<?php echo $image; ?>" alt="" width="370" height="357">
@@ -246,12 +243,11 @@
                                 </div>
                             </div>
                         <?php }
-                        if (sizeof($tours) > 2) {
+                        if (sizeof($tours) > $i + 2) {
                             $id = $tours[$i + 2]['tour_id'];
                             $name = $tours[$i + 2]['tour_name'];
                             $intro = $tours[$i + 2]['tour_intro'];
-                            $image = $tours[$i + 2]['image_url'];
-                            ?>
+                            $image = $tours[$i + 2]['image_url']; ?>
                             <div class="col-md-6 offset-3 col-sm-6">
                                 <div class="box-skin-1">
                                     <img src="<?php echo $image; ?>" alt="" width="370" height="357">
@@ -265,12 +261,11 @@
                             </div>
                             <?php
                         }
-                        if (sizeof($tours) > 3) {
+                        if (sizeof($tours) > $i + 3) {
                             $id = $tours[$i + 3]['tour_id'];
                             $name = $tours[$i + 3]['tour_name'];
                             $intro = $tours[$i + 3]['tour_intro'];
-                            $image = $tours[$i + 3]['image_url'];
-                            ?>
+                            $image = $tours[$i + 3]['image_url']; ?>
                             <div class="col-md-6 offset-3 col-sm-6">
                                 <div class="box-skin-1">
                                     <img src="<?php echo $image; ?>" alt="" width="370" height="357">
