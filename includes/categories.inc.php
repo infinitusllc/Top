@@ -99,8 +99,6 @@ function getCategoriesByType($lang_key, $type_id) {
   INNER join tour_categories on category_to_type.category_id = tour_categories.group_id
 WHERE tour_types.language_key = $lang_key AND  tour_categories.language_key = $lang_key AND tour_types.group_id = $type_id ORDER BY tour_categories.`index` DESC";
 
-    echo $sql;
-
     $result = mysqli_query($conn, $sql);
 
     $tour_categories = [];
