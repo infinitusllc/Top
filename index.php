@@ -78,274 +78,278 @@
 
     <!-- The Main Wrapper -->
     <div id="content-section" class="page">
-
-        <!--For older internet explorer-->
-        <div class="old-ie" style='background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;'>
-            <a href="http://windows.microsoft.com/en-US/internet-explorer/..">
-                <img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820"
-                     alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-            </a>
-        </div>
-        <!--END block for older internet explorer-->
-        <!--========================================================
-        HEADER
-        =========================================================-->
-        <?php include "mods/header.mod.php"; ?>
-
-        <header class="page-header">
-            <div class="container">
-                <!-- RD Navbar Brand -->
-                <div class="rd-navbar-brand">
-                    <a href="index.php" class="brand-name primary-color" style="position: relative; top: 60px">
-                        <img src="images/logo1.png" data-srcset-base="images/" data-srcset-ext="logo.png" alt="" width="322" height="100">
-                    </a>
-                    <!--<a href="index.php" class="brand-name primary-color">
-                        &#95;world<span class="text-primary">around</span><span class="brand-slogan text-regular">travel operator</span>
-                    </a>-->
-                </div>
-                <!-- END RD Navbar Brand -->
-
-            </div>
-        </header>
-        <!--========================================================
-        CONTENT
-        =========================================================-->
-        
+		<!--For older internet explorer-->
+		<div class="old-ie" style='background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;'>
+			<a href="http://windows.microsoft.com/en-US/internet-explorer/..">
+				<img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820"
+						alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+			</a>
+		</div>
+		<!--END block for older internet explorer-->
+		<!--========================================================
+		HEADER
+		=========================================================-->
+		<section class="page-header">
+			<div class="container">
+				<!-- RD Navbar Brand -->
+				<ul class="rd-navbar-brand">
+					<a href="index.php" class="brand-name primary-color">
+						<img src="images/logo.png" data-srcset-base="images/" data-srcset-ext="logo1.png" alt="" width="100" height="100">
+					</a>
+				</ul>
+				<ul class="navbar-nav">
+					<li><a href="#news">ტურები</a></li>
+					<li><a href="#products">ჩვენს შესახებ</a></li>
+					<li><a href="#faculity-member">პარტნიორები</a></li>
+					<li><a href="#contact">კონტაქტი</a></li>
+				</ul>
+				<ul class="navbar-flags">
+					<li><a href="index.php?lang=geo"> <img src="images/geo-scr.png"> </a></li>
+					<li><a href="index.php?lang=eng"> <img src="images/eng-scr.png"> </a></li>
+					<li><a href="index.php?lang=rus"> <img src="images/rus-scr.png"> </a></li>
+					<!-- <li><a href="index.php?lang=geo"> <img src="images/geo.png"> </a></li>
+					<li><a href="index.php?lang=eng"> <img src="images/eng.png"> </a></li>
+					<li><a href="index.php?lang=rus"> <img src="images/rus.png"> </a></li> -->
+				</ul>
+				<ul class="navbar-user">
+					<li>
+					<li><a href="#"><span onclick="openNav()" class="material-icons-account_circle"></span></a></li>
+					</li>
+				</ul>
+				<!-- END RD Navbar Brand -->
+			</div>
+		</section>
+    
+		<!--========================================================
+		CONTENT
+		=========================================================-->
 		<?php include "mods/slide_display.mod.php"; ?>
-
-    <!-- Welcome -->
-    <section class="well-welcome" id="ex1">
-        <div class="container">
-            <div>
+    
+	<!-- Welcome -->
+	<section class="well-welcome" id="ex1">
+		<div class="container">
+			<div>
 				<?php
-                include "includes/get_generics.inc.php";
-                echo $generics['about'][$lang_key]['intro']; ?>
+				include "includes/get_generics.inc.php";
+				echo $generics['about'][$lang_key]['intro']; ?>
 				<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>">- <?php echo $contents['read_more']; ?>..</a>
-            </div>
-        </div>
-    </section>
-    <!-- End Welcome -->
+			</div>
+		</div>
+	</section>
+	<!-- End Welcome -->
 
+	<!-- Carousel -->
+	<section class="well-sm">
+		<div class="container">
+			<!--<h2>New Tours</h2>-->
+			<div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
+				<?php
+					require_once "includes/events.inc.php";
+					$events = getEvents($lang_key);
 
-
-    <!-- Carousel -->
-    <section class="well-sm">
-        <div class="container">
-            <!--<h2>New Tours</h2>-->
-            <div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
-                <?php
-                    require_once "includes/events.inc.php";
-                    $events = getEvents($lang_key);
-
-                    foreach ($events as $event) {
-                        $img_src = $event['image_url'];
-                ?>
-                    <div class="owl-item">
-                        <img src="<?php echo $img_src ?>"  alt="" width="1170" height="451">
-                        <div class="box-text">
-                            <h3> <?php echo $event['title']; ?> </h3>
-                            <p class="text-white">
-                                <?php echo $event['intro']; ?>
-                            </p>
-                            <a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $event['keyword'];?>">&#8212; სრულად ნახვა </a>
-                        </div>
-                    </div>
-                <?php } ?>
-            </div>
-            <div class="carousel-counter-container">
-                <div class="current-counter"></div>
-                <div class="count">/</div>
-                <div class="carousel-count"></div>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </section>
-    <!-- End Carousel -->
-	    <!-- Index-list -->
-    <section class="well-xs">
-        <div class="container">
-            <ul class="row list2">
+					foreach ($events as $event) {
+						$img_src = $event['image_url'];
+				?>
+					<div class="owl-item">
+						<img src="<?php echo $img_src ?>"  alt="" width="1170" height="451">
+						<div class="box-text">
+							<h3> <?php echo $event['title']; ?> </h3>
+							<p class="text-white">
+								<?php echo $event['intro']; ?>
+							</p>
+							<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $event['keyword'];?>">&#8212; სრულად ნახვა </a>
+						</div>
+					</div>
+				<?php } ?>
+			</div>
+			<div class="carousel-counter-container">
+				<div class="current-counter"></div>
+				<div class="count">/</div>
+				<div class="carousel-count"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</section>
+	<!-- End Carousel -->
+		<!-- Index-list -->
+	<section class="well-xs">
+		<div class="container">
+			<ul class="row list2">
 				<li class="col-md-3">
-                    <span class="icon-lg material-icons-assignment"></span>
-                    <h2> <a href="#">დარეგისტრირდი<br />გახდი მოგზაური</a></h2>
-                </li>
-                <li class="col-md-3">
-                    <span class="icon-lg material-icons-mouse"></span>
-                    <h2> <a href="#">გააკეთე<br />რეზერვაცია</a></h2>
-                </li>
-                <li class="col-md-3">
-                    <span class="icon-lg material-icons-drafts"></span>
-                    <h2> <a href="#">გამოწერე<br />ჩვენი სიახლეები</a></h2>
-                </li>
+					<span class="icon-lg material-icons-assignment"></span>
+					<h2> <a href="#">დარეგისტრირდი<br />გახდი მოგზაური</a></h2>
+				</li>
 				<li class="col-md-3">
-                    <span class="icon-lg material-icons-explore"></span>
-                    <h2><a href="#">ჩვენი<br />მხარდაჭერა</a></h2>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <!-- End Index-list -->
+					<span class="icon-lg material-icons-mouse"></span>
+					<h2> <a href="#">გააკეთე<br />რეზერვაცია</a></h2>
+				</li>
+				<li class="col-md-3">
+					<span class="icon-lg material-icons-drafts"></span>
+					<h2> <a href="#">გამოწერე<br />ჩვენი სიახლეები</a></h2>
+				</li>
+				<li class="col-md-3">
+					<span class="icon-lg material-icons-explore"></span>
+					<h2><a href="#">ჩვენი<br />მხარდაჭერა</a></h2>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<!-- End Index-list -->
 	<!-- List + Box-skin -->
-    <section class="well-xs">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 category">
-                    <?php
-                        require_once "includes/categories.inc.php";
+	<section class="well-xs">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 category">
+					<?php
+						require_once "includes/categories.inc.php";
 
-                        $types = getTypes($lang_key);
-                        foreach ($types as $type) {?>
-                            <form id="<?php echo $type['tour_type'].'_tours'; ?>" method="post" action="includes/tour_search.inc.php">
-                                <input type="hidden" name="tour_type" value="<?php echo $type['id']; ?>">
-                                <h4> <a href="#" onclick="document.getElementById(<?php echo "'".$type['tour_type']."_tours'"; ?>).submit();"><?php echo $type['tour_type']; ?></a></h4>
-                            </form>
-                        <?php
-                            $categories = getCategoriesByType($lang_key, $type['group_id']);
-                            ?>
-                    <ul class="type-list">
-                        <?php foreach ($categories as $category) { ?>
-                            <form id="<?php echo $category['tour_category'].'_category'; ?>" method="post" action="includes/tour_search.inc.php">
-                                <input type="hidden" name="tour_category" value="<?php echo $category['tour_category_id']; ?>">
-                                <input type="hidden" name="tour_type" value="<?php echo $type['id']; ?>">
-                                <li class="category-list-item">- <a href="#" onclick="document.getElementById(<?php echo "'".$category['tour_category']."_category'"; ?>).submit();"> <?php echo $category['tour_category']; ?> </a> </li>
-                            </form>
-                        <?php } ?>
-                    </ul>
-                    <?php } ?>
-                </div>
-                <div class="col-md-8 offset-2 text-lg-left">
-                    <!-- <form id="all-tours" method="post" action="includes/tour_search.inc.php">
-                        <h4 style="text-align: center"> <a href="#" onclick="document.getElementById('all-tours').submit();">ტურები</a></h4>
-                    </form> -->
-                    <div class="row">
-                        <?php
-                        include 'includes/get_tour.inc.php';
-                        $tour_ids = getRecommendedTourIds(6);
+						$types = getTypes($lang_key);
+						foreach ($types as $type) {?>
+							<form id="<?php echo $type['tour_type'].'_tours'; ?>" method="post" action="includes/tour_search.inc.php">
+								<input type="hidden" name="tour_type" value="<?php echo $type['id']; ?>">
+								<h4> <a href="#" onclick="document.getElementById(<?php echo "'".$type['tour_type']."_tours'"; ?>).submit();"><?php echo $type['tour_type']; ?></a></h4>
+							</form>
+						<?php
+							$categories = getCategoriesByType($lang_key, $type['group_id']);
+							?>
+					<ul class="type-list">
+						<?php foreach ($categories as $category) { ?>
+							<form id="<?php echo $category['tour_category'].'_category'; ?>" method="post" action="includes/tour_search.inc.php">
+								<input type="hidden" name="tour_category" value="<?php echo $category['tour_category_id']; ?>">
+								<input type="hidden" name="tour_type" value="<?php echo $type['id']; ?>">
+								<li class="category-list-item">- <a href="#" onclick="document.getElementById(<?php echo "'".$category['tour_category']."_category'"; ?>).submit();"> <?php echo $category['tour_category']; ?> </a> </li>
+							</form>
+						<?php } ?>
+					</ul>
+					<?php } ?>
+				</div>
+				<div class="col-md-8 offset-2 text-lg-left">
+					<!-- <form id="all-tours" method="post" action="includes/tour_search.inc.php">
+						<h4 style="text-align: center"> <a href="#" onclick="document.getElementById('all-tours').submit();">ტურები</a></h4>
+					</form> -->
+					<div class="row">
+						<?php
+						include 'includes/get_tour.inc.php';
+						$tour_ids = getRecommendedTourIds(6);
 
-                        if (sizeof($tour_ids) > 0) {
-                            $id = $tour_ids[0]['tour_id'];
-                            $content = getTourContent($id, $lang);
-                            $tour = getTour($id);
-                            $images = getTourImages($id); ?>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="box-skin-1">
-                                    <img src="<?php echo $images[0]['image_url']; ?>" alt="tour_image" width="100%" height="100%">
-                                    <div>
-                                        <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
-                                        <p class="text-white" style="max-width: 80%">
-                                            <?php echo $content['tour_intro']; ?>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php }
-                        if (sizeof($tour_ids) > 1) {
-                            $id = $tour_ids[1]['tour_id'];
-                            $content = getTourContent($id, $lang);
-                            $tour = getTour($id);
-                            $images = getTourImages($id);
-                            ?>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="box-skin-1">
-                                    <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
-                                    <div>
-                                        <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
-                                        <p class="text-white">
-                                            <?php echo $content['tour_intro']; ?>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php }
-                        if (sizeof($tour_ids) > 2) {
-                            $id = $tour_ids[2]['tour_id'];
-                            $content = getTourContent($id, $lang);
-                            $tour = getTour($id);
-                            $images = getTourImages($id);
-                            ?>
-                            <div class="col-md-6 offset-3 col-sm-6" style="margin-bottom: 30px">
-                                <div class="box-skin-1">
-                                    <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
-                                    <div>
-                                        <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
-                                        <p class="text-white">
-                                            <?php echo $content['tour_intro']; ?>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } if (sizeof($tour_ids) > 3) {
-                            $id = $tour_ids[3]['tour_id'];
-                            $content = getTourContent($id, $lang);
-                            $tour = getTour($id);
-                            $images = getTourImages($id);
-                            ?>
-                            <div class="col-md-6 offset-3 col-sm-6" style="margin-bottom: 30px">
-                                <div class="box-skin-1">
-                                    <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
-                                    <div>
-                                        <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
-                                        <p class="text-white">
-                                            <?php echo $content['tour_intro']; ?>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } if (sizeof($tour_ids) > 4) {
-                            $id = $tour_ids[4]['tour_id'];
-                            $content = getTourContent($id, $lang);
-                            $tour = getTour($id);
-                            $images = getTourImages($id);
-                            ?>
-                            <div class="col-md-6 offset-6 col-sm-6">
-                                <div class="box-skin-1">
-                                    <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
-                                    <div>
-                                        <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
-                                        <p class="text-white">
-                                            <?php echo $content['tour_intro']; ?>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php }  if (sizeof($tour_ids) > 5) {
-                            $id = $tour_ids[5]['tour_id'];
-                            $content = getTourContent($id, $lang);
-                            $tour = getTour($id);
-                            $images = getTourImages($id);
-                            ?>
-                            <div class="col-md-6 offset-6 col-sm-6">
-                                <div class="box-skin-1">
-                                    <img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
-                                    <div>
-                                        <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
-                                        <p class="text-white">
-                                            <?php echo $content['tour_intro']; ?>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End List + Box-skin -->
-    <!-- RD Google Map -->
-    <div class="rd-google-map margin-negative-top box-hover">
-        <div id="google-map" class="rd-google-map__model"></div>
-        <ul class="rd-google-map__locations">
-            <li data-x="-73.9898268" data-y="40.649980" data-basic="images/gmap_marker.png"
-                data-active="images/gmap_marker_active.png">
-                <p>
-                    8901 Marmora Road, Glasgow,D04 89GR.
-                </p>
-            </li>
-        </ul>
-    </div>
-    <!-- End RD Google Map -->
-    </main>
+						if (sizeof($tour_ids) > 0) {
+							$id = $tour_ids[0]['tour_id'];
+							$content = getTourContent($id, $lang);
+							$tour = getTour($id);
+							$images = getTourImages($id); ?>
+							<div class="col-md-6 col-sm-6">
+								<div class="box-skin-1">
+									<img src="<?php echo $images[0]['image_url']; ?>" alt="tour_image" width="100%" height="100%">
+									<div>
+										<h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
+										<p class="text-white" style="max-width: 80%">
+											<?php echo $content['tour_intro']; ?>
+										</p>
+									</div>
+								</div>
+							</div>
+						<?php }
+						if (sizeof($tour_ids) > 1) {
+							$id = $tour_ids[1]['tour_id'];
+							$content = getTourContent($id, $lang);
+							$tour = getTour($id);
+							$images = getTourImages($id);
+							?>
+							<div class="col-md-6 col-sm-6">
+								<div class="box-skin-1">
+									<img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
+									<div>
+										<h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
+										<p class="text-white">
+											<?php echo $content['tour_intro']; ?>
+										</p>
+									</div>
+								</div>
+							</div>
+						<?php }
+						if (sizeof($tour_ids) > 2) {
+							$id = $tour_ids[2]['tour_id'];
+							$content = getTourContent($id, $lang);
+							$tour = getTour($id);
+							$images = getTourImages($id);
+							?>
+							<div class="col-md-6 offset-3 col-sm-6" style="margin-bottom: 30px">
+								<div class="box-skin-1">
+									<img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
+									<div>
+										<h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
+										<p class="text-white">
+											<?php echo $content['tour_intro']; ?>
+										</p>
+									</div>
+								</div>
+							</div>
+						<?php } if (sizeof($tour_ids) > 3) {
+							$id = $tour_ids[3]['tour_id'];
+							$content = getTourContent($id, $lang);
+							$tour = getTour($id);
+							$images = getTourImages($id);
+							?>
+							<div class="col-md-6 offset-3 col-sm-6" style="margin-bottom: 30px">
+								<div class="box-skin-1">
+									<img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
+									<div>
+										<h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
+										<p class="text-white">
+											<?php echo $content['tour_intro']; ?>
+										</p>
+									</div>
+								</div>
+							</div>
+						<?php } if (sizeof($tour_ids) > 4) {
+							$id = $tour_ids[4]['tour_id'];
+							$content = getTourContent($id, $lang);
+							$tour = getTour($id);
+							$images = getTourImages($id);
+							?>
+							<div class="col-md-6 offset-6 col-sm-6">
+								<div class="box-skin-1">
+									<img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
+									<div>
+										<h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
+										<p class="text-white">
+											<?php echo $content['tour_intro']; ?>
+										</p>
+									</div>
+								</div>
+							</div>
+						<?php }  if (sizeof($tour_ids) > 5) {
+							$id = $tour_ids[5]['tour_id'];
+							$content = getTourContent($id, $lang);
+							$tour = getTour($id);
+							$images = getTourImages($id);
+							?>
+							<div class="col-md-6 offset-6 col-sm-6">
+								<div class="box-skin-1">
+									<img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
+									<div>
+										<h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
+										<p class="text-white">
+											<?php echo $content['tour_intro']; ?>
+										</p>
+									</div>
+								</div>
+							</div>
+						<?php } ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End List + Box-skin -->
+	<!-- RD Google Map -->
+	<div class="rd-google-map margin-negative-top box-hover">
+		<div id="google-map" class="rd-google-map__model">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5955.91202732794!2d44.739061!3d41.721468!3m2!1i1024!2i768!4f13.1!4m3!3e6!4m0!4m0!5e0!3m2!1sen!2sge!4v1522321811424" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+	</div>
+	<!-- End RD Google Map -->
+	</main>
     <!--========================================================
     FOOTER
     ==========================================================-->

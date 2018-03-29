@@ -1,4 +1,4 @@
-<main class="page-content" style="margin-top: 30px">
+<main class="page-content">
     <section>
         <!-- Swiper -->
         <div class="swiper-container swiper-slider" data-height="853px" data-min-height="500px" data-autoplay="false">

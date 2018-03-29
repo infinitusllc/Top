@@ -20,7 +20,8 @@
                                 </div>
                             </div>
                         </li>
-                        <?php
+                        <!--
+						<?php
                             if (isset($_SESSION["logged"]) && $_SESSION["logged"] == true) {
                         ?>
                         <li><a href="profile.php">ჩემი პროფილი</a></li>
@@ -32,6 +33,7 @@
                                 }
                             }
                         ?>
+						-->
                         <li><a href="#products">ჩვენს შესახებ</a></li>
                         <li><a href="#faculity-member">პარტნიორები</a></li>
                         <li><a href="#contact">  კონტაქტი </a></li>
