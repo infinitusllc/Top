@@ -423,5 +423,8 @@
     <script src="js/core.min.js"></script>
     <!-- Additional Functionality Scripts -->
     <script src="js/script.js"></script>
+
+    <?php include "mods/button_links.mod.php"; ?>
+
 </body>
 </html>
