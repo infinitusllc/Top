@@ -97,7 +97,7 @@
     <!-- bonus header -->
     <!--          if not logged in      -->
     <?php include "mods/header.mod.php"; ?>
-<div style="margin-top: 60px;">
+<div style="margin-top: 100px;">
     <div style="width: 20%; float: left; display: inline-block; text-align: center">
         <?php
             require_once "includes/categories.inc.php";

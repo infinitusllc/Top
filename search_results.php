@@ -92,19 +92,8 @@
                               HEADER
     =========================================================-->
     <?php include "mods/header.mod.php"; ?>
+    <?php include "mods/button_links.mod.php"; ?>
 
-    <header class="page-header">
-        <div class="container">
-            <!-- RD Navbar Brand -->
-            <!-- <div class="rd-navbar-brand">
-                <a href="index.php" class="brand-name primary-color">
-                    &#95;world<span class="text-primary">around</span><span class="brand-slogan text-regular">travel operator</span>
-                </a>
-           </div> -->
-            <!-- END RD Navbar Brand -->
-
-        </div>
-    </header>
     <!--========================================================
                               CONTENT
     =========================================================-->
@@ -197,7 +186,6 @@
     <?php
     $tours = $_SESSION['tours'];
 
-    echo "sizeof(tours) ".sizeof($tours)."<br>";
     for ($i=0; $i < sizeof($tours); $i+=4) {
     ?>
         <section class="well-xs">
