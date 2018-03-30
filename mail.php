@@ -42,4 +42,7 @@ include "mods/header.mod.php";
     </form>
 </div>
 
+<?php include "mods/footer.mod.php"; ?>
+
+
 </body>

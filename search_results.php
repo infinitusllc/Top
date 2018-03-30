@@ -191,9 +191,7 @@
         <section class="well-xs">
         <div class="container">
             <div class="row">
-                <div class="col-md-2">
-
-                </div>
+                <?php include "mods/list.mod.php"; ?>
                 <div class="col-md-8 offset-2 text-lg-left text-center">
                     <div class="row">
                         <?php
@@ -277,55 +275,8 @@
     <!--========================================================
                               FOOTER
     ==========================================================-->
-    <footer class="page-footer text-md-left text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <!-- RD Navbar Brand -->
-                    <div class="rd-navbar-brand">
-                        <a href="index.php" class="brand-name">
-                            &#95;world<span class="text-primary">around</span>
-                        </a>
-                    </div>
-                    <!-- END RD Navbar Brand -->
-                    <div class="copyright">
-                        &#169; <span id="copyright-year"></span> |
-                        All rights reserved
-                        <!-- {%FOOTER_LINK} -->
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <address class="contact-info">
-                        <dl>
-                            <dt>USA - LOS ANGELES,</dt>
-                            <dt>901 East E Street, Wilmington, CA 90744</dt>
-                            <dt>E -mail:<a href="mailto:#">mail@demolink.org</a></dt>
-                            <dd>
-                                <a href="callto:#">(800)<span>2345 6789</span></a>
-                            </dd>
-                        </dl>
-                    </address>
-                </div>
-                <div class="col-md-4">
-                    <ul class="inline-list text-center text-lg-left">
-                        <li>
-                            <a class="icon-xs fa-facebook" href="#"></a>
-                        </li>
-                        <li>
-                            <a class="icon-xs fa-google-plus" href="#"></a>
-                        </li>
-                        <li>
-                            <a class="icon-xs fa-linkedin" href="#"></a>
-                        </li>
-                        <li>
-                            <a class="icon-xs fa-twitter" href="#"></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Coded by crash -->
-    </footer>
+    <?php include "mods/footer.mod.php"; ?>
+
 </div>
 <!-- Core Scripts -->
 <script src="js/core.min.js"></script>

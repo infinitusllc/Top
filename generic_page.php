@@ -41,4 +41,7 @@
     <div style="max-width: 60%; margin:auto"> <?php echo $generics[$keyword][$lang_key]['content']; ?> </div>
 </div>
 
+<?php include "mods/footer.mod.php"; ?>
+
+
 </body>

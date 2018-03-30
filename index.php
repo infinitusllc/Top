@@ -72,10 +72,8 @@
 
 </head>
 <body>
-
     <!-- login form -->
     <?php include "mods/login_form.mod.php"; ?>
-
     <!-- The Main Wrapper -->
     <div id="content-section" class="page">
 		<!--For older internet explorer-->
@@ -87,7 +85,7 @@
 		</div>
 		<!--END block for older internet explorer-->
 		
-<!--		--><?php //include "mods/header.mod.php"; ?>
+		<?php include "mods/header.mod.php"; ?>
 		<!--========================================================
 		CONTENT
 		=========================================================-->
@@ -167,30 +165,7 @@
 	<section class="well-xs">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4 category">
-					<?php
-						require_once "includes/categories.inc.php";
-
-						$types = getTypes($lang_key);
-						foreach ($types as $type) {?>
-							<form id="<?php echo $type['tour_type'].'_tours'; ?>" method="post" action="includes/tour_search.inc.php">
-								<input type="hidden" name="tour_type" value="<?php echo $type['id']; ?>">
-								<h4> <a href="#" onclick="document.getElementById(<?php echo "'".$type['tour_type']."_tours'"; ?>).submit();"><?php echo $type['tour_type']; ?></a></h4>
-							</form>
-						<?php
-							$categories = getCategoriesByType($lang_key, $type['group_id']);
-							?>
-					<ul class="type-list">
-						<?php foreach ($categories as $category) { ?>
-							<form id="<?php echo $category['tour_category'].'_category'; ?>" method="post" action="includes/tour_search.inc.php">
-								<input type="hidden" name="tour_category" value="<?php echo $category['tour_category_id']; ?>">
-								<input type="hidden" name="tour_type" value="<?php echo $type['id']; ?>">
-								<li class="category-list-item">- <a href="#" onclick="document.getElementById(<?php echo "'".$category['tour_category']."_category'"; ?>).submit();"> <?php echo $category['tour_category']; ?> </a> </li>
-							</form>
-						<?php } ?>
-					</ul>
-					<?php } ?>
-				</div>
+				<?php include "mods/list.mod.php"; ?>
 				<div class="col-md-8 offset-2 text-lg-left">
 					<!-- <form id="all-tours" method="post" action="includes/tour_search.inc.php">
 						<h4 style="text-align: center"> <a href="#" onclick="document.getElementById('all-tours').submit();">ტურები</a></h4>
@@ -216,8 +191,7 @@
 									</div>
 								</div>
 							</div>
-						<?php }
-						if (sizeof($tour_ids) > 1) {
+						<?php } if (sizeof($tour_ids) > 1) {
 							$id = $tour_ids[1]['tour_id'];
 							$content = getTourContent($id, $lang);
 							$tour = getTour($id);
@@ -311,54 +285,12 @@
 	</section>
 	<!-- End List + Box-skin -->
 	<!-- RD Google Map -->
-	<div class="rd-google-map margin-negative-top box-hover">
-	</div>
+
 	<!-- End RD Google Map -->
     <!--========================================================
     FOOTER
     ==========================================================-->
-    <footer class="page-footer text-md-left text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5">
-                    <!-- REVIEW FORM -->
-                    <form id="review-form" action="includes/make_review.inc.php" method="post" accept-charset="UTF-8"
-                          style="text-align: center; margin-bottom: 20px; margin-top: 100px">
-                        <p style="color: darkgray; margin-bottom: 10px;"> <strong> დაგვიტოვეთ რევიუ </strong></p>
-                        <input name="e_mail" placeholder="ი-მეილი" style="border: solid grey; outline: grey; margin-bottom: 10px;">
-                        <input name="subject" placeholder="საკითხი" style="border: solid grey; outline: grey;margin-bottom: 10px"">
-                        <textarea name="review" placeholder="რევიუ" style="border: solid grey; outline: grey; width: 80%; height: 100px">რევიუ</textarea> <br><br>
-                        <input type="submit" name="submit" value="რევიუს დატოვება" style="outline: gray; border: solid gray; padding: 10px">
-                    </form>
-                    <!-- REVIEW FORM -->
-                </div>
-                <div class="col-md-5">
-                    <address class="contact-info">
-                        <h4> <?php echo $generics['contact'][$lang_key]['title'];  ?> </h4>
-                        <?php echo $generics['contact'][$lang_key]['intro'];  ?>
-                    </address>
-                </div>
-                <div class="col-md-2">
-                    <ul class="inline-list text-center text-lg-left">
-                        <li>
-                            <a class="icon-xs fa-facebook" href="#"></a>
-                        </li>
-                        <li>
-                            <a class="icon-xs fa-google-plus" href="#"></a>
-                        </li>
-                        <li>
-                            <a class="icon-xs fa-linkedin" href="#"></a>
-                        </li>
-                        <li>
-                            <a class="icon-xs fa-twitter" href="#"></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Coded by crash -->
-    </footer>
+    <?php include "mods/footer.mod.php"; ?>
     </div>
     <!-- Core Scripts -->
     <script src="js/core.min.js"></script>
