@@ -1,3 +1,14 @@
+<?php
+
+include "includes/get_generics.inc.php";
+
+$lang_key = 1;
+
+if (isset($_SESSION['lang_key'])) {
+    $lang_key = $_SESSION['lang_key'];
+}
+?>
+
 <section class="page-header">
     <div class="container">
         <!-- RD Navbar Brand -->
@@ -7,18 +18,15 @@
             </a>
         </ul>
         <ul class="navbar-nav">
-            <li><a href="#news">ტურები</a></li>
-            <li><a href="#products">ჩვენს შესახებ</a></li>
-            <li><a href="#faculity-member">პარტნიორები</a></li>
-            <li><a href="#contact">კონტაქტი</a></li>
+            <li><a href="#" onclick="document.getElementById('all-tours-hidden').submit();">ტურები</a></li>
+            <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>">ჩვენს შესახებ</a></li>
+            <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['partners'][$lang_key]['keyword'];?>">პარტნიორები</a></li>
+            <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['contact'][$lang_key]['keyword'];?>">კონტაქტი</a></li>
         </ul>
         <ul class="navbar-flags">
             <li><a href="index.php?lang=geo"> <img src="images/geo-scr.png"> </a></li>
             <li><a href="index.php?lang=eng"> <img src="images/eng-scr.png"> </a></li>
             <li><a href="index.php?lang=rus"> <img src="images/rus-scr.png"> </a></li>
-            <!-- <li><a href="index.php?lang=geo"> <img src="images/geo.png"> </a></li>
-            <li><a href="index.php?lang=eng"> <img src="images/eng.png"> </a></li>
-            <li><a href="index.php?lang=rus"> <img src="images/rus.png"> </a></li> -->
         </ul>
         <ul class="navbar-user">
             <li>
@@ -28,3 +36,6 @@
         <!-- END RD Navbar Brand -->
     </div>
 </section>
+
+<form id="all-tours-hidden" method="post" action="includes/tour_search.inc.php" style="display: none">
+</form>
