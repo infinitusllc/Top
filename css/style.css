@@ -1006,7 +1006,7 @@ html.lt-ie10 .row-no-gutter, .row-no-gutter {
     }
 
     .row > .category ul li {
-        margin: 3px 3px 3px 10px;
+        margin: 7px 3px 5px 10px;
         text-align: left;
         /* color: #67498c; */
     }
@@ -8016,6 +8016,12 @@ hr {
     }
 }
 
+.mini-slide h2 {
+    font-size: 43px;
+    text-align: left;
+    padding-bottom: 25px;
+}
+
 .well-sm {
     padding-top: 17px;
     padding-bottom: 0px;
@@ -8039,7 +8045,7 @@ hr {
 }
 
 .well-welcome {
-    padding-top: 37px;
+    padding-top: 87px;
     padding-bottom: 37px;
 }
 
@@ -13165,8 +13171,8 @@ html:not(.lt-ie10) .not-animated {
     width: 100px;
     height: 100px;
     line-height: 96px;
-    font-size: 83px;
-    /* color: #67498c; */
+    font-size: 57px;
+    color: #67498c;
     border-width: 2px;
 }
 
@@ -14572,7 +14578,7 @@ div .rd-mailform1 .mfControls {
     color: #333;
     margin-top: 48px;
     background: url("../images/top-travel-map.png") no-repeat;
-    height: 433px;
+    height: 300px;
     width: 1920px;
 }
 
@@ -15566,7 +15572,7 @@ div .rd-mailform1 .mfControls {
  */
 .owl-carousel {
     display: none;
-    margin-top: 64px;
+    /* margin-top: 64px; */
     width: 100%;
     -webkit-tap-highlight-color: transparent;
     /* position relative and z-index fix webkit rendering fonts issue */

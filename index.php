@@ -92,7 +92,7 @@
 			<div>
 				<?php
 				echo $generics['about'][$lang_key]['intro']; ?>
-				<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>">- <?php echo $contents['read_more']; ?>..</a>
+				<!-- <a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>">- <?php echo $contents['read_more']; ?>..</a> -->
 			</div>
 		</div>
 	</section>
@@ -100,8 +100,8 @@
 
 	<!-- Carousel -->
 	<section class="well-sm">
-		<div class="container">
-			<!--<h2>New Tours</h2>-->
+		<div class="container mini-slide">
+			<h2>რაც უნდა იცოდე..</h2>
 			<div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
 				<?php
 					require_once "includes/events.inc.php";
@@ -131,30 +131,6 @@
 		</div>
 	</section>
 	<!-- End Carousel -->
-		<!-- Index-list -->
-	<section class="well-xs">
-		<div class="container">
-			<ul class="row list2">
-				<li class="col-md-3">
-					<span class="icon-lg material-icons-assignment"></span>
-					<h2> <a href="#">დარეგისტრირდი<br />გახდი მოგზაური</a></h2>
-				</li>
-				<li class="col-md-3">
-					<span class="icon-lg material-icons-mouse"></span>
-					<h2> <a href="#">გააკეთე<br />რეზერვაცია</a></h2>
-				</li>
-				<li class="col-md-3">
-					<span class="icon-lg material-icons-drafts"></span>
-					<h2> <a href="#">გამოწერე<br />ჩვენი სიახლეები</a></h2>
-				</li>
-				<li class="col-md-3">
-					<span class="icon-lg material-icons-explore"></span>
-					<h2><a href="#">ჩვენი<br />მხარდაჭერა</a></h2>
-				</li>
-			</ul>
-		</div>
-	</section>
-	<!-- End Index-list -->
 	<!-- List + Box-skin -->
 	<section class="well-xs">
 		<div class="container">
@@ -278,6 +254,30 @@
 		</div>
 	</section>
 	<!-- End List + Box-skin -->
+	<!-- Index-list -->
+	<section class="well-xs">
+		<div class="container">
+			<ul class="row list2">
+				<li class="col-md-3">
+					<span class="icon-lg material-icons-assignment"></span>
+					<h2> <a href="#">დარეგისტრირდი<br />გახდი მოგზაური</a></h2>
+				</li>
+				<li class="col-md-3">
+					<span class="icon-lg material-icons-mouse"></span>
+					<h2> <a href="#">გააკეთე<br />რეზერვაცია</a></h2>
+				</li>
+				<li class="col-md-3">
+					<span class="icon-lg material-icons-drafts"></span>
+					<h2> <a href="#">გამოწერე<br />ჩვენი სიახლეები</a></h2>
+				</li>
+				<li class="col-md-3">
+					<span class="icon-lg material-icons-explore"></span>
+					<h2><a href="#">ჩვენი<br />მხარდაჭერა</a></h2>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<!-- End Index-list -->
 	<!-- RD Google Map -->
 
 	<!-- End RD Google Map -->
