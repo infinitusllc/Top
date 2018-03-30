@@ -7719,7 +7719,7 @@ body {
     font-family: "BPG Arial", "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 18px;
-    line-height: 28px;
+    /* line-height: 28px; */
     -webkit-text-size-adjust: none;
     color: #9f9f9f;
     background: #fff;
@@ -8030,11 +8030,12 @@ hr {
 .page-header {
     position: fixed;
     top: 0;
-    background-color: lavender;
+    /* background-color: lavender; */
     width: 100%;
     height: 110px;
     z-index: 100;
-    opacity: 1;
+    /* opacity: 0.3; */
+    background: rgb(224, 224, 224, 1);
 }
 
 .well-welcome {
@@ -8178,6 +8179,8 @@ hr {
 */
 html body .page .text-primary {
     color: #67498c;
+    /* text-align: left; */
+    /* padding-left: 20px; */
 }
 
 html body .page .text-white {
@@ -12553,7 +12556,26 @@ html:not(.lt-ie10) .not-animated {
 .box-skin-1 {
     position: relative;
     display: block;
+    text-align: left;
 }
+
+.box-skin-1 h4 {
+    padding-left: 30px;
+}
+
+    .box-skin-1 h4 a {
+        color: white;
+    }
+
+    .box-skin-1 h4 a:hover {
+        color: #6f588a;
+    }
+
+    .box-skin-1 .text-white p {
+        padding-left: 33px;
+        color: #6f588a;
+        text-shadow: 1px 1px 1px #333;
+    }
 
 @media (max-width: 1199px) {
     .box-skin-1 {
@@ -12597,7 +12619,7 @@ html:not(.lt-ie10) .not-animated {
 @media (min-width: 1200px) {
     .box-skin-1 div {
         top: 48%;
-        left: 55px;
+        left: 0px;
         padding: 0px;
     }
 }
@@ -14548,6 +14570,9 @@ div .rd-mailform1 .mfControls {
 .rd-google-map {
     color: #333;
     margin-top: 48px;
+    background: url("../images/top-travel-map.png") no-repeat;
+    height: 433px;
+    width: 1920px;
 }
 
 .rd-google-map__model {
@@ -14616,7 +14641,7 @@ div .rd-mailform1 .mfControls {
 
 @media (min-width: 480px) {
     .ui-to-top {
-        right: 40px;
+        right: 170px;
         bottom: 40px;
     }
 }
@@ -14659,7 +14684,7 @@ div .rd-mailform1 .mfControls {
 
 @media (min-width: 480px) {
     .ui-to-top1 {
-        right: 170px;
+        right: 40px;
         bottom: 40px;
     }
 }

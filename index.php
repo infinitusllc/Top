@@ -122,9 +122,9 @@
 						<img src="<?php echo $img_src ?>"  alt="" width="1170" height="451">
 						<div class="box-text">
 							<h3> <?php echo $event['title']; ?> </h3>
-							<p class="text-white">
+							<span class="text-white">
 								<?php echo $event['intro']; ?>
-							</p>
+							</span>
 							<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $event['keyword'];?>">&#8212; სრულად ნახვა </a>
 						</div>
 					</div>
@@ -210,9 +210,9 @@
 									<img src="<?php echo $images[0]['image_url']; ?>" alt="tour_image" width="100%" height="100%">
 									<div>
 										<h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
-										<p class="text-white" style="max-width: 80%">
+										<span class="text-white">
 											<?php echo $content['tour_intro']; ?>
-										</p>
+										</span>
 									</div>
 								</div>
 							</div>
@@ -228,9 +228,9 @@
 									<img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
 									<div>
 										<h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
-										<p class="text-white">
+										<span class="text-white">
 											<?php echo $content['tour_intro']; ?>
-										</p>
+										</span>
 									</div>
 								</div>
 							</div>
@@ -246,9 +246,9 @@
 									<img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
 									<div>
 										<h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
-										<p class="text-white">
+										<span class="text-white">
 											<?php echo $content['tour_intro']; ?>
-										</p>
+										</span>
 									</div>
 								</div>
 							</div>
@@ -263,9 +263,9 @@
 									<img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
 									<div>
 										<h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
-										<p class="text-white">
+										<span class="text-white">
 											<?php echo $content['tour_intro']; ?>
-										</p>
+										</span>
 									</div>
 								</div>
 							</div>
@@ -280,9 +280,9 @@
 									<img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
 									<div>
 										<h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
-										<p class="text-white">
+										<span class="text-white">
 											<?php echo $content['tour_intro']; ?>
-										</p>
+										</span>
 									</div>
 								</div>
 							</div>
@@ -297,9 +297,9 @@
 									<img src="<?php echo $images[0]['image_url']; ?>" alt="" width="370" height="357">
 									<div>
 										<h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($content['tour_name'])) { echo $content['tour_name']; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
-										<p class="text-white">
+										<span class="text-white">
 											<?php echo $content['tour_intro']; ?>
-										</p>
+										</span>
 									</div>
 								</div>
 							</div>
@@ -312,19 +312,15 @@
 	<!-- End List + Box-skin -->
 	<!-- RD Google Map -->
 	<div class="rd-google-map margin-negative-top box-hover">
-		<div id="google-map" class="rd-google-map__model">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5955.91202732794!2d44.739061!3d41.721468!3m2!1i1024!2i768!4f13.1!4m3!3e6!4m0!4m0!5e0!3m2!1sen!2sge!4v1522321811424" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-		</div>
 	</div>
 	<!-- End RD Google Map -->
-	</main>
     <!--========================================================
     FOOTER
     ==========================================================-->
     <footer class="page-footer text-md-left text-center">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <!-- RD Navbar Brand -->
                     <div class="rd-navbar-brand">
                         <a href="index.php" class="brand-name">
@@ -332,13 +328,8 @@
                         </a>
                     </div>
                     <!-- END RD Navbar Brand -->
-                    <div class="copyright">
-                        &#169; <span id="copyright-year"></span> |
-                        All rights reserved
-                        <!-- {%FOOTER_LINK} -->
-                    </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <address class="contact-info">
                         <dl>
                             <dt>USA - LOS ANGELES,</dt>
@@ -349,8 +340,13 @@
                             </dd>
                         </dl>
                     </address>
+					<div class="copyright">
+                        &#169; <span id="copyright-year"></span> |
+                        All rights reserved
+                        <!-- {%FOOTER_LINK} -->
+                    </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <ul class="inline-list text-center text-lg-left">
                         <li>
                             <a class="icon-xs fa-facebook" href="#"></a>
@@ -385,7 +381,6 @@
 
         <!-- Coded by crash -->
     </footer>
-    </div>
     </div>
     <!-- Core Scripts -->
     <script src="js/core.min.js"></script>
