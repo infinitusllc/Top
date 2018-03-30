@@ -18,12 +18,10 @@
     <script>
         function openNav() {
             document.getElementById("login-form").style.display = "block";
-            document.getElementById("content-section").style.display = "none";
         }
 
         function closeNav() {
             document.getElementById("login-form").style.display = "none";
-            document.getElementById("content-section").style.display = "block";
         }
 
         function displayTypes(selectObject) {

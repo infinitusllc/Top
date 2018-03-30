@@ -1,10 +1,10 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="wide wow-animation">
 <head>
     <!-- Site Title -->
     <title>Home</title>
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
     <!-- Stylesheets -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -12,18 +12,16 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!--[if lt IE 10]>
-        <script src="js/html5shiv.min.js"></script>
+    <script src="js/html5shiv.min.js"></script>
     <![endif]-->
 
     <script>
         function openNav() {
             document.getElementById("login-form").style.display = "block";
-            // document.getElementById("content-section").style.display = "none";
         }
 
         function closeNav() {
             document.getElementById("login-form").style.display = "none";
-            // document.getElementById("content-section").style.display = "block";
         }
 
         function displayTypes(selectObject) {
@@ -86,9 +84,6 @@
 		<!--END block for older internet explorer-->
 		
 		<?php include "mods/header.mod.php"; ?>
-		<!--========================================================
-		CONTENT
-		=========================================================-->
 		<?php include "mods/slide_display.mod.php"; ?>
     
 	<!-- Welcome -->
