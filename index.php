@@ -87,7 +87,7 @@
 		</div>
 		<!--END block for older internet explorer-->
 		
-		<?php include "mods/header.mod.php"; ?>
+<!--		--><?php //include "mods/header.mod.php"; ?>
 		<!--========================================================
 		CONTENT
 		=========================================================-->
@@ -321,30 +321,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <!-- RD Navbar Brand -->
-                    <div class="rd-navbar-brand">
-                        <a href="index.php" class="brand-name">
-                            &#95;world<span class="text-primary">around</span>
-                        </a>
-                    </div>
-                    <!-- END RD Navbar Brand -->
+                    <!-- REVIEW FORM -->
+                    <form id="review-form" action="includes/make_review.inc.php" method="post" accept-charset="UTF-8"
+                          style="text-align: center; margin-bottom: 20px; margin-top: 100px">
+                        <p style="color: darkgray; margin-bottom: 10px;"> <strong> დაგვიტოვეთ რევიუ </strong></p>
+                        <p> ი-მეილი: </p>
+                        <input name="e_mail" style="border: solid grey; outline: grey">
+                        <p> საკითხი: </p>
+                        <input name="subject" style="border: solid grey; outline: grey">
+                        <p> რევიუ: </p>
+                        <textarea name="review" style="border: solid grey; outline: grey; width: 80%; height: 100px"></textarea> <br><br>
+                        <input type="submit" name="submit" value="რევიუს დატოვება" style="outline: gray; border: solid gray; padding: 10px">
+                    </form>
+                    <!-- REVIEW FORM -->
                 </div>
                 <div class="col-md-5">
                     <address class="contact-info">
-                        <dl>
-                            <dt>USA - LOS ANGELES,</dt>
-                            <dt>901 East E Street, Wilmington, CA 90744</dt>
-                            <dt>E -mail:<a href="mailto:#">mail@demolink.org</a></dt>
-                            <dd>
-                                <a href="callto:#">(800)<span>2345 6789</span></a>
-                            </dd>
-                        </dl>
+                        <h4> <?php echo $generics['contact'][$lang_key]['title'];  ?> </h4>
+                        <?php echo $generics['contact'][$lang_key]['intro'];  ?>
                     </address>
-					<div class="copyright">
-                        &#169; <span id="copyright-year"></span> |
-                        All rights reserved
-                        <!-- {%FOOTER_LINK} -->
-                    </div>
                 </div>
                 <div class="col-md-2">
                     <ul class="inline-list text-center text-lg-left">
@@ -364,20 +359,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- REVIEW FORM -->
-        <form id="review-form" action="includes/make_review.inc.php" method="post" accept-charset="UTF-8"
-              style="text-align: center; margin-bottom: 20px; margin-top: 100px">
-            <h3 style="color: darkgray; margin-bottom: 10px;"> დაგვიტოვეთ რევიუ </h3>
-            <p> ი-მეილი: </p>
-            <input name="e_mail" style="border: solid grey; outline: grey">
-            <p> საკითხი: </p>
-            <input name="subject" style="border: solid grey; outline: grey">
-            <p> რევიუ: </p>
-            <textarea name="review" style="border: solid grey; outline: grey; width: 40%; height: 200px"></textarea> <br><br>
-            <input type="submit" name="submit" value="რევიუს დატოვება" style="outline: gray; border: solid gray; padding: 10px">
-        </form>
-        <!-- REVIEW FORM -->
 
         <!-- Coded by crash -->
     </footer>

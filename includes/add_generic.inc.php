@@ -106,8 +106,8 @@ if(isset($_POST['submit'])) {
         }
 
         //  /adding an image
-//
-//        header("Location: ../admin.php?tab=generic&message=success");
-//        exit();
+
+        header("Location: ../admin.php?tab=generic&message=success");
+        exit();
     }
 }
