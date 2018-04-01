@@ -15998,6 +15998,7 @@ div .rd-mailform1 .mfControls {
     padding: 8px;
     font-size: 16px;
     border: none;
+    color: black;
 }
 
 .dropdown {
@@ -16009,9 +16010,10 @@ div .rd-mailform1 .mfControls {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 120px;
+    width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 100;
+    font-size: 16px;
 }
 
 .dropdown-content a {

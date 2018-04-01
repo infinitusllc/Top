@@ -29,9 +29,21 @@ if (isset($_SESSION['lang_key'])) {
             <li><a href="index.php?lang=rus"> <img src="images/rus-scr.png"> </a></li>
         </ul>
         <ul class="navbar-user">
+            <?php if (isset($_SESSION["logged"]) && $_SESSION["logged"] == true) { ?>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn"> <?php echo $_SESSION['user']['name']; ?> ↓ </button>
+                        <div class="dropdown-content">
+                            <a href="profile.php"> ჩემი პროფილი </a>
+                            <a href="includes/logout.inc.php">გამოსვლა</a>
+                        </div>
+                    </div>
+                </li>
+            <?php } else { ?>
             <li>
             <li><a href="#"><span onclick="openNav()" class="material-icons-account_circle"></span></a></li>
             </li>
+            <?php } ?>
         </ul>
         <!-- END RD Navbar Brand -->
     </div>
