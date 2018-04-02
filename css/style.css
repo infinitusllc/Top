@@ -15998,8 +15998,7 @@ div .rd-mailform1 .mfControls {
 
 
 .dropbtn {
-    background-color: #4CAF50;
-    color: white;
+    color: #1c1c1c;
     padding: 16px;
     font-size: 16px;
     border: none;
@@ -16025,6 +16024,7 @@ div .rd-mailform1 .mfControls {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
+    font-size: 16px;
     display: block;
 }
 
@@ -16035,7 +16035,7 @@ div .rd-mailform1 .mfControls {
 }
 
 .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+    background-color: #d4d9d8;
 }
 
 
