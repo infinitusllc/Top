@@ -92,7 +92,7 @@
 			<div>
 				<?php
 				echo $generics['about'][$lang_key]['intro']; ?>
-				<!-- <a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>">- <?php echo $contents['read_more']; ?>..</a> -->
+<!--				 <a class="btn btn-xs btn-default" href="generic_page.php?lang=--><?php //echo $lang_key; ?><!--&keyword=--><?php //echo $generics['about'][$lang_key]['keyword'];?><!--">- --><?php //echo $contents['read_more']; ?><!--..</a>-->
 			</div>
 		</div>
 	</section>

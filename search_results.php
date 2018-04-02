@@ -150,9 +150,8 @@
                         <?php
                             foreach ($categories as $category) { ?>
                                     <option value="<?php echo $category['tour_category_id']; ?>"> <?php echo $category['tour_category']; ?> </option>
-                                    <?php
-                            }
-                            ?>
+                                <?php
+                            } ?>
                         </select>
                     </label>
                     <p>ქალაქი / ქალაქები: </p>
@@ -165,6 +164,7 @@
                         <input type="text"
                                name="tour_name"/>
                     </label>
+                    <br><input type="checkbox" name="actual" value="true" title="actual" style="-webkit-appearance: checkbox"> აქტუალური <br>
                     <input type="hidden" name="lang" value="<?php echo $lang; ?>">
                     <div class="mfControls">
                         <button class="btn btn-sm btn-primary" type="submit" name="submit">ძებნა</button>
