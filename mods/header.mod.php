@@ -18,7 +18,16 @@ if (isset($_SESSION['lang_key'])) {
             </a>
         </ul>
         <ul class="navbar-nav">
-            <li><a href="#" onclick="document.getElementById('all-tours-hidden').submit();">ტურები</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">ტურები ↓</button>
+                    <div class="dropdown-content" style="left:0;">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </li>
             <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>">ჩვენს შესახებ</a></li>
             <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['partners'][$lang_key]['keyword'];?>">პარტნიორები</a></li>
             <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['contact'][$lang_key]['keyword'];?>">კონტაქტი</a></li>
@@ -29,9 +38,21 @@ if (isset($_SESSION['lang_key'])) {
             <li><a href="index.php?lang=rus"> <img src="images/rus.png"> </a></li>
         </ul>
         <ul class="navbar-user">
+            <?php if (isset($_SESSION["logged"]) && $_SESSION["logged"] == true) { ?>
+
+                <div class="dropdown" style="float:right;">
+                    <button class="dropbtn"> <span id="ui-to-top1" class="ui-to-top1 fa material-icons-chat active"></span></button>
+                    <div class="dropdown-content">
+                        <a href="profile.php"> ჩემი პროფილი </a>
+                        <a href="includes/logout.inc.php">გამოსვლა</a>
+                    </div>
+                </div>
+
+            <?php } else { ?>
             <li>
-				<a href="#"><span onclick="openNav()" class="material-icons-account_circle"></span></a>
-			</li>
+            <li><a href="#"><span onclick="openNav()" class="material-icons-account_circle"></span></a></li>
+            </li>
+            <?php } ?>
         </ul>
         <!-- END RD Navbar Brand -->
     </div>
