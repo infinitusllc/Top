@@ -24,14 +24,14 @@ if (isset($_SESSION['lang_key'])) {
             <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['contact'][$lang_key]['keyword'];?>">კონტაქტი</a></li>
         </ul>
         <ul class="navbar-flags">
-            <li><a href="index.php?lang=geo"> <img src="images/geo-scr.png"> </a></li>
-            <li><a href="index.php?lang=eng"> <img src="images/eng-scr.png"> </a></li>
-            <li><a href="index.php?lang=rus"> <img src="images/rus-scr.png"> </a></li>
+            <li><a href="index.php?lang=geo"> <img src="images/geo.png"> </a></li>
+            <li><a href="index.php?lang=eng"> <img src="images/eng.png"> </a></li>
+            <li><a href="index.php?lang=rus"> <img src="images/rus.png"> </a></li>
         </ul>
         <ul class="navbar-user">
             <li>
-            <li><a href="#"><span onclick="openNav()" class="material-icons-account_circle"></span></a></li>
-            </li>
+				<a href="#"><span onclick="openNav()" class="material-icons-account_circle"></span></a>
+			</li>
         </ul>
         <!-- END RD Navbar Brand -->
     </div>

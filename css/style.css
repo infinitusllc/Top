@@ -126,8 +126,8 @@ a[href^="callto:"] {
     }
 
 img {
-    max-width: 100%;
-    height: auto;
+    /* max-width: 100%; */
+    /* height: auto; */
 }
 
 a, button, input {
@@ -8041,7 +8041,7 @@ hr {
     height: 110px;
     z-index: 100;
     /* opacity: 0.3; */
-    background: rgb(224, 224, 224, 1);
+    background: rgb(224, 224, 224, 0.8);
 }
 
 .well-welcome {
@@ -13280,10 +13280,10 @@ a.icon-primary:hover {
 }
 
 .rd-navbar-brand .brand-name {
-    color: #fff;
-    font-size: 24px;
-    line-height: 28px;
-    font-weight: 700;
+    /* color: #fff; */
+    /* font-size: 24px; */
+    /* line-height: 28px; */
+    /* font-weight: 700; */
     position: relative;
 }
 
@@ -13401,11 +13401,12 @@ div .navbar-flags {
 @media (min-width: 1200px) {
     div .navbar-flags {
         position: relative;
-        width: 161px;
+        width: 107px;
         padding: 0;
-        top: 33px;
+        top: 37px;
         left: 429px;
         /* opacity: 0; */
+        height: 31px;
     }
 }
 
@@ -13434,9 +13435,9 @@ div .navbar-flags {
 }
 
     .navbar-flags > li > a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        line-height: 20px;
+        /* padding-top: 10px; */
+        /* padding-bottom: 10px; */
+        /* line-height: 20px; */
         text-shadow: 1px 1px 1px #333;
         color: white;
     }
@@ -13473,13 +13474,16 @@ div .navbar-flags {
     }
 
         .navbar-flags > li {
-            float: left
+            float: left;
+            padding-left: 4px;
         }
 
             .navbar-flags > li > a {
-                padding-top: 15px;
-                padding-bottom: 15px;
-                padding-right: 10px;
+                /* padding-top: 15px; */
+                /* padding-bottom: 15px; */
+                /* padding-right: 10px; */
+                height: 31px;
+                width: 31px;
             }
 }
 
@@ -13492,12 +13496,13 @@ div .navbar-user {
 @media (min-width: 1200px) {
     div .navbar-user {
         position: relative;
-        /* width: 161px; */
+        width: 29px;
         padding: 0;
         top: 37px;
-        left: 419px;
+        left: 1082px;
         /* opacity: 0; */
-        font-size: 37px;
+        font-size: 31px;
+        height: 31px;
     }
 }
 
@@ -13526,11 +13531,11 @@ div .navbar-user {
 }
 
     .navbar-user > li > a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        line-height: 20px;
+        /* padding-top: 10px; */
+        /* padding-bottom: 10px; */
+        /* line-height: 20px; */
         /* text-shadow: 1px 1px 1px #333; */
-        color: #6f588a;
+        color: #67498c;
     }
 
 /***/
