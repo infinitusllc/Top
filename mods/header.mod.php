@@ -32,7 +32,7 @@ if (isset($_SESSION['lang_key'])) {
             <?php if (isset($_SESSION["logged"]) && $_SESSION["logged"] == true) { ?>
                 <li>
                     <div class="dropdown">
-                        <button class="dropbtn"> <?php echo $_SESSION['user']['name']; ?> ↓ </button>
+                        <button class="dropbtn"> <span id="ui-to-top1" class="ui-to-top1 fa material-icons-chat active"></span> </button>
                         <div class="dropdown-content">
                             <a href="profile.php"> ჩემი პროფილი </a>
                             <a href="includes/logout.inc.php">გამოსვლა</a>
@@ -40,9 +40,9 @@ if (isset($_SESSION['lang_key'])) {
                     </div>
                 </li>
             <?php } else { ?>
-            <li>
-            <li><a href="#"><span onclick="openNav()" class="material-icons-account_circle"></span></a></li>
-            </li>
+                <li>
+                <li><a href="#"><span onclick="openNav()" class="material-icons-account_circle"></span></a></li>
+                </li>
             <?php } ?>
         </ul>
         <!-- END RD Navbar Brand -->
