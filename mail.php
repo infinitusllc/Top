@@ -4,28 +4,31 @@
     <title> TopTravel </title>
     <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
     <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
-    <link rel="stylesheet" href="css/style.css">
+    <?php
+        session_start();
+
+        include "includes/get_generics.inc.php";
+        $keyword = -1;
+
+        if (isset($_GET['keyword'])) {
+            $keyword = $_GET['keyword'];
+        }
+
+        $lang_key = -1;
+        if (isset($_SESSION['lang_key'])) {
+            $lang_key = $_SESSION['lang_key'];
+        } elseif (isset($_GET['lang'])) {
+            $lang_key = $_GET['lang'];
+        }
+
+        include "mods/style.mod.php";
+    ?>
 </head>
 
 
 <body>
 
 <?php
-session_start();
-
-include "includes/get_generics.inc.php";
-$keyword = -1;
-
-if (isset($_GET['keyword'])) {
-    $keyword = $_GET['keyword'];
-}
-
-$lang_key = -1;
-if (isset($_SESSION['lang_key'])) {
-    $lang_key = $_SESSION['lang_key'];
-} elseif (isset($_GET['lang'])) {
-    $lang_key = $_GET['lang'];
-}
 
 include "mods/header.mod.php";
 ?>

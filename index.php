@@ -1,19 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en" class="wide wow-animation">
 <head>
-    <!-- Site Title -->
-    <title>Home</title>
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
-    <!-- Stylesheets -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link href='//fonts.googleapis.com/css?family=Lato:400,300,400italic,700,900,100' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/style.css">
-
-    <!--[if lt IE 10]>
-    <script src="js/html5shiv.min.js"></script>
-    <![endif]-->
 
     <script>
         function openNav() {
@@ -67,7 +55,17 @@
 
     $contents = getTranslations($lang);
     ?>
+    <!-- Site Title -->
+    <title>Home</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
+    <!-- Stylesheets -->
+    <?php include "mods/style.mod.php"; ?>
+
+    <!--[if lt IE 10]>
+    <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
 </head>
 <body>
     <!-- login form -->

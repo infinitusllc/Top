@@ -8,9 +8,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
     <!-- Stylesheets -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link href='//fonts.googleapis.com/css?family=Lato:400,300,400italic,700,900,100' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/style.css">
+    <?php include "mods/style.mod.php"; ?>
 
     <!--[if lt IE 10]>
     <script src="js/html5shiv.min.js"></script>
