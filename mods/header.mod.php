@@ -1,5 +1,9 @@
 <?php
 
+if(session_id() == '' || !isset($_SESSION)) { // session isn't started
+    session_start();
+}
+
 include "includes/get_generics.inc.php";
 
 $lang_key = 1;
@@ -22,9 +26,9 @@ if (isset($_SESSION['lang_key'])) {
                 <div class="dropdown">
                     <button class="dropbtn">ტურები ↓</button>
                     <div class="dropdown-content" style="left:0;">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <a href="#" onclick="document.getElementById('actual-tours-hidden').submit()">აქტუალური ტურები</a>
+                        <a href="#" onclick="document.getElementById('incoming-tours').submit()">შემომავალი ტურები</a>
+                        <a href="#" onclick="document.getElementById('outgoing-tours').submit()">გამავალი ტურები</a>
                     </div>
                 </div>
             </li>
@@ -59,4 +63,16 @@ if (isset($_SESSION['lang_key'])) {
 </section>
 
 <form id="all-tours-hidden" method="post" action="includes/tour_search.inc.php" style="display: none">
+</form>
+
+<form id="actual-tours-hidden" method="post" action="includes/tour_search.inc.php" style="display: none">
+    <input type="hidden" name="actual" value="1">
+</form>
+
+<form id="outgoing-tours" method="post" action="includes/tour_search.inc.php" style="display: none">
+    <input type="hidden" name="tour_type" value="1">
+</form>
+
+<form id="incoming-tours" method="post" action="includes/tour_search.inc.php" style="display: none">
+    <input type="hidden" name="tour_type" value="2">
 </form>
