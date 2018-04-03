@@ -13313,11 +13313,11 @@ div .navbar-nav {
 
 @media (min-width: 1200px) {
     div .navbar-nav {
-        position: relative;
+        position: absolute;
         width: 470px;
         padding: 0;
         top: 35px;
-        left: 435px;
+        left: 933px;
     }
 }
 
@@ -13386,6 +13386,7 @@ div .navbar-nav {
         .navbar-nav > li {
             float: left;
             padding: 10px;
+            font-size: 16.5px;
         }
 
             .navbar-nav > li > a {
@@ -13403,10 +13404,9 @@ div .navbar-flags {
 @media (min-width: 1200px) {
     div .navbar-flags {
         position: relative;
-        width: 107px;
         padding: 0;
         top: 43px;
-        left: 429px;
+        left: 1064px;
         /* opacity: 0; */
     }
 }
@@ -13497,10 +13497,10 @@ div .navbar-user {
 @media (min-width: 1200px) {
     div .navbar-user {
         position: relative;
-        /* width: 161px; */
+        width: 30px;
         padding: 0;
-        top: 44px;
-        left: 357px;
+        top: 8px;
+        left: 1030px;
         /* opacity: 0; */
         font-size: 30px;
     }
@@ -16010,7 +16010,7 @@ div .rd-mailform1 .mfControls {
     /* line-height: 20px; */
     /* text-shadow: 0px 0px 1px #333; */
     color: #67498c;
-    font-size: 16.5px;
+    /* font-size: 16.5px; */
     /* font-weight: normal; */
     /* padding-right: 17.5px; */
 }
@@ -16051,11 +16051,36 @@ div .rd-mailform1 .mfControls {
 }
 
 
+.dropdown-content1 {
+    display: none;
+    position: absolute;
+    left: -72px;
+    background-color: #f9f9f9;
+    min-width: 170px;
+    /* box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.2); */
+    z-index: 1;
+    /* text-align: right; */
+}
 
-/************************************************************************************/
-/************************************************************************************/
-/************************************************************************************/
-/************************************************************************************/
+.dropdown-content1 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    /* border-bottom: 1px solid #fff; */
+}
+
+.dropdown-content1 a:hover {background-color: #67498c;color: white;}
+
+.dropdown:hover .dropdown-content1 {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    /* background-color: #f9f9f9; */
+}
+
 /************************************************************************************/
 /************************************************************************************/
 

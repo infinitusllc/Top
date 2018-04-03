@@ -43,11 +43,11 @@ if (isset($_SESSION['lang_key'])) {
         </ul>
         <ul class="navbar-user">
             <?php if (isset($_SESSION["logged"]) && $_SESSION["logged"] == true) { ?>
-                <div class="dropdown" style="float:right;">
-                    <button class="dropbtn"> <span id="ui-to-top1" class="material-icons-person_pin"></span></button>
-                    <div class="dropdown-content">
-                        <a href="profile.php"> ჩემი პროფილი </a>
-                        <a href="includes/logout.inc.php">გამოსვლა</a>
+                <div class="dropdown">
+                    <button class="dropbtn"> <span class="material-icons-person_pin"></span></button>
+                    <div class="dropdown-content1">
+                        <a href="profile.php"> ჩემი პროფილი &#8599;</a>
+                        <a href="includes/logout.inc.php">გამოსვლა &#8599;</a>
                     </div>
                 </div>
             <?php } else { ?>
