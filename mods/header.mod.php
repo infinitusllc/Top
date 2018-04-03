@@ -25,10 +25,10 @@ if (isset($_SESSION['lang_key'])) {
             <li>
                 <div class="dropdown">
                     <button class="dropbtn">ტურები ↓</button>
-                    <div class="dropdown-content" style="left:0;">
-                        <a href="#" onclick="document.getElementById('actual-tours-hidden').submit()">აქტუალური ტურები</a>
-                        <a href="#" onclick="document.getElementById('incoming-tours').submit()">შემომავალი ტურები</a>
-                        <a href="#" onclick="document.getElementById('outgoing-tours').submit()">გამავალი ტურები</a>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="document.getElementById('actual-tours-hidden').submit()">აქტუალური ტურები &#8599;</a>
+                        <a href="#" onclick="document.getElementById('incoming-tours').submit()">შემომავალი ტურები &#8599;</a>
+                        <a href="#" onclick="document.getElementById('outgoing-tours').submit()">გამავალი ტურები &#8599;</a>
                     </div>
                 </div>
             </li>
@@ -43,19 +43,17 @@ if (isset($_SESSION['lang_key'])) {
         </ul>
         <ul class="navbar-user">
             <?php if (isset($_SESSION["logged"]) && $_SESSION["logged"] == true) { ?>
-
                 <div class="dropdown" style="float:right;">
-                    <button class="dropbtn"> <span id="ui-to-top1" class="ui-to-top1 fa material-icons-chat active"></span></button>
+                    <button class="dropbtn"> <span id="ui-to-top1" class="material-icons-person_pin"></span></button>
                     <div class="dropdown-content">
                         <a href="profile.php"> ჩემი პროფილი </a>
                         <a href="includes/logout.inc.php">გამოსვლა</a>
                     </div>
                 </div>
-
             <?php } else { ?>
             <li>
-            <li><a href="#"><span onclick="openNav()" class="material-icons-account_circle"></span></a></li>
-            </li>
+				<a href="#"><span onclick="openNav()" class="material-icons-person_pin"></span></a>
+			</li>
             <?php } ?>
         </ul>
         <!-- END RD Navbar Brand -->
