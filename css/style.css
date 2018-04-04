@@ -7798,7 +7798,7 @@ h3, .heading-3 {
     h3, .heading-3 {
         font-size: 36px;
         line-height: 28px;
-        font-weight: 700;
+        /* font-weight: 700; */
     }
 }
 
@@ -13275,7 +13275,7 @@ a.icon-primary:hover {
 
 @media (max-width: 1600px) {
     .rd-navbar-brand {
-        padding-top: 52px;
+        /* padding-top: 52px; */
     }
 }
 
@@ -13323,7 +13323,8 @@ div .navbar-nav {
 
 @media (max-width: 1600px) {
     div .navbar-nav {
-        top: 106px;
+        /* top: 106px; */
+        left: 580px;
     }
 }
 
@@ -13413,7 +13414,7 @@ div .navbar-flags {
 
 @media (max-width: 1600px) {
     div .navbar-flags {
-        top: 106px;
+        /* top: 106px; */
     }
 }
 
@@ -13508,7 +13509,8 @@ div .navbar-user {
 
 @media (max-width: 1600px) {
     div .navbar-user {
-        top: 116px;
+        /* top: 116px; */
+        /* left: 0; */
     }
 }
 
@@ -15636,6 +15638,7 @@ div .rd-mailform1 .mfControls {
     .owl-carousel .owl-item .box-text {
         width: 54%;
         padding: 9% 0 0 102px;
+        text-align: left;
     }
 
         .owl-carousel .owl-item .box-text .btn {
