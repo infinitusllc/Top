@@ -12,7 +12,7 @@
                     <div class="swiper-slide" data-slide-bg="<?php echo $img; ?>" style="background-image: url('<?php echo $img; ?>');">
                         <div class="swiper-slide-caption">
                             <div class="container">
-                                <div class="text-center text-lg-left">
+                                <div class="text-center slide-text-center text-lg-center">
                                     <div class="col-lg-3 col-md-12">
                                         <!-- <h2 class="text-bold"> <?php echo $i++; ?> </h2> -->
                                         <a href="<?php echo $slide['tour_url']; ?>"> <?php echo $slide['intro']; ?> </a>

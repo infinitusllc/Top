@@ -8293,6 +8293,12 @@ html body .page .text-contrast-1 {
 /*
 * @subsection   Text Alignment
 */
+.slide-text-center a p {
+    font-size: 155px;
+    text-shadow: 0px 1px 0px #333;
+    color: #f3f3f3;
+}
+
 .text-left {
     text-align: left;
 }
@@ -15440,7 +15446,7 @@ div .rd-mailform1 .mfControls {
 .swiper-slide-caption {
     margin-left: 0px;
     position: relative;
-    bottom: -22.1%;
+    bottom: 0%;
     display: inline-block;
     width: 100%;
     max-height: 100%;
