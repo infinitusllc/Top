@@ -15090,7 +15090,7 @@ div .rd-mailform1 .mfControls {
     transition: .3s all ease;
     display: none;
     position: absolute;
-    top: 43%;
+    top: 50%;
     overflow: hidden;
     line-height: 66px;
     text-align: center;
@@ -15118,7 +15118,7 @@ div .rd-mailform1 .mfControls {
 @media (max-width: 1600px) {
     .swiper-button-prev,
     .swiper-button-next {
-        top: 90.2%;
+        top: 50%;
     }
 }
 
@@ -15126,7 +15126,7 @@ div .rd-mailform1 .mfControls {
     .swiper-button-prev,
     .swiper-button-next {
         width: 40px;
-        top: 80.2%;
+        top: 50%;
     }
 }
 

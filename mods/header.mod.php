@@ -24,7 +24,7 @@ if (isset($_SESSION['lang_key'])) {
         <ul class="navbar-nav">
             <li>
                 <div class="dropdown">
-                    <button class="dropbtn">ტურები ↓</button>
+                    <button class="dropbtn">ტურები</button>
                     <div class="dropdown-content">
                         <a href="#" onclick="document.getElementById('actual-tours-hidden').submit()">აქტუალური ტურები &#8599;</a>
                         <a href="#" onclick="document.getElementById('incoming-tours').submit()">შემომავალი ტურები &#8599;</a>

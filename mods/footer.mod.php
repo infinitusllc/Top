@@ -7,12 +7,12 @@
             <div class="col-md-5">
                 <!-- REVIEW FORM -->
                 <form id="review-form" action="includes/make_review.inc.php" method="post" accept-charset="UTF-8"
-                      style="text-align: center; margin-bottom: 20px; margin-top: 100px">
-                    <p style="color: darkgray; margin-bottom: 10px;"> <strong> დაგვიტოვეთ რევიუ </strong></p>
-                    <input name="e_mail" placeholder="ი-მეილი" style="border: solid grey; outline: grey; margin-bottom: 10px;">
-                    <input name="subject" placeholder="საკითხი" style="border: solid grey; outline: grey;margin-bottom: 10px"">
-                    <textarea name="review" placeholder="რევიუ" style="border: solid grey; outline: grey; width: 80%; height: 100px">რევიუ</textarea> <br><br>
-                    <input type="submit" name="submit" value="რევიუს დატოვება" style="outline: gray; border: solid gray; padding: 10px">
+                      style="text-align: left; margin-bottom: 20px; margin-top: 100px">
+                    <p style="color: darkgray; margin-bottom: 10px;"> <h4>დაგვიტოვეთ რევიუ </h4></p>
+                    <input name="e_mail" placeholder="ი-მეილი" style="margin-bottom: 10px;border: 1px solid #6f588a;width: 450px;color: #9f9f9f;font-weight: normal;font-size: 15px;height: 30px;padding-left: 10px;"><br/>
+                    <input name="subject" placeholder="საკითხი" style="margin-bottom: 10px;border: 1px solid #6f588a;width: 450px;color: #9f9f9f;font-weight: normal;font-size: 15px;height: 30px;padding-left: 10px;">
+                    <textarea name="review" placeholder="რევიუ" style="margin-bottom: 10px;border: 1px solid #6f588a;width: 450px;color: #9f9f9f;font-weight: normal;font-size: 15px;height: 100px;padding-left: 10px;">რევიუ</textarea> <br/>
+                    <input type="submit" name="submit" value="რევიუს დატოვება" style="padding: 10px;background-color: #6f588a;color: white;">
                 </form>
                 <!-- REVIEW FORM -->
             </div>
