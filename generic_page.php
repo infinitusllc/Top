@@ -34,14 +34,11 @@
     include "mods/header.mod.php";
 ?>
 
-<div style="width: 70%; margin: 180px auto auto;">
-    <h1 style="text-align: center; color: black"> <?php echo $generics[$keyword][$lang_key]['title']; ?> </h1></br>
-    <p style="text-align: center"> <a href="index.php"> უკან </a> </p>
-    <h4 style="text-align: center"> <?php echo $generics[$keyword][$lang_key]['intro']; ?> </h4></br>
-    <div style="max-width: 60%; margin:auto"> <?php echo $generics[$keyword][$lang_key]['content']; ?> </div>
+<div class="container-common">
+    <h2> 
+		<?php echo $generics[$keyword][$lang_key]['title']; ?> 
+	</h2>
+    <div class="content"> <?php echo $generics[$keyword][$lang_key]['content']; ?> </div>
 </div>
-
 <?php include "mods/footer.mod.php"; ?>
-
-
 </body>

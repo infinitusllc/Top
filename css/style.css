@@ -1005,11 +1005,11 @@ html.lt-ie10 .row-no-gutter, .row-no-gutter {
         /* color: #67498c; */
     }
 
-    .row > .category ul li {
-        margin: 7px 3px 5px 10px;
-        text-align: left;
-        /* color: #67498c; */
-    }
+        .row > .category ul li {
+            margin: 7px 3px 5px 10px;
+            text-align: left;
+            /* color: #67498c; */
+        }
 
     .row > .col-md-preffix-4 {
         margin-left: 33.33333%;
@@ -8096,27 +8096,73 @@ hr {
     margin-left: -12.5px;
     border-radius: 12px;
 }
+
 @-webkit-keyframes rotateplane {
-    0%   {top:10px;}
-    25%  {top:14px;}
-    50%  {top:19px;}
-    75%  {top:24px;}
-    100% {top:28px;}
+    0% {
+        top: 10px;
+    }
+
+    25% {
+        top: 14px;
+    }
+
+    50% {
+        top: 19px;
+    }
+
+    75% {
+        top: 24px;
+    }
+
+    100% {
+        top: 28px;
+    }
 }
+
 @-moz-keyframes rotateplane {
-    0%   {top:10px;}
-    25%  {top:14px;}
-    50%  {top:19px;}
-    75%  {top:24px;}
-    100% {top:28px;}
+    0% {
+        top: 10px;
+    }
+
+    25% {
+        top: 14px;
+    }
+
+    50% {
+        top: 19px;
+    }
+
+    75% {
+        top: 24px;
+    }
+
+    100% {
+        top: 28px;
+    }
 }
+
 @-o-keyframes rotateplane {
-    0%   {top:10px;}
-    25%  {top:14px;}
-    50%  {top:19px;}
-    75%  {top:24px;}
-    100% {top:28px;}
+    0% {
+        top: 10px;
+    }
+
+    25% {
+        top: 14px;
+    }
+
+    50% {
+        top: 19px;
+    }
+
+    75% {
+        top: 24px;
+    }
+
+    100% {
+        top: 28px;
+    }
 }
+
 .mouse::after {
     content: "";
     position: absolute;
@@ -8125,10 +8171,9 @@ hr {
     background-color: #fff;
     border-radius: 100%;
     left: 50%;
-    top:10px;
+    top: 10px;
     margin-left: -2.5px;
-    transition:all 0.3s ease-in;
- 
+    transition: all 0.3s ease-in;
     -webkit-animation-name: rotateplane; /* Chrome, Safari, Opera */
     -webkit-animation-duration: 2s; /* Chrome, Safari, Opera */
     animation-name: rotateplane;
@@ -12571,17 +12616,17 @@ html:not(.lt-ie10) .not-animated {
     text-align: left;
 }
 
-.box-skin-1 h4 {
-    padding-left: 30px;
-}
-
-    .box-skin-1 h4 a {
-        color: white;
+    .box-skin-1 h4 {
+        padding-left: 30px;
     }
 
-    .box-skin-1 h4 a:hover {
-        color: #6f588a;
-    }
+        .box-skin-1 h4 a {
+            color: white;
+        }
+
+            .box-skin-1 h4 a:hover {
+                color: #6f588a;
+            }
 
     .box-skin-1 .text-white p {
         padding-left: 33px;
@@ -13368,12 +13413,12 @@ div .navbar-nav {
 
 @media (max-width:767px) {
     .navbar-nav .open .dropdown-menu {
-            padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 20px;
-    /* text-shadow: 0px 0px 1px #333; */
-    color: #333;
-    font-size: 19px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        line-height: 20px;
+        /* text-shadow: 0px 0px 1px #333; */
+        color: #333;
+        font-size: 19px;
     }
 
         .navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .dropdown-menu > li > a {
@@ -16056,16 +16101,19 @@ div .rd-mailform1 .mfControls {
     text-align: right;
 }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    font-size: 16px;
-    display: block;
-    /* border-bottom: 1px solid #fff; */
-}
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        font-size: 16px;
+        display: block;
+        /* border-bottom: 1px solid #fff; */
+    }
 
-.dropdown-content a:hover {background-color: #67498c;color: white;}
+        .dropdown-content a:hover {
+            background-color: #67498c;
+            color: white;
+        }
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -16087,16 +16135,19 @@ div .rd-mailform1 .mfControls {
     /* text-align: right; */
 }
 
-.dropdown-content1 a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    font-size: 16px;
-    display: block;
-    /* border-bottom: 1px solid #fff; */
-}
+    .dropdown-content1 a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        font-size: 16px;
+        display: block;
+        /* border-bottom: 1px solid #fff; */
+    }
 
-.dropdown-content1 a:hover {background-color: #67498c;color: white;}
+        .dropdown-content1 a:hover {
+            background-color: #67498c;
+            color: white;
+        }
 
 .dropdown:hover .dropdown-content1 {
     display: block;
@@ -16107,8 +16158,93 @@ div .rd-mailform1 .mfControls {
 }
 
 /************************************************************************************/
+.container-common {
+    padding-top: 157px;
+    padding-bottom: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    min-width: 300px;
+    max-width: 480px;
+}
+
+@media (min-width: 768px) {
+    .container-common {
+        max-width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container-common {
+        max-width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-common {
+        max-width: 1200px;
+        text-align: center;
+    }
+}
+
+.container-common {
+}
+
+    .container-common h2 {
+        font-size: 39px;
+        text-align: left;
+        padding-bottom: 25px;
+        color: #67498c;
+    }
+
+    .container-common .content {
+        font-size: 43px;
+        text-align: left;
+        padding-bottom: 25px;
+    }
+
+
+    .common-style input {
+        margin-bottom: 10px;
+        border: 1px solid #6f588a;
+        color: #9f9f9f;
+        font-weight: normal;
+        font-size: 15px;
+        height: 30px;
+        padding-left: 10px;
+    }
+
+    .common-style textarea {
+        margin-bottom: 10px;
+        border: 1px solid #6f588a;
+        color: #9f9f9f;
+        font-weight: normal;
+        font-size: 15px;
+        padding-left: 10px;
+    }
+
+    .common-style input[type='submit'] {
+        padding: 10px;
+        background-color: #6f588a;
+        color: white;
+        height: 43px;
+    }
+
+.common-style h2 {
+    font-size: 43px;
+    text-align: left;
+    padding-bottom: 25px;
+}
+
+    .common-style .content {
+        font-size: 43px;
+        text-align: left;
+        padding-bottom: 25px;
+    }
 /************************************************************************************/
 
+/************************************************************************************/
 #return-to-top {
     position: fixed;
     bottom: 20px;
@@ -16129,23 +16265,26 @@ div .rd-mailform1 .mfControls {
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
-#return-to-top i {
-    color: #fff;
-    margin: 0;
-    position: relative;
-    left: 16px;
-    top: 13px;
-    font-size: 19px;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-#return-to-top:hover {
-    background: rgba(0, 0, 0, 0.9);
-}
-#return-to-top:hover i {
-    color: #fff;
-    top: 5px;
-}
+
+    #return-to-top i {
+        color: #fff;
+        margin: 0;
+        position: relative;
+        left: 16px;
+        top: 13px;
+        font-size: 19px;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+
+    #return-to-top:hover {
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+        #return-to-top:hover i {
+            color: #fff;
+            top: 5px;
+        }
