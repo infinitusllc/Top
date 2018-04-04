@@ -37,7 +37,6 @@
         }
     </script>
     <?php
-    session_start();
     $logged = $_SESSION['admin'];
     if (!isset($logged) || $logged == false){
         header("Location: ind.php");
@@ -93,12 +92,8 @@
     <!--========================================================
                               CONTENT
     =========================================================-->
-    <main class="page-content">
+    <main class="page-content" style="margin-bottom: -300px">
         <section>
-
-            <!-- Swiper -->
-                <?php include "mods/slide_display.mod.php"; ?>
-                <!-- END Swiper -->
             <div id="sc_down">
                 <a class="btn" href="#ex1">ჩასქროლე</a>
             </div>
@@ -107,7 +102,7 @@
         <section>
             <div class="container">
                 <!-- RD Mailform -->
-                <form class='rd-mailform1' method="post" action="includes/tour_search.inc.php">
+                <form class='rd-mailform1' method="post" action="includes/tour_search.inc.php"  style="border: solid gray">
                     <!-- RD Mailform Type -->
                     <input type="hidden" name="form-type" value="contact"/>
                     <!-- END RD Mailform Type -->
