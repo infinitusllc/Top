@@ -23,7 +23,7 @@
                 </address>
             </div>
             <div class="col-md-2">
-                <ul class="inline-list text-center text-lg-left">
+                <ul class="inline-list text-center text-lg-center">
                     <li>
                         <a class="icon-xs fa-facebook" href="#"></a>
                     </li>
@@ -37,6 +37,7 @@
                         <a class="icon-xs fa-twitter" href="#"></a>
                     </li>
                 </ul>
+				<img src="images/QR_toptravel.png" alt="" width="190" height="190">   
             </div>
         </div>
     </div>
