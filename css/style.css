@@ -13330,10 +13330,15 @@ div .navbar-nav {
 
 @media (max-width: 1199px) {
     div .navbar-nav {
-        padding: 0px;
-        width: 100%;
-        position: relative;
-        top: 0;
+        /* padding: 0px; */
+        /* width: 100%; */
+        /* position: relative; */
+        /* top: 0; */
+        position: absolute;
+        width: 470px;
+        padding: 0;
+        top: 35px;
+        left: 201px;
     }
 }
 
@@ -13420,10 +13425,14 @@ div .navbar-flags {
 
 @media (max-width: 1199px) {
     div .navbar-flags {
-        padding: 0px;
-        width: 100%;
+        /* padding: 0px; */
+        /* width: 100%; */
+        /* position: relative; */
+        /* top: 0; */
         position: relative;
-        top: 0;
+        padding: 0;
+        top: 43px;
+        left: 614px;
     }
 }
 
@@ -13516,10 +13525,17 @@ div .navbar-user {
 
 @media (max-width: 1199px) {
     div .navbar-user {
-        padding: 0px;
-        width: 100%;
+        /* padding: 0px; */
+        /* width: 100%; */
+        /* position: relative; */
+        /* top: 0; */
         position: relative;
-        top: 0;
+        width: 30px;
+        padding: 0;
+        top: 7px;
+        left: 583px;
+        /* opacity: 0; */
+        font-size: 30px;
     }
 }
 
