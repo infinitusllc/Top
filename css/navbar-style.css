@@ -1,0 +1,118 @@
+/* demo purposes only */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+
+/* actual menu starts here*/
+.k-page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.k-top-bar {
+    display: grid;
+    grid-template-columns: 80px 1fr auto  auto;
+    grid-template-areas: "logo menu user flags";
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.k-top-bar > div {
+    display: flex;
+    align-items: center;
+}
+
+/* iPhone Portrait */
+@media only screen and (max-width : 376px) {
+    .k-top-bar {
+        grid-template-columns: 60px 1fr;
+        grid-template-areas: "menu menu " "logo flags" "logo user";
+    }
+
+    .k-top-bar .k-menu {
+        justify-content: center;
+    }
+}
+
+/* Landscape iPhone and iPad */
+@media only screen and (min-width: 376px) and (max-width : 768px) {
+    .k-top-bar {
+        grid-template-columns: 80px 1fr auto;
+        grid-template-areas: "logo menu menu" "logo user flags";
+    }
+
+    .k-top-bar .k-menu {
+        justify-content: flex-end;
+    }
+}
+
+.k-logo {
+    grid-area: logo;
+}
+
+.k-menu {
+    grid-area: menu;
+    justify-content: flex-end;
+}
+
+.k-user {
+    grid-area: user;
+    justify-content: flex-end;
+    padding: 8px;
+}
+
+.k-flags {
+    grid-area: flags;
+    justify-content: flex-end;
+    padding: 0 8px;
+}
+
+.k-flags > a {
+    margin: 0 2px;
+}
+
+
+.k-top-bar .k-menu {
+    display: grid;
+    grid-template-columns: auto auto auto  auto;
+}
+
+.k-top-bar .k-menu > div {
+    padding: 8px;
+    border-right: 1px dotted #634584;
+}
+
+.k-top-bar .k-menu a {
+    color: #634584;
+    text-decoration: none;
+}
+
+.k-dropdown-content {
+    position: absolute;
+    display: none;
+    background-color: #ffffff;
+    margin: 8px 0;
+}
+
+.k-dropdown-content div {
+    padding: 12px;
+}
+
+.k-dropdown-content div:hover {
+    background-color: #634584;
+    transition: all ease .4s
+}
+
+.k-dropdown-content div:hover a {
+    color: #ffffff !important;
+}
+
+.k-dropdown:hover .k-dropdown-content {
+    display: block;
+}

@@ -12,7 +12,59 @@ if (isset($_SESSION['lang_key'])) {
     $lang_key = $_SESSION['lang_key'];
 }
 ?>
+<!--
+	<div class="k-page-header">
+        <div class="k-top-bar">
+            <div class="k-logo">
+                <a href="index.php" class="brand-name primary-color">
+                    <img src="images/logo.png" alt="Top-Travel Logo" style="width:100%">
+                </a>
+            </div>
+            <div class="k-menu">
 
+                <div class="k-dropdown">
+                    <a href="#">ტურები</a>
+                    <div class="k-dropdown-content">
+                        <div>
+                            <a href="#" oncdivck="document.getElementById('actual-tours-hidden').submit()">&#8599; აქტუალური ტურები</a>
+                        </div>
+                        <div>
+                            <a href="#" oncdivck="document.getElementById('incoming-tours').submit()">&#8599; შემომავალი ტურები</a>
+                        </div>
+                        <div>
+                            <a href="#" oncdivck="document.getElementById('outgoing-tours').submit()">&#8599; გამავალი ტურები</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="generic_page.php?lang=1&keyword=about">შესახებ</a>
+                </div>
+                <div>
+                    <a href="generic_page.php?lang=1&keyword=partners">პარტნიორები</a>
+                </div>
+                <div>
+                    <a href="generic_page.php?lang=1&keyword=contact">კონტაქტი</a>
+                </div>
+
+            </div>
+            <div class="k-user">
+                USER_INFO_GOES_HERE
+            </div>
+            <div class="k-flags">
+                <a href="index.php?lang=geo">
+                    <img src="images/geo.png">
+                </a>
+                <a href="index.php?lang=eng">
+                    <img src="images/eng.png">
+                </a>
+                <a href="index.php?lang=rus">
+                    <img src="images/rus.png">
+                </a>
+            </div>
+
+        </div>
+    </div>
+	-->
 <section class="page-header">
     <div class="container">
         <!-- RD Navbar Brand -->

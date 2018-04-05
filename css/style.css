@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*
 * @package      Style
 * @description  This package holds all common style declarations
@@ -8042,7 +8042,7 @@ hr {
     /*height: 110px;*/
     z-index: 100;
     /* opacity: 0.3; */
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgb(255, 255, 255, 0.5);
 }
 
 .well-welcome {
@@ -16214,6 +16214,13 @@ div .rd-mailform1 .mfControls {
         padding-bottom: 25px;
     }
 
+    .common-style .review {
+        text-align: left;
+        background-color: #f0f0f0;
+        opacity: 1;
+        color: #6f588a;
+        border: 1px solid #6f588a;
+    }
 
     .common-style input {
         margin-bottom: 10px;

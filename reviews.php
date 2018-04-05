@@ -11,7 +11,7 @@
 <body>
 
 <?php
-    session_start();
+    //session_start();
 
     include "includes/get_generics.inc.php";
     $keyword = -1;
@@ -30,16 +30,18 @@
     include "mods/header.mod.php";
 ?>
 
-<div style="width: 70%; margin: 80px auto auto;">
-    <form id="review-form" action="includes/make_review.inc.php" method="post" accept-charset="UTF-8" style="text-align: center; margin-bottom: 20px">
-        <p> ი-მეილი: </p>
-        <input name="e_mail" style="border: solid grey; outline: grey">
-        <p> საკითხი: </p>
-        <input name="subject" style="border: solid grey; outline: grey">
-        <p> რევიუ: </p>
-        <textarea name="review" style="border: solid grey; outline: grey; width: 60%; height: 20%"></textarea> <br><br>
-        <input type="submit" name="submit" value="რევიუს დატოვება" style="outline: gray; border: solid gray; padding: 10px">
-    </form>
+<div class="container-common">
+	<h2> 
+		გაგვიზიარეთ თქვენი მოსაზრება..
+	</h2>
+	<div class="common-style" style="text-align:left;">
+		<form id="review-form" action="includes/make_review.inc.php" method="post" accept-charset="UTF-8">
+			<input name="e_mail" style="width:20%;" placeholder="ი-მეილი"><br>
+			<input name="subject" style="width:100%;" placeholder="საკითხი"><br>
+			<textarea name="review" style="width:100%;" placeholder="რევიუ"></textarea><br>
+			<input type="submit" name="submit" value="რევიუს დატოვება">
+		</form>
+	</div>
 </div>
 
 <?php
@@ -68,5 +70,9 @@
         <?php } ?>
     </div>
     <?php } ?>
-
+	<!--========================================================
+    FOOTER
+    ==========================================================-->
+    <?php include "mods/footer.mod.php"; ?>
+    </div>
 </body>
