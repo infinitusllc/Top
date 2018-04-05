@@ -27,7 +27,7 @@
         $lang_key = $_GET['lang'];
     }
 
-    include "mods/header.mod.php";
+    include "mods/header.comm.mod.php";
 ?>
 
 <div class="container-common">

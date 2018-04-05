@@ -86,7 +86,7 @@
     <!--========================================================
                               HEADER
     =========================================================-->
-    <?php include "mods/header.mod.php"; ?>
+    <?php include "mods/header.comm.mod.php"; ?>
     <?php include "mods/button_links.mod.php"; ?>
 
     <!--========================================================
@@ -102,16 +102,10 @@
         <section>
             <div class="container">
                 <!-- RD Mailform -->
-                <form class='rd-mailform1' method="post" action="includes/tour_search.inc.php"  style="border: solid gray">
+                <form class='rd-mailform1' method="post" action="includes/tour_search.inc.php">
                     <!-- RD Mailform Type -->
                     <input type="hidden" name="form-type" value="contact"/>
                     <!-- END RD Mailform Type -->
-
-                    <a href="index.php" class="brand-name primary-color">
-                        <img src="images/logo.png" data-srcset-base="images/" data-srcset-ext="logo.png" alt="" width="100" height="100">
-                    </a>
-                    <!--<h4 class="text-bold">მოძებნე ტური</h4>-->
-
                     <p>ტურის ტიპი</p>
                     <label data-add-placeholder>
                         <select name="tour_type" onchange="displayTypes(this)">

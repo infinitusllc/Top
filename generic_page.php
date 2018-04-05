@@ -31,7 +31,7 @@
             $lang = 'rus';
             break;
     }
-    include "mods/header.mod.php";
+    include "mods/header.comm.mod.php";
 ?>
 
 <div class="container-common">
