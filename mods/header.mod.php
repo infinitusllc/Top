@@ -99,6 +99,9 @@ if (isset($_SESSION['lang_key'])) {
                     <button class="dropbtn"> <span class="material-icons-person_pin"></span></button>
                     <div class="dropdown-content1">
                         <a href="profile.php"> ჩემი პროფილი &#8599;</a>
+                        <?php if ($_SESSION['user']['is_admin'] == 1) { ?>
+                            <a href="admin.php">ადმინის გვერდი &#8599;</a>
+                        <?php } ?>
                         <a href="includes/logout.inc.php">გამოსვლა &#8599;</a>
                     </div>
                 </div>
