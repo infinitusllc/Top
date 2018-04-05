@@ -8,7 +8,11 @@ if  (isset($_COOKIE['e_mail']) and isset($_COOKIE['password'])
 }
 ?>
 
-<div id="login-form" class="overlay" style="z-index: 110">
+<?php if(isset($_GET['message'])) { ?>
+    <div id="login-form" class="overlay" style="z-index: 110; display: block">
+<?php } else { ?>
+    <div id="login-form" class="overlay" style="z-index: 110">
+<?php } ?>
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content login-frm common-style">
         <h1>შესვლა</h1>
@@ -23,7 +27,25 @@ if  (isset($_COOKIE['e_mail']) and isset($_COOKIE['password'])
 				</label>
 				<input type="checkbox" name="remember" value="true"  title="remember"/> იუზერის დამახსოვრება<br>
 			-->
-			<button type="submit" class="button sub" name="submit"> შესვლა</button><br>
+            <?php
+                if (isset($_GET['message'])) {
+                    switch ($_GET['message']) {
+                        case "error1":
+                            echo "<p> გთხოვთ, შეავსოთ ყველა ველი </p>";
+                            break;
+                        case "error2":
+                            echo "<p> შეყვანილი პასვორდი არასწორია </p>";
+                            break;
+                        case "error3":
+                            echo "<p> მომხმარებელი ასეთი ი-მეილით არ არსებობს </p>";
+                            break;
+                        default:
+                            echo "<p> დაფიქსირდა შეცდომა </p>";
+                            break;
+                    }
+                }
+            ?>
+			<button type="submit" class="button sub" name="submit" style="margin-top: 10px"> შესვლა</button><br>
 			<a href="registration.php">მომხმარებლის რეგისტრაცია..</a>
         </form>
     </div>

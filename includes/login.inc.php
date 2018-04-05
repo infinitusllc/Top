@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
                 //dehashing the password
                 $hashedPassCheck = password_verify($pass, $row['password']);
                 if($hashedPassCheck == false){
-                    header("Location: ../index.php");
+                    header("Location: ../index.php?message=error2");
                     exit();
                 } else if ($hashedPassCheck == true) {
                     if ($remember == 'true') {
@@ -107,7 +107,7 @@ if(isset($_POST['submit'])){
         }
     }
 } else {
-    header("Location: ../index.php?message=error1");
+    header("Location: ../index.php?message=error0");
     exit();
 }
 

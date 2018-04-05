@@ -25,6 +25,7 @@
             var value = selectObject.value;
             window.location.href = 'index.php?lang=' + value;
         }
+
     </script>
     <?php
         if (session_id() == '' || !isset($_SESSION)) // session isn't started
