@@ -11,7 +11,8 @@
 <body>
 
 <?php
-    //session_start();
+    if (session_id() == '' || !isset($_SESSION)) // session isn't started
+        session_start();
 
     include "includes/get_generics.inc.php";
     $keyword = -1;
@@ -44,7 +45,7 @@
 	</div>
 </div>
 <div class="container" style="text-align:left;padding-bottom: 50px;">
-<div style="background-color: ghostwhite;padding: 10px;border: 1px solid #6f588a;color: #6f588a;margin: 10px 0;">
+    <div style="background-color: ghostwhite;padding: 10px;border: 1px solid #6f588a;color: #6f588a;margin: 10px 0;">
 	<?php
 		require_once "includes/comments.inc.php";
 		$reviews = getReviews();

@@ -20,7 +20,7 @@ function getCommentsByTour($tour_id) {
 function getReviews() {
     include "dbc.inc.php";
 
-    $sql = "SELECT * FROM reviews WHERE is_deleted = 0";
+    $sql = "SELECT * FROM reviews WHERE is_deleted = 0 ORDER BY `time` DESC";
     $result = mysqli_query($conn, $sql);
 
     $reviews = [];

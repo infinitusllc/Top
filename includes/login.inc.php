@@ -59,6 +59,9 @@ if(isset($_POST['submit'])){
                 }
             }
         }
+    } else {
+        header("Location: ../index.php?message=error1");
+        exit();
     }
 } elseif (isset($_COOKIE['e_mail']) and isset($_COOKIE['password'])
     and !empty($_COOKIE['e_mail']) and !empty($_COOKIE['password'])){

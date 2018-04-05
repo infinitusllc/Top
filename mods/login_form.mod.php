@@ -1,10 +1,10 @@
 <?php
-if(isset($_COOKIE['e_mail']) and isset($_COOKIE['password'])
+if  (isset($_COOKIE['e_mail']) and isset($_COOKIE['password'])
     and !empty($_COOKIE['e_mail']) and !empty($_COOKIE['password'])
     and (!isset($_SESSION["logged"]) || $_SESSION["logged"] == false)
     and (!isset($_SESSION['unlogged']) || $_SESSION['unlogged']) == false) {
-    header("Location: includes/login.inc.php");
-    exit();
+        header("Location: includes/login.inc.php");
+        exit();
 }
 ?>
 
