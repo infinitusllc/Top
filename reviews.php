@@ -43,7 +43,7 @@
 		</form>
 	</div>
 </div>
-<div class="container" style="text-align:left;">
+<div class="container" style="text-align:left;padding-bottom: 50px;">
 <div style="background-color: ghostwhite;padding: 10px;border: 1px solid #6f588a;color: #6f588a;margin: 10px 0;">
 	<?php
 		require_once "includes/comments.inc.php";
@@ -63,9 +63,9 @@
 
 				<?php if (isset($_SESSION["logged"]) and $_SESSION["logged"] and ($_SESSION['user']['is_admin'] == 1
 						or $_SESSION['user']['id'] == $comment['user_id'])) { ?>
-					<form id="delete-review" action="includes/delete_review.inc.php" method="post" style="text-align: center">
+					<form id="delete-review" action="includes/delete_review.inc.php" method="post" style="text-align: right">
 						<input type="hidden" value="<?php echo $review['id']; ?>" name="id">
-						<input type="submit" name="submit" value="წაშლა" style="color: red">
+						<input type="submit" name="submit" value="წაშლა" style="padding: 10px;background-color: #6f588a;color: white;height: 43px;font-size: 15px;">
 					</form>
 			<?php } ?>
 		</div>
