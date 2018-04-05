@@ -43,36 +43,37 @@
 		</form>
 	</div>
 </div>
+<div class="container" style="text-align:left;">
+<div style="background-color: ghostwhite;padding: 10px;border: 1px solid #6f588a;color: #6f588a;margin: 10px 0;">
+	<?php
+		require_once "includes/comments.inc.php";
+		$reviews = getReviews();
+		$first = true;
+		foreach ($reviews as $review) {
+		if($first) { ?>
+			<?php
+			$first = false;
+			} else { ?>
+			<div style="background-color: ghostwhite;padding: 10px;border: 1px solid #6f588a;color: #6f588a;margin: 10px 0;">
+				<?php } ?>
+				<p> <strong>კომენტატორი:</strong> <?php echo $review['e-mail'] ?> <br>
+					<strong>საკითხი:</strong> <?php echo $review['subject']; ?> </p>
+				<p style="text-align: left"> <?php echo $review['review']; ?> </p>
+				<p style="text-align: right"> <?php echo $review['time']; ?> </p>
 
-<?php
-    require_once "includes/comments.inc.php";
-    $reviews = getReviews();
-    $first = true;
-    foreach ($reviews as $review) {
-    if($first) { ?>
-    <div style="width: 60%; margin: auto; background-color: ghostwhite; padding: 20px; border: dotted gray">
-        <?php
-        $first = false;
-        } else { ?>
-        <div style="width: 60%; margin: auto; background-color: ghostwhite; padding: 20px; border: dotted gray; border-top: none">
-            <?php } ?>
-            <p> <strong>კომენტატორი:</strong> <?php echo $review['e-mail'] ?> <br>
-                <strong>საკითხი:</strong> <?php echo $review['subject']; ?> </p>
-            <p style="text-align: center"> <?php echo $review['review']; ?> </p>
-            <p style="text-align: right"> <?php echo $review['time']; ?> </p>
-
-            <?php if (isset($_SESSION["logged"]) and $_SESSION["logged"] and ($_SESSION['user']['is_admin'] == 1
-                    or $_SESSION['user']['id'] == $comment['user_id'])) { ?>
-                <form id="delete-review" action="includes/delete_review.inc.php" method="post" style="text-align: center">
-                    <input type="hidden" value="<?php echo $review['id']; ?>" name="id">
-                    <input type="submit" name="submit" value="წაშლა" style="color: red">
-                </form>
-        <?php } ?>
+				<?php if (isset($_SESSION["logged"]) and $_SESSION["logged"] and ($_SESSION['user']['is_admin'] == 1
+						or $_SESSION['user']['id'] == $comment['user_id'])) { ?>
+					<form id="delete-review" action="includes/delete_review.inc.php" method="post" style="text-align: center">
+						<input type="hidden" value="<?php echo $review['id']; ?>" name="id">
+						<input type="submit" name="submit" value="წაშლა" style="color: red">
+					</form>
+			<?php } ?>
+		</div>
+	<?php } ?>
     </div>
-    <?php } ?>
+</div>
 	<!--========================================================
     FOOTER
     ==========================================================-->
     <?php include "mods/footer.mod.php"; ?>
-    </div>
 </body>
