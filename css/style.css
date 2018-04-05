@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /*
 * @package      Style
 * @description  This package holds all common style declarations
@@ -73,14 +73,14 @@ table {
 
 button, input, textarea, select {
     display: inline-block;
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
     outline: none;
     color: inherit;
     overflow: visible;
     background-color: transparent;
     box-shadow: none;
     border-radius: 0;
-    /*border: 1px solid #6f588a;*/
+    /* border: 1px solid #6f588a; */
 }
 
     button,
@@ -15705,7 +15705,7 @@ div .rd-mailform1 .mfControls {
 @media (min-width: 992px) {
     .owl-carousel .owl-item .box-text {
         width: 54%;
-        padding: 9% 0 0 102px;
+        padding: 7% 0 0 80px;
         text-align: left;
     }
 
@@ -16159,7 +16159,16 @@ div .rd-mailform1 .mfControls {
 }
 
 /************************************************************************************/
-.container-common {
+
+.login-frm {
+    background-color: white;
+    width: fit-content;
+    padding: 37px;
+    margin: auto;
+    text-align: left;
+}
+
+    .container-common {
     padding-top: 157px;
     padding-bottom: 40px;
     margin-right: auto;
@@ -16231,6 +16240,50 @@ div .rd-mailform1 .mfControls {
         color: white;
         height: 43px;
     }
+
+.common-style button[type='submit'] {
+    font-size: 15px;
+    padding: 10px;
+    background-color: #6f588a;
+    color: white;
+    height: 43px;
+}
+
+.common-style a {
+    font-size: 16px;
+    /* padding: 10px; */
+    /* background-color: #6f588a; */
+    color: #6f588a;
+    /* height: 43px; */
+    padding: 10px 10px 0 0;
+}
+
+label input {
+    visibility: hidden;/* <-- hide the default checkbox, the rest is to hide and alllow tabbing, which display:none prevents */
+    display:block;
+    height:0;
+    width:0;
+    position:absolute;
+    overflow:hidden;
+}
+label span {/* <-- style the artificial checkbox */
+    height: 17px;
+    width: 17px;
+    border: 1px solid grey;
+    display: inline-block;
+}
+[type=checkbox]:checked + span {/* <-- style its checked state */
+    background: black;
+}
+
+/************************************************************************************/
+
+.common-style h1 {
+    font-size: 31px;
+    text-align: left;
+    padding-bottom: 14px;
+    color: #67498c;
+}
 
 .common-style h2 {
     font-size: 43px;
