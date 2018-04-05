@@ -122,7 +122,7 @@
                     echo "ქივორდი: ".$slide['keyword']."</br></br>";
                     ?>
                     </br>
-                    <a href="includes/delete_slide.inc.php?title=<?php echo $slide['keyword']; ?>"> წაშლა </a>
+                    <a href="includes/delete_slide.inc.php?keyword=<?php echo $slide['keyword']; ?>"> წაშლა </a>
                     </br>
                     <a href="admin.php?tab=slide&keyword=<?php echo $slide['keyword']; ?>"> შეცვლა </a>
                 </p>
