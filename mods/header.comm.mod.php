@@ -58,4 +58,19 @@ if (isset($_SESSION['lang_key'])) {
         <!-- END RD Navbar Brand -->
     </div>
 </section>
+
+<form id="all-tours-hidden" method="post" action="includes/tour_search.inc.php" style="display: none">
+</form>
+
+<form id="actual-tours-hidden" method="post" action="includes/tour_search.inc.php" style="display: none">
+    <input type="hidden" name="actual" value="1">
+</form>
+
+<form id="outgoing-tours" method="post" action="includes/tour_search.inc.php" style="display: none">
+    <input type="hidden" name="tour_type" value="1">
+</form>
+
+<form id="incoming-tours" method="post" action="includes/tour_search.inc.php" style="display: none">
+    <input type="hidden" name="tour_type" value="2">
+
 </form>
