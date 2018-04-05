@@ -26,7 +26,7 @@ if(isset($_POST['submit'])) {
             //redirect back, passwords don't match
             header("Location: ../registration.php?message=error2");
             exit();
-        } else if (strlen($password) < 3) {
+        } else if (strlen($password) < 6) {
             //redirect back, password must be at least 6 chars long
             header("Location: ../registration.php?message=error3");
             exit();

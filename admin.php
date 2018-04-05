@@ -3,7 +3,14 @@
 <head>
     <?php
     if (session_id() == '' || !isset($_SESSION)) // session isn't started
-        session_start(); ?>
+        session_start();
+
+    if (!isset($_SESSION['user']) or $_SESSION['user']['is_admin'] == 0){
+        header("Location: index.php");
+        exit();
+    }
+
+    ?>
     <title> ადმინის გვერდი </title>
     <script src="//cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">

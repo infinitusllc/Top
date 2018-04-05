@@ -5,7 +5,6 @@ if(isset($_POST['submit'])) {
     include 'dbc.inc.php';
 
     include "languages.inc.php";
-    $isChange = mysqli_real_escape_string($conn, $_POST["change"]);
 
     foreach ($languages as $language) {
         $suffix = $language['keyword'];
@@ -132,6 +131,7 @@ if(isset($_POST['submit'])) {
                 echo "Sorry, your file is too large.";
                 $uploadOk = 0;
             }
+
             // Allow certain file formats
             if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                 && $imageFileType != "gif") {
@@ -156,7 +156,7 @@ if(isset($_POST['submit'])) {
             }
 
             //  /adding an image
-
+//
             header("Location: ../admin.php?tab=slide&message=success");
             exit();
         }

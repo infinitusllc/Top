@@ -101,8 +101,11 @@
         </div>
 
         <div style="width: 500px; margin: 50px auto auto;">
+            <?php if ($change) { ?>
+                <a href="admin.php?tab=slide"> <p style="text-align: center"> ახლის შექმნა </p> </a>
+            <?php } ?>
             <button onclick="document.getElementById('slide-form').submit();" type="submit" class="sub button"
-                    name="submit" value="company" style="margin-left: 100px;"> შექმნა </button>
+                    name="submit" value="company" style="margin-left: 100px;"> შენახვა </button>
         </div>
     </form>
 
