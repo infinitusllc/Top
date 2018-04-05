@@ -11,6 +11,8 @@
 <body>
 
 <?php
+    if (session_id() == '' || !isset($_SESSION)) // session isn't started
+        session_start();
     include "includes/get_generics.inc.php";
     $keyword = -1;
     if (isset($_GET['keyword'])) {

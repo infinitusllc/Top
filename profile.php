@@ -126,8 +126,8 @@
 <body onload="displayClient()">
 
 <?php
-session_start();
-
+if (session_id() == '' || !isset($_SESSION)) // session isn't started
+    session_start();
 
 include "includes/countries.inc.php";
 $user = $_SESSION['user'];

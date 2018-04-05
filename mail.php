@@ -5,7 +5,8 @@
     <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
     <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
     <?php
-        session_start();
+        if (session_id() == '' || !isset($_SESSION)) // session isn't started
+            session_start();
 
         include "includes/get_generics.inc.php";
         $keyword = -1;

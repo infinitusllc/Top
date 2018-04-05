@@ -16,7 +16,8 @@
 
 
     <?php
-    session_start();
+    if (session_id() == '' || !isset($_SESSION)) // session isn't started
+        session_start();
 
     include "includes/get_tour.inc.php";
     $id = -1;

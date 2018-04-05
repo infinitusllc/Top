@@ -37,6 +37,8 @@
         }
     </script>
     <?php
+    if (session_id() == '' || !isset($_SESSION)) // session isn't started
+        session_start();
     $logged = $_SESSION['admin'];
     if (!isset($logged) || $logged == false){
         header("Location: ind.php");
