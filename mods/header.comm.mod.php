@@ -29,7 +29,7 @@ $labels = getTranslationsByKey($lang_key);
         <ul class="rd-navbar-brand">
             <a href="index.php" class="brand-name primary-color">
                 <img src="images/logo.png" data-srcset-base="images/" data-srcset-ext="logo1.png" alt="" width="100" height="100">
-            </a>
+            </a>t
         </ul>
         <ul class="navbar-nav">
             <li>

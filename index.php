@@ -53,8 +53,6 @@
 
         $_SESSION['lang'] = $lang;
         $_SESSION['lang_key'] = $lang_key;
-
-    $contents = getTranslations($lang);
     ?>
     <!-- Site Title -->
     <title>Home</title>
