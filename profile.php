@@ -144,9 +144,9 @@ $user = $_SESSION['user'];
 <form id="user-form" action="includes/registration.inc.php" method="post" accept-charset="UTF-8">
 
     <ul>
-        <li style="margin-left: 300px"><a class="tablinks1" onclick="openNews(event, 'tours')"> ჩემი ტურები </a></li>
-        <li><a class="tablinks1" onclick="openNews(event, 'favorites')"> ფავორიტები </a></li>
-        <li><a class="tablinks1" onclick="openNews(event, 'settings')"> პარამეტრები </a></li>
+		<li><a class="tablinks1" onclick="openNews(event, 'settings')"> პარამეტრები </a></li>
+		<li><a class="tablinks1" onclick="openNews(event, 'favorites')"> ფავორიტები </a></li>
+        <li><a class="tablinks1" onclick="openNews(event, 'tours')"> ჩემი ტურები </a></li>
     </ul>
 
     <div id="tours" class="tabcontent1">

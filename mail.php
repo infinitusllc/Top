@@ -31,19 +31,21 @@
 
 <?php
 
-include "mods/header.mod.php";
+include "mods/header.comm.mod.php";
 ?>
 
-<div style="width: 70%; margin: 80px auto auto;">
-    <form id="review-form" action="includes/send_mail.inc.php" method="post" accept-charset="UTF-8" style="text-align: center; margin-bottom: 20px">
-        <p> თქვენი ი-მეილი: </p>
-        <input name="e_mail" style="border: solid grey; outline: grey">
-        <p> საკითხი: </p>
-        <input name="subject" style="border: solid grey; outline: grey">
-        <p> მესიჯი: </p>
-        <textarea name="message" style="border: solid grey; outline: grey; width: 60%; height: 20%"></textarea> <br><br>
-        <input type="submit" name="submit" value="მესიჯის გაგზავნა" style="outline: gray; border: solid gray; padding: 10px">
-    </form>
+<div class="container-common">
+	<h2> 
+		მოგვწერეთ შეტყობინება..
+	</h2>
+	<div class="common-style" style="text-align:left;">
+		<form id="mail-form" action="includes/send_mail.inc.php" method="post" accept-charset="UTF-8">
+			<input name="e_mail" style="width:20%;" placeholder="ი-მეილი"><br>
+			<input name="subject" style="width:100%;" placeholder="სათაური"><br>
+			<textarea name="message" style="width:100%;height:250px;" placeholder="შეტყობინება"></textarea><br>
+			<input type="submit" name="submit" value="შეტყობინების გაგზავნა">
+		</form>
+	</div>
 </div>
 
 <?php include "mods/footer.mod.php"; ?>
