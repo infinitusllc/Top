@@ -33,8 +33,14 @@ if(isset($_POST['submit'])){
                     header("Location: ../index.php");
                     exit();
                 }
+            } else {
+                header("Location: ../ind.php?message=error4");
+                exit();
             }
         }
+    } else {
+        header("Location: ../ind.php?message=error2");
+        exit();
     }
 } else {
     header("Location: ../ind.php?message=error1");

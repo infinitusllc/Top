@@ -11,7 +11,18 @@ $lang_key = 1;
 if (isset($_SESSION['lang_key'])) {
     $lang_key = $_SESSION['lang_key'];
 }
+
+//ეს ორი ხაზია საჭირო
+require_once "includes/tr.inc.php";
+$labels = getTranslationsByKey($lang_key);
 ?>
+
+<!--labels-ს აქვს id, value (რაც უნდა გამოვიდეს გვერდზე), title (რომლის მიხედვითაც ვიღებთ ამ არაიდან),-->
+<!--language_key (ყველას ის აქვს, რაც getTranslationsByKey ფუნქციას გადავეცით,-->
+<!--ქართული არის 1. ასევე შეიძლება ჰქონდეს page, რომელიც განსაზღვრავს, რომელ გვერდზე უნდა გამოდიოდეს ეს ლეიბლი, მაგ. index.php-->
+<!--გამოყენება ასეთია:-->
+<?php //echo $labels['some_title']; ?>
+
 <section class="page-header" style="background-color: rgb(248, 248, 255, 1);">
     <div class="container">
         <!-- RD Navbar Brand -->

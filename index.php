@@ -1,8 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en" class="wide wow-animation">
 <head>
-
-
     <script>
         function openNav() {
             document.getElementById("login-form").style.display = "block";
@@ -32,7 +30,7 @@
             session_start();
 
         $logged = $_SESSION['admin'];
-        if (!isset($logged) || $logged == false){
+        if (!isset($logged) || $logged == false) {
             header("Location: ind.php");
             exit();
         }
