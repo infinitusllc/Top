@@ -58,7 +58,6 @@
             break;
     }
 
-    $contents = getTranslations($lang);
     ?>
 
     <script>

@@ -3,6 +3,7 @@
 <head>
     <title>რეგისტრაცია</title>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
+    <?php include "mods/style.mod.php"; ?>
     <style>
         ul {
             list-style-type: none;
@@ -119,7 +120,7 @@
     }
 
     function displayClient() {
-        openNews(event, 'tours');
+        openNews(event, 'settings');
     }
 </script>
 
@@ -134,12 +135,10 @@ $user = $_SESSION['user'];
 
 
 ?>
-
-</br>
-<h2 style="max-width: 200px; margin: auto"> ჩემი პროფილი </h2>
-</br>
-<a href="index.php"> <p style="max-width: 150px; margin: auto"> უკან დაბრუნება </p></a>
-</br>
+<div class="container-common common-style" style="margin-top: -100px">
+    <h2 style="text-align: center"> ჩემი პროფილი </h2>
+    <a href="index.php"> <p style="max-width: 150px; margin: auto"> უკან დაბრუნება </p></a>
+</div>
 
 <form id="user-form" action="includes/registration.inc.php" method="post" accept-charset="UTF-8">
 
@@ -157,18 +156,16 @@ $user = $_SESSION['user'];
 
     </div>
 
-
-    <div id="settings" class="tabcontent1">
+    <div id="settings" class="tabcontent1 common-style">
         <?php if ($user['is_company']) { ?>
-
             <div class="column">
                 <p> სახელი: </p>
-                <input name="first_name_company" class="textInput" placeholder="*" value= <?php echo "'".$user['first_name']."'"; ?> id="first_name"/> </br>
+                <input name="first_name_company" class="textInput" placeholder="*" value="<?php if(isset($user['first_name'])) { echo $user['first_name']; }?>" id="first_name"/> </br>
                 <p> კომპანიის სახელი: </p>
-                <input name="company_name" class="textInput" placeholder="*" value= <?php echo "'".$user['company_name']."'"; ?> id="company_name"/> </br>
+                <input name="company_name" class="textInput" placeholder="*" value="<?php if(isset($user['company_name'])) { echo $user['company_name']; }?>" id="company_name"/> </br>
                 <p> ქვეყანა: </p>
                 <select name="country_company" id="country"
-                        style="margin-left: 100px; margin-bottom:30px; width: 200px; height: 25px">
+                        style="margin-left: 100px; margin-bottom:15px; width: 200px; height: 25px">
                     <?php
                     for ($i = 0; $i < sizeof($countries); $i++) {
                         $v = $countries[$i]['country_id'];
@@ -178,24 +175,24 @@ $user = $_SESSION['user'];
                     ?>
                 </select>
                 <p> რეალური მისამართი: </p>
-                <input name="address_company" class="textInput" placeholder="" value= <?php echo "'".$user['address']."'"; ?> id="address_actual"/> </br>
+                <input name="address_company" class="textInput" placeholder="" value="<?php if(isset($user['address'])) { echo $user['address']; } ?>" id="address_actual"/> </br>
                 <p> მობილურის ნომერი: </p>
-                <input name="mobile_number_company" class="textInput" value= <?php echo "'".$user['mobile_number']."'"; ?> placeholder="" id="phone_number"/> </br>
+                <input name="mobile_number_company" class="textInput" value="<?php if(isset($user['mobile_number'])) { echo $user['mobile_number']; }?>" placeholder="" id="phone_number"/> </br>
                 <p> პაროლი: </p>
                 <input name="password_company" type="password" class="textInput" placeholder="*"
                        id="password"/> </br>
             </div>
             <div class="column">
                 <p> გვარი: </p>
-                <input name="last_name_company" class="textInput" placeholder="*" value= <?php echo "'".$user['last_name']."'"; ?> id="last_name"/> </br>
+                <input name="last_name_company" class="textInput" placeholder="*" value="<?php if(isset($user['last_name'])) { echo $user['last_name']; }?>" id="last_name"/> </br>
                 <p> კომპანიის ID: </p>
-                <input name="company_id" class="textInput" placeholder="*" value= <?php echo "'".$user['company_id']."'"; ?> id="company_identification"/> </br>
+                <input name="company_id" class="textInput" placeholder="*" value="<?php if(isset($user['company_id'])) { echo $user['company_id']; }?>" id="company_identification"/> </br>
                 <p> იურიდიული მისამართი: </p>
-                <input name="legal_address_company" class="textInput" value= <?php echo "'".$user['address_legal']."'"; ?> placeholder="*" id="address"/> </br>
+                <input name="legal_address_company" class="textInput" value="<?php if(isset($user['address_legal'])) { echo $user['address_legal']; }?>" placeholder="*" id="address"/> </br>
                 <p> ი-მეილი: </p>
-                <input name="e_mail_company" class="textInput" value= <?php echo "'".$user['e_mail']."'"; ?> placeholder="*" id="e_mail"/> </br>
+                <input name="e_mail_company" class="textInput" value="<?php if(isset($user['e_mail'])) { echo $user['e_mail']; }?>" placeholder="*" id="e_mail"/> </br>
                 <p> კომპანიის ტელეფონის ნომერი: </p>
-                <input name="phone_number_company" class="textInput" placeholder="" value= <?php echo "'".$user['company_number']."'"; ?>
+                <input name="phone_number_company" class="textInput" placeholder="" value="<?php if(isset($user['company_number'])) { echo $user['company_number']; } ?>"
                        id="company_phone_number"/> </br>
                 <p> პაროლი განმეორებით: </p>
                 <input name="password2_company" type="password" class="textInput" placeholder="*"
@@ -207,16 +204,16 @@ $user = $_SESSION['user'];
         <?php } else { ?>
             <div class="column">
                 <p> სახელი: </p>
-                <input name="first_name_client" class = "textInput" placeholder="*" value= <?php echo "'".$user['first_name']."'"; ?> id = "first_name_client" /> </br>
+                <input name="first_name_client" class = "textInput" placeholder="*" value="<?php if(isset($user['first_name'])) { echo $user['first_name']; }?>" id = "first_name_client" /> </br>
                 <p> სქესი: </p>
-                <select name="gender_client" id="gender" style="margin-left: 100px; margin-bottom:30px; width: 200px; height: 25px">
+                <select name="gender_client" id="gender" style="margin-left: 100px; margin-bottom:15px; width: 200px; height: 25px">
                     <option value="0"> მამრ. </option>
                     <option value="1"> მდედრ. </option>
                 </select>
                 <p> მობილურის ნომერი: </p>
-                <input name="mobile_number_client" class = "textInput" placeholder="" value= <?php echo "'".$user['mobile_number']."'"; ?> id ="mobile_number_client" /> </br>
+                <input name="mobile_number_client" class = "textInput" placeholder="" value="<?php if(isset($user['mobile_number'])) { echo $user['mobile_number']; }?>" id ="mobile_number_client" /> </br>
                 <p> ქვეყანა: </p>
-                <select name="country_client" id="country_client" style="margin-left: 100px; margin-bottom:30px; width: 200px; height: 25px">
+                <select name="country_client" id="country_client" style="margin-left: 100px; margin-bottom:15px; width: 200px; height: 25px">
                     <?php
                     for ($i=0; $i<sizeof($countries); $i++){
                         $v = $countries[$i]['country_id'];
@@ -230,13 +227,13 @@ $user = $_SESSION['user'];
             </div>
             <div class="column">
                 <p> გვარი: </p>
-                <input name="last_name_client" class = "textInput" placeholder="*" value= <?php echo "'".$user['last_name']."'"; ?> id = "last_name_client" /> </br>
+                <input name="last_name_client" class = "textInput" placeholder="*" value="<?php if(isset($user['last_name'])) { echo $user['last_name']; }?>" id = "last_name_client" /> </br>
                 <p> დაბადების თარიღი: </p>
-                <input name="date_of_birth_client" type="date" class = "textInput" placeholder="*" value= <?php echo "'".$user['birth_date']."'"; ?> id = "date_of_birth_client" /> </br>
+                <input name="date_of_birth_client" type="date" class = "textInput" placeholder="*" value="<?php if(isset($user['birth_date'])) { echo $user['birth_date']; }?>" id = "date_of_birth_client" /> </br>
                 <p> ი-მეილი: </p>
-                <input name="e_mail_client" class = "textInput" placeholder="*" value= <?php echo "'".$user['e_mail']."'"; ?> id = "e_mail" /> </br>
+                <input name="e_mail_client" class = "textInput" placeholder="*" value="<?php if(isset($user['e_mail'])) { echo $user['e_mail']; }?>" id = "e_mail" /> </br>
                 <p> მისამართი: </p>
-                <input name="address_client" class = "textInput" placeholder="" value= <?php echo "'".$user['address']."'"; ?> id = "address" /> </br>
+                <input name="address_client" class = "textInput" placeholder="" value="<?php if(isset($user['address'])) { echo $user['address']; }?>" id = "address" /> </br>
                 <p> პაროლი განმეორებით: </p>
                 <input name="password2_client" type="password" class = "textInput" placeholder="*" id = "password2" /> </br>
             </div>
@@ -267,7 +264,6 @@ if (isset($_GET["message"])) {
         case "error5": //unknown error
             ?>  <p style="margin: auto; text-align: center; color:red"> რეგისტრაციისას დაფიქსირდა შეცდომა </p>  <?php
             break;
-
     }
 }
 ?>

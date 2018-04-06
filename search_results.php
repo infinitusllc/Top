@@ -63,7 +63,6 @@
             break;
     }
 
-    $contents = getTranslations($lang);
     ?>
 
 </head>
