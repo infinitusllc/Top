@@ -22,6 +22,18 @@
             $lang_key = $_GET['lang'];
         }
 
+        switch ($lang_key) {
+            case 2:
+                $lang = 'eng';
+                break;
+            case  3:
+                $lang = 'rus';
+                break;
+        }
+
+        $_SESSION['lang'] = $lang;
+        $_SESSION['lang_key'] = $lang_key;
+
         include "mods/style.mod.php";
     ?>
 </head>

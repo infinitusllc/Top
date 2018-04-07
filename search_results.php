@@ -63,6 +63,9 @@
             break;
     }
 
+    $_SESSION['lang_key'] = $lang_key;
+    $_SESSION['lang'] = $lang;
+
     ?>
 
 </head>
@@ -104,7 +107,6 @@
                             <?php
                             require_once "includes/categories.inc.php";
                             $types = getTypes($lang_key);
-
                             foreach ($types as $type) {?>
                                 <option value="<?php echo $type['id']; ?>"> <?php echo $type['tour_type']; ?> </option>
                                 <?php

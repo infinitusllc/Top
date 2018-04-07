@@ -26,8 +26,8 @@
     }
 
     $lang_key = -1;
-    if (isset($_GET['lang'])) {
-        $lang_key = $_GET['lang'];
+    if (isset($_GET['lang_key'])) {
+        $lang_key = $_GET['lang_key'];
     }
 
     $tour = getTour($id);
@@ -52,11 +52,13 @@
     switch ($lang) {
         case "rus":
             $lang_key = 3;
+
             break;
         case "eng":
             $lang_key = 2;
             break;
     }
+    $_SESSION['lang_key'] = $lang_key;
 
     ?>
 

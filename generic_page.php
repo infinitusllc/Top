@@ -33,6 +33,9 @@
             $lang = 'rus';
             break;
     }
+
+    $_SESSION['lang_key'] = $lang_key;
+    $_SESSION['lang'] = $lang;
     include "mods/header.comm.mod.php";
 ?>
 

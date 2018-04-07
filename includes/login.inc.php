@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
         $resultCheck = mysqli_num_rows($result);
 
         if ($resultCheck < 1){ // user with such e-mail doesn't exist
-            header("Location: ../index.php?message=error3");
+            header("Location: ../index.php?message=error2");
             exit();
         } else { // user with such e-mail exists
             if ($row = mysqli_fetch_assoc($result)){
@@ -73,7 +73,7 @@ if(isset($_POST['submit'])){
     $resultCheck = mysqli_num_rows($result);
 
     if ($resultCheck < 1){ // user with such e-mail doesn't exist
-        header("Location: ../index.php?message=error3");
+        header("Location: ../index.php?message=error2");
         exit();
     } else { // user with such e-mail exists
         if ($row = mysqli_fetch_assoc($result)) {

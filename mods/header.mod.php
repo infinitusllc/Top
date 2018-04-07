@@ -11,6 +11,9 @@ $lang_key = 1;
 if (isset($_SESSION['lang_key'])) {
     $lang_key = $_SESSION['lang_key'];
 }
+
+require_once "includes/tr.inc.php";
+$labels = getTranslationsByKey($lang_key);
 ?>
 <!--
 	<div class="k-page-header">
@@ -89,9 +92,9 @@ if (isset($_SESSION['lang_key'])) {
             <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['contact'][$lang_key]['keyword'];?>">კონტაქტი</a></li>
         </ul>
         <ul class="navbar-flags">
-            <li><a href="index.php?lang=geo"> <img src="images/geo.png"> </a></li>
-            <li><a href="index.php?lang=eng"> <img src="images/eng.png"> </a></li>
-            <li><a href="index.php?lang=rus"> <img src="images/rus.png"> </a></li>
+            <li><a href="?lang=geo"> <img src="images/geo.png"> </a></li>
+            <li><a href="?lang=eng"> <img src="images/eng.png"> </a></li>
+            <li><a href="?lang=rus"> <img src="images/rus.png"> </a></li>
         </ul>
         <ul class="navbar-user">
             <?php if (isset($_SESSION["logged"]) && $_SESSION["logged"] == true) { ?>

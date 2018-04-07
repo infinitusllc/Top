@@ -13,8 +13,8 @@ if  (isset($_COOKIE['e_mail']) and isset($_COOKIE['password'])
 <?php } else { ?>
     <div id="login-form" class="overlay" style="z-index: 110">
 <?php } ?>
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content login-frm common-style">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <h1>შესვლა</h1>
         <form id="login_form" action="includes/login.inc.php" method="post">
             <input type="text" style="width:255px" name="e_mail" placeholder="e-mail"/><br>
@@ -34,10 +34,7 @@ if  (isset($_COOKIE['e_mail']) and isset($_COOKIE['password'])
                             echo "<p> გთხოვთ, შეავსოთ ყველა ველი </p>";
                             break;
                         case "error2":
-                            echo "<p> შეყვანილი პასვორდი არასწორია </p>";
-                            break;
-                        case "error3":
-                            echo "<p> მომხმარებელი ასეთი ი-მეილით არ არსებობს </p>";
+                            echo "<p> შეყვანილი მონაცემები არასწორია </p>";
                             break;
                         default:
                             echo "<p> დაფიქსირდა შეცდომა </p>";

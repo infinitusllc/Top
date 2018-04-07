@@ -3,97 +3,7 @@
 <head>
     <title>რეგისტრაცია</title>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
-    <style>
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-        }
-
-        li {
-            float: left;
-        }
-
-        li a {
-            display: inline-block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        li a:hover {
-            background-color: #111;
-        }
-
-        .tabcontent1 {
-            display: none;
-            border: 1px solid #ccc;
-            border-top: none;
-        }
-
-        input {
-            display: inline;
-            float: none;
-            text-align: center;
-            background-color: #ECF0F1;
-            border: 2px solid transparent;
-            border-radius: 3px;
-            font-size: 16px;
-            font-weight: 200;
-            padding: 10px 0;
-            width: 250px;
-            transition: border .5s;
-            margin-bottom:5px;
-
-        }
-
-        p {
-            width: 300px;
-            margin-left:100px;
-            margin-top: 10px;
-        }
-
-        .textInput {
-            width: 300px;
-            margin-left:100px;
-            margin-bottom: 10px;
-        }
-
-        .button {
-            background-color: #0a662a; /* Green */
-            border: none;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            cursor: pointer;
-            width: 300px;
-            margin-left: 330px;
-            border-radius: 3px;
-            font-weight: 600;
-        }
-
-        .sub{
-            font-size: 125%;
-            margin-top:20px;
-            margin-bottom:20px;
-        }
-
-        .column {
-            float: left;
-            padding-left: 30px;
-        }
-
-        #user-form {
-            max-width: 1000px;
-            margin: auto;
-        }
-
-    </style>
+    <?php include "mods/style.mod.php"; ?>
 </head>
 
 <script type="text/javascript">
@@ -131,27 +41,29 @@ if (session_id() == '' || !isset($_SESSION)) // session isn't started
 
 include "includes/countries.inc.php";
 ?>
-<h2 style="text-align: center"> რეგისტრაცია </h2>
+<h2> რეგისტრაცია </h2>
+<h4><a href="index.php"> მთავარ გვერდზე </a></h4>
     <form id="user-form" action="includes/registration.inc.php" method="post" accept-charset="UTF-8">
 
         <ul>
-            <li style="margin-left: 370px"><a class="tablinks1" onclick="openNews(event, 'client')"> კერძო პირი </a></li>
+            <li><a class="tablinks1" onclick="openNews(event, 'client')"> კერძო პირი </a></li>
             <li><a class="tablinks1" onclick="openNews(event, 'company')"> კომპანია </a></li>
         </ul>
 
+<!--        კლიენტის ფორმა-->
         <div id="client" class="tabcontent1">
             <div class="column">
                 <p> სახელი: </p>
-                <input name="first_name_client" class = "textInput" placeholder="*" id = "first_name_client" /> </br>
+                <input name="first_name_client" class = "textInput" placeholder="*" id = "first_name_client" />
                 <p> სქესი: </p>
-                <select name="gender_client" id="gender" style="margin-left: 100px; margin-bottom:30px; width: 200px; height: 25px">
+                <select name="gender_client" id="gender">
                     <option value="0"> მამრ. </option>
                     <option value="1"> მდედრ. </option>
                 </select>
                 <p> მობილურის ნომერი: </p>
-                <input name="mobile_number_client" class = "textInput" placeholder="" id ="mobile_number_client" /> </br>
+                <input name="mobile_number_client" class = "textInput" placeholder="" id ="mobile_number_client" />
                 <p> ქვეყანა: </p>
-                <select name="country_client" id="country_client" style="margin-left: 100px; margin-bottom:30px; width: 200px; height: 25px">
+                <select name="country_client" id="country_client">
                     <?php
                         for ($i=0; $i<sizeof($countries); $i++){
                             $v = $countries[$i]['country_id'];
@@ -161,31 +73,32 @@ include "includes/countries.inc.php";
                     ?>
                 </select>
                 <p> პაროლი: </p>
-                <input name="password_client" type="password" class = "textInput" placeholder="*" id = "password" /> </br>
+                <input name="password_client" type="password" class = "textInput" placeholder="*" id = "password" />
             </div>
             <div class="column">
                 <p> გვარი: </p>
-                <input name="last_name_client" class = "textInput" placeholder="*" id = "last_name_client" /> </br>
+                <input name="last_name_client" class = "textInput" placeholder="*" id = "last_name_client" />
                 <p> დაბადების თარიღი: </p>
-                <input name="date_of_birth_client" type="date" class = "textInput" placeholder="*" id = "date_of_birth_client" /> </br>
+                <input name="date_of_birth_client" type="date" class = "textInput" placeholder="*" id = "date_of_birth_client" />
                 <p> ი-მეილი: </p>
-                <input name="e_mail_client" class = "textInput" placeholder="*" id = "e_mail" /> </br>
+                <input name="e_mail_client" class = "textInput" placeholder="*" id = "e_mail" />
                 <p> მისამართი: </p>
-                <input name="address_client" class = "textInput" placeholder="" id = "address" /> </br>
+                <input name="address_client" class = "textInput" placeholder="" id = "address" />
                 <p> პაროლი განმეორებით: </p>
-                <input name="password2_client" type="password" class = "textInput" placeholder="*" id = "password2" /> </br>
+                <input name="password2_client" type="password" class = "textInput" placeholder="*" id = "password2" />
             </div>
             <button onclick="document.getElementById('user-form').submit();" type="submit" class="button sub" name="submit" value="client"> რეგისტრაცია </button>
         </div>
 
+<!--        კომპანიის ფორმა-->
         <div id="company" class="tabcontent1">
             <div class="column">
                 <p> სახელი: </p>
-                <input name="first_name_company" class = "textInput" placeholder="*" id = "first_name" /> </br>
+                <input name="first_name_company" class = "textInput" placeholder="*" id = "first_name" />
                 <p> კომპანიის სახელი: </p>
-                <input name="company_name" class = "textInput" placeholder="*" id = "company_name" /> </br>
+                <input name="company_name" class = "textInput" placeholder="*" id = "company_name" />
                 <p> ქვეყანა: </p>
-                <select name="country_company" id="country" style="margin-left: 100px; margin-bottom:30px; width: 200px; height: 25px">
+                <select name="country_company" id="country">
                     <?php
                     for ($i=0; $i<sizeof($countries); $i++){
                         $v = $countries[$i]['country_id'];
@@ -195,30 +108,31 @@ include "includes/countries.inc.php";
                     ?>
                 </select>
                 <p> რეალური მისამართი: </p>
-                <input name="address_company" class = "textInput" placeholder="" id = "address_actual" /> </br>
+                <input name="address_company" class = "textInput" placeholder="" id = "address_actual" />
                 <p> მობილურის ნომერი: </p>
-                <input name="mobile_number_company" class = "textInput" placeholder="" id = "phone_number" /> </br>
+                <input name="mobile_number_company" class = "textInput" placeholder="" id = "phone_number" />
                 <p> პაროლი: </p>
-                <input name="password_company" type="password" class = "textInput" placeholder="*" id = "password" /> </br>
+                <input name="password_company" type="password" class = "textInput" placeholder="*" id = "password" />
             </div>
             <div class="column">
                 <p> გვარი: </p>
-                <input name="last_name_company" class = "textInput" placeholder="*" id = "last_name" /> </br>
+                <input name="last_name_company" class = "textInput" placeholder="*" id = "last_name" />
                 <p> კომპანიის ID: </p>
-                <input name="company_id" class = "textInput" placeholder="*" id = "company_identification" /> </br>
+                <input name="company_id" class = "textInput" placeholder="*" id = "company_identification" />
                 <p> იურიდიული მისამართი: </p>
-                <input name="legal_address_company" class = "textInput" placeholder="*" id = "address" /> </br>
+                <input name="legal_address_company" class = "textInput" placeholder="*" id = "address" />
                 <p> ი-მეილი: </p>
-                <input name="e_mail_company" class = "textInput" placeholder="*" id = "e_mail" /> </br>
+                <input name="e_mail_company" class = "textInput" placeholder="*" id = "e_mail" />
                 <p> კომპანიის ტელეფონის ნომერი: </p>
-                <input name="phone_number_company" class = "textInput" placeholder="" id = "company_phone_number" /> </br>
+                <input name="phone_number_company" class = "textInput" placeholder="" id = "company_phone_number" />
                 <p> პაროლი განმეორებით: </p>
-                <input name="password2_company" type="password" class = "textInput" placeholder="*" id = "password2" /> </br>
+                <input name="password2_company" type="password" class = "textInput" placeholder="*" id = "password2" />
             </div>
             <button onclick="document.getElementById('user-form').submit();" type="submit" class="button sub" name="submit" value="company"> რეგისტრაცია </button>
         </div>
     </form>
 
+<!--    პასუხი, თუ როგორ ჩაიარა რეგისტრაციამ-->
     <?php
         if (isset($_GET["message"])) {
             $message = $_GET["message"];
@@ -238,7 +152,6 @@ include "includes/countries.inc.php";
                 case "error5": //unknown error
                     ?>  <p style="margin: auto; text-align: center; color:red"> რეგისტრაციისას დაფიქსირდა შეცდომა </p>  <?php
                     break;
-
             }
         }
     ?>
