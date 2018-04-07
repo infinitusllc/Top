@@ -17,20 +17,23 @@
     $keyword = -1;
     if (isset($_GET['keyword'])) {
         $keyword = $_GET['keyword'];
+        $_SESSION['keyword'] = $keyword;
     }
 
-    $lang_key = -1;
-    if (isset($_GET['lang'])) {
-        $lang_key = $_GET['lang'];
-    }
+    $keyword = $_SESSION['keyword'];
 
     $lang = 'geo';
-    switch ($lang_key) {
-        case 2:
-            $lang = 'eng';
+    if (isset($_GET['lang'])) {
+        $lang = $_GET['lang'];
+    }
+
+    $lang_key = 1;
+    switch ($lang) {
+        case 'rus':
+            $lang_key = '3';
             break;
-        case  3:
-            $lang = 'rus';
+        case  'eng':
+            $lang_key = '2';
             break;
     }
 
