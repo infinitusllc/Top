@@ -23,7 +23,10 @@
     $id = -1;
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
+        $_SESSION['tid'] = $id;
     }
+
+    $id = $_SESSION['tid'];
 
     $lang_key = -1;
     if (isset($_GET['lang_key'])) {
@@ -59,7 +62,7 @@
             break;
     }
     $_SESSION['lang_key'] = $lang_key;
-
+    $_SESSION['lang'] = $lang;
     ?>
 
     <script>
