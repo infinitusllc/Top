@@ -81,15 +81,15 @@ $labels = getTranslationsByKey($lang_key);
                 <div class="dropdown">
                     <button class="dropbtn">ტურები</button>
                     <div class="dropdown-content">
-                        <a href="#" onclick="document.getElementById('actual-tours-hidden').submit()">აქტუალური ტურები &#8599;</a>
-                        <a href="#" onclick="document.getElementById('incoming-tours').submit()">შემომავალი ტურები &#8599;</a>
-                        <a href="#" onclick="document.getElementById('outgoing-tours').submit()">გამავალი ტურები &#8599;</a>
+                        <a href="#" onclick="document.getElementById('actual-tours-hidden').submit()"><?php echo $labels['mm_sub_active']; ?> &#8599;</a>
+                        <a href="#" onclick="document.getElementById('incoming-tours').submit()"><?php echo $labels['mm_sub_incomming']; ?> &#8599;</a>
+                        <a href="#" onclick="document.getElementById('outgoing-tours').submit()"><?php echo $labels['mm_sub_outgoing']; ?> &#8599;</a>
                     </div>
                 </div>
             </li>
-            <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>">შესახებ</a></li>
-            <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['partners'][$lang_key]['keyword'];?>">პარტნიორები</a></li>
-            <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['contact'][$lang_key]['keyword'];?>">კონტაქტი</a></li>
+            <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>"><?php echo $labels['mm_about']; ?></a></li>
+            <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['partners'][$lang_key]['keyword'];?>"><?php echo $labels['mm_partners']; ?></a></li>
+            <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['contact'][$lang_key]['keyword'];?>"><?php echo $labels['mm_contact']; ?></a></li>
         </ul>
         <ul class="navbar-flags">
             <li><a href="?lang=geo"> <img src="images/geo.png"> </a></li>
@@ -99,18 +99,18 @@ $labels = getTranslationsByKey($lang_key);
         <ul class="navbar-user">
             <?php if (isset($_SESSION["logged"]) && $_SESSION["logged"] == true) { ?>
                 <div class="dropdown">
-                    <button class="dropbtn"> <span class="material-icons-person_pin"></span></button>
+                    <button class="dropbtn"> <span class="material-icons-account_box"></span></button>
                     <div class="dropdown-content1">
-                        <a href="profile.php"> ჩემი პროფილი &#8599;</a>
+                        <a href="profile.php"><?php echo $labels['mm_sub_profile']; ?> &#8599;</a>
                         <?php if ($_SESSION['user']['is_admin'] == 1) { ?>
-                            <a href="admin.php">ადმინის გვერდი &#8599;</a>
+                            <a href="admin.php"><?php echo $labels['mm_sub_admin']; ?> &#8599;</a>
                         <?php } ?>
-                        <a href="includes/logout.inc.php">გამოსვლა &#8599;</a>
+                        <a href="includes/logout.inc.php"><?php echo $labels['mm_sub_exit']; ?> &#8599;</a>
                     </div>
                 </div>
             <?php } else { ?>
             <li>
-				<a href="#"><span onclick="openNav()" class="material-icons-person_pin"></span></a>
+				<a href="#"><span onclick="openNav()" class="material-icons-account_box"></span></a>
 			</li>
             <?php } ?>
         </ul>

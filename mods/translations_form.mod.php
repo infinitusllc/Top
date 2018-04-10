@@ -5,7 +5,7 @@
     </br>
     <form id="translation-form" action="includes/add_tr.inc.php" method="post" accept-charset="UTF-8">
 
-        <div style="width: 500px; margin: auto;">
+        <div style="width: 100%; margin: auto;">
             <?php
             include "includes/languages.inc.php";
             include "includes/get_tr.inc.php";
@@ -25,57 +25,56 @@
                 }
             }
             ?>
-            <p> ცვლადის სახელი/ქივორდი (უნდა იყოს უნიკალური): </p>
-            <input name="title" class = "textInput" placeholder="*" id = "first_name_client" value="<?php echo $title; ?>" /> </br>
+            ცვლადის სახელი/ქივორდი (უნდა იყოს უნიკალური):
+			<br>
+			<?php if (isset($_GET["message"])) {
+				$message = $_GET["message"];
+				switch ($message) {
+					case "error1": //not all mandatory inputs filled
+						?>  <span style="text-align: left; color:red"> ცვლადი ასეთი სახელით უკვე არსებობს/ცვლადის სახელი შეყვანილი არაა </span>  <?php
+						break;
+					case "success":
+						?>  <span style="text-align: left; color:red"> ოპერაცია წარმატებით შესრულდა </span>  <?php
+						break;
+
+				}
+			} ?>
+			<br>
+			<input name="title" placeholder="*" id = "first_name_client" value="<?php echo $title; ?>" />
 
             <input type="hidden" name="old_title" value="<?php echo $title; ?>">
             <input type="hidden" name="is_change" value="<?php if($_GET['title']) { echo 'true'; } else { echo 'false'; } ?>">
-            <?php
-            for ($i = 0; $i<sizeof($languages); $i++){ ?>
-                <p> ცვლადის მნიშვნელობა - <?php echo $languages[$i]['name']; ?> </p>
-                <input name="value_<?php echo $languages[$i]['id'] ?>" class = "textInput" placeholder="" id = "value"
-                       value="<?php if (isset($tr[$i+1])) { echo $tr[$i+1]; }
-                       ?>" /> </br>
+			<?php
+					for ($i = 0; $i<sizeof($languages); $i++){ ?>
+						&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $languages[$i]['name']; ?>
+						<input name="value_<?php echo $languages[$i]['id'] ?>" placeholder="" id = "value"
+							   value="<?php if (isset($tr[$i+1])) { echo $tr[$i+1]; }
+							   ?>" />
 
-            <?php } ?>
-            <button onclick="document.getElementById('user-form').submit();" style="margin-left: 100px" type="submit" class="button sub" name="submit" value="client"> დამატება </button>
+					<?php } ?>
+            <button onclick="document.getElementById('user-form').submit();" style="margin-left: 21px" type="submit" class="button sub" name="submit" value="client"> შენახვა </button>
         </div>
-        <div name="existing-translations" style="width: 500px; margin: auto">
+        <div name="existing-translations" style="width: 100%; margin: auto">
             <?php
             include "includes/get_tr.inc.php";
             foreach ($translations as $translation) { ?>
                 <form name="line_<?php echo $i; ?>">
-                    <hr>
-                    <p style="text-align: center">
-                        <?php
-                        echo "სახელი: ".$translation['title']."</br></br>";
-                        for ($j = 0; $j < sizeof($languages)+1; $j++) {
-                            if (isset($translation[$j])) {
-                                echo $languages[$j-1]['name'].":</br>";
-                                echo $translation[$j]."</br></br>";
+                <hr>
+                    <?php
+                    echo "სახელი: ".$translation['title']." <br> ";
+                    for ($j = 0; $j < sizeof($languages)+1; $j++) {
+                        if (isset($translation[$j])) {
+                            echo $languages[$j-1]['name'].":";
+                            echo $translation[$j]." / ";
 
-                            }
                         }
-                        ?>
-                        </br>
-                        <a href="includes/delete_tr.inc.php?title=<?php echo $translation['title']; ?>"> წაშლა </a>
-                        </br>
-                        <a href="admin.php?tab=translations&title=<?php echo $translation['title']; ?>"> შეცვლა </a>
-                    </p>
+                    }
+                    ?>
+                    </br>
+                    <a href="includes/delete_tr.inc.php?title=<?php echo $translation['title']; ?>">წაშლა</a>&nbsp
+                    <a href="admin.php?tab=translations&title=<?php echo $translation['title']; ?>">შეცვლა</a>
                 </form>
             <?php } ?>
         </div>
-    </form>
-    <?php if (isset($_GET["message"])) {
-        $message = $_GET["message"];
-        switch ($message) {
-            case "error1": //not all mandatory inputs filled
-                ?>  <p style="margin: auto; text-align: center; color:red"> ცვლადი ასეთი სახელით უკვე არსებობს/ცვლადის სახელი შეყვანილი არაა </p>  <?php
-                break;
-            case "success":
-                ?>  <p style="margin: auto; text-align: center; color:red"> ოპერაცია წარმატებით შესრულდა </p>  <?php
-                break;
-
-        }
-    } ?>
+    </form>    
 </div>
