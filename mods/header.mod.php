@@ -1,3 +1,13 @@
+<script>
+    function openNav() {
+        document.getElementById("login-form").style.display = "block";
+    }
+
+    function closeNav() {
+        document.getElementById("login-form").style.display = "none";
+    }
+</script>
+
 <?php
 
 if(session_id() == '' || !isset($_SESSION)) { // session isn't started
@@ -14,7 +24,11 @@ if (isset($_SESSION['lang_key'])) {
 
 require_once "includes/tr.inc.php";
 $labels = getTranslationsByKey($lang_key);
+
+include "login_form.mod.php";
+
 ?>
+
 <!--
 	<div class="k-page-header">
         <div class="k-top-bar">

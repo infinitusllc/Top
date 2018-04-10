@@ -2,14 +2,6 @@
 <html lang="en" class="wide wow-animation">
 <head>
     <script>
-        function openNav() {
-            document.getElementById("login-form").style.display = "block";
-        }
-
-        function closeNav() {
-            document.getElementById("login-form").style.display = "none";
-        }
-
         function displayTypes(selectObject) {
             var value = selectObject.value;
             if (value === '-1') {

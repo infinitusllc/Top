@@ -153,7 +153,92 @@ $user = $_SESSION['user'];
     </div>
 
     <div id="favorites" class="tabcontent1">
+        <?php
+        require_once "includes/favorites.inc.php";
+        $tours = getFavorites($_SESSION['user']['id']);
 
+        for ($i=0; $i < sizeof($tours); $i+=4) {?>
+            <section class="well-xs">
+                <div class="container">
+                    <div class="row" style="width: 80%; margin: auto; height: 300px">
+                        <div class="col-md-8 offset-2 text-lg-left text-center">
+                            <div class="row">
+                                <?php
+                                if (sizeof($tours) > $i) {
+                                    $id = $tours[$i]['tour_id'];
+                                    $name = $tours[$i]['tour_name'];
+                                    $intro = $tours[$i]['tour_intro'];
+                                    $image = $tours[$i]['image_url']; ?>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="box-skin-1">
+                                            <img src="<?php echo $image; ?>"  alt="tour_image" width="100%" height="100%">
+                                            <div>
+                                                <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($name)) { echo $name; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
+                                                <p class="text-white" style="max-width: 40%; margin: auto">
+                                                    <?php echo $intro; ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php }
+                                if (sizeof($tours) > $i + 1) {
+                                    $id = $tours[$i + 1]['tour_id'];
+                                    $name = $tours[$i + 1]['tour_name'];
+                                    $intro = $tours[$i + 1]['tour_intro'];
+                                    $image = $tours[$i + 1]['image_url']; ?>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="box-skin-1">
+                                            <img src="<?php echo $image; ?>" alt="" width="370" height="357">
+                                            <div>
+                                                <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($name)) { echo $name; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
+                                                <p class="text-white">
+                                                    <?php echo $intro; ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php }
+                                if (sizeof($tours) > $i + 2) {
+                                    $id = $tours[$i + 2]['tour_id'];
+                                    $name = $tours[$i + 2]['tour_name'];
+                                    $intro = $tours[$i + 2]['tour_intro'];
+                                    $image = $tours[$i + 2]['image_url']; ?>
+                                    <div class="col-md-6 offset-3 col-sm-6">
+                                        <div class="box-skin-1">
+                                            <img src="<?php echo $image; ?>" alt="" width="370" height="357">
+                                            <div>
+                                                <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($name)) { echo $name; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
+                                                <p class="text-white">
+                                                    <?php echo $intro; ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                                if (sizeof($tours) > $i + 3) {
+                                    $id = $tours[$i + 3]['tour_id'];
+                                    $name = $tours[$i + 3]['tour_name'];
+                                    $intro = $tours[$i + 3]['tour_intro'];
+                                    $image = $tours[$i + 3]['image_url']; ?>
+                                    <div class="col-md-6 offset-3 col-sm-6">
+                                        <div class="box-skin-1">
+                                            <img src="<?php echo $image; ?>" alt="" width="370" height="357">
+                                            <div>
+                                                <h4 class="text-primary"><br><a href="tour_page.php?id=<?php echo $id; ?>&lang=<?php echo $lang; ?>"> <?php if (!empty($name)) { echo $name; } else { echo "This Tour hasn't been translated yet"; } ?> </a></h4>
+                                                <p class="text-white">
+                                                    <?php echo $intro; ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php } ?>
     </div>
 
     <div id="settings" class="tabcontent1 common-style">

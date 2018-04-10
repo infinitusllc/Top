@@ -79,21 +79,6 @@
 </head>
 <body>
 
-<div id="myNav" class="overlay">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <div class="overlay-content" style="background-color: gray; width: fit-content; padding: 50px; margin: auto">
-        <h4 style="margin-bottom: 15px"> შესვლა </h4>
-        <form id="login_form" action="includes/login.inc.php" method="post">
-            <input type="text" name="e_mail" placeholder="e-mail" style="border: solid darkgray; background-color: floralwhite"/> <br> <br>
-            <input type="password" name="password" placeholder="password" style="border: solid darkgray; background-color: floralwhite"/> <br> <br>
-            <button type="submit" class="button sub" name="submit" style="border: solid darkgray; padding: 10px"> შესვლა</button> <br> <br>
-        </form>
-        <form action="registration.php" style="display: inline-block; margin: 5px">
-            <input type="submit" value="რეგისტრაცია" style="border: solid darkgray; padding: 10px"/>
-        </form>
-    </div>
-</div>
-
 <section id="content-section">
     <!-- bonus header -->
     <!--          if not logged in      -->
@@ -112,6 +97,18 @@
     <div style="width: 80%; float: left; display: inline-block;">
         <h1 style="text-align: center; color:black"> <?php echo $tour_content['tour_name']; ?> </h1></br>
         <h4 style="text-align: center"> <?php echo $tour_content['tour_intro']; ?> </h4></br>
+
+        <!--   დაფავორიტების იკონკა     -->
+        <?php if (isset($_SESSION['logged']) and $_SESSION['logged'] == true) { //display favorite icon if logged in
+            require_once "includes/favorites.inc.php";
+            if (isFavorite($_SESSION['user']['id'], $id)) { //different icon if not logged in?>
+                <a href="#" onclick="document.getElementById('favorite-form').submit()"> <span class="favorite-icon"> დაფავორიტება </span> </a>
+            <?php } else { ?>
+            <a href="#" onclick="document.getElementById('favorite-form').submit()"> <span class="unfavorite-icon"> ფავორიტია </span> </a>
+        <?php }
+        } ?>
+
+
         <div style="max-width: 60%; margin: auto auto 30px;"> <?php echo $tour_content['tour_description']; ?> </div>
 
         <div name="images" style="width: 800px; margin: auto">
@@ -124,6 +121,7 @@
     </div>
 </div>
 
+    <!--COMMENTS-->
 <div style="width: 80%; margin-left: 20%;">
     <div style="width: 80%; margin: auto;">
         <form id="comment-form" action="includes/make_comment.inc.php" method="post" accept-charset="UTF-8" style="text-align: center; margin-bottom: 20px">
@@ -137,6 +135,7 @@
             <input type="hidden" name="tour_id" value="<?php echo $id; ?>">
             <input type="hidden" name="url" value="tour_page.php?id=<?php echo $id;?>&lang=<?php echo $lang; ?>">
         </form>
+
 
         <?php
             require_once "includes/comments.inc.php";
@@ -170,6 +169,11 @@
 <!--========================================================
                               FOOTER
     ==========================================================-->
-    <?php include "mods/footer.mod.php"; ?>
+<?php include "mods/footer.mod.php"; ?>
+
+    <form id="favorite-form" action="includes/favorite-action.inc.php" method="post" style="display: none">
+        <input type="hidden" name="tour-id" value="<?php echo $id; ?>">
+        <input type="hidden" name="user-id" value="<?php if (isset($_SESSION['user'])) { echo $_SESSION['user']['id']; } ?>">
+    </form>
 
 </body>

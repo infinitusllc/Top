@@ -1,3 +1,13 @@
+<script>
+    function openNav() {
+        document.getElementById("login-form").style.display = "block";
+    }
+
+    function closeNav() {
+        document.getElementById("login-form").style.display = "none";
+    }
+</script>
+
 <?php
 
 if(session_id() == '' || !isset($_SESSION)) { // session isn't started
@@ -15,6 +25,9 @@ if (isset($_SESSION['lang_key'])) {
 //ეს ორი ხაზია საჭირო
 require_once "includes/tr.inc.php";
 $labels = getTranslationsByKey($lang_key);
+
+include "login_form.mod.php";
+
 ?>
 
 <!--labels-ს აქვს id, value (რაც უნდა გამოვიდეს გვერდზე), title (რომლის მიხედვითაც ვიღებთ ამ არაიდან),-->
@@ -93,5 +106,4 @@ $labels = getTranslationsByKey($lang_key);
 
 <form id="incoming-tours" method="post" action="includes/tour_search.inc.php" style="display: none">
     <input type="hidden" name="tour_type" value="2">
-
 </form>
