@@ -59,7 +59,7 @@
         </div>
         <div style="width: 500px; margin: 50px auto auto;">
             <button onclick="document.getElementById('header-form').submit();" type="submit" class="sub button"
-                    name="submit" value="company"> შექმნა </button>
+                    name="submit" value="company" style="margin-left: 80px"> შექმნა </button>
         </div>
     </form>
 </div>
@@ -70,9 +70,9 @@
     $slides = getHeaders();
     $i = 0;
     foreach ($slides as $slide) { ?>
-        <form name="line_<?php echo $i; ?>">
+        <form name="line_<?php echo $i; ?>" style="width: 100%">
             <hr>
-            <p style="text-align: center">
+            <p style="text-align: center; margin: auto">
                 <?php
                 echo "ქივორდი: ".$slide['keyword']."</br></br>";
                 echo "ID: ".$slide['id']."</br></br>"; ?>
