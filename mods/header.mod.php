@@ -27,6 +27,29 @@ $labels = getTranslationsByKey($lang_key);
 
 include "login_form.mod.php";
 
+//ეს ხაზი არის საჭირო ჰედერის ლინკებისთვის
+require_once "includes/get_headers.inc.php";
+
+/*
+ * ჰედერის ლინკების გამოყენება:
+ * $links = getHeadersByLangKey(1); - ყველა ქართული ლინკი (2 - ინგლისური, 3 - რუსული
+ * $links = getHeadersByLevel(1, 3); - ქართულ ენაზე მესამე ლეველის ყველა ლინკი
+ * $link = $links[0];
+ *
+ * $link = getHeaderByID(1, 7); ქართულ ენაზე 7 id-ის მქონე ლინკი
+ * $link = getHeaderByKeyword(1, example); ქართულ ენაზე example ქივორდიანი ლინკი
+ *
+ * $link-ს აქვს შემდეგი ველები:
+ * id
+ * parent_id (null თუ parent არ ჰყავს)
+ * url - ლინკი შესაბამის გვერდზე
+ * level
+ * group_id - იგივე id, მეორე ცხრილთან დაჯოინების შედეგად
+ * name
+ * description
+ * lang_key
+ */
+
 ?>
 
 <!--

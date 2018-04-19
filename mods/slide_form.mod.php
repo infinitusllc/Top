@@ -87,7 +87,7 @@
             </div>
         <?php } ?>
 
-        <div id="slide_non_tr" style="display: inline-block; border: 1px solid #ccc; width: 100%;">
+        <div id="slide_non_tr" style="display: inline-block; border: 1px solid #ccc; width: 87%;">
            <div style="width: 200px; margin:auto">
                <div style="width: 600px; margin: auto;">
                    <p> ქივორდი (იუზერი ვერ ხედავს): * </p>
@@ -109,7 +109,7 @@
         </div>
     </form>
 
-    <div name="existing-translations" style="width: 500px; margin: auto">
+    <div name="existing-translations" style="width: 87%; margin: auto">
         <?php
 
         $slides = getAllSlides();
@@ -117,7 +117,7 @@
         foreach ($slides as $slide) { ?>
             <form name="line_<?php echo $i; ?>">
                 <hr>
-                <p style="text-align: center">
+                <p style="text-align: center; width: auto; overflow: hidden; margin: auto">
                     <?php
                     echo "ქივორდი: ".$slide['keyword']."</br></br>";
                     ?>
