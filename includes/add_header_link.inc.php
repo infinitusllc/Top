@@ -7,6 +7,8 @@ if (isset($_POST['submit'])) {
     $url = mysqli_real_escape_string($conn, $_POST["url"]);
     $parent_id = mysqli_real_escape_string($conn, $_POST["parent_id"]);
 
+    $parent_id = (int)$parent_id;
+
     //check if keyword is not empty
     if (empty($keyword)) {
         header("Location: ../admin.php?tab=header&msg=1");
@@ -56,7 +58,9 @@ if (isset($_POST['submit'])) {
 
             $sql = "SELECT `level` FROM header_links WHERE id = $parent_id";
             $result = mysqli_query($conn, $sql);
-            $level = mysqli_fetch_assoc($result)['level']++;
+            $level = mysqli_fetch_assoc($result)['level'];
+
+            $level = (int)$level + 1;
 
             $sql = "UPDATE header_links SET `level` = $level WHERE id = $id";
             mysqli_query($conn, $sql);

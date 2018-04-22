@@ -52,6 +52,19 @@
         return $r[0];
     }
 
+    function getHeadersByParent ($lang_key, $parent_id) {
+        include "dbc.inc.php";
+
+        $sql = "SELECT * FROM header_links INNER JOIN header_content ON id = group_id WHERE lang_key = $lang_key and parent_id = $parent_id";
+        $result = mysqli_query($conn, $sql);
+
+        $r = [];
+        while ($row = mysqli_fetch_assoc($result))
+            array_push($r, $row);
+
+        return $r;
+    }
+
     function getHeaders() {
         include "dbc.inc.php";
 

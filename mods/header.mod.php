@@ -52,59 +52,6 @@ require_once "includes/get_headers.inc.php";
 
 ?>
 
-<!--
-	<div class="k-page-header">
-        <div class="k-top-bar">
-            <div class="k-logo">
-                <a href="index.php" class="brand-name primary-color">
-                    <img src="images/logo.png" alt="Top-Travel Logo" style="width:100%">
-                </a>
-            </div>
-            <div class="k-menu">
-
-                <div class="k-dropdown">
-                    <a href="#">ტურები</a>
-                    <div class="k-dropdown-content">
-                        <div>
-                            <a href="#" oncdivck="document.getElementById('actual-tours-hidden').submit()">&#8599; აქტუალური ტურები</a>
-                        </div>
-                        <div>
-                            <a href="#" oncdivck="document.getElementById('incoming-tours').submit()">&#8599; შემომავალი ტურები</a>
-                        </div>
-                        <div>
-                            <a href="#" oncdivck="document.getElementById('outgoing-tours').submit()">&#8599; გამავალი ტურები</a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <a href="generic_page.php?lang=1&keyword=about">შესახებ</a>
-                </div>
-                <div>
-                    <a href="generic_page.php?lang=1&keyword=partners">პარტნიორები</a>
-                </div>
-                <div>
-                    <a href="generic_page.php?lang=1&keyword=contact">კონტაქტი</a>
-                </div>
-
-            </div>
-            <div class="k-user">
-                USER_INFO_GOES_HERE
-            </div>
-            <div class="k-flags">
-                <a href="index.php?lang=geo">
-                    <img src="images/geo.png">
-                </a>
-                <a href="index.php?lang=eng">
-                    <img src="images/eng.png">
-                </a>
-                <a href="index.php?lang=rus">
-                    <img src="images/rus.png">
-                </a>
-            </div>
-
-        </div>
-    </div>
-	-->
 <section class="page-header">
     <div class="container">
         <!-- RD Navbar Brand -->
@@ -114,19 +61,30 @@ require_once "includes/get_headers.inc.php";
             </a>
         </ul>
         <ul class="navbar-nav">
-            <li>
-                <div class="dropdown">
-                    <button class="dropbtn">ტურები</button>
-                    <div class="dropdown-content">
-                        <a href="#" onclick="document.getElementById('actual-tours-hidden').submit()"><?php echo $labels['mm_sub_active']; ?> &#8599;</a>
-                        <a href="#" onclick="document.getElementById('incoming-tours').submit()"><?php echo $labels['mm_sub_incomming']; ?> &#8599;</a>
-                        <a href="#" onclick="document.getElementById('outgoing-tours').submit()"><?php echo $labels['mm_sub_outgoing']; ?> &#8599;</a>
-                    </div>
-                </div>
-            </li>
-            <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['about'][$lang_key]['keyword'];?>"><?php echo $labels['mm_about']; ?></a></li>
-            <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['partners'][$lang_key]['keyword'];?>"><?php echo $labels['mm_partners']; ?></a></li>
-            <li><a href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $generics['contact'][$lang_key]['keyword'];?>"><?php echo $labels['mm_contact']; ?></a></li>
+            <?php
+                $top_links = getHeadersByLevel($lang_key, 0);
+                foreach ($top_links as $top_link) { ?>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn" onclick="window.location.href='<?php echo $top_link['url']; ?>'"><?php echo $top_link['name']; ?></button>
+                            <div class="dropdown-content">
+                                <?php
+                                    $parent_id = $top_link['id'];
+                                    $children = getHeadersByParent($lang_key, $parent_id);
+                                    foreach ($children as $child) { ?>
+                                        <a href="<?php echo $child['url']; ?>"><?php echo $child['name']; ?> &#8599;</a>
+                                        <?php
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                    </li>
+                    <?php
+                }
+            ?>
+<!--            <li><a href="generic_page.php?lang=--><?php //echo $lang_key; ?><!--&keyword=--><?php //echo $generics['about'][$lang_key]['keyword'];?><!--">--><?php //echo $labels['mm_about']; ?><!--</a></li>-->
+<!--            <li><a href="generic_page.php?lang=--><?php //echo $lang_key; ?><!--&keyword=--><?php //echo $generics['partners'][$lang_key]['keyword'];?><!--">--><?php //echo $labels['mm_partners']; ?><!--</a></li>-->
+<!--            <li><a href="generic_page.php?lang=--><?php //echo $lang_key; ?><!--&keyword=--><?php //echo $generics['contact'][$lang_key]['keyword'];?><!--">--><?php //echo $labels['mm_contact']; ?><!--</a></li>-->
         </ul>
         <ul class="navbar-flags">
             <li><a href="?lang=geo"> <img src="images/geo.png"> </a></li>
