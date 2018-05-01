@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Style the header */
+.header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    background-color: #333;
+    height: 50px;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.mainArea {
+    width: 80%;
+    margin: 50px auto auto;
+    border: solid red;
+    text-align: center;
+}
+
+.cell {
+    width: 25%;
+    margin-left: 6%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border: solid black;
+    display: inline-block;
+    text-align: center;
+}
+
+.link {
+    display: inline-block;
+}
+
+.tabcontent {
+    display: none;
+}
+
+#main_tr_geo {
+    display: block;
+}
+
+.tablinks {
+    background-color: black;
+}
+
+.tablinks1 {
+    color: white;
+    display: inline-block;
+    cursor: hand;
+    height: 40px;
+    padding: 5px;
+}
+
+.column {
+    width: 50%;
+    float: left;
+    display: inline-block;
+}

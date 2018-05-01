@@ -19,7 +19,7 @@
     if (session_id() == '' || !isset($_SESSION)) // session isn't started
         session_start();
 
-    include "includes/get_tour.inc.php";
+    require_once "includes/get_tour.inc.php";
     $id = -1;
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -28,13 +28,28 @@
 
     $id = $_SESSION['tid'];
 
-    $lang_key = -1;
+    $lang_key = 1;
     if (isset($_GET['lang_key'])) {
         $lang_key = $_GET['lang_key'];
     }
 
+    $lang = 'geo';
+    switch ($lang_key) {
+        case 1:
+            $lang = 'geo';
+            break;
+        case 3:
+            $lang = 'rus';
+            break;
+        case 2:
+            $lang = "eng";
+            break;
+    }
+    $_SESSION['lang_key'] = $lang_key;
+    $_SESSION['lang'] = $lang;
+
     $tour = getTour($id);
-    $tour_content = getTourContent($id, $lang_key);
+    $tour_content = getTourContent($id, $lang);
     $tour_images = getTourImages($id);
 
     $logged = $_SESSION['admin'];
@@ -51,18 +66,7 @@
         $lang = $_GET['lang'];
     }
 
-    $lang_key = 1;
-    switch ($lang) {
-        case "rus":
-            $lang_key = 3;
 
-            break;
-        case "eng":
-            $lang_key = 2;
-            break;
-    }
-    $_SESSION['lang_key'] = $lang_key;
-    $_SESSION['lang'] = $lang;
     ?>
 
     <script>

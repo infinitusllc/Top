@@ -6,6 +6,14 @@ if(isset($_POST['submit'])){
 
     include 'dbc.inc.php';
 
+    if ($conn) {
+        echo "conn";
+    } else {
+        echo "no conn";
+    }
+
+    echo "<br>";
+
     $uname = mysqli_real_escape_string($conn, $_POST['username']);
     $pass = mysqli_real_escape_string($conn, $_POST['password']);
 
@@ -34,17 +42,20 @@ if(isset($_POST['submit'])){
                     exit();
                 }
             } else {
-                header("Location: ../ind.php?message=error4");
-                exit();
+                echo "error 4";
+//                header("Location: ../ind.php?message=error4");
+//                exit();
             }
         }
     } else {
-        header("Location: ../ind.php?message=error2");
-        exit();
+        echo "error 2";
+//        header("Location: ../ind.php?message=error2");
+//        exit();
     }
 } else {
-    header("Location: ../ind.php?message=error1");
-    exit();
+    echo "error 1";
+//    header("Location: ../ind.php?message=error1");
+//    exit();
 }
 
 ?>

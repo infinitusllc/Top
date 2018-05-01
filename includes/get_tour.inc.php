@@ -13,10 +13,10 @@ function getTour($id) {
     return $tour;
 }
 
-function getTourContent($id, $langKey) {
+function getTourContent($id, $lang) {
     include "dbc.inc.php";
 
-    $sql = "SELECT * FROM tour_content WHERE tour_id = $id AND language_key = '$langKey'";
+    $sql = "SELECT * FROM tour_content WHERE tour_id = $id AND language_key = '$lang'";
     $result_sql = mysqli_query($conn, $sql);
 
     $content = null;
@@ -57,4 +57,18 @@ function getRecommendedTourIds($num){
     }
 
     return $tour;
+}
+
+function getAllTours() {
+    include "dbc.inc.php";
+
+    $sql = "SELECT * FROM tours";
+    $result_sql = mysqli_query($conn, $sql);
+
+    $tours = [];
+    while ($row = mysqli_fetch_assoc($result_sql)){
+        array_push($tours, $row);
+    }
+
+    return $tours;
 }
