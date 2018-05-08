@@ -37,7 +37,7 @@ include "login_form.mod.php";
 <!--გამოყენება ასეთია:-->
 <?php //echo $labels['some_title']; ?>
 
-<section class="page-header" style="background-color: rgb(248, 248, 255, 1);">
+<section class="page-header" style="background-color: rgba(248, 248, 255, 0.5);">
     <div class="container">
         <!-- RD Navbar Brand -->
         <ul class="rd-navbar-brand">

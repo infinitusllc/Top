@@ -52,7 +52,7 @@ require_once "includes/get_headers.inc.php";
 
 ?>
 
-<section class="page-header">
+<section class="page-header" style="background: rgba(248, 248, 255, 0.5);">
     <div class="container">
         <!-- RD Navbar Brand -->
         <ul class="rd-navbar-brand">
@@ -99,6 +99,7 @@ require_once "includes/get_headers.inc.php";
                         <a href="profile.php"><?php echo $labels['mm_sub_profile']; ?> &#8599;</a>
                         <?php if ($_SESSION['user']['is_admin'] == 1) { ?>
                             <a href="admin.php"><?php echo $labels['mm_sub_admin']; ?> &#8599;</a>
+                            <a href="admin2.php">ადმინის ახალი გვერდი (მზადდება) &#8599;</a>
                         <?php } ?>
                         <a href="includes/logout.inc.php"><?php echo $labels['mm_sub_exit']; ?> &#8599;</a>
                     </div>
