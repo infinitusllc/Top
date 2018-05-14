@@ -9,7 +9,7 @@
     <div class="topnav">
         <a href="admin2.php?tab=tours">ტურები</a>
         <a href="admin2.php?tab=combinations">კომბინაციები</a>
-        <a href="admin2.php?tab=translation">თარგმნა</a>
+        <a href="admin2.php?tab=translations">თარგმნა</a>
         <a href="admin2.php?tab=slides">სლაიდები</a>
     </div>
 

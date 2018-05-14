@@ -9,7 +9,6 @@
             <?php
             include "includes/languages.inc.php";
             include "includes/get_tr.inc.php";
-            include "includes/countries.inc.php";
 
             $title = "";
             if ( isset($_GET['title']) ){
