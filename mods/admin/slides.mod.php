@@ -8,7 +8,7 @@
             if (isset($_GET['tab'])){
                 $tab = $_GET['tab'];
             }
-            if ($tab = 'generic') {?>
+            if ($tab == 'generic') {?>
             openTab(event, 'generic_tr_geo', 'tabcontent1', 'tablinks1');
             <?php } ?>
         }
@@ -32,40 +32,6 @@
             // Show the current tab, and add an "active" class to the button that opened the tab
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
-        }
-
-        /*
-            checks if the username contains illegal characters
-            or is empty
-        */
-        function checkName(id){
-            var name = document.getElementById(id).value;
-            var bob = /^[-_!@#$%^&*()+=,.;'/"}{0-9 ]+$/;
-            if(bob.test(name)) {
-                document.getElementById("post_" + id).innerHTML = "სახელი არ უნდა შეიძლება, იყოს ცარიელი ან შედგებოდეს არავალიდური სიმბოლოებისგან!";
-            } else {
-                document.getElementById("post_" + id).innerHTML = "";
-            }
-        }
-
-        function checkQuantity(id) {
-            var name = document.getElementById(id).value;
-            var bob = /^[0-9]+$/;
-            if(!bob.test(name)) {
-                document.getElementById("post_" + id).innerHTML = "უნდა იყოს მთელი რიცხვი";
-            } else {
-                document.getElementById("post_" + id).innerHTML = "";
-            }
-        }
-
-        function checkPrice() {
-            var name = document.getElementById('price').value;
-            var bob = /^[0-9.]+$/;
-            if(!bob.test(name)) {
-                document.getElementById("post_price").innerHTML = "უნდა იყოს რიცხვი";
-            } else {
-                document.getElementById("post_price").innerHTML = "";
-            }
         }
     </script>
 
@@ -158,7 +124,8 @@
         </form>
     </div>
 
-    <div name="existing-slides" style="width: 87%; margin: auto">
+    <div name="existing-slides">
+        <hr> <h2> არსებული სლაიდები </h2>
         <?php
         $slides = getAllSlides();
         $i = 0;
@@ -167,11 +134,13 @@
                 <hr>
                 <p style="text-align: center; width: auto; overflow: hidden; margin: auto">
                     <?php
-                    echo "ქივორდი: ".$slide['keyword']."</br></br>";
+                        echo "ქივორდი: ".$slide['keyword']."</br></br>";
+                        if (isset($slide['image_url'])) { ?>
+                            <img src="<?php echo $slide['image_url']; ?>" width="50%"> <br>
+                        <?php }
                     ?>
-                    </br>
-                    <a href="includes/delete_slide.inc.php?keyword=<?php echo $slide['keyword']; ?>"> წაშლა </a>
-                    </br>
+
+                    <a href="includes/delete_slide.inc.php?keyword=<?php echo $slide['keyword']; ?>"> წაშლა </a> <br>
                     <a href="admin.php?tab=slide&keyword=<?php echo $slide['keyword']; ?>"> შეცვლა </a>
                 </p>
             </form>

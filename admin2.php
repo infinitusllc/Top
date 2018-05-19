@@ -11,6 +11,9 @@
         <a href="admin2.php?tab=combinations">კომბინაციები</a>
         <a href="admin2.php?tab=translations">თარგმნა</a>
         <a href="admin2.php?tab=slides">სლაიდები</a>
+        <a href="admin2.php?tab=generic">generic გვერდები</a>
+        <a href="admin2.php?tab=header">ჰედერის ლინკები</a>
+        <a href="index.php" style="float: right">საიტზე დაბრუნება</a>
     </div>
 
 

@@ -8,9 +8,7 @@
     </script>
 
     <h2> კომბინაციების რედაქტირება </h2>
-    </br>
-    <a href="index.php"> <p> უკან დაბრუნება </p> </a>
-    </br>
+
     <select id="optionsSelect" onchange="changeLanguage(this)">
         <?php
 

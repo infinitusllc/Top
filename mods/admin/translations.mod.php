@@ -1,6 +1,5 @@
 <div id="translations" class="mainArea">
-    <h2> ახლის დამატება </h2><br>
-    <a href="index.php"> <p style="max-width: 150px; margin: auto"> უკან დაბრუნება </p></a><br>
+    <h2> ახლის დამატება </h2>
     <form id="translation-form" action="includes/add_tr.inc.php" method="post" accept-charset="UTF-8">
 
         <div style="width: 100%; margin: auto;">
@@ -50,6 +49,7 @@
             <button onclick="document.getElementById('user-form').submit();" style="margin-left: 21px" type="submit" class="button sub" name="submit" value="client"> შენახვა </button>
         </div>
         <div name="existing-translations" style="width: 100%; margin: auto">
+            <hr> <h2> არსებულები </h2>
             <?php
             include "includes/get_tr.inc.php";
             foreach ($translations as $translation) { ?>
